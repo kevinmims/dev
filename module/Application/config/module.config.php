@@ -28,7 +28,7 @@ return array(
                     'route'    => '/websocket',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
-                        'action'     => 'index',
+                        'action'     => 'websocket',
                     ),
                 ),
             ),
