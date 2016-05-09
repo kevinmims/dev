@@ -22,6 +22,16 @@ return array(
                     ),
                 ),
             ),
+            'login' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/login',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Account',
+                        'action' => 'login'
+                    )
+                )
+            ),
             'websocket' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -86,7 +96,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Websocket' => 'Application\Controller\WebsocketController',
+            'Application\Controller\Account' => 'Application\Controller\AccountController'
         ),
     ),
     'view_manager' => array(
