@@ -22,13 +22,13 @@ return array(
                     ),
                 ),
             ),
-            'login' => array(
+            'websocket' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/login',
+                    'route'    => '/websocket',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
-                        'action'     => 'websocket',
+                        'action'     => 'index',
                     ),
                 ),
             ),
