@@ -22,20 +22,7 @@ return array(
                     ),
                 ),
             ),
-            'websocket' => array(
-                'type'    => 'segment',
-                'options' => array(
-                 'route'    => '/websocket',
-                 'constraints' => array(
-                    //'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                    //'id'     => '[0-9]+',
-                ),
-                 'defaults' => array(
-                     'controller' => 'Application\Controller\Websocket',
-                     'action'     => 'index',
-                 ),
-                ),
-            ),
+            
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -90,7 +77,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Websocket' => 'Application\Controller\WebsocketController',
+            
         ),
     ),
     'view_manager' => array(
