@@ -76,8 +76,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => Controller\IndexController::class,
-            'Application\Controller\Websocket' => Controller\IndexController::class
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Websocket' => 'Application\Controller\WebsocketController',
         ),
     ),
     'view_manager' => array(
