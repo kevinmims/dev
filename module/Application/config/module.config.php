@@ -22,16 +22,7 @@ return array(
                     ),
                 ),
             ),
-            'login' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/login',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Account',
-                        'action' => 'login'
-                    )
-                )
-            ),
+            
             'websocket' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -71,6 +62,16 @@ return array(
                         ),
                     ),
                 ),
+            ),
+            'login' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/login',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Account',
+                        'action' => 'login'
+                    )
+                )
             ),
         ),
     ),
