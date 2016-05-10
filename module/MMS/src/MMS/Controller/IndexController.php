@@ -18,8 +18,8 @@ class IndexController extends AbstractActionController
     {
         // check if login, if yes redirect to dashboardAction
         //  if not, redirect to loginAction
-
-        return new ViewModel();
+    	return $this->redirect()->toUrl('mms/dashboard');
+        //return new ViewModel();
     }
 
     public function dashboardAction() {
