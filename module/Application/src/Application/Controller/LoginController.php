@@ -16,7 +16,7 @@ class LoginController extends AbstractActionController
 {
     public function indexAction()
     {
-        //$this->layout('layout/login');
+        $this->layout('layout/login');
         return new ViewModel(
         	array(
         		'heading' => 'This is just a simulated login for now',

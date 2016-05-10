@@ -95,6 +95,9 @@ return array(
         ),
     ),
     'view_manager' => array(
+        'controller_map' => array(
+            'Mms' => true,
+        ),
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
