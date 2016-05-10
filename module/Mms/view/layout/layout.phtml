@@ -25,6 +25,7 @@
         ; ?>
 
     </head>
+
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -45,15 +46,14 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo $this->url('home')."/dashbaord"; ?>"><?php echo $this->translate('Dashboard') ?></a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="<?php echo $this->url('home')."/ratchet"; ?>"><?php echo $this->translate('Ratchet') ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="<?php echo $this->url('home')."/workstation"; ?>"><?php echo $this->translate('Workstation') ?></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li><a href="<?php echo $this->url('home')."/reporting"; ?>"><?php echo $this->translate('Reporting') ?></a></li>
                             </ul>
                         </li>
-                        <li><a href="">User (logout)</a></li>
+                        <li><a href="/login">User (logout)</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
