@@ -57,7 +57,7 @@ return array(
                 'options' => array(
                     'route' => '/login',
                     'defaults' => array(
-                        'controller' => 'Account\Controller\Login',
+                        'controller' => 'Account\Controller\LoginController',
                         'action' => 'login'
                     )
                 )
