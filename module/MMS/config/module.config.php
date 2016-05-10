@@ -31,7 +31,7 @@ return array(
                 'options' => array(
                     'route'    => '/mms',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Mms\Controller',
+                        '__NAMESPACE__' => 'MMS\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
