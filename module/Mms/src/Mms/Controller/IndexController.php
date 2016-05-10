@@ -18,7 +18,7 @@ class IndexController extends AbstractActionController
     {
         //$this->layout('layout/mms-layout');
         //return new ViewModel();
-        return $this->redirect()->toUrl('/dashboard');
+        return $this->redirect()->toUrl('dashboard');
     }
 
     
