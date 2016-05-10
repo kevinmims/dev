@@ -57,8 +57,8 @@ return array(
                 'options' => array(
                     'route' => '/login',
                     'defaults' => array(
-                        'controller' => 'Login\Controller\LoginController',
-                        'action' => 'login'
+                        'controller' => 'Application\Controller\LoginController',
+                        'action' => 'index'
                     )
                 )
             ),
