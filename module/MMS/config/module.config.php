@@ -86,7 +86,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Mms\Controller\Index' => 'Mms\Controller\IndexController',
-            'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController',
+            //'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController',
             //'Application\Controller\Account' => 'Application\Controller\AccountController'
         ),
     ),
