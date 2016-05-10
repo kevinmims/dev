@@ -16,10 +16,11 @@ class LoginController extends AbstractActionController
 {
     public function indexAction()
     {
+        $this->layout('layout/login');
         return new ViewModel(
         	array(
         		'heading' => 'This is just a simulated login for now',
-        		'subHeading' => 'New menu items are available'
+        		'subHeading' => 'New menu items are available after login button click'
         	)
 		);     
     }
