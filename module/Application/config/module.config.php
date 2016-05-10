@@ -17,10 +17,20 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\IndexController',
+                        'controller' => 'Application\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
+            ),
+            'login' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/login',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Login',
+                        'action' => 'index'
+                    )
+                )
             ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
@@ -52,16 +62,7 @@ return array(
                     ),
                 ),
             ),
-            'login' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/login',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Login',
-                        'action' => 'index'
-                    )
-                )
-            ),
+            
         ),
     ),
     'service_manager' => array(
