@@ -22,17 +22,6 @@ return array(
                     ),
                 ),
             ),
-            
-            'websocket' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/websocket',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -63,16 +52,16 @@ return array(
                     ),
                 ),
             ),
-            'login' => array(
+            /*'login' => array(
                 'type' => 'Literal',
                 'options' => array(
                     'route' => '/login',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Account',
+                        'controller' => 'Account\Controller\Login',
                         'action' => 'login'
                     )
                 )
-            ),
+            ),*/
         ),
     ),
     'service_manager' => array(
