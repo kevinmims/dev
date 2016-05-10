@@ -16,8 +16,9 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $this->layout('layout/mms-layout');
-        return new ViewModel();
+        //$this->layout('layout/mms-layout');
+        //return new ViewModel();
+        return $this->redirect()->toUrl('dashboard');
     }
 
     
