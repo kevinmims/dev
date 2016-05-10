@@ -12,16 +12,7 @@ namespace Mms;
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/mms',
-                    'defaults' => array(
-                        'controller' => 'Mms\Controller\Index',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
+            
             
 
             /*'dashbaord' => array(
