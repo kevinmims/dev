@@ -52,7 +52,7 @@ return array(
                     ),
                 ),
             ),
-            'login' => array(
+            /*'login' => array(
                 'type' => 'Literal',
                 'options' => array(
                     'route' => '/login',
@@ -61,7 +61,7 @@ return array(
                         'action' => 'login'
                     )
                 )
-            ),
+            ),*/
         ),
     ),
     'service_manager' => array(
@@ -86,7 +86,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Login' => 'Application\Controller\LoginController'
+            'Application\Controller\Login' => 'Login\Controller\LoginController'
         ),
     ),
     'view_manager' => array(
