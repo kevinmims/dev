@@ -7,7 +7,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace MMS;
+namespace Mms;
 
 return array(
     'router' => array(
@@ -17,7 +17,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'MMS\Controller\Index',
+                        'controller' => 'Mms\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
@@ -31,7 +31,7 @@ return array(
                 'options' => array(
                     'route'    => '/mms',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'MMS\Controller',
+                        '__NAMESPACE__' => 'Mms\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
