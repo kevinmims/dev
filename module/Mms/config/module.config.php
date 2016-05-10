@@ -52,7 +52,16 @@ return array(
                             )
                         )
                     ),
-                    
+                    'ratchet' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/ratchet',
+                            'defaults' => array(
+                                'controller' => 'Mms\Controller\Ratchet',
+                                'action' => 'index'
+                            )
+                        )
+                    ),
                 ),
             ),
             
@@ -80,7 +89,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Mms\Controller\Index' => 'Mms\Controller\IndexController',
-            'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController'
+            'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController',
+            'Mms\Controller\Ratchet' => 'Mms\Controller\RatchetController'
         ),
     ),
     'view_manager' => array(
