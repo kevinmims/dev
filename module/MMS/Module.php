@@ -16,8 +16,6 @@ class Module
 {
     public function onBootstrap(MvcEvent $e)
     {
-        echo "im here"; die();
-        
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
