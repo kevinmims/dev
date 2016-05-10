@@ -22,16 +22,16 @@ return array(
                     ),
                 ),
             ),
-            /*'login' => array(
+            'dashbaord' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/login',
+                    'route' => '/dashboard',
                     'defaults' => array(
-                        'controller' => 'Mms\Controller\Login',
+                        'controller' => 'Mms\Controller\Dashboard',
                         'action' => 'index'
                     )
                 )
-            ),*/
+            ),
 
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
@@ -88,7 +88,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Mms\Controller\Index' => 'Mms\Controller\IndexController',
-            //'Application\Controller\Login' => 'Application\Controller\LoginController'
+            'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController'
         ),
     ),
     'view_manager' => array(
