@@ -62,6 +62,26 @@ return array(
                             )
                         )
                     ),
+                    'workstation' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/workstation',
+                            'defaults' => array(
+                                'controller' => 'Mms\Controller\Workstation',
+                                'action' => 'index'
+                            )
+                        )
+                    ),
+                    'reporting' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/reporting',
+                            'defaults' => array(
+                                'controller' => 'Mms\Controller\Reporting',
+                                'action' => 'index'
+                            )
+                        )
+                    ),
                 ),
             ),
             
@@ -90,7 +110,9 @@ return array(
         'invokables' => array(
             'Mms\Controller\Index' => 'Mms\Controller\IndexController',
             'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController',
-            'Mms\Controller\Ratchet' => 'Mms\Controller\RatchetController'
+            'Mms\Controller\Ratchet' => 'Mms\Controller\RatchetController',
+            'Mms\Controller\Workstation' => 'Mms\Controller\WorkstationController',
+            'Mms\Controller\Reporting' => 'Mms\Controller\ReportingController'
         ),
     ),
     'view_manager' => array(
