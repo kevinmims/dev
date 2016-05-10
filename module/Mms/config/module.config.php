@@ -12,7 +12,7 @@ namespace Mms;
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
+            /*'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/mms',
@@ -22,8 +22,19 @@ return array(
                     ),
                 ),
             ),
-            
+            */
 
+            'mms-dashbaord' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/dashboard',
+                    'defaults' => array(
+                        'controller' => 'Mms\Controller\Dashboard',
+                        'action' => 'index'
+                    )
+                )
+            ),
+            
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -40,16 +51,6 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
-                    'dashbaord' => array(
-                        'type' => 'Segment',
-                        'options' => array(
-                            'route' => '/dashboard',
-                            'defaults' => array(
-                                'controller' => 'Dashboard',
-                                'action' => 'index'
-                            )
-                        )
-                    ),
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
