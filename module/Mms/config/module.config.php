@@ -27,7 +27,7 @@ return array(
             'mms-dashbaord' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/dashboard',
+                    'route' => '/mms/dashboard',
                     'defaults' => array(
                         'controller' => 'Mms\Controller\DashboardController',
                         'action' => 'index'
