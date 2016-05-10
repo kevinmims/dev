@@ -86,7 +86,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            //'Application\Controller\Login' => 'Login\Controller\LoginController'
+            'Application\Controller\Login' => 'Application\Controller\LoginController'
         ),
     ),
     'view_manager' => array(
