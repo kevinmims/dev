@@ -40,7 +40,7 @@ return array(
             'mms' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/mms',
                     'defaults' => array(
                         '__NAMESPACE__' => 'Mms\Controller',
                         'controller'    => 'Index',
