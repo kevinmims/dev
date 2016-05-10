@@ -45,7 +45,7 @@ return array(
                         'options' => array(
                             'route' => '/dashboard',
                             'defaults' => array(
-                                'controller' => 'Mms\Controller\Dashboard',
+                                'controller' => 'Dashboard',
                                 'action' => 'index'
                             )
                         )
