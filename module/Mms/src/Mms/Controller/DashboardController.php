@@ -1,19 +1,25 @@
 <?php
-// /module/Application/src/Application/Controller/AccountController.php
+/**
+ * Zend Framework (http://framework.zend.com/)
+ *
+ * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
+ * @license   http://framework.zend.com/license/new-bsd New BSD License
+ */
 
-// This is to let the application know where this controller is located.
 namespace Mms\Controller;
 
-// Default Zend Abstract Controller
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
-// Your Controller Class (Name should follow the same convention as above). This also extends the default Abstract Controller.
 class DashboardController extends AbstractActionController
 {
-    // Keep the name as in your route's action, replacing the dash with uppercase.
-    // login-page becomes loginPage, and add Action so zend knows this is the action for the specified route.
-    public function loginAction() {
-        // Your logic code here.        
+    public function indexAction(){
+		return new ViewModel(
+			array(
+        		'data' => 'This is the Dashboard Page'
+        	)
+		);   
     }
 
 }
