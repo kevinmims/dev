@@ -12,7 +12,7 @@ namespace Mms;
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
+            /*'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/mms',
@@ -22,7 +22,7 @@ return array(
                     ),
                 ),
             ),
-            
+            */
 
             'mms-dashbaord' => array(
                 'type' => 'Literal',
