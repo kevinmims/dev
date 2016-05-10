@@ -16,8 +16,12 @@ class LoginController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel(array(
-        	'data' => 'hello world'));     
+        return new ViewModel(
+        	array(
+        		'heading' => 'This is just a simulated login for now'
+        		'subHeading' => 'New menu items are available'
+        	)
+		);     
     }
 
 }
