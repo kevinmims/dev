@@ -16,11 +16,14 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
+        // check if login, if yes redirect to dashboardAction
+        //  if not, redirect to loginAction
+
         return new ViewModel();
     }
 
-    public function helloAction() {
+    public function dashboardAction() {
         return new ViewModel(array(
-        	'data' => 'hello world'));        
+        	'data' => 'This is the Dashboard Page'));        
     }
 }
