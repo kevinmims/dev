@@ -24,10 +24,10 @@ return array(
             ),
             
 
-            'mms-dashbaord' => array(
+            'dashbaord' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/mms/dashboard',
+                    'route' => '/dashboard',
                     'defaults' => array(
                         'controller' => 'Mms\Controller\DashboardController',
                         'action' => 'index'
