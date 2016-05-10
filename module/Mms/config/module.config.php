@@ -25,7 +25,7 @@ return array(
             'dashbaord' => array(
                 'type' => 'Literal',
                 'options' => array(
-                    'route' => '/dashboard',
+                    'route' => '/mms/dashboard',
                     'defaults' => array(
                         'controller' => 'Mms\Controller\Dashboard',
                         'action' => 'index'
