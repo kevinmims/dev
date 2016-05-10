@@ -15,7 +15,7 @@ return array(
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/',
+                    'route'    => '/mms',
                     'defaults' => array(
                         'controller' => 'Mms\Controller\Index',
                         'action'     => 'index',
