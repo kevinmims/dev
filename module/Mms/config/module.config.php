@@ -29,12 +29,12 @@ return array(
                 'options' => array(
                     'route' => '/dashboard',
                     'defaults' => array(
-                        'controller' => 'Mms\Controller\Dashboard',
+                        'controller' => 'Mms\Controller\DashboardController',
                         'action' => 'index'
                     )
                 )
             ),
-            
+
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
