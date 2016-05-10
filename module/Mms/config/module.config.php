@@ -22,16 +22,7 @@ return array(
                     ),
                 ),
             ),
-            'dashbaord' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/mms/dashboard',
-                    'defaults' => array(
-                        'controller' => 'Mms\Controller\Dashboard',
-                        'action' => 'index'
-                    )
-                )
-            ),
+            
 
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
@@ -49,6 +40,16 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
+                    'dashbaord' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/dashboard',
+                            'defaults' => array(
+                                'controller' => 'Mms\Controller\Dashboard',
+                                'action' => 'index'
+                            )
+                        )
+                    ),
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
@@ -61,6 +62,7 @@ return array(
                             ),
                         ),
                     ),
+                    
                 ),
             ),
             
