@@ -19,7 +19,7 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
-    public function loginAction() {
+    public function helloAction() {
         return new ViewModel(array(
         	'data' => 'hello world'));        
     }
