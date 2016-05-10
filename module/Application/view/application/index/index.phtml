@@ -1,8 +1,8 @@
 <div class="jumbotron">
     <h2><?php echo sprintf($this->translate('Kevin\'s DEV Branch of the %sDRI MMS App%s'), '<span class="zf-green">', '</span>') ?></h2>
-    <h4><?php echo "time: ".(date("g:i:s a, m-d-y", time())); ?></h4>
-    <p><?php echo sprintf($this->translate('This is Kevin\'s ZF2 MMS App dev template. %sGit Repo%s. It is running Zend Framework version %s.'), '<a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">', '</a>', \Zend\Version\Version::VERSION) ?></p>
-    <p><a class="btn btn-success btn-lg" href="/login" target="_blank"><?php echo $this->translate('Get Started!') ?></a></p>
+    <h6><?php echo "server time: ".(date("g:i:s a, m-d-y", time())); ?></h6>
+    <p><?php echo sprintf($this->translate('The GIT repo is located %sHERE%s. This site is running Zend Framework version %s.'), '<a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">', '</a>', \Zend\Version\Version::VERSION) ?></p>
+    <p><a class="btn btn-success btn-lg" href="/login"><?php echo $this->translate('Get Started!') ?></a></p>
 </div>
 
 <div class="row">
