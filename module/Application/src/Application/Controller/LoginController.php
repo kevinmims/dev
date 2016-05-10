@@ -18,7 +18,7 @@ class LoginController extends AbstractActionController
     {
         return new ViewModel(
         	array(
-        		'heading' => 'This is just a simulated login for now'
+        		'heading' => 'This is just a simulated login for now',
         		'subHeading' => 'New menu items are available'
         	)
 		);     
