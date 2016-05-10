@@ -22,8 +22,5 @@ class IndexController extends AbstractActionController
         //return new ViewModel();
     }
 
-    public function dashboardAction() {
-        return new ViewModel(array(
-        	'data' => 'This is the Dashboard Page'));        
-    }
+   
 }
