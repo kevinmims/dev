@@ -82,6 +82,16 @@ return array(
                             )
                         )
                     ),
+                    'imposition' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/imposition',
+                            'defaults' => array(
+                                'controller' => 'Mms\Controller\Imposition',
+                                'action' => 'index'
+                            )
+                        )
+                    ),
                 ),
             ),
             
@@ -112,7 +122,8 @@ return array(
             'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController',
             'Mms\Controller\Ratchet' => 'Mms\Controller\RatchetController',
             'Mms\Controller\Workstation' => 'Mms\Controller\WorkstationController',
-            'Mms\Controller\Reporting' => 'Mms\Controller\ReportingController'
+            'Mms\Controller\Reporting' => 'Mms\Controller\ReportingController',
+            'Mms\Controller\Imposition' => 'Mms\Controller\ImpositionController'
         ),
     ),
     'view_manager' => array(
