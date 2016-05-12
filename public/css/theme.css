@@ -609,7 +609,8 @@ li {
 }
 .brand .ts-profile-nav li ul li a {
   padding: 10px 20px;
-  background: #222;
+  /*background: #222;*/
+  color: #333;
 }
 .brand .ts-profile-nav .ts-account .fa-angle-down {
   float: right;
