@@ -22,11 +22,11 @@
 	 $('#zctb').DataTable();
 	 
 	 
-	 $("#input-43").fileinput({
-		showPreview: false,
-		allowedFileExtensions: ["zip", "rar", "gz", "tgz"],
-		elErrorContainer: "#errorBlock43"
-			// you can configure `msgErrorClass` and `msgInvalidFileExtension` as well
-	});
+	// $("#input-43").fileinput({
+	//	showPreview: false,
+	//	allowedFileExtensions: ["zip", "rar", "gz", "tgz"],
+	//	elErrorContainer: "#errorBlock43"
+	//		// you can configure `msgErrorClass` and `msgInvalidFileExtension` as well
+	//});
 
  });
