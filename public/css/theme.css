@@ -584,7 +584,7 @@ li {
 .brand .ts-profile-nav {
   float: right;
   display: none;
-  border-bottom:10px;
+  margin-bottom:0px;
 }
 .brand .ts-profile-nav li {
   float: left;
