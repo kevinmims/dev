@@ -35,19 +35,23 @@
         <span class="menu-btn"><i class="fa fa-bars"></i></span>
         <ul class="ts-profile-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                   Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
             </li>
             <li><a href="#">Settings</a></li>
             <li class="ts-account">
-                <a href="#"><i class="glyphicon glyphicon-user"></i> Steve <i class="fa fa-angle-down hidden-side"></i></a>
-                <ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="glyphicon glyphicon-user"></i> Steve <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
                     <li><a href="#">My Account</a></li>
                     <li><a href="#">Settings</a></li>
                     <li class="divider"></li>
@@ -64,6 +68,22 @@
                 <li>
                     <input type="text" class="ts-sidebar-search" placeholder="Search here...">
                 </li>
+                <!-- Account from above -->
+                <ul class="ts-profile-nav">
+                    <li class="ts-label">User</li>
+                    <li class="ts-account">
+                        <a href="#"><i class="glyphicon glyphicon-user"></i> Steve <i class="fa fa-angle-down hidden-side"></i></a>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+
                 <li class="ts-label">Main</li>
                 <li class="open"><a href="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li><a href="imposition"><i class="fa fa-files-o"></i> Imposition</a></li>
@@ -96,19 +116,7 @@
                 </li>
                 -->
 
-                <!-- Account from above -->
-                <ul class="ts-profile-nav">
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Settings</a></li>
-                    <li class="ts-account">
-                        <a href="#"><img src="img/ts-avatar.jpg" class="ts-avatar hidden-side" alt=""> Account <i class="fa fa-angle-down hidden-side"></i></a>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Edit Account</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                
 
             </ul>
         </nav>
