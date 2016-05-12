@@ -595,12 +595,14 @@ li {
   padding: 20px;
   color: #fff;
 }
+/*
 .brand .ts-profile-nav li ul {
   visibility: hidden;
   opacity: 0;
   right: 0;
   position: absolute;
 }
+*/
 .brand .ts-profile-nav li ul li {
   float: none;
   width: 180px;
