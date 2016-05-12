@@ -17,6 +17,8 @@ class DashboardController extends AbstractActionController
     public function indexAction()
     {
         $this->layout('layout/mms-layout');
+        
+
         return new ViewModel(
         	array(
         		'heading' => 'MMS Dashboard',
