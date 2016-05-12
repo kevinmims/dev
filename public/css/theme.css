@@ -554,8 +554,9 @@ li {
 }
 .brand .logo {
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px 20px;
   float: left;
+  font-size: 28px;
   display: block;
   width: 200px;
 }
@@ -583,6 +584,7 @@ li {
 .brand .ts-profile-nav {
   float: right;
   display: none;
+  border-bottom:10px;
 }
 .brand .ts-profile-nav li {
   float: left;
