@@ -13,10 +13,11 @@
 
 <script>
 	$(document).ready(function () {
-		$(".dropdown-menu ul li a").click(function(){
+		$(".dropdown-menu li a").click(function(){
 			console.log($(this).parent());
 			console.log($(this).text());
-			//$(this).parent().html($(this).text()+' <span class="caret"></span>');
+			$(this).find(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 	});
 </script>
