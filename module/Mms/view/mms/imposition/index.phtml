@@ -14,7 +14,9 @@
 <script>
 	$(document).ready(function () {
 		$(".dropdown-menu ul li a").click(function(){
-			$(this).parent().html($(this).text()+' <span class="caret"></span>');
+			console.log($(this).parent());
+			console.log($(this).text());
+			//$(this).parent().html($(this).text()+' <span class="caret"></span>');
 		});
 	});
 </script>
