@@ -56,9 +56,6 @@
 		var data_table_parent_width = '';
 		var draggable_offset = '';
 
-		setDraggableWidths();
-		window.onresize = setDraggableWidths;
-		
 		function setDraggagleWidths(){
 			data_table_width = $('table.draggable').width();
 			data_table_parent_width = $('.table-responsive').width();
@@ -66,6 +63,9 @@
 			console.log('width reset');
 		}
 
+		setDraggableWidths();
+		window.onresize = setDraggableWidths;
+		
 		$('.draggable').draggable({
 		    axis: "x",
 		    ccontainment: [draggable_offset, 0, 0, 0]
