@@ -66,7 +66,8 @@
 			};
 		})();
 
-		
+		resize();
+
 		$(window).resize(function() {
 			delay(function(){
 				// callback
@@ -74,25 +75,8 @@
 			}, 500);
 		});
 
-		//window.onresize = setDraggableWidths;
-
-/*
-		function setDraggableWidths(){
-			data_table_width = $('.table.draggable').innerWidth();
-			data_table_parent_width = $('.table-responsive').innerWidth();
-			draggable_offset = (data_table_parent_width - data_table_width);
-			console.log('width reset');
-			console.log('data_table_width= '+ data_table_width);
-			console.log('data_table_parent_width= ' + data_table_parent_width);
-			console.log('draggable_offset= ' + draggable_offset);
-			$('.draggable').draggable({
-			    axis: "x",
-			    ccontainment: [draggable_offset, 0, 0, 0]
-			});
-		}
-*/
-
-		// enable horizontal drag scroll
+		
+// enable horizontal drag scroll
 //--------------------------------------------------------------------------------------------
 	
 	var mouseNotInSortableElement = false,
@@ -131,9 +115,8 @@
 	$("#sorted_imposition_table").draggable();
 
 	// set the height to screen height
-//--------------------------------------------------------------------------------------------
-	resize();
-	//window.onresize = function(){ resize(); };	
+	//--------------------------------------------------------------------------------------------
+	
 	
 	function resize(){
 		var space = window.innerHeight - drag_div.offsetTop;
