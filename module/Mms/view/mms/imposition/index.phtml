@@ -22,7 +22,7 @@
 <script>
 	$(document).ready(function () {
 		$(".dropdown-menu li a").click(function(){
-			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).find(".name").text()+' <span class="caret"></span>');
+			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).find(".js-name").text()+' <span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 	});
