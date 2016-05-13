@@ -35,10 +35,11 @@
 	$(document).ready(function () {
 		$('.js-refresh').on('click', function(){
 			console.log('refresh clicked');
-			$(this).find('i').addClass('fa-spin').delay(2000).queue(function() {
-				$(this).removeClass('fa-spin');
+			$(this).find('i').addClass('fa-spin');
+			setTimeout(function(){
+		        $(this).find('i').removeClass('fa-spin');
 				console.log('stopped');
-			});
+		    }, 2000);	
         });
 		$('.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
