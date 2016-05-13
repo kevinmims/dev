@@ -30,8 +30,8 @@
 
 <script>
 	$(document).ready(function () {
-		$('.js-refresh').on('click', '.btn', function(){
-			$(this).find('.fa').addClass('fa-spin');
+		$('.js-refresh').on('click', 'a i', function(){
+			$(this).addClass('fa-spin');
 			setTimeout($(this).removeClass('fa-spin'), 2000);
 		});
 		$('.btn-group').on('click', '.btn', function() {
@@ -50,7 +50,7 @@
 	<div class="row" style="margin-bottom:15px">
 		<div class="col-sm-6" style="">
 			<h2 style="margin:0px;padding-top:7px;border-bottom:5px solid #337ab7;background:#faf5f;">
-				IMPOSITION <small>dashboard</small><button class="btn js-refresh"><i class="fa fa-refresh"></i></button>
+				IMPOSITION <small>dashboard</small><a href="#" class="btn js-refresh"><i class="fa fa-refresh"></i></a>
 			</h2>
 		</div>
 
