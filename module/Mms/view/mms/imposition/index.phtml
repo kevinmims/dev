@@ -30,6 +30,10 @@
 
 <script>
 	$(document).ready(function () {
+		$('.js-refresh').on('click', '.btn', function(){
+			$(this).addClass('fa-spin');
+			setTimeout($(this).removeClass('fa-spin'), 2000);
+		});
 		$('.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
 		});
