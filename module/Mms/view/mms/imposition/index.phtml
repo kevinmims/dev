@@ -31,7 +31,7 @@
 <script>
 	$(document).ready(function () {
 		$('.js-refresh').on('click', '.btn', function(){
-			$(this).addClass('fa-spin');
+			$(this).find('.fa').addClass('fa-spin');
 			setTimeout($(this).removeClass('fa-spin'), 2000);
 		});
 		$('.btn-group').on('click', '.btn', function() {
