@@ -11,6 +11,15 @@
   a:focus{outline:none; }  
 </style>
 
+<script>
+	$(document).ready(function () {
+		$(".dropdown-menu li a").click(function(){
+			$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+		});
+	});
+</script>
+
+
 <section class="">
 	<div class="row" style="margin-bottom:15px">
 		<div class="col-sm-6" style="">
