@@ -22,7 +22,7 @@
 <script>
 	$(document).ready(function () {
 		$(".dropdown-menu li a").click(function(){
-			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).text()+' <span class="caret"></span>');
+			$(this).closest('.dropdown').find('.btn.js-choice').html($(this+" .name").text()+' <span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 	});
@@ -63,12 +63,12 @@
 						</a>
 
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right">23</span> Arlington Ave R</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">74</span> Arlington Ave H</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">34</span> Van Neyes</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">144</span> Cleveland</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Arlington Ave R</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Arlington Ave H</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">Van Neyes</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">Cleveland</span></a></li>
 							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right">285</span> All</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Locations</span></a></li>
 						</ul>
 					</div>
 	            </div>
@@ -78,11 +78,11 @@
 					<div class="dropdown">
 						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None  <span class="caret"></span></a>
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right">23</span> Gloss Aqueous</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">74</span> Matte Aqueous</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">74</span> Uncoated</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Gloss Aqueous</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Matte Aqueous</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Uncoated</span></a></li>
 							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right">97</span> All</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">97</span><span class="js-name">All Finishes</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -92,16 +92,16 @@
 					<div class="dropdown">
 						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">None <span class="caret"></span></a>
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right">11</span> 100# Text, Gloss Text</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">51</span> 10pt Cover, Gloss 2 Sides</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">78</span> 14pt Cover, Gloss 1 side</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">23</span> 14pt Cover, Gloss 2 side</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">43</span> 14pt Cover, Uncoated</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">60</span> 70# Text, Uncoated</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">60</span> 9x12 Catalog Peal & Seal</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">60</span> Label, Uncoated White</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal & Seal</span></a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>
 							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right">216</span> All</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -113,12 +113,12 @@
 						</a>
 
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right">23</span> 10 | 4 | $30.00</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">74</span> 250 | 6 | $461.50</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">34</span> 500 | 1 | $17.00</a></li>
-							<li><a class="btn text-left"><span class="badge pull-right">144</span> 4000 | 1 | $131.00</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span> 10 | 4 | $30.00</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span> 250 | 6 | $461.50</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">34</span> 500 | 1 | $17.00</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">144</span> 4000 | 1 | $131.00</a></li>
 							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right">285</span> All</a></li>
+							<li><a class="btn text-left"><span class="badge pull-right js-count">285</span> All</a></li>
 						</ul>
 					</div>
 				</div>
@@ -131,12 +131,12 @@
 				<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> None <span class="caret"></span></a>
 
 				<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-					<li><a class="btn text-left"><span class="badge pull-right">12</span> 5/13/16</a></li>
-					<li><a class="btn text-left"><span class="badge pull-right">41</span> 5/14/16</a></li>
-					<li><a class="btn text-left"><span class="badge pull-right">38</span> 5/15/16</a></li>
-					<li><a class="btn text-left"><span class="badge pull-right">17</span> 5/16/16</a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">12</span> 5/13/16</a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">41</span> 5/14/16</a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">38</span> 5/15/16</a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">17</span> 5/16/16</a></li>
 					<li class="divider"></li>
-					<li><a class="btn text-left"><span class="badge pull-right">97</span> All</a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">97</span> All</a></li>
 				</ul>
 			</div>
 		</div>
