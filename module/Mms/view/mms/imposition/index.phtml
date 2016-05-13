@@ -14,9 +14,9 @@
 <script>
 	$(document).ready(function () {
 		$(".dropdown-menu li a").click(function(){
-			console.log($(this).parent().parent());
+			console.log($(this).find('.dropdown'));
 			console.log($(this).text());
-			$(this).parent().parent().closest(".btn").html($(this).text()+' <span class="caret"></span>');
+			$(this).find('.dropdown').closest(".btn").html($(this).text()+' <span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 	});
