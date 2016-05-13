@@ -52,27 +52,28 @@
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 		
-		var data_table_width = '';
-		var data_table_parent_width = '';
-		var draggable_offset = '';
-
-		function setDraggableWidths(){
-			data_table_width = $('.table.draggable').width();
-			data_table_parent_width = $('.table-responsive').width();
-			draggable_offset = (data_table_width - data_table_parent_width);
-			console.log('width reset');
-			console.log('data_table_width= '+data_table_width);
-			console.log('data_table_parent_width= '+data_table_parent_width);
-			console.log('draggable_offset= '+draggable_offset);
-		}
+		var data_table_width = 0;
+		var data_table_parent_width = 0;
+		var draggable_offset = 0;
 
 		setDraggableWidths();
 		window.onresize = setDraggableWidths;
 
-		$('.draggable').draggable({
-		    axis: "x",
-		    ccontainment: [draggable_offset, 0, 0, 0]
-		});
+		function setDraggableWidths(){
+			data_table_width = $('.table.draggable').width();
+			data_table_parent_width = $('.table-responsive').width();
+			draggable_offset = (data_table_parent_width - data_table_width);
+			console.log('width reset');
+			console.log('data_table_width= '+ data_table_width);
+			console.log('data_table_parent_width= ' + data_table_parent_width);
+			console.log('draggable_offset= ' + draggable_offset);
+			$('.draggable').draggable({
+			    axis: "x",
+			    ccontainment: [draggable_offset, 0, 0, 0]
+			});
+		}
+
+		
 	});
 </script>
 
