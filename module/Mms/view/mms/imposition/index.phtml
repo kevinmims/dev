@@ -35,9 +35,10 @@
 	$(document).ready(function () {
 		$('.js-refresh').on('click', function(){
 			console.log('refresh clicked');
-			$(this).find('i').addClass('fa-spin');
+			var $elem = $(this).find('i');
+			$elem.addClass('fa-spin');
 			setTimeout(function(){
-		        $(this).find('i').removeClass('fa-spin');
+		        $elem.removeClass('fa-spin');
 				console.log('stopped');
 		    }, 2000);	
         });
