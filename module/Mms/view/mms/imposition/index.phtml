@@ -52,7 +52,8 @@
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 		$('.draggable').draggable({
-		    axis: "x"
+		    axis: "x",
+		    containment: ".table-responsive"
 		});
 	});
 </script>
