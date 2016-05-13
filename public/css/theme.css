@@ -616,7 +616,7 @@ li {
   float: right;
 }
 .brand .ts-profile-nav .ts-account > a {
-  width: 180px;
+  /*width: 180px;*/
   background: #2c3136;
 }
 .brand .ts-profile-nav .ts-account .ts-avatar {

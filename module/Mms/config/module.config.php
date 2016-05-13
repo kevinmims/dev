@@ -97,6 +97,28 @@ return array(
             
         ),
     ),
+    'navigation' => array(
+         'default' => array(
+             array(
+                 'label' => 'Imposition',
+                 'route' => 'imposition',
+             ),
+             array(
+                 'label' => 'Page #1',
+                 'route' => 'page-1',
+                 'pages' => array(
+                     array(
+                         'label' => 'Child #1',
+                         'route' => 'page-1-child',
+                     ),
+                 ),
+             ),
+             array(
+                 'label' => 'Page #2',
+                 'route' => 'page-2',
+             ),
+         ),
+    ),
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
@@ -104,6 +126,7 @@ return array(
         ),
         'factories' => array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
+            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
     ),
     'translator' => array(
