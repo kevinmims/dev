@@ -43,7 +43,7 @@
 		        $elem.removeClass('fa-spin');
 			}, 2000);	
         });
-		$('.btn-group').on('click', '.btn', function() {
+		$('.js-impo-stats.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
 		});
 
@@ -145,7 +145,7 @@
 	</div>
 
 	<div class="row" style="background: rgba(51, 122, 183, 0.2) none repeat scroll 0px 0px; padding-top: 15px; border-top: 5px solid rgb(51, 122, 183);">
-        <div class="col-xs-12 dBtnWrapper btn-group btn-group-justified">
+        <div class="col-xs-12 dBtnWrapper js-impo-stats btn-group btn-group-justified">
 			<a class="btn btn-blue" href="#"><div class="icon">Total Jobs</div><div class="count">74 </div></a>
       		<a class="btn btn-default" href="#"><div class="icon">Due Today</div><div class="count">9 </div></a>
 	        <a class="btn btn-default" href="#"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
