@@ -31,7 +31,9 @@
 <script>
 	$(document).ready(function () {
 		$('.js-refresh').on('click', 'i', function(){
-			$(this).addClass('fa-spin').delay(2000).removeClass('fa-spin');
+			$(this).addClass('fa-spin').delay(2000).queue(function(next) {
+				$(this).removeClass('fa-spin');
+			});
         });
 		$('.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
