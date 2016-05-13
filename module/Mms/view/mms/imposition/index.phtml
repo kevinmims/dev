@@ -70,7 +70,7 @@
 		$(window).resize(function() {
 			delay(function(){
 				// callback
-				//setDraggableWidths();
+				resize();
 			}, 500);
 		});
 
@@ -129,6 +129,20 @@
 	}
 
 	$("#sorted_imposition_table").draggable();
+
+	// set the height to screen height
+//--------------------------------------------------------------------------------------------
+	resize();
+	//window.onresize = function(){ resize(); };	
+	
+	function resize(){
+		var space = window.innerHeight - 100;
+		$(drag_div).css("min-height", space - 55);
+		$(drag_div).css("height", space - 55); 
+		
+		
+	}
+		
 
 		
 	});
