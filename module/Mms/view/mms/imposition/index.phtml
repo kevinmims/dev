@@ -51,9 +51,24 @@
 			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).find(".js-name").text()+' <span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
+		
+		var data_table_width = '';
+		var data_table_parent_width = '';
+		var draggable_offset = '';
+
+		setDraggableWidths();
+		window.onresize = setDraggableWidths;
+		
+		function setDraggagleWidths(){
+			data_table_width = $('table.draggable').width();
+			data_table_parent_width = $('.table-responsive').width();
+			draggable_offset = (data_table_width - data_table_parent_width);
+			console.log('width reset');
+		}
+
 		$('.draggable').draggable({
 		    axis: "x",
-		    containment: ".table-responsive"
+		    ccontainment: [draggable_offset, 0, 0, 0]
 		});
 	});
 </script>
