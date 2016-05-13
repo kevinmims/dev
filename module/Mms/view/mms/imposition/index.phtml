@@ -17,16 +17,20 @@
 	a.js-choice .caret { 
 		float:right; margin-top:-10px;
 	}
-	.btn-blue {
+	.btn-blue, .btn-blue:focus; .btn-blue:active {
 		background: #337ab7;
 		color: white;
+	}
+	.btn-blue:hover {
+		background: #286090;
+		color:white;
 	}
 </style>
 
 <script>
 	$(document).ready(function () {
 		$('.btn-group').on('click', '.btn', function() {
-			$(this).removeClass('btn-default').addClass('btn-primary').siblings().removeClass('btn-primary').addClass('btn-default');
+			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
 		});
 
 		$(".dropdown-menu li a").click(function(){
