@@ -34,8 +34,10 @@
 <script>
 	$(document).ready(function () {
 		$('.js-refresh').on('click', function(){
-			$(this).find('i').addClass('fa-spin').delay(2000).queue(function(next) {
+			console.log('refresh clicked');
+			$(this).find('i').addClass('fa-spin').delay(2000).queue(function() {
 				$(this).removeClass('fa-spin');
+				console.log('stopped');
 			});
         });
 		$('.btn-group').on('click', '.btn', function() {
