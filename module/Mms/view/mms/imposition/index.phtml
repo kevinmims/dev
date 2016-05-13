@@ -14,9 +14,7 @@
 <script>
 	$(document).ready(function () {
 		$(".dropdown-menu li a").click(function(){
-			console.log($(this).closest('.dropdown').find('.btn'));
-			console.log($(this).text());
-			$(this).closest('.dropdown').find('.btn:first-child').html($(this).text()+' <span class="caret"></span>');
+			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).text()+' <span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
 		});
 	});
@@ -53,7 +51,7 @@
 				<div class="col-xs-3">
 					<div>Location</div>
 					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None <span class="caret"></span>
+						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None <span class="caret"></span>
 						</a>
 
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
@@ -70,7 +68,7 @@
 				<div class="col-xs-3">
 					<div>Finish</div>
 					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None  <span class="caret"></span></a>
+						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None  <span class="caret"></span></a>
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
 							<li><a class="btn text-left"><span class="badge pull-right">23</span> Gloss Aqueous</a></li>
 							<li><a class="btn text-left"><span class="badge pull-right">74</span> Matte Aqueous</a></li>
@@ -84,7 +82,7 @@
 				<div class="col-xs-3">
 					<div>Paper</div>
 					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">None <span class="caret"></span></a>
+						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">None <span class="caret"></span></a>
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
 							<li><a class="btn text-left"><span class="badge pull-right">11</span> 100# Text, Gloss Text</a></li>
 							<li><a class="btn text-left"><span class="badge pull-right">51</span> 10pt Cover, Gloss 2 Sides</a></li>
@@ -103,7 +101,7 @@
 				<div class="col-xs-3">
 					<div>Quantity</div>
 					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None <span class="caret"></span>
+						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None <span class="caret"></span>
 						</a>
 
 						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
@@ -122,7 +120,7 @@
 		<div class="col-xs-3">
 			<div>Due Date <span style="color:red;">*</span></div>
 			<div class="dropdown ">
-				<a id="dLabel" class="btn btn-default btn-block" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> None <span class="caret"></span></a>
+				<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> None <span class="caret"></span></a>
 
 				<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
 					<li><a class="btn text-left"><span class="badge pull-right">12</span> 5/13/16</a></li>
