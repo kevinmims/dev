@@ -69,12 +69,14 @@
 		
 		$(window).resize(function() {
 			delay(function(){
-				setDraggableWidths();
+				// callback
+				//setDraggableWidths();
 			}, 500);
 		});
 
 		//window.onresize = setDraggableWidths;
 
+/*
 		function setDraggableWidths(){
 			data_table_width = $('.table.draggable').innerWidth();
 			data_table_parent_width = $('.table-responsive').innerWidth();
@@ -88,6 +90,44 @@
 			    ccontainment: [draggable_offset, 0, 0, 0]
 			});
 		}
+*/
+
+		// enable horizontal drag scroll
+//--------------------------------------------------------------------------------------------
+	
+	var mouseNotInSortableElement = false,
+		drag_div = document.getElementById('sorted_imposition_table'),
+		space = window.innerHeight - drag_div.offsetTop ,
+		elem_height = $('#sorted_imposition_table').height();
+
+	
+	
+	$.fn.draggable = function(){
+		var lastPosition, position, difference;
+		$( $(this).selector ).on("mousedown mouseup mousemove",function(e){
+			if($("#sorted_imposition_table").hasClass('no-drag')){
+				//console.log('has class');
+				e.preventDefault();
+			} else {
+				if ( e.type == "mousedown" ) { mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
+				if ( e.type == "mouseup" ) { mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
+				if ( e.type == "mousemove" && mouseNotInSortableElement == true ){
+					$(this).css("cursor", 'grabbing');
+					position = [e.clientX, e.clientY];
+					difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
+					$(this).scrollLeft( $(this).scrollLeft() - difference[0] );
+					//$(this).scrollTop( $(this).scrollTop() - difference[1] );
+					lastPosition = [e.clientX, e.clientY];
+				}
+			}
+			//console.log('done');
+		});
+		$(window).on("mouseup", function(){
+			mouseNotInSortableElement = false;
+		});
+	}
+
+	$("#sorted_imposition_table").draggable();
 
 		
 	});
@@ -223,7 +263,7 @@
 			 <div class="tab-content">
 			    <div role="tabpanel" class="tab-pane active" id="data_set">
 					<div class="table-responsive">
-					    <table class="table table-hover draggable">
+					    <table id="sorted_imposition_table" class="table table-hover draggable">
 					      <thead>
 					        <tr>
 					          <th></th>
