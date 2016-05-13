@@ -4,6 +4,9 @@
 	.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus {
 		outline:none;
 	}
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    	white-space: nowrap;
+	}	
 	.nav-tabs li.active a, .nav-tabs li.active  a:focus, .nav-tabs  li.active a:hover {
 		border-top:3px solid #337ab7;
 		font-weight:bold;
@@ -47,6 +50,9 @@
 		$(".dropdown-menu li a").click(function(){
 			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).find(".js-name").text()+' <span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+		});
+		$('.draggable').draggable({
+		    axis: "x"
 		});
 	});
 </script>
@@ -181,7 +187,7 @@
 			 <div class="tab-content">
 			    <div role="tabpanel" class="tab-pane active" id="data_set">
 					<div class="table-responsive">
-					    <table class="table table-hover">
+					    <table class="table table-hover draggable">
 					      <thead>
 					        <tr>
 					          <th></th>
