@@ -13,8 +13,8 @@
 
 <script>
 	$(document).ready(function () {
-		$(".dropdown-menu li a").click(function(){
-			$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+		$(".dropdown-menu ul li a").click(function(){
+			$(this).parent().html($(this).text()+' <span class="caret"></span>');
 		});
 	});
 </script>
