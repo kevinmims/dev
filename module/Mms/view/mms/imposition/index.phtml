@@ -57,7 +57,23 @@
 		var draggable_offset = 0;
 
 		setDraggableWidths();
-		window.onresize = setDraggableWidths;
+		
+		var delay = (function(){
+			var timer = 0;
+			return function(callback, ms){
+				clearTimeout (timer);
+				timer = setTimeout(callback, ms);
+			};
+		})();
+
+		
+		$(window).resize(function() {
+			delay(function(){
+				setDraggableWidths();
+			}, 500);
+		});
+
+		//window.onresize = setDraggableWidths;
 
 		function setDraggableWidths(){
 			data_table_width = $('.table.draggable').innerWidth();
