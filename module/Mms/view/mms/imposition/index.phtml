@@ -148,52 +148,18 @@
 		  showTick: false
 		});
 
-		/*
-		$('#finish-select2').multiselect({
-            buttonContainer: '<div class="btn-group"/>', 
-    		buttonClass : "btn btn-default",
-    		
-            label: function(element) {
-		        var id = $(element).val();
-		        console.log("id= "+id);
-
-		        if (!id) return $(element).html();
-		        var icon;
-		        $('#finish-select option').each(function() {
-		            if ($(this).val() == id) {
-		                icon = $(this).attr('data-icon');
-		                console.log(icon);
-		            }
-		        });                    
-
-		        var img = '';
-		        if (typeof icon != 'undefined'){
-		            img = '<i class="' + icon + '"/>,/i>'
-		        }
-
-		        return img + '&nbsp;' + $(element).html();
-		    },
-		    templates: {
-    			li: '<li><a href="#" class=""><span class="badge pull-right">23</span><label></label></a></li>'
-    		},
-            /*
-            templates: {
-                button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"></button>',
-                ul: '<ul class="multiselect-container dropdown-menu"></ul>',
-                filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
-                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="glyphicon glyphicon-remove-circle"></i></button></span>',
-                li: '<li><a href="javascript:void(0);"><label></label></a></li>',
-                divider: '<li class="multiselect-item divider"></li>',
-                liGroup: '<li class="multiselect-item group"><label class="multiselect-group"></label></li>'
-            }
-            */
-       // });
-
-
-
+		
 		
 		$('#file-upload-modal').on('shown.bs.modal', function () {
 			$('#imposition-file-upload-name').focus()
+		});
+
+		$('input:checkbox').on('change', function(){
+		    if($(this).is(":checked")) {
+		        $(this).parent().addClass("selected");
+		    } else {
+		        $('div.menuitem').removeClass("selected");
+		    }
 		});
 
 
