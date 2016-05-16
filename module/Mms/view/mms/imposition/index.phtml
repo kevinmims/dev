@@ -80,13 +80,12 @@
 			var lastPosition, position, difference;
 			$( $(this).selector ).on("mousedown mouseup mousemove",function(e){
 				if($("#sorted_imposition_table").hasClass('no-drag')){
-					console.log('has class');
+					//console.log('has class');
 					e.preventDefault();
 				} else {
-					if ( e.type == "mousedown" ) { console.log('here 1'); mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
-					if ( e.type == "mouseup" ) { console.log('here 2'); mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
+					if ( e.type == "mousedown" ) { mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
+					if ( e.type == "mouseup" ) { mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
 					if ( e.type == "mousemove" && mouseNotInSortableElement == true ){
-						console.log('here 3'); 
 						$(this).css("cursor", 'grabbing');
 						position = [e.clientX, e.clientY];
 						difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
@@ -95,7 +94,7 @@
 						lastPosition = [e.clientX, e.clientY];
 					}
 				}
-				console.log('done');
+				//console.log('done');
 			});
 			$(window).on("mouseup", function(){
 				mouseNotInSortableElement = false;
@@ -104,14 +103,14 @@
 
 		$("#sorted_imposition_table").draggable();
 
-		// set the height to screen height
-		//--------------------------------------------------------------------------------------------
 		
+// set the height to screen height
+//--------------------------------------------------------------------------------------------
 		
 		function resize(){
 			var space = window.innerHeight - drag_div.offsetTop;
-			$(drag_div).css("min-height", space - 55);
-			$(drag_div).css("height", space - 55); 
+			//$(drag_div).css("min-height", space - 55);
+			//$(drag_div).css("height", space - 55); 
 		}
 		
 		var delay = (function(){
