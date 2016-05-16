@@ -48,7 +48,8 @@
 		});
 
 		$(".dropdown-menu li a").click(function(){
-			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).html()+' <span class="caret"></span>');
+			$(this).closest('.dropdown').find('.btn.js-choice').html(
+				'<div style="margin-right:20px">' + $(this).html() + '</div><span class="caret"></span>');
 			//$(".btn:first-child").html($(this).text()+' &amp;amp;lt;span class="caret"&amp;amp;gt;&amp;amp;lt;/span&amp;amp;gt;');
 		});
 		
