@@ -4,7 +4,7 @@
 	.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus {
 		outline:none;
 	}
-	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+	.table &gt; tbody &gt; tr &gt; td, .table &gt; tbody &gt; tr &gt; th, .table &gt; tfoot &gt; tr &gt; td, .table &gt; tfoot &gt; tr &gt; th, .table &gt; thead &gt; tr &gt; td, .table &gt; thead &gt; tr &gt; th {
     	white-space: nowrap;
 	}	
 	.nav-tabs li.active a, .nav-tabs li.active  a:focus, .nav-tabs  li.active a:hover {
@@ -48,8 +48,8 @@
 		});
 
 		$(".dropdown-menu li a").click(function(){
-			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).find(".js-name").text()+' <span class="caret"></span>');
-			//$(".btn:first-child").html($(this).text()+' <span class="caret"></span>');
+			$(this).closest('.dropdown').find('.btn.js-choice').html($(this).html()+' &amp;amp;lt;span class="caret"&amp;amp;gt;&amp;amp;lt;/span&amp;amp;gt;');
+			//$(".btn:first-child").html($(this).text()+' &amp;amp;lt;span class="caret"&amp;amp;gt;&amp;amp;lt;/span&amp;amp;gt;');
 		});
 		
 		
@@ -75,7 +75,7 @@
 				} else {
 					if ( e.type == "mousedown" ) { console.log('here 1'); mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
 					if ( e.type == "mouseup" ) { console.log('here 2'); mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
-					if ( e.type == "mousemove" && mouseNotInSortableElement == true ){
+					if ( e.type == "mousemove" &amp;amp;amp;&amp;amp;amp; mouseNotInSortableElement == true ){
 						console.log('here 3'); 
 						$(this).css("cursor", 'grabbing');
 						position = [e.clientX, e.clientY];
@@ -127,135 +127,114 @@
 
 
 <section class="">
-	<div class="row" style="padding-bottom:10px">
-		<div class="col-sm-6" style="">
+	<div style="padding-bottom:10px" class="row">
+		<div style="" class="col-sm-6">
 			<h2 style="margin:0px;padding-top:7px;">
-				IMPOSITION <small>dashboard</small><a href="#" class="btn js-refresh"><i class="fa fa-refresh"></i></a>
+				IMPOSITION <small>dashboard</small><a class="btn js-refresh" href="#"><i class="fa fa-refresh"></i></a>
 			</h2>
 		</div>
 
-		<div class="col-sm-6 text-right">
-			<div class="btn-group" style="padding-bottom:10px;">
-				<a class="btn btn-lg btn-default" href="#"><i class="glyphicon glyphicon-arrow-down"></i> Download XML</a>
-				<a class="btn btn-lg btn-default" href="#"><i class="glyphicon glyphicon-arrow-up"></i> Upload XML</a>
-				<a class="btn btn-lg btn-default" href="#"><i class="glyphicon glyphicon-arrow-up"></i> Upload File</a>
-				<a class="btn btn-lg btn-default" href="#"><i class="glyphicon glyphicon-arrow-up"></i> Upload PDF</a>
-			</div>
-		</div>
-	</div>
+		<div class="col-sm-3 col-sm-offset-3">
+			<div>Location</div>
+			<div class="dropdown">
+				<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">Van Neyes <span class="caret"></span></a>
 
-	<div class="row" style="background: rgba(51, 122, 183, 0.2) none repeat scroll 0px 0px; padding-top: 15px; border-top: 5px solid rgb(51, 122, 183);">
-        <div class="col-xs-12 dBtnWrapper js-impo-stats btn-group btn-group-justified">
-			<a class="btn btn-blue" href="#"><div class="icon">Total Jobs</div><div class="count">74 </div></a>
-      		<a class="btn btn-default" href="#"><div class="icon">Due Today</div><div class="count">9 </div></a>
-	        <a class="btn btn-default" href="#"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
-	        <a class="btn btn-default" href="#"><div class="icon">Metrix Errors</div><div class="count">0 </div></a>
-	        <a class="btn btn-default" href="#"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
-        </div>
-	</div>
-      
-	<div class="row" style="margin-bottom: 15px; padding: 15px 0px 25px; background: rgba(51, 122, 183, 0.2) none repeat scroll 0% 0%; margin-top: 0px;">
-		<div class="col-sm-9">
-			<div class="row">
-				<div class="col-xs-3">
-					<div>Location</div>
-					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None <span class="caret"></span>
-						</a>
-
-						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Arlington Ave R</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Arlington Ave H</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">Van Neyes</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">Cleveland</span></a></li>
-							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Locations</span></a></li>
-						</ul>
-					</div>
-	            </div>
-
-				<div class="col-xs-3">
-					<div>Finish</div>
-					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None  <span class="caret"></span></a>
-						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Gloss Aqueous</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Matte Aqueous</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Uncoated</span></a></li>
-							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">97</span><span class="js-name">All Finishes</span></a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-xs-3">
-					<div>Paper</div>
-					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">None <span class="caret"></span></a>
-						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal & Seal</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>
-							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-xs-3">
-					<div>Quantity</div>
-					<div class="dropdown">
-						<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> None <span class="caret"></span>
-						</a>
-
-						<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-							<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">10 | 4 | $30.00</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">250 | 6 | $461.50</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">500 | 1 | $17.00</span></a></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">4000 | 1 | $131.00</span></a></li>
-							<li class="divider"></li>
-							<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Quantity</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-xs-3">
-			<div>Due Date <span style="color:red;">*</span></div>
-			<div class="dropdown ">
-				<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> None <span class="caret"></span></a>
-
-				<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-					<li><a class="btn text-left"><span class="badge pull-right js-count">12</span><span class="js-name">5/13/16</span></a></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">41</span><span class="js-name">5/14/16</span></a></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">38</span><span class="js-name">5/15/16</span></a></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">17</span><span class="js-name">5/16/16</span></a></li>
+				<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
+					<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Arlington Ave R</span></a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Arlington Ave H</span></a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">Van Neyes</span></a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">Cleveland</span></a></li>
 					<li class="divider"></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">97</span><span class="js-name">All Dates</span></a></li>
+					<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Locations</span></a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
+	<div style="background: rgba(51, 122, 183, 0.2); padding: 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px" class="row">
+        <div class="col-xs-12 dBtnWrapper js-impo-stats btn-group btn-group-justified">
+			<a href="#" class="btn btn-blue"><div class="icon">Total Jobs</div><div class="count">74 </div></a>
+      		<a href="#" class="btn btn-default"><div class="icon">Due Today</div><div class="count">9 </div></a>
+	        <a href="#" class="btn btn-default"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
+	        <a href="#" class="btn btn-default"><div class="icon">Metrix Errors</div><div class="count">0 </div></a>
+	        <a href="#" class="btn btn-default"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
+        </div>
+	</div>
+      
+	
+
 	<div class="row">
         <div class="col-xs-12">
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a aria-expanded="true" href="#data_set" aria-controls="data_set" role="tab" data-toggle="tab">Data Set</a></li>
-				<li class="" role="presentation"><a href="#xml_uploads" aria-controls="xml_uploads" role="tab" data-toggle="tab" aria-expanded="false">XML Uploads</a></li>
-				<li class="p" role="presentation"><a href="#aws_files" aria-controls="aws_files" role="tab" data-toggle="tab" aria-expanded="false">AWS Files</a></li>
-				<li class="t" role="presentation"><a aria-expanded="false" href="#pdf_files" aria-controls="pdf_files" role="tab" data-toggle="tab">PDF Reports</a></li>
+				<li role="presentation" class="active"><a data-toggle="tab" role="tab" aria-controls="data_set" href="#data_set" aria-expanded="true">Jobs</a></li>
+				<li class="p" role="presentation"><a aria-expanded="false" data-toggle="tab" role="tab" aria-controls="aws_files" href="#aws_files">Ganging</a></li>
+				<li class="" role="presentation"><a aria-expanded="false" data-toggle="tab" role="tab" aria-controls="xml_uploads" href="#xml_uploads">File History</a></li>
 			</ul>
 
 			 <div class="tab-content">
-			    <div role="tabpanel" class="tab-pane active" id="data_set">
-					<div id="sorted_imposition_table" class="table-responsive">
-					    <table  class="table table-hover draggable">
+			    <div style="margin-top:15px;" role="tabpanel" class="tab-pane active" id="data_set">
+					<div style="" class="row">
+  
+						<div class="col-xs-3">
+							<div>Start New Gang</div>
+							<button class="btn btn-success btn-block">Create XML</button>
+						</div>
+
+						<div class="col-xs-3">
+							<div>Finish</div>
+							<div class="dropdown">
+								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">Matte Aqueous <span class="caret"></span></a>
+								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
+									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Gloss Aqueous</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Matte Aqueous</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Uncoated</span></a></li>
+									<li class="divider"></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">97</span><span class="js-name">All Finishes</span></a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-xs-3">
+							<div>Paper</div>
+							<div class="dropdown">
+								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">14pt Cover, Uncoated <span class="caret"></span></a>
+								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
+									<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>
+									<li class="divider"></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-xs-3">
+							<div>Quantity</div>
+							<div class="dropdown">
+								<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">500 | 1 | $17.00 <span class="caret"></span></a>
+
+								<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
+									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">10 | 4 | $30.00</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">250 | 6 | $461.50</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">500 | 1 | $17.00</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">4000 | 1 | $131.00</span></a></li>
+									<li class="divider"></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Quantity</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>			
+  
+  
+					<hr>
+
+					<div class="table-responsive" id="sorted_imposition_table" style="min-height: 310px; height: 310px; cursor: grab;">
+					    <table class="table table-hover table-condensed draggable table-bordered table-striped">
 					      <thead>
 					        <tr>
 					          <th></th>
@@ -273,7 +252,7 @@
 					        </tr>
 					      </thead>
 					      <tbody>
-					        <tr>
+					        <tr style="background: rgba(255, 0, 0, 0.1) none repeat scroll 0% 0%; color: brown; cursor: not-allowed;" class="">
 					          <th scope="row"><input type="checkbox"></th>
 					          <td>3jf9729f</td>
 					          <td>5/15/16</td>
@@ -397,18 +376,339 @@
 					      </tbody> </table> </div>
 				</div>
 
-			    <div id="aws_files" class="tab-pane" role="tabpanel">
-			    	<h2>AWS Files</h2>
-			    </div>
+			    <div style="margin-top:15px;" id="aws_files" class="tab-pane" role="tabpanel">
+			    	<div class="row" style="margin-top:15px;">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+    <div class="pull-right">
+      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+      
+    </div>
+    <i class="fa fa-wrench"></i> Gangs In Process</div>
+  
+        <table class="table table-hover text-sm table-condensed">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>User</th>
+              <th>Gang Id</th>
+              <th>XML To Metrix</th>
+              <th>XML From Metrix</th>
+              <th>Report Uploaded</th>
+              <th>File Uploaded</th>
+              <th>Metrix Passed</th>
+  <th>Gang Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>5/12/16</td>
+              <td>10:35am</td>
+              <td>Brian</td>
+              <td>235gg25gwrf456</td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+              </td>
+              <td><button class="btn btn-xs btn-success"><i class="fa fa-thumbs-o-up"></i> CREATED</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>5/12/16</td>
+              <td>10:35am</td>
+              <td>Brian</td>
+              <td>235gg25gwrf456</td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-download"></i> Save Now</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td><button class="btn btn-xs"><i class="fa fa-wrench"></i> In Process</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>5/12/16</td>
+              <td>10:35am</td>
+              <td>Brian</td>
+              <td>235gg25gwrf456</td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-download"></i> Save Now</button>
+              </td>
+              <td>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
+                <button class="btn btn-danger btn-xs"><i class="fa fa-download"></i> Save Now</button>
+              </td>
+              <td>
+                <button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>
+                
+              </td>
+              <td><button class="btn btn-xs"><i class="fa fa-wrench"></i> In Process</button></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>5/12/16</td>
+              <td>10:35am</td>
+              <td>Brian</td>
+              <td>235gg25gwrf456</td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>
+                
+              </td>
+              <td><button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>5/12/16</td>
+              <td>10:35am</td>
+              <td>Brian</td>
+              <td>235gg25gwrf456</td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> 
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>
+                <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>
+              </td>
+              <td>
+                <button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>
+                
+              </td>
+              <td><button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button></td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </div>
+    
+			    </div></div>
 
-			    <div id="pdf_files" class="tab-pane" role="tabpanel">
-			    	<h2>PDF Files</h2>
-			    </div>
 			    
-			    <div id="xml_uploads" class="tab-pane" role="tabpanel">
-			    	<h2>XML Uploads</h2>
-			    </div>
+			    
+			    <div role="tabpanel" class="tab-pane" id="xml_uploads">
+  <div style="margin-top:15px;" class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+    <div class="pull-right">
+      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+    </div>
+    XML Created</div>
+  
+        <table class="table table-hover text-sm table-condensed">
+          <thead>
+            <tr>
+              <th></th>
+              <th>User</th>
+              <th>Filename</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </div>
+    
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+    <div class="pull-right">
+      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+    </div>
+    XML Uploaded</div>
+  
+        <table class="table table-hover text-sm table-condensed">
+          <thead>
+            <tr>
+              <th></th>
+              <th>User</th>
+              <th>Filename</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </div>
+    
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+    <div class="pull-right">
+      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+    </div>
+    Files Uploaded</div>
+  
+        <table class="table table-hover text-sm table-condensed">
+          <thead>
+            <tr>
+              <th></th>
+              <th>User</th>
+              <th>Filename</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </div>
+    
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+    <div class="pull-right">
+      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+    </div>
+    Reports Uploaded</div>
+  
+        <table class="table table-hover text-sm table-condensed">
+          <thead>
+            <tr>
+              <th></th>
+              <th>User</th>
+              <th>Filename</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Brian</td>
+              <td>23AGDS23asd28j.xml</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+    </div>
+    
+    
+			    </div></div>
 			</div>
 		</div>
 	</div>		
-</section>
+</section> 
