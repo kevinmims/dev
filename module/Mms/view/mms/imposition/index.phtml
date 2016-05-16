@@ -134,9 +134,7 @@
 		$('#finish-select').multiselect({
             buttonContainer: '<div class="btn-group"/>', 
     		buttonClass : "btn btn-default",
-    		templates: {
-    			li: '<li><a href="#" class="btn btn-default"><img src="label" /><label></label></a></li>'
-    		},
+    		
             label: function(element) {
 		        var id = $(element).val();
 		        if (!id) return $(element).html();
@@ -153,7 +151,10 @@
 		        }
 
 		        return img + '&nbsp;' + $(element).html();
-		    }
+		    },
+		    ]templates: {
+    			li: '<li><a href="#" class="btn btn-default"><span class="badge pull-right">23</span><label></label></a></li>'
+    		},
             /*
             templates: {
                 button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"></button>',
