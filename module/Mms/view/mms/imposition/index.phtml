@@ -139,6 +139,8 @@
     		
             label: function(element) {
 		        var id = $(element).val();
+		        console.log("id= "+id);
+
 		        if (!id) return $(element).html();
 		        var icon;
 		        $('#finish-select option').each(function() {
@@ -156,7 +158,7 @@
 		        return img + '&nbsp;' + $(element).html();
 		    },
 		    templates: {
-    			li: '<li><a href="#" class=""><label class="badge pull-right">23</span><label></label></a></li>'
+    			li: '<li><a href="#" class=""><span class="badge pull-right">23</span><label></label></a></li>'
     		},
             /*
             templates: {
