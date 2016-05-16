@@ -16,6 +16,7 @@
             //->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
             ->prependStylesheet($this->basePath('css/bootstrap.min.css')) 
             ->prependStylesheet($this->basePath('fonts/font-awesome/css/font-awesome.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-multiselect.css')) 
             ->prependStylesheet($this->basePath('css/theme.css'))
         ?>
 
@@ -30,6 +31,7 @@
 
        
     </head>
+
     <body>
     <div class="brand clearfix">
         <a href="dashboard" class="logo"><i class="fa fa-bolt"></i> DRI MMS</a>
@@ -131,9 +133,10 @@
 
     <!-- Loading Scripts -->
     
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
     
     <script>
         $(document).ready(function () {

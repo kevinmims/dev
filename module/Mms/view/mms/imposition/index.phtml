@@ -131,6 +131,9 @@
 		});
 
 		
+		$('#finish-select').multiselect();
+		
+		
 		$('#file-upload-modal').on('shown.bs.modal', function () {
 			$('#imposition-file-upload-name').focus()
 		});
@@ -204,6 +207,16 @@
 
 						<div class="col-xs-3">
 							<div>Finish</div>
+							<select id="finish-select" multiple="multiple">
+							    <option value="cheese">Cheese</option>
+							    <option value="tomatoes">Tomatoes</option>
+							    <option value="mozarella">Mozzarella</option>
+							    <option value="mushrooms">Mushrooms</option>
+							    <option value="pepperoni">Pepperoni</option>
+							    <option value="onions">Onions</option>
+							</select>
+
+
 							<div class="dropdown">
 								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
 									<div style="margin-right:20px">
@@ -214,9 +227,10 @@
 								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
 									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Gloss Aqueous</span></a></li>
 									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Matte Aqueous</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Uncoated</span></a></li>
-									<li class="divider"></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">97</span><span class="js-name">All Finishes</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">UV Frontside Only</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">UV Backside Only</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">UV Both Sides</span></a></li>
+									
 								</ul>
 							</div>
 						</div>
