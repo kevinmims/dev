@@ -154,11 +154,11 @@
 			$('#imposition-file-upload-name').focus()
 		});
 
-		$('input:checkbox').on('change', function(){
+		$('#job-data-table input:checkbox').on('change', function(){
 		    if($(this).is(":checked")) {
-		        $(this).parent().addClass("selected");
+		        $(this).parent().parent().addClass("selected");
 		    } else {
-		        $('div.menuitem').removeClass("selected");
+		        $(this).parent().parent().removeClass("selected");
 		    }
 		});
 
@@ -309,7 +309,7 @@
 					<hr>
 
 					<div class="table-responsive" id="sorted_imposition_table" style="min-height: 310px; height: 310px; cursor: grab;">
-					    <table class="table table-hover table-condensed draggable table-bordered table-striped">
+					    <table id="job-data-table" class="table table-hover table-condensed draggable table-bordered table-striped">
 					      <thead>
 					        <tr>
 					          <th></th>
