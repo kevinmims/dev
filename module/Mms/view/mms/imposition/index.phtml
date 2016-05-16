@@ -40,7 +40,9 @@
 		color: brown;
 		cursor: not-allowed;
 	}
-
+.multiselect-container > li > a > label {
+    padding: 3px 20px 3px 15px;
+    text-align: left;
 </style>
 
 <script>
@@ -141,7 +143,8 @@
 		        var icon;
 		        $('#finish-select option').each(function() {
 		            if ($(this).val() == id) {
-		                icon = $(this).attr('icon');
+		                icon = $(this).attr('data-icon');
+		                console.log(icon);
 		            }
 		        });                    
 
@@ -153,7 +156,7 @@
 		        return img + '&nbsp;' + $(element).html();
 		    },
 		    templates: {
-    			li: '<li><a href="#" class="btn btn-default"><span class="badge pull-right">23</span><label></label></a></li>'
+    			li: '<li><a href="#" class=""><label class="badge pull-right">23</span><label></label></a></li>'
     		},
             /*
             templates: {
