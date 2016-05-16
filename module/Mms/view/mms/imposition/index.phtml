@@ -40,9 +40,9 @@
 		color: brown;
 		cursor: not-allowed;
 	}
-.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
-    left: 2px;
-    right: 0;
+
+.bootstrap-select .selected {
+	background: red;
 }
 </style>
 
@@ -136,7 +136,8 @@
 		
 		$('#finish-select').selectpicker({
 		  style: 'btn-default',
-		  showIcon: false
+		  showIcon: false,
+		  showTick: false
 		});
 
 		/*
