@@ -50,6 +50,26 @@
 		background: rgba(51, 122, 183,0.9) none repeat scroll 0 0;
     	color: rgb(255, 255, 255);
 	}
+	  .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
 	
 </style>
 
@@ -467,7 +487,14 @@
 					      			<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
 								</div>
 								<i class="fa fa-wrench"></i> Gangs In Process
-								<input type="file" class="form-control input-sm" style="width:200px;cursor:pointer;display:inline;padding:0px;border:0px;margin-left:15px;">
+								<div class="input-group input-group-sm" style="width:300px;">
+					                <span class="input-group-btn">
+					                    <span class="btn btn-primary btn-file">
+					                        XLM from Metrix <input type="file" multiple="">
+					                    </span>
+					                </span>
+					                <input type="text" class="form-control" readonly="">
+					            </div>
 							</div>
 
 							<div class="table-responsive"> 
