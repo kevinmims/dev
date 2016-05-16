@@ -132,7 +132,8 @@
 
 		
 		$('#finish-select').multiselect({
-            buttonClass : "btn btn-default btn-block"
+            buttonContainer: '<div class="btn-group"/>', 
+    		buttonClass : "btn btn-default"
             /*
             templates: {
                 button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"></button>',
@@ -220,7 +221,7 @@
 
 						<div class="col-xs-3">
 							<div>Finish</div>
-							<select id="finish-select" multiple="multiple" class="form-control" style="">
+							<select id="finish-select" multiple="multiple" class="form-control btn-group-justified" style="">
 							    <option value="Gloss Aqueous">Gloss Aqueous</option>
 							    <option value="Matte Aqueous">Matte Aqueous</option>
 							    <option value="UV Frontside Only">UV Frontside Only</option>
