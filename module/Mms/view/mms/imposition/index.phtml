@@ -75,7 +75,7 @@
 				} else {
 					if ( e.type == "mousedown" ) { console.log('here 1'); mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
 					if ( e.type == "mouseup" ) { console.log('here 2'); mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
-					if ( e.type == "mousemove" &amp;amp;amp;&amp;amp;amp; mouseNotInSortableElement == true ){
+					if ( e.type == "mousemove" && mouseNotInSortableElement == true ){
 						console.log('here 3'); 
 						$(this).css("cursor", 'grabbing');
 						position = [e.clientX, e.clientY];
