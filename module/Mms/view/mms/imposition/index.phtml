@@ -134,7 +134,9 @@
 		$('#finish-select').multiselect({
             buttonContainer: '<div class="btn-group"/>', 
     		buttonClass : "btn btn-default",
-    		//li: '<li><a href="javascript:void(0);"><img src="data-image" /><label></label></a></li>'
+    		templates: {
+    			li: '<li><a href="#" class="btn btn-default"><img src="data-image" /><label></label></a></li>'
+    		},
             label: function(element) {
 		        var id = $(element).val();
 		        if (!id) return $(element).html();
