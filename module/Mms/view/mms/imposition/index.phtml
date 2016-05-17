@@ -261,7 +261,7 @@
 
 		
 
-		// single checkbox click
+		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
 			    if($(this).is(":checked")) {
@@ -275,6 +275,7 @@
 					$(this).parent().parent().find('.user-selected').html('');
 			    }
 			} else {
+				// select all checkbox
 				var rows = table.rows({ 'search': 'applied' }).nodes();
 			
 				if($(this).prop('checked')){
@@ -321,12 +322,39 @@
 				</a>
 
 				<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
-					<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Arlington Ave R</span></a></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Arlington Ave H</span></a></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">Van Neyes</span></a></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">Cleveland</span></a></li>
+					<li><a class="btn text-left">
+						<div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div>
+						<span class="js-name">Arlington Ave R</span>
+					</a></li>
+					<li><a class="btn text-left"><div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div><span class="js-name">Arlington Ave H</span>
+					</a></li>
+					<li><a class="btn text-left"><div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div><span class="js-name">Van Neyes</span>
+					</a></li>
+					<li><a class="btn text-left"><div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div><span class="js-name">Cleveland</span>
+					</a></li>
 					<li class="divider"></li>
-					<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Locations</span></a></li>
+					<li><a class="btn text-left"><div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div><span class="js-name">All Locations</span>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -341,6 +369,16 @@
 	        <a href="#" class="btn btn-default"><div class="icon">Rip Errors</div><div class="count">0 </div></a>
 	        <a href="#" class="btn btn-default"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
         </div>
+        <div class="col-xs-12 ">
+			<div style="background:rgb(51, 122, 183);color:white;padding:15px;">
+				<div class="row">
+					<div class="col-sm-3">job stats</div>
+					<div class="col-sm-3">paper stats</div>
+					<div class="col-sm-3">finish stats</div>
+					<div class="col-sm-3">graph</div>
+				</div>
+			</div>
+		</div>
 	</div>
       
 	
@@ -369,7 +407,7 @@
 						</div>
 
 						<div class="col-xs-3">
-							<div>Paper</div>
+							<div>Paper Imposition</div>
 							<div class="dropdown">
 								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
 									<div style="margin-right:20px">
@@ -393,7 +431,7 @@
 						</div>
 
 						<div class="col-xs-3">
-							<div>Finish</div>
+							<div>Paper Finish</div>
 							<select class="finish-select dropup" multiple title="Select a finish" data-width="auto"  data-show-tick="false">
 							    <option title="Gloss Aqueous" data-content="<span class='badge pull-right'>24</span> Gloss Aqueous">Gloss Aqueous</option>
 							    <option title="Matte Aqueous" data-content="<span class='badge pull-right'>24</span>Matte Aqueous">Matte Aqueous</option>
