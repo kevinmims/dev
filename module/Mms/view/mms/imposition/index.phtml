@@ -268,7 +268,7 @@
 			console.log('is NOT checked');
 			$('input[type="checkbox"]', rows).each(function(){
 				console.log($(this));
-				$(this).prop('checked', this.checked);
+				$(this).prop('checked', true);
 			  	$(this).parent().parent().addClass('selected');
 			  });
 		  } else {
@@ -279,7 +279,7 @@
 				$(this).removeProp('checked');
 			  	$(this).parent().parent().removeClass('selected');
 			  });
-			
+
 		  }
 		  // Check/uncheck all checkboxes in the table
 		  
