@@ -69,9 +69,17 @@
         cursor: inherit;
         display: block;
     }
+    #job-data-table thead {
+    	background: gray;
+    	color: white;
+    }
     #job-data-table tfoot {
     	display: table-header-group;
+    	background: lightgray;
     }
+    #job-data-table tfoot th, #job-data-table tfoot td {
+	    border-bottom: 3px solid rgb(128, 128, 128);
+	}
 	
 </style>
 
@@ -221,7 +229,7 @@
 	            this.api().columns().every( function () {
 	                var column = this;
 
-	                var select = $('<select><option value=""></option></select>')
+	                var select = $('<select class="form-control"><option value=""></option></select>')
 	                    .appendTo( $(column.footer()).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
