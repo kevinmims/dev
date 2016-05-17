@@ -204,6 +204,7 @@
 		$('.btn-file :file').on('fileselect', function(event, numFiles, fileNames) {
 			console.log(numFiles);
 			console.log(fileNames);
+			$('#mextrix-xml-files').html(fileNames);
 		});
 
 
@@ -520,13 +521,13 @@
 					      			<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
 								</div>
 								<i class="fa fa-wrench"></i> Gangs In Process
-								<div class="input-group input-group-sm" style="width:300px;">
-					                <span class="input-group-btn">
+								<div style="width:300px;display: inline" class="input-group input-group-sm">
+					                <span class="input-group-btn" style="display: inline">
 					                    <span class="btn btn-primary btn-file">
 					                        XML from Metrix <input type="file" multiple="">
 					                    </span>
 					                </span>
-					                <input type="text" class="form-control" readonly="">
+					                <input id="mextrix-xml-files" type="text" readonly="" class="form-control" style="display: inline;width:200px;float:none">
 					            </div>
 							</div>
 
