@@ -259,38 +259,38 @@
 	        }
 	    } );
 
-		// Handle click on "Select all" control
-		$('.js-select-all').on('click', function(){
-			var rows = table.rows({ 'search': 'applied' }).nodes();
-			
-			if($(this).prop('checked')){
-				$('input[type="checkbox"]', rows).each(function(){
-					$(this).prop('checked', true);
-			  		$(this).parent().parent().addClass('selected');
-			  		$(this).parent().parent().find('.user-selected').html(username);
-				});
-			} else {	
-				$('input[type="checkbox"]', rows).each(function(){
-					$(this).removeProp('checked');
-			  		$(this).parent().parent().removeClass('selected');
-			  		$(this).parent().parent().find('.user-selected').html('');
-				});
-			}
-		});
+		
 
-		// single  checkbox click
+		// single checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
 			    if($(this).is(":checked")) {
 			        $(this).parent().parent().addClass("selected");
 			        $(this).parent().parent().find('.user-selected').html(username);
 			    } else {
-			        if($('.js-select-all').prop('checked')){
-			        	$(this).removeProp('checked');
+			        if($('.js-select-all').prop('checked')) {
+			        	$('.js-select-all').removeProp('checked');
 			        }
 			        $(this).parent().parent().removeClass("selected");
 					$(this).parent().parent().find('.user-selected').html('');
 			    }
+			} else {
+				var rows = table.rows({ 'search': 'applied' }).nodes();
+			
+				if($(this).prop('checked')){
+					$('input[type="checkbox"]', rows).each(function(){
+						$(this).prop('checked', true);
+				  		$(this).parent().parent().addClass('selected');
+				  		$(this).parent().parent().find('.user-selected').html(username);
+					});
+				} else {	
+					$('input[type="checkbox"]', rows).each(function(){
+						$(this).removeProp('checked');
+				  		$(this).parent().parent().removeClass('selected');
+				  		$(this).parent().parent().find('.user-selected').html('');
+					});
+				}
+
 			}
 		});
 
@@ -335,10 +335,10 @@
 	<div style="background: rgba(51, 122, 183, 0.2); padding: 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px" class="row">
         <div class="col-xs-12 dashboard-btns js-impo-stats btn-group btn-group-justified">
 			<a href="#" class="btn btn-blue"><div class="icon">Same Day Jobs</div><div class="count">9 </div></a>
-			<a href="#" class="btn btn-default"><div class="icon">Approved Jobs</div><div class="count">9 </div></a>
-			<a href="#" class="btn btn-default"><div class="icon">Total Jobs</div><div class="count">74 </div></a>
+			<a href="#" class="btn btn-default"><div class="icon">Approved Jobs</div><div class="count">65 </div></a>
+			<a href="#" class="btn btn-default"><div class="icon">Total Jobs</div><div class="count">124 </div></a>
       		<a href="#" class="btn btn-default"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
-	        <a href="#" class="btn btn-default"><div class="icon">Metrix Errors</div><div class="count">0 </div></a>
+	        <a href="#" class="btn btn-default"><div class="icon">Rip Errors</div><div class="count">0 </div></a>
 	        <a href="#" class="btn btn-default"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
         </div>
 	</div>
