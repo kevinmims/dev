@@ -231,6 +231,7 @@
 // datatables
 //------------------------------------------------------------
 	   $('#job-data-table').DataTable( {
+	        "paging": false,
 	        initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
