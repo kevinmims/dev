@@ -204,7 +204,7 @@
 		$('.btn-file :file').on('fileselect', function(event, numFiles, fileNames) {
 			console.log(numFiles);
 			console.log(fileNames);
-			$('#metrix-xml-files').html(numFiles+' files');
+			$('#metrix-xml-files').val(numFiles+' files');
 		});
 
 
