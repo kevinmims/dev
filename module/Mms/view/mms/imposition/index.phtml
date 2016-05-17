@@ -262,16 +262,22 @@
 		// Handle click on "Select all" control
 		$('.js-select-all').on('click', function(){
 		  var rows = table.rows({ 'search': 'applied' }).nodes();
+		  console.log(rows);
+
 		  if($(this).prop('checked', this.checked)){
+			console.log('is checked');
 			//var rows = table.rows('selected').nodes().to$().removeClass('selected');
 			$('input[type="checkbox"]', rows).each(function(){
-				this.removeProp('checked');
-			  	this.parent().parent().removeClass('selected');
+				console.log($(this));
+				$(this).removeProp('checked');
+			  	$(this).parent().parent().removeClass('selected');
 			  });
 		  } else {
+			console.log('is NOT checked');
 			$('input[type="checkbox"]', rows).each(function(){
-				this.prop('checked', this.checked);
-			  	this.parent().parent().addClass('selected');
+				console.log($(this));
+				$(this).prop('checked', this.checked);
+			  	$(this).parent().parent().addClass('selected');
 			  });
 		  }
 		  // Check/uncheck all checkboxes in the table
