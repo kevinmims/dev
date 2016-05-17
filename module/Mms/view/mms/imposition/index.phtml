@@ -232,7 +232,17 @@
 //------------------------------------------------------------
 	   $('#job-data-table').DataTable( {
 	        "paging": false,
-	        initComplete: function () {
+	        'columnDefs': [{
+				'targets': 0,
+				'searchable':false,
+				'orderable':false,
+				'className': 'dt-body-center',
+				'render': function (data, type, full, meta){
+					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+				}
+	      }],
+	      'order': [3, 'asc'],
+	      initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
 
