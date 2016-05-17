@@ -214,73 +214,28 @@
 
 // datatables
 //------------------------------------------------------------
-		
-	    $.extend( $.fn.dataTable.defaults, {
-	         autoWidth: false,
-	         columnDefs: [{ 
-	         orderable: false,
-	         width: '100px',
-	         targets: [ 5 ]
-	       }],
-	       dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-	       language: {
-	         search: '<span>Filter:</span> _INPUT_',
-	         lengthMenu: '<span>Show:</span> _MENU_',
-	         paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' }
-	       },
-	       drawCallback: function () {
-	         $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
-	       },
-	       preDrawCallback: function() {
-	         $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-	       }
-	    });
-
-
-   //NO CHANGES HERE
-   $('tfoot th').each(function() {
-     var title = $('#job-data-table thead th').eq($(this).index()).text();
-     $(this).html('<input type="text" class="form-control input-sm" placeholder="Search '+title+'" />');
-   });
-
-   //**** CHANGES HERE ****
-   $('#job-data-table').DataTable({
-        initComplete: function () {
-          this.api().columns().every( function () {
-            var column = this;
-            if ($(column.footer()).hasClass('tfoot_search')) {
-
-              var that = this;
-              $('input', this.footer()).on('keyup change', function () {
-                 that.search(this.value).draw();
-              });   
-
-            } else if ($(column.footer()).hasClass('tfoot_select')) {
-
-              var column = this;
-              var select = $('<select class="filter-select" data-placeholder="Filter"><option value=""></option></select>')
-                .appendTo($('td.tfoot_select').empty())
-                .on('change', function() {
-              var val = $.fn.dataTable.util.escapeRegex(
-                           $(this).val()
-                        );
-
-                        column
-                          .search( val ? '^'+val+'$' : '', true, false )
-                          .draw();
-                        });
-
-              column.data().unique().sort().each( function (d, j) {
-                select.append('<option value="'+d+'">'+d+'</option>')
-              });
-            }
-          });
-        }
-      });
-
-
-
-   
+	   $('#job-data-table').DataTable( {
+	        initComplete: function () {
+	            this.api().columns().every( function () {
+	                var column = this;
+	                var select = $('<select><option value=""></option></select>')
+	                    .appendTo( $(column.header()).empty() )
+	                    .on( 'change', function () {
+	                        var val = $.fn.dataTable.util.escapeRegex(
+	                            $(this).val()
+	                        );
+	 
+	                        column
+	                            .search( val ? '^'+val+'$' : '', true, false )
+	                            .draw();
+	                    } );
+	 
+	                column.data().unique().sort().each( function ( d, j ) {
+	                    select.append( '<option value="'+d+'">'+d+'</option>' )
+	                } );
+	            } );
+	        }
+	    } );
 
 	});
 </script>
