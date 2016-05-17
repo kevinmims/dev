@@ -215,7 +215,7 @@
 // datatables
 //------------------------------------------------------------
 		// Setup - add a text input to each footer cell
-	    $('#job-data-table tfoot th').each( function () {
+	    $('#job-data-table thead th').each( function () {
 	        var title = $(this).text();
 	        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
 	    } );
