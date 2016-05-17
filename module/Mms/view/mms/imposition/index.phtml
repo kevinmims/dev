@@ -220,7 +220,7 @@
 	                var column = this;
 
 	                var select = $('<select><option value=""></option></select>')
-	                    .appendTo( column.find('th').empty() )
+	                    .appendTo( $("#job-data-table table thead tr th") )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
