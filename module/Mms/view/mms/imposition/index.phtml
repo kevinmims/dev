@@ -102,7 +102,7 @@
 		
 // enable horizontal drag scroll
 //--------------------------------------------------------------------------------------------
-	
+/*	
 		var mouseNotInSortableElement = false,
 			drag_div = document.getElementById('sorted_imposition_table'),
 			space = window.innerHeight - drag_div.offsetTop ,
@@ -136,7 +136,7 @@
 		}
 
 		$("#sorted_imposition_table").draggable();
-
+*/
 		
 // set the height to screen height
 //--------------------------------------------------------------------------------------------
@@ -155,16 +155,18 @@
 			};
 		})();
 
-		resize();
+		//resize();
 
 		$(window).resize(function() {
 			delay(function(){
 				// callback
-				resize();
+				//resize();
 			}, 500);
 		});
 
-		
+// multi select
+//--------------------------------------------------------------------------------------------
+			
 		$('.finish-select').selectpicker({
 		  width: '100%',
 		  style: 'btn-default',
@@ -173,7 +175,9 @@
 		});
 
 		
-		
+// file upload
+//--------------------------------------------------------------------------------------------
+			
 		$('#file-upload-modal').on('shown.bs.modal', function () {
 			$('#imposition-file-upload-name').focus()
 		});
@@ -190,7 +194,7 @@
 		    }
 		});
  */
-    
+
 // file change
 //---------------------------------------------------------------------------
 
