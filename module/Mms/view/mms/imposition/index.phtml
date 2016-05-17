@@ -261,9 +261,24 @@
 
 		// Handle click on "Select all" control
 		$('.js-select-all').on('click', function(){
-		  // Check/uncheck all checkboxes in the table
 		  var rows = table.rows({ 'search': 'applied' }).nodes();
-		  $('input[type="checkbox"]', rows).prop('checked', this.checked);
+		  if($(this).prop('checked', this.checked)){
+			//var rows = table.rows('selected').nodes().to$().removeClass('selected');
+			$('input[type="checkbox"]', rows).each(function(){
+				$(this).propRemove('checked');
+			  	$(this).parent().parent().removeClass('selected');
+			  });
+		  } else {
+			$('input[type="checkbox"]', rows).each(function(){
+				$(this).prop('checked', this.checked);
+			  	$(this).parent().parent().addClass('selected');
+			  });
+		  }
+		  // Check/uncheck all checkboxes in the table
+		  
+		  
+		  
+		  
 		});
 
 		$('#job-data-table input:checkbox').on('change', function(){
