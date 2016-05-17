@@ -188,16 +188,8 @@
 	    $(document).on('change', '.btn-file :file', function() {
 	        var input = $(this),
 	            numFiles = input.get(0).files ? input.get(0).files.length : 1,
-	            fileNames = [];
-	            console.log(input.val());
-	            
-	            if(numFiles > 0){
-	            	for(x = 0; x < numFiles; x++){
-	            		fileNames[x] = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-	            	}
-	            } else {
-	            	fileNames[0] = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-	            }
+	            files = $(this).prop("files"),
+	            fileNames = $.map(files, function(val) { return val.name; });
 	        input.trigger('fileselect', [numFiles, fileNames]);
 	    });
 
