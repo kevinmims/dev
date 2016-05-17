@@ -75,6 +75,10 @@
 
 <script>
 	$(document).ready(function () {
+		
+		var username = "Kevin";
+
+
 		$('.js-refresh').on('click', function(){
 			var $elem = $(this).find('i');
 			$elem.addClass('fa-spin');
@@ -349,6 +353,7 @@
 					      <thead>
 					        <tr>
 					          <th></th>
+					          <th>User</th>
 					          <th>Component ID</th>
 					          <th>Job ID</th>
 					          <th>Est Ship</th>
@@ -365,7 +370,8 @@
 					      </thead>
 					      <tbody>
 					        <tr class="selected">
-					          <th scope="row"><input type="checkbox" checked class="disabled"></th>
+					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td class="user-selected"></td>
 					          <td>6n6q47m4qe</td>
 					          <td>a34ty32wert2</td>
 					          <td>5/15/16</td>
@@ -386,7 +392,8 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <th scope="row"><input type="checkbox"></th>
+					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td class="user-selected"></td>
 					          <td>m6tdhh95wretas</td>
 					          <td>a34ty32wert2</td>
 					          <td>5/15/16</td>
@@ -407,7 +414,8 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <th scope="row"><input type="checkbox"></th>
+					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td class="user-selected"></td>
 					          <td>gbs5354bsd</td>
 					          <td>unu76nrdd4</td>
 					          <td>5/15/16</td>
@@ -428,7 +436,8 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <th scope="row"><input type="checkbox"></th>
+					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td class="user-selected"></td>
 					          <td>wm699n8bes</td>
 					          <td>unu76nrdd4</td>
 					          <td>5/15/16</td>
@@ -449,7 +458,8 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <th scope="row"><input type="checkbox"></th>
+					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td class="user-selected"></td>
 					          <td>n346m36ertygs</td>
 					          <td>unu76nrdd4</td>
 					          <td>5/15/16</td>
@@ -470,7 +480,8 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <th scope="row"><input type="checkbox"></th>
+					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td class="user-selected"></td>
 					          <td>nq36aterasae</td>
 					          <td>unu76nrdd4</td>
 					          <td>5/15/16</td>
@@ -491,7 +502,9 @@
 					          </td>
 					        </tr>
 					      
-					      </tbody> </table> </div>
+					      </tbody>
+					    </table>
+					  </div>
 				</div>
 
 			    <div style="margin-top:15px;" id="aws_files" class="tab-pane" role="tabpanel">
@@ -506,7 +519,7 @@
 								<div class="input-group input-group-sm" style="width:300px;">
 					                <span class="input-group-btn">
 					                    <span class="btn btn-primary btn-file">
-					                        XLM from Metrix <input type="file" multiple="">
+					                        XML from Metrix <input type="file" multiple="">
 					                    </span>
 					                </span>
 					                <input type="text" class="form-control" readonly="">
@@ -514,7 +527,7 @@
 							</div>
 
 							<div class="table-responsive"> 
-					        	<table class="table table-hover text-sm table-condensed">
+					        	<table id="gang-table" class="table table-hover text-sm table-condensed">
 						          <thead>
 						            <tr>
 						              <th></th>
@@ -699,122 +712,126 @@
 					</div>
    				 </div>
     
-    <div class="col-sm-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-    <div class="pull-right">
-      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
-      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
-    </div>
-    XML Uploaded</div>
-  
-        <table class="table table-hover text-sm table-condensed">
-          <thead>
-            <tr>
-              <th></th>
-              <th>User</th>
-              <th>Filename</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-          </tbody>
-        </table>
-</div>
-    </div>
+			    <div class="col-sm-3">
+			      <div class="panel panel-default">
+			        <div class="panel-heading">
+						<div class="pull-right">
+							<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+							<button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+						</div>
+						XML From Metrix
+					</div>
+			  
+			        <table class="table table-hover text-sm table-condensed">
+			          <thead>
+			            <tr>
+			              <th></th>
+			              <th>User</th>
+			              <th>Filename</th>
+			            </tr>
+			          </thead>
+			          <tbody>
+			            <tr>
+			              <td>1</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			            <tr>
+			              <td>2</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			            <tr>
+			              <td>3</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			          </tbody>
+			        </table>
+				  </div>
+			    </div>
     
-    <div class="col-sm-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-    <div class="pull-right">
-      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
-      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
-    </div>
-    Files Uploaded</div>
-  
-        <table class="table table-hover text-sm table-condensed">
-          <thead>
-            <tr>
-              <th></th>
-              <th>User</th>
-              <th>Filename</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-          </tbody>
-        </table>
-</div>
-    </div>
+			    <div class="col-sm-3">
+			      <div class="panel panel-default">
+			        <div class="panel-heading">
+						<div class="pull-right">
+							<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+							<button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+						</div>
+						 Files for Rampage
+					</div>
+			  
+			        <table class="table table-hover text-sm table-condensed">
+			          <thead>
+			            <tr>
+			              <th></th>
+			              <th>User</th>
+			              <th>Filename</th>
+			            </tr>
+			          </thead>
+			          <tbody>
+			            <tr>
+			              <td>1</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			            <tr>
+			              <td>2</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			            <tr>
+			              <td>3</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			          </tbody>
+			        </table>
+				  </div>
+			    </div>
     
-    <div class="col-sm-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-    <div class="pull-right">
-      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
-      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
-    </div>
-    Reports Uploaded</div>
-  
-        <table class="table table-hover text-sm table-condensed">
-          <thead>
-            <tr>
-              <th></th>
-              <th>User</th>
-              <th>Filename</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Brian</td>
-              <td>23AGDS23asd28j.xml</td>
-            </tr>
-          </tbody>
-        </table>
-</div>
-    </div>
+			    <div class="col-sm-3">
+			      <div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="pull-right">
+							<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+							<button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+						</div>
+						Reports for Cutting 
+					</div>
+			  
+			        <table class="table table-hover text-sm table-condensed">
+			          <thead>
+			            <tr>
+			              <th></th>
+			              <th>User</th>
+			              <th>Filename</th>
+			            </tr>
+			          </thead>
+			          <tbody>
+			            <tr>
+			              <td>1</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			            <tr>
+			              <td>2</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			            <tr>
+			              <td>3</td>
+			              <td>Brian</td>
+			              <td>23AGDS23asd28j.xml</td>
+			            </tr>
+			          </tbody>
+			        </table>
+				  </div>
+			    </div>
     
     
-			    </div></div>
+			    </div>
+			  </div>
 			</div>
 		</div>
 	</div>	
