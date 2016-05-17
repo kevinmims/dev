@@ -261,48 +261,41 @@
 
 		// Handle click on "Select all" control
 		$('.js-select-all').on('click', function(){
-		  var rows = table.rows({ 'search': 'applied' }).nodes();
-		  console.log(rows);
-
-		  if($(this).prop('checked')){
-			console.log('is NOT checked');
-			$('input[type="checkbox"]', rows).each(function(){
-				console.log($(this));
-				$(this).prop('checked', true);
-			  	$(this).parent().parent().addClass('selected');
-			  });
-		  } else {
-			console.log('is checked');
-			//var rows = table.rows('selected').nodes().to$().removeClass('selected');
-			$('input[type="checkbox"]', rows).each(function(){
-				console.log($(this));
-				$(this).removeProp('checked');
-			  	$(this).parent().parent().removeClass('selected');
-			  });
-
-		  }
-		  // Check/uncheck all checkboxes in the table
-		  
-		  
-		  
-		  
+			var rows = table.rows({ 'search': 'applied' }).nodes();
+			
+			if($(this).prop('checked')){
+				$('input[type="checkbox"]', rows).each(function(){
+					$(this).prop('checked', true);
+			  		$(this).parent().parent().addClass('selected');
+			  		$(this).parent().parent().find('.user-selected').html(username);
+				});
+			} else {	
+				$('input[type="checkbox"]', rows).each(function(){
+					$(this).removeProp('checked');
+			  		$(this).parent().parent().removeClass('selected');
+			  		$(this).parent().parent().find('.user-selected').html('');
+				});
+			}
 		});
 
+		// single  checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
 			    if($(this).is(":checked")) {
+			        // check select all
+			        if($('.js-select-all').prop('checked')){
+			        	$(this).removeProp('checked');
+			        }
 			        $(this).parent().parent().addClass("selected");
 			        $(this).parent().parent().find('.user-selected').html(username);
-			        console.log('username= '+username);
 			    } else {
 			        $(this).parent().parent().removeClass("selected");
 					$(this).parent().parent().find('.user-selected').html('');
-			        console.log('username removed');
 			    }
 			}
 		});
 
-
+		
 
 	});
 </script>
