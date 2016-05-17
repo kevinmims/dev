@@ -265,7 +265,7 @@
 		  if($(this).prop('checked', this.checked)){
 			//var rows = table.rows('selected').nodes().to$().removeClass('selected');
 			$('input[type="checkbox"]', rows).each(function(){
-				$(this).propRemove('checked');
+				$(this).removeProp('checked');
 			  	$(this).parent().parent().removeClass('selected');
 			  });
 		  } else {
