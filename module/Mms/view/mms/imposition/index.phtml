@@ -282,13 +282,12 @@
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
 			    if($(this).is(":checked")) {
-			        // check select all
-			        if($('.js-select-all').prop('checked')){
-			        	$(this).removeProp('checked');
-			        }
 			        $(this).parent().parent().addClass("selected");
 			        $(this).parent().parent().find('.user-selected').html(username);
 			    } else {
+			        if($('.js-select-all').prop('checked')){
+			        	$(this).removeProp('checked');
+			        }
 			        $(this).parent().parent().removeClass("selected");
 					$(this).parent().parent().find('.user-selected').html('');
 			    }
@@ -296,6 +295,7 @@
 		});
 
 		
+
 
 	});
 </script>
