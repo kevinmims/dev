@@ -198,20 +198,6 @@
 			$('#imposition-file-upload-name').focus()
 		});
 
-		$('#job-data-table input:checkbox').on('change', function(){
-		    if(!$(this).hasClass('js-select-all')){
-			    if($(this).is(":checked")) {
-			        $(this).parent().parent().addClass("selected");
-			        $(this).parent().parent().find('.user-selected').html(username);
-			        console.log('username= '+username);
-			    } else {
-			        $(this).parent().parent().removeClass("selected");
-					$(this).parent().parent().find('.user-selected').html('');
-			        console.log('username removed');
-			    }
-			}
-		});
- 
 
 // file change
 //---------------------------------------------------------------------------
@@ -271,8 +257,24 @@
 		$('.js-select-all').on('click', function(){
 		  // Check/uncheck all checkboxes in the table
 		  var rows = table.rows({ 'search': 'applied' }).nodes();
-		  $('input[type="checkbox"]', rows).prop('checked', this.checked);
+		  $('input[type="checkbox"]', rows).prop('checked', this.checked).parent().parent().addClass('selected').fine('.user-selected').html(username);
 		});
+
+		$('#job-data-table input:checkbox').on('change', function(){
+		    if(!$(this).hasClass('js-select-all')){
+			    if($(this).is(":checked")) {
+			        $(this).parent().parent().addClass("selected");
+			        $(this).parent().parent().find('.user-selected').html(username);
+			        console.log('username= '+username);
+			    } else {
+			        $(this).parent().parent().removeClass("selected");
+					$(this).parent().parent().find('.user-selected').html('');
+			        console.log('username removed');
+			    }
+			}
+		});
+
+
 
 	});
 </script>
