@@ -190,7 +190,13 @@
 		  showTick: false
 		});
 
-		
+	
+// create xml button
+//--------------------------------------------------------------------------------------------
+	$('.js-create-xml').on('click', function(){
+		alert( table.rows('.selected').data().length +' row(s) selected' );
+	}
+
 // file upload
 //--------------------------------------------------------------------------------------------
 			
@@ -257,7 +263,7 @@
 		$('.js-select-all').on('click', function(){
 		  // Check/uncheck all checkboxes in the table
 		  var rows = table.rows({ 'search': 'applied' }).nodes();
-		  $('input[type="checkbox"]', rows).prop('checked', this.checked).parent().parent().addClass('selected').fine('.user-selected').html(username);
+		  $('input[type="checkbox"]', rows).prop('checked', this.checked);
 		});
 
 		$('#job-data-table input:checkbox').on('change', function(){
@@ -338,7 +344,11 @@
   
 						<div class="col-xs-3">
 							<div>With selected jobs:</div>
-							<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">
+							<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">
+								<i class="fa fa-plus"></i> Create XML
+							</button>-->
+							
+							<button class="btn btn-block js-create-xml" type="button" style="background: lightgray">
 								<i class="fa fa-plus"></i> Create XML
 							</button>
 						</div>
