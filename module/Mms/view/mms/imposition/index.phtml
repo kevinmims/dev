@@ -265,6 +265,13 @@
 		  console.log(rows);
 
 		  if($(this).prop('checked')){
+			console.log('is NOT checked');
+			$('input[type="checkbox"]', rows).each(function(){
+				console.log($(this));
+				$(this).prop('checked', this.checked);
+			  	$(this).parent().parent().addClass('selected');
+			  });
+		  } else {
 			console.log('is checked');
 			//var rows = table.rows('selected').nodes().to$().removeClass('selected');
 			$('input[type="checkbox"]', rows).each(function(){
@@ -272,13 +279,7 @@
 				$(this).removeProp('checked');
 			  	$(this).parent().parent().removeClass('selected');
 			  });
-		  } else {
-			console.log('is NOT checked');
-			$('input[type="checkbox"]', rows).each(function(){
-				console.log($(this));
-				$(this).prop('checked', this.checked);
-			  	$(this).parent().parent().addClass('selected');
-			  });
+			
 		  }
 		  // Check/uncheck all checkboxes in the table
 		  
