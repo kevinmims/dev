@@ -196,7 +196,7 @@
 	            } else {
 	            	fileNames[0] = input.val().replace(/\\/g, '/').replace(/.*\//, '');
 	            }
-	        input.trigger('fileselect', [numFiles, label]);
+	        input.trigger('fileselect', [numFiles, fileNames]);
 	    });
 
 		$('.btn-file :file').on('fileselect', function(event, numFiles, fileNames) {
