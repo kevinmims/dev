@@ -264,7 +264,7 @@
 		  var rows = table.rows({ 'search': 'applied' }).nodes();
 		  console.log(rows);
 
-		  if($(this).prop('checked', true)){
+		  if($(this).prop('checked')){
 			console.log('is checked');
 			//var rows = table.rows('selected').nodes().to$().removeClass('selected');
 			$('input[type="checkbox"]', rows).each(function(){
