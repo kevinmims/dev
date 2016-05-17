@@ -218,10 +218,9 @@
 	        initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
-	                console.log(column);
-	                
+
 	                var select = $('<select><option value=""></option></select>')
-	                    .appendTo( $(column.header()).empty() )
+	                    .appendTo( $(column.find('th')).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
