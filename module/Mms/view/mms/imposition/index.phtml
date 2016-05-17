@@ -218,13 +218,14 @@
 	        initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
+	                
 	                var select = $('<select><option value=""></option></select>')
-	                    .appendTo( $('#job-data-table thead th').empty() )
+	                    .appendTo( $(column.header()).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
 	                        );
-	 
+	 console.log(column.header());
 	                        column
 	                            .search( val ? '^'+val+'$' : '', true, false )
 	                            .draw();
