@@ -230,7 +230,7 @@
 
 // datatables
 //------------------------------------------------------------
-	   $('#job-data-table').DataTable( {
+	   var table = $('#job-data-table').DataTable( {
 	        "paging": false,
 	        'columnDefs': [{
 				'targets': 0,
@@ -264,6 +264,13 @@
 	            } );
 	        }
 	    } );
+
+		// Handle click on "Select all" control
+		$('#select_all').on('click', function(){
+		  // Check/uncheck all checkboxes in the table
+		  var rows = table.rows({ 'search': 'applied' }).nodes();
+		  $('input[type="checkbox"]', rows).prop('checked', this.checked);
+		});
 
 	});
 </script>
@@ -417,7 +424,7 @@
 					    <table id="job-data-table" class="table table-hover table-condensed draggable table-bordered">
 					      <thead>
 					        <tr>
-					          <th></th>
+					          <th><input name="select_all" value="1" id="select_all" type="checkbox" /></th>
 					          <th>User</th>
 					          <th>Component ID</th>
 					          <th>Job ID</th>
