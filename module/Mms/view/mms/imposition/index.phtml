@@ -199,15 +199,17 @@
 		});
 
 		$('#job-data-table input:checkbox').on('change', function(){
-		    if($(this).is(":checked")) {
-		        $(this).parent().parent().addClass("selected");
-		        $(this).parent().parent().find('.user-selected').html(username);
-		        console.log('username= '+username);
-		    } else {
-		        $(this).parent().parent().removeClass("selected");
-				$(this).parent().parent().find('.user-selected').html('');
-		        console.log('username removed');
-		    }
+		    if(!$(this).hasClass('js-select-all')){
+			    if($(this).is(":checked")) {
+			        $(this).parent().parent().addClass("selected");
+			        $(this).parent().parent().find('.user-selected').html(username);
+			        console.log('username= '+username);
+			    } else {
+			        $(this).parent().parent().removeClass("selected");
+					$(this).parent().parent().find('.user-selected').html('');
+			        console.log('username removed');
+			    }
+			}
 		});
  
 
@@ -266,7 +268,7 @@
 	    } );
 
 		// Handle click on "Select all" control
-		$('#select_all').on('click', function(){
+		$('.js-select-all').on('click', function(){
 		  // Check/uncheck all checkboxes in the table
 		  var rows = table.rows({ 'search': 'applied' }).nodes();
 		  $('input[type="checkbox"]', rows).prop('checked', this.checked);
@@ -424,7 +426,7 @@
 					    <table id="job-data-table" class="table table-hover table-condensed draggable table-bordered">
 					      <thead>
 					        <tr>
-					          <th><input name="select_all" value="1" id="select_all" type="checkbox" /></th>
+					          <th><input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" /></th>
 					          <th>User</th>
 					          <th>Component ID</th>
 					          <th>Job ID</th>
