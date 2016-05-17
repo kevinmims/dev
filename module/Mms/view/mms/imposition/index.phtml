@@ -204,8 +204,32 @@
 		$('.btn-file :file').on('fileselect', function(event, numFiles, fileNames) {
 			console.log(numFiles);
 			console.log(fileNames);
-			$('#metrix-xml-files').val(numFiles+' files');
+			$('#metrix-xml-files').val(numFiles+' files selected');
 		});
+
+// datatables
+//------------------------------------------------------------
+		// Setup - add a text input to each footer cell
+	    $('#job-data-table thead th').each( function () {
+	        var title = $(this).text();
+	        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+	    } );
+	 
+	    // DataTable
+	    var table = $('#job-data-table').DataTable();
+	 
+	    // Apply the search
+	    table.columns().every( function () {
+	        var that = this;
+	 
+	        $( 'input', this.footer() ).on( 'keyup change', function () {
+	            if ( that.search() !== this.value ) {
+	                that
+	                    .search( this.value )
+	                    .draw();
+	            }
+	        } );
+	    } );
 
 
 	});
@@ -245,9 +269,10 @@
 
 	<div style="background: rgba(51, 122, 183, 0.2); padding: 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px" class="row">
         <div class="col-xs-12 dashboard-btns js-impo-stats btn-group btn-group-justified">
+			<a href="#" class="btn btn-default"><div class="icon">Same Day Jobs</div><div class="count">9 </div></a>
+			<a href="#" class="btn btn-default"><div class="icon">Approved Jobs</div><div class="count">9 </div></a>
 			<a href="#" class="btn btn-blue"><div class="icon">Total Jobs</div><div class="count">74 </div></a>
-      		<a href="#" class="btn btn-default"><div class="icon">Due Today</div><div class="count">9 </div></a>
-	        <a href="#" class="btn btn-default"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
+      		<a href="#" class="btn btn-default"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
 	        <a href="#" class="btn btn-default"><div class="icon">Metrix Errors</div><div class="count">0 </div></a>
 	        <a href="#" class="btn btn-default"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
         </div>
@@ -272,6 +297,30 @@
 							<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">
 								<i class="fa fa-plus"></i> Create XML
 							</button>
+						</div>
+
+						<div class="col-xs-3">
+							<div>Paper</div>
+							<div class="dropdown">
+								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
+									<div style="margin-right:20px">
+										<span class="js-name">Select</span>
+									</div>
+									<span class="caret"></span>
+								</a>
+								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
+									<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>
+									<li class="divider"></li>
+									<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>
+								</ul>
+							</div>
 						</div>
 
 						<div class="col-xs-3">
@@ -304,29 +353,7 @@
 							-->
 						</div>
 
-						<div class="col-xs-3">
-							<div>Paper</div>
-							<div class="dropdown">
-								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
-									<div style="margin-right:20px">
-										<span class="js-name">Select</span>
-									</div>
-									<span class="caret"></span>
-								</a>
-								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
-									<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>
-									<li class="divider"></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>
-								</ul>
-							</div>
-						</div>
+						
 
 						<div class="col-xs-3">
 							<div>Quantity</div>
@@ -361,7 +388,9 @@
 					          <th>User</th>
 					          <th>Component ID</th>
 					          <th>Job ID</th>
-					          <th>Est Ship</th>
+					          <th>Priority</th>
+					          <th>Gang By Date</th>
+					          <th>Due Date</th>
 					          <th>Qty</th>
 					          <th>Color</th>
 					          <th>Product #</th>
@@ -379,6 +408,8 @@
 					          <td class="user-selected"></td>
 					          <td>6n6q47m4qe</td>
 					          <td>a34ty32wert2</td>
+					          <td>A</td>
+					          <td>5/12/16</td>
 					          <td>5/15/16</td>
 					          <td>100</td>
 					          <td>4/4</td>
@@ -390,10 +421,10 @@
 					          <td>no</td>
 					          <td>
 					          	<b>Page Size</b>: <span class="Data">8.5"x5.5"</span>
-					          	<b class="Label">Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
-					          	<b class="Label">Binding Side</b>: <span class="Data">Left</span>
-					          	<b class="Label">Cover Stock</b>: <span class="Data">Same As Inside</span>
-					          	<b class="Label">Binding</b>: <span class="Data">Saddle Stitching</span>
+					          	<b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
+					          	<b>Binding Side</b>: <span class="Data">Left</span>
+					          	<b>Cover Stock</b>: <span class="Data">Same As Inside</span>
+					          	<b>Binding</b>: <span class="Data">Saddle Stitching</span>
 					          </td>
 					        </tr>
 					        <tr>
@@ -401,6 +432,8 @@
 					          <td class="user-selected"></td>
 					          <td>m6tdhh95wretas</td>
 					          <td>a34ty32wert2</td>
+					          <td>A</td>
+					          <td>5/12/16</td>
 					          <td>5/15/16</td>
 					          <td>100</td>
 					          <td>4/4</td>
@@ -412,10 +445,10 @@
 					          <td>no</td>
 					          <td>
 					          	<b>Page Size</b>: <span class="Data">8.5"x5.5"</span>
-					          	<b class="Label">Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
-					          	<b class="Label">Binding Side</b>: <span class="Data">Left</span>
-					          	<b class="Label">Cover Stock</b>: <span class="Data">Same As Inside</span>
-					          	<b class="Label">Binding</b>: <span class="Data">Saddle Stitching</span>
+					          	<b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
+					          	<b>Binding Side</b>: <span class="Data">Left</span>
+					          	<b>Cover Stock</b>: <span class="Data">Same As Inside</span>
+					          	<b>Binding</b>: <span class="Data">Saddle Stitching</span>
 					          </td>
 					        </tr>
 					        <tr>
@@ -423,6 +456,8 @@
 					          <td class="user-selected"></td>
 					          <td>gbs5354bsd</td>
 					          <td>unu76nrdd4</td>
+					          <td>B</td>
+					          <td>5/12/16</td>
 					          <td>5/15/16</td>
 					          <td>100</td>
 					          <td>4/4</td>
@@ -434,10 +469,10 @@
 					          <td>no</td>
 					          <td>
 					          	<b>Page Size</b>: <span class="Data">8.5"x5.5"</span>
-					          	<b class="Label">Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
-					          	<b class="Label">Binding Side</b>: <span class="Data">Left</span>
-					          	<b class="Label">Cover Stock</b>: <span class="Data">Same As Inside</span>
-					          	<b class="Label">Binding</b>: <span class="Data">Saddle Stitching</span>
+					          	<b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
+					          	<b>Binding Side</b>: <span class="Data">Left</span>
+					          	<b>Cover Stock</b>: <span class="Data">Same As Inside</span>
+					          	<b>Binding</b>: <span class="Data">Saddle Stitching</span>
 					          </td>
 					        </tr>
 					        <tr>
@@ -445,6 +480,8 @@
 					          <td class="user-selected"></td>
 					          <td>wm699n8bes</td>
 					          <td>unu76nrdd4</td>
+					          <td>A</td>
+					          <td>5/12/16</td>
 					          <td>5/15/16</td>
 					          <td>100</td>
 					          <td>4/4</td>
@@ -456,10 +493,10 @@
 					          <td>no</td>
 					          <td>
 					          	<b>Page Size</b>: <span class="Data">8.5"x5.5"</span>
-					          	<b class="Label">Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
-					          	<b class="Label">Binding Side</b>: <span class="Data">Left</span>
-					          	<b class="Label">Cover Stock</b>: <span class="Data">Same As Inside</span>
-					          	<b class="Label">Binding</b>: <span class="Data">Saddle Stitching</span>
+					          	<b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
+					          	<b>Binding Side</b>: <span class="Data">Left</span>
+					          	<b>Cover Stock</b>: <span class="Data">Same As Inside</span>
+					          	<b>Binding</b>: <span class="Data">Saddle Stitching</span>
 					          </td>
 					        </tr>
 					        <tr>
@@ -467,6 +504,8 @@
 					          <td class="user-selected"></td>
 					          <td>n346m36ertygs</td>
 					          <td>unu76nrdd4</td>
+					          <td>C</td>
+					          <td>5/12/16</td>
 					          <td>5/15/16</td>
 					          <td>100</td>
 					          <td>4/4</td>
@@ -478,10 +517,10 @@
 					          <td>no</td>
 					          <td>
 					          	<b>Page Size</b>: <span class="Data">8.5"x5.5"</span>
-					          	<b class="Label">Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
-					          	<b class="Label">Binding Side</b>: <span class="Data">Left</span>
-					          	<b class="Label">Cover Stock</b>: <span class="Data">Same As Inside</span>
-					          	<b class="Label">Binding</b>: <span class="Data">Saddle Stitching</span>
+					          	<b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
+					          	<b>Binding Side</b>: <span class="Data">Left</span>
+					          	<b>Cover Stock</b>: <span class="Data">Same As Inside</span>
+					          	<b>Binding</b>: <span class="Data">Saddle Stitching</span>
 					          </td>
 					        </tr>
 					        <tr>
@@ -489,6 +528,8 @@
 					          <td class="user-selected"></td>
 					          <td>nq36aterasae</td>
 					          <td>unu76nrdd4</td>
+					          <td>C</td>
+					          <td>5/12/16</td>
 					          <td>5/15/16</td>
 					          <td>100</td>
 					          <td>4/4</td>
@@ -500,10 +541,10 @@
 					          <td>no</td>
 					          <td>
 					          	<b>Page Size</b>: <span class="Data">8.5"x5.5"</span>
-					          	<b class="Label">Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
-					          	<b class="Label">Binding Side</b>: <span class="Data">Left</span>
-					          	<b class="Label">Cover Stock</b>: <span class="Data">Same As Inside</span>
-					          	<b class="Label">Binding</b>: <span class="Data">Saddle Stitching</span>
+					          	<b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span>
+					          	<b>Binding Side</b>: <span class="Data">Left</span>
+					          	<b>Cover Stock</b>: <span class="Data">Same As Inside</span>
+					          	<b>Binding</b>: <span class="Data">Saddle Stitching</span>
 					          </td>
 					        </tr>
 					      
