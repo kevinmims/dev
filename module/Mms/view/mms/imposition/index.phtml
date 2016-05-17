@@ -80,6 +80,12 @@
     #job-data-table tfoot th, #job-data-table tfoot td {
 	    border-bottom: 3px solid rgb(128, 128, 128);
 	}
+	#job-data-table td .filter {
+		background: rgb(255, 255, 255);
+	    border: medium none;
+	    border-radius: 3px;
+	    padding: 3px 2px;
+	}
 	
 </style>
 
@@ -229,7 +235,7 @@
 	            this.api().columns().every( function () {
 	                var column = this;
 
-	                var select = $('<select class="form-control"><option value=""></option></select>')
+	                var select = $('<select class="filter"><option value=""></option></select>')
 	                    .appendTo( $(column.footer()).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
