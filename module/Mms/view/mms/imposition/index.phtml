@@ -79,139 +79,6 @@
 		var username = "Kevin";
 
 
-		$('.js-refresh').on('click', function(){
-			var $elem = $(this).find('i');
-			$elem.addClass('fa-spin');
-			setTimeout(function(){
-		        $elem.removeClass('fa-spin');
-			}, 2000);	
-        });
-		$('.js-impo-stats.btn-group').on('click', '.btn', function() {
-			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
-		});
-
-		$(".dropdown-menu li a").click(function(){
-			$(this).closest('.dropdown').find('.btn.js-choice').html(
-				'<div style="margin-right:20px">' + $(this).html() + '</div><span class="caret"></span>');
-			//$(".btn:first-child").html($(this).text()+' &amp;amp;lt;span class="caret"&amp;amp;gt;&amp;amp;lt;/span&amp;amp;gt;');
-		});
-		
-		
-		
-
-		
-// enable horizontal drag scroll
-//--------------------------------------------------------------------------------------------
-/*	
-		var mouseNotInSortableElement = false,
-			drag_div = document.getElementById('sorted_imposition_table'),
-			space = window.innerHeight - drag_div.offsetTop ,
-			elem_height = $('#sorted_imposition_table').height();
-
-	
-	
-		$.fn.draggable = function(){
-			var lastPosition, position, difference;
-			$( $(this).selector ).on("mousedown mouseup mousemove",function(e){
-				if($("#sorted_imposition_table").hasClass('no-drag')){
-					//console.log('has class');
-					e.preventDefault();
-				} else {
-					if ( e.type == "mousedown" ) { mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
-					if ( e.type == "mouseup" ) { mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
-					if ( e.type == "mousemove" && mouseNotInSortableElement == true ){
-						$(this).css("cursor", 'grabbing');
-						position = [e.clientX, e.clientY];
-						difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
-						$(this).scrollLeft( $(this).scrollLeft() - difference[0] );
-						//$(this).scrollTop( $(this).scrollTop() - difference[1] );
-						lastPosition = [e.clientX, e.clientY];
-					}
-				}
-				//console.log('done');
-			});
-			$(window).on("mouseup", function(){
-				mouseNotInSortableElement = false;
-			});
-		}
-
-		$("#sorted_imposition_table").draggable();
-*/
-		
-// set the height to screen height
-//--------------------------------------------------------------------------------------------
-		
-		function resize(){
-			var space = window.innerHeight - drag_div.offsetTop;
-			//$(drag_div).css("min-height", space - 55);
-			//$(drag_div).css("height", space - 55); 
-		}
-		
-		var delay = (function(){
-			var timer = 0;
-			return function(callback, ms){
-				clearTimeout (timer);
-				timer = setTimeout(callback, ms);
-			};
-		})();
-
-		//resize();
-
-		$(window).resize(function() {
-			delay(function(){
-				// callback
-				//resize();
-			}, 500);
-		});
-
-// multi select
-//--------------------------------------------------------------------------------------------
-			
-		$('.finish-select').selectpicker({
-		  width: '100%',
-		  style: 'btn-default',
-		  tickIcon: '',
-		  showTick: false
-		});
-
-		
-// file upload
-//--------------------------------------------------------------------------------------------
-			
-		$('#file-upload-modal').on('shown.bs.modal', function () {
-			$('#imposition-file-upload-name').focus()
-		});
-
-/*		$('#job-data-table input:checkbox').on('change', function(){
-		    if($(this).is(":checked")) {
-		        $(this).parent().parent().addClass("selected");
-		        $(this).parent().parent().find('.user-selected').html(username);
-		        console.log('username= '+username);
-		    } else {
-		        $(this).parent().parent().removeClass("selected");
-				$(this).parent().parent().find('.user-selected').html('');
-		        console.log('username removed');
-		    }
-		});
- */
-
-// file change
-//---------------------------------------------------------------------------
-
-	    $(document).on('change', '.btn-file :file', function() {
-	        var input = $(this),
-	            numFiles = input.get(0).files ? input.get(0).files.length : 1,
-	            files = $(this).prop("files"),
-	            fileNames = $.map(files, function(val) { return val.name; });
-	        input.trigger('fileselect', [numFiles, fileNames]);
-	    });
-
-		$('.btn-file :file').on('fileselect', function(event, numFiles, fileNames) {
-			console.log(numFiles);
-			console.log(fileNames);
-			$('#metrix-xml-files').val(numFiles+' files selected');
-		});
-
 // datatables
 //------------------------------------------------------------
 		// Setup - add a text input to each footer cell
@@ -221,7 +88,9 @@
 	    } );
 	 
 	    // DataTable
-	    var table = $('#job-data-table').DataTable();
+	    var table = $('#job-data-table').DataTable({
+	    	"paging":   false,
+	    });
 	 
 	    // Apply the search
 	    table.columns().every( function () {
