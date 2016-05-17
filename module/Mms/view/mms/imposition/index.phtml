@@ -181,11 +181,11 @@
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if($(this).is(":checked")) {
 		        $(this).parent().parent().addClass("selected");
-		        $(this).closest('.user-selected').html(username);
+		        $(this).parent().parent().find('.user-selected').html(username);
 		        console.log('username= '+username);
 		    } else {
 		        $(this).parent().parent().removeClass("selected");
-				$(this).closest('.user-selected').html('');
+				$(this).parent().parent().find('.user-selected').html('');
 		        console.log('username removed');
 		    }
 		});
@@ -396,7 +396,7 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td><input type="checkbox" ></td>
 					          <td class="user-selected"></td>
 					          <td>m6tdhh95wretas</td>
 					          <td>a34ty32wert2</td>
@@ -418,7 +418,7 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td><input type="checkbox"></td>
 					          <td class="user-selected"></td>
 					          <td>gbs5354bsd</td>
 					          <td>unu76nrdd4</td>
@@ -440,7 +440,7 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td><input type="checkbox" ></td>
 					          <td class="user-selected"></td>
 					          <td>wm699n8bes</td>
 					          <td>unu76nrdd4</td>
@@ -462,7 +462,7 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td><input type="checkbox"></td>
 					          <td class="user-selected"></td>
 					          <td>n346m36ertygs</td>
 					          <td>unu76nrdd4</td>
@@ -484,7 +484,7 @@
 					          </td>
 					        </tr>
 					        <tr>
-					          <td><input type="checkbox" checked class="disabled"></td>
+					          <td><input type="checkbox"></td>
 					          <td class="user-selected"></td>
 					          <td>nq36aterasae</td>
 					          <td>unu76nrdd4</td>
