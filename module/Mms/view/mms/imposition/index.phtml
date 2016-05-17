@@ -236,15 +236,6 @@
 				}
 			}],
 			'order': [3, 'asc'],
-			'buttons': [ {
-			    extend: 'collection',
-			    text: 'Select Columns',
-			    buttons: [ {
-			        extend: 'columnsToggle',
-			        columns: ':not([data-visible="false"])'
-			    } ],
-			    className: 'btn btn-primary btn-sm m-5 width-140 assets-select-btn toolbox-delete-selected'
-			}],
 			initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
@@ -268,7 +259,24 @@
 	        }
 	    } );
 
-		
+		// for each column in header add a togglevis button in the div
+		$("#example thead th").each( function ( i ) {
+			var name = table.column( i ).header();
+			var spanelt = document.createElement( "button" );
+			spanelt.innerHTML = name.innerHTML;						
+			
+			$(spanelt).addClass("colvistoggle");
+			$(spanelt).attr("colidx",i);		// store the column idx on the button
+			
+			$(spanelt).on( 'click', function (e) {
+				e.preventDefault(); 
+				// Get the column API object
+				var column = table.column( $(this).attr('colidx') );
+				 // Toggle the visibility
+				column.visible( ! column.visible() );
+			});
+			$("#colvis").append($(spanelt));
+		});
 
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
@@ -497,6 +505,7 @@
 					<hr>
 
 					<div class="table-responsive" id="sorted_imposition_table" style="">
+					    <div class="colvis"></div>
 					    <table id="job-data-table" class="table table-hover table-condensed draggable table-bordered">
 					      <thead>
 					        <tr>
