@@ -181,11 +181,11 @@
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if($(this).is(":checked")) {
 		        $(this).parent().parent().addClass("selected");
-		        $(this).closest('.user').html(username);
+		        $(this).closest('.user-selected').html(username);
 		        console.log('username= '+username);
 		    } else {
 		        $(this).parent().parent().removeClass("selected");
-				$(this).closest('.user').html('');
+				$(this).closest('.user-selected').html('');
 		        console.log('username removed');
 		    }
 		});
