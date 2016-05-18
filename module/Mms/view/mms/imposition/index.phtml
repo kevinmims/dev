@@ -265,12 +265,13 @@
 	            }
 	        ],
 			'order': [3, 'asc'],
+			"orderCellsTop": true, // use the top header row for sorting
 			initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
 
 	                var select = $('<select class="filter"><option value=""></option></select>')
-	                    .appendTo( $(column.caption()).empty() )
+	                    .appendTo( $(column.header('.filter')).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
@@ -538,10 +539,7 @@
 					          <th>Custom</th>
 					          <th>Binding</th>
 					        </tr>
-					      </thead>
-					      
-					      <caption>
-					      	<tr>
+					      	<tr class="filter">
 					          <th></th>
 					          <th></th>
 					          <th></th>
@@ -560,7 +558,7 @@
 					          <th></th>
 					          <th></th>
 					        </tr>
-					      </caption>
+					      </thead>
 
 					      <tbody>
 					        <tr>
