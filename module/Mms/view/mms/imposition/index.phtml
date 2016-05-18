@@ -197,7 +197,7 @@
 	$('.js-create-xml').on('click', function(){
 		alert( table.rows('.selected').data().length +' row(s) selected' );
 		table.rows('.selected').remove().draw();
-		table.api().columns().every( function () {
+		table.columns().every( function () {
             var column = this;
 
             var select = $('<select class="filter"><option value=""></option></select>')
