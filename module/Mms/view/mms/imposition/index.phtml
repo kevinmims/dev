@@ -106,7 +106,7 @@
 		$('.js-impo-stats.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
 			if ( $('#sub-dashboard').is(':visible') ){
-				$("#sub-dashboard").slideToggle("slow");
+				$("#sub-dashboard").slideUp("slow");
 				$('#sub-dashboard').html('');
 				$('#sub-dashboard').html('test');
 				$("#sub-dashboard").slideToggle("slow");
