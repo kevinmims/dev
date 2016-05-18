@@ -135,15 +135,14 @@
 				'</div>';
 
 			//if ( $('#sub-dashboard').is(':visible') ){
-				$('.js-submenu-left-menu-wrapper').remove();
+				$('.js-submenu-left-menu-wrapper').fadeOut();
 				$('#sub-dashboard').slideUp('slow', function(){
-					$('#sub-dashboard').html('');
-					$('#sub-dashboard').html(template);
+					$('#sub-dashboard').empty().html(template);
 					
 				});
 				
 				$("#sub-dashboard").slideToggle("slow", function(){
-					$('.js-submenu-left-menu-wrapper').show();
+					$('.js-submenu-left-menu-wrapper').fadeIn();
 					$('#chart').highcharts(chartOptions);
 				});
 
