@@ -271,7 +271,7 @@
 	                var column = this;
 
 	                var select = $('<select class="filter"><option value=""></option></select>')
-	                    .appendTo( $(column.header('.filter')).empty() )
+	                    .appendTo( $(column.header()).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
