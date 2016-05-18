@@ -155,8 +155,7 @@
 
 		});
 
-		$('.js-toggle-sub-menu').on('click', function(){
-			console.log('clicked');
+		$(document).on('click', '.js-toggle-sub-menu', function(){ 
 			$("#sub-dashboard").slideToggle("slow");
 		})
 
