@@ -245,7 +245,7 @@
 
 	   var table = $('#job-data-table').DataTable( {
 	        "paging": false,
-	        "scrollY": "500px",
+	        //"scrollY": "500px",
 	        'columnDefs': [{
 				'targets': 0,
 				'searchable':false,
@@ -255,7 +255,7 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: 'frtip',
+			dom: '<toolbar>frtip',
 			//'buttons': [
 	        //    {
 	        //        text: '<i class="fa fa-plus"></i> Create XML',
@@ -291,7 +291,7 @@ console.log($(column.header()));
 	        }
 	    } );
 
-		
+		$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
