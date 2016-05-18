@@ -257,10 +257,10 @@
 			dom: 'Bfrtip',
 			'buttons': [
 	            {
-	                text: 'My button',
+	                text: '<i class="fa fa-plus"></i> Create XML',
 	                className: 'btn btn-default',
 	                action: function ( e, dt, node, config ) {
-	                    alert( 'Button activated' );
+	                    alert( 'Create XML from selected rows & remove rows from job list' );
 	                }
 	            }
 	        ],
@@ -270,7 +270,7 @@
 	                var column = this;
 
 	                var select = $('<select class="filter"><option value=""></option></select>')
-	                    .appendTo( $(column.footer()).empty() )
+	                    .appendTo( $(column.caption()).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
@@ -540,7 +540,7 @@
 					        </tr>
 					      </thead>
 					      
-					      <tfoot>
+					      <caption>
 					      	<tr>
 					          <th></th>
 					          <th></th>
@@ -560,7 +560,7 @@
 					          <th></th>
 					          <th></th>
 					        </tr>
-					      </tfoot>
+					      </caption>
 
 					      <tbody>
 					        <tr>
