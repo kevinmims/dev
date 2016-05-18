@@ -238,16 +238,16 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: '<"toolbar">frtip',
-			//'buttons': [
-	        //    {
-	        //        text: '<i class="fa fa-plus"></i> Create XML',
-	        //        className: 'btn btn-default',
-	        //        action: function ( e, dt, node, config ) {
-	        //            alert( 'Create XML from selected rows & remove rows from job list' );
-	        //        }
-	        //    }
-	        //],
+			dom: '<"toolbar"Bf>rtip',
+			'buttons': [
+	            {
+	                text: '<i class="fa fa-plus"></i> Create XML',
+	                className: 'btn btn-default js-create-xml',
+	                action: function ( e, dt, node, config ) {
+	                    alert( 'Create XML from selected rows & remove rows from job list' );
+	                }
+	            }
+	        ],
 			'order': [3, 'asc'],
 			"orderCellsTop": false, // use the top header row for sorting
 			initComplete: function () {
@@ -273,10 +273,11 @@
 	        }
 	    } );
 
-		$("div.toolbar").html('<button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
-								'<i class="fa fa-plus"></i> Create XML'+
-							'</button>'+
-							'<div>Paper Finish</div>');
+		//$("div.toolbar").html('<button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
+		//						'<i class="fa fa-plus"></i> Create XML'+
+		//					'</button>'+
+		//					'<div>Paper Finish</div>');
+		
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
