@@ -271,9 +271,9 @@
 	    } );
 
 		$("thead tr.filter th").each(function (i) { 
-	        this.innerHTML = fnCreateSelect(oTable.fnGetColumnData(i)) + this.innerHTML;
+	        this.innerHTML = fnCreateSelect(table.fnGetColumnData(i)) + this.innerHTML;
 	        $('select', this).change(function () {
-	            oTable.fnFilter( $(this).val(), i );
+	            table.fnFilter( $(this).val(), i );
 	        });
 	    });
 
