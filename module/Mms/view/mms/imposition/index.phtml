@@ -105,7 +105,8 @@
         });
 		$('.js-impo-stats.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
-			var template = '<div class="row">'+
+			var template = '<div><a class="btn btn-primary" style="position: absolute;margin-left:-75px;z-index:99;border-radius:0px;margin-top:-15px;padding:0px 20px;font-size:30px;"><i class="fa fa-angle-up"></i></a></div>'+
+			'<div class="row">'+
 					'<div class="col-sm-3">'+
 						'<label>Quantities</label>'+
 						'<div class="list-group">'+
