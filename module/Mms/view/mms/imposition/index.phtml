@@ -238,7 +238,9 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: '<"toolbar"B>rtip',
+			dom: '<"toolbar">rtip',
+			/*
+			// add 'B' to the dom element above to show
 			'buttons': [
 	            {
 	                text: '<i class="fa fa-plus"></i> Create XML',
@@ -248,6 +250,7 @@
 	                }
 	            }
 	        ],
+	        */
 			'order': [3, 'asc'],
 			"orderCellsTop": false, // use the top header row for sorting
 			initComplete: function () {
@@ -273,10 +276,11 @@
 	        }
 	    } );
 
-		$("div.toolbar").html('<button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
+/*
+		$("div.toolbar").html('<div class="row"><div class="col-sm-3"><button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
 								'<i class="fa fa-plus"></i> Create XML'+
-							'</button>'+
-							'<div class="dropdown">'+
+							'</button></div>'+
+							'<div class="dropdown col-sm-3">'+
 								'<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">'+
 									'<div style="margin-right:20px">'+
 										'<span class="js-name">Select</span>'+
@@ -295,10 +299,12 @@
 									'<li class="divider"></li>'+
 									'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
 								'</ul>'+
+							'</div>'+
 							'</div>'
 
 						);
-		
+*/
+
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
@@ -444,8 +450,9 @@
 							</button>
 						</div>
 
+						
 						<div class="col-xs-3">
-							<div>Paper Imposition</div>
+							<div>Pre-set Filters</div>
 							<div class="dropdown">
 								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
 									<div style="margin-right:20px">
@@ -477,53 +484,9 @@
 							    <option title="UV Backside Only" data-content="<span class='badge pull-right'>56</span>UV Backside Only">UV Backside Only</option>
 							    <option title="UV Both Sides" data-content="<span class='badge pull-right'>12</span>UV Both Sides">UV Both Sides</option>
 							</select>
-
-<!--
-							<div class="dropdown">
-								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
-									<div style="margin-right:20px">
-										<span class="js-name">Select</span>
-									</div>
-									<span class="caret"></span>
-								</a>
-								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
-									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">Gloss Aqueous</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">Matte Aqueous</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">UV Frontside Only</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">UV Backside Only</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">UV Both Sides</span></a></li>
-									
-								</ul>
-							</div>
-							-->
-						</div>
-
-						
-
-						<div class="col-xs-3">
-							<div>Quantity</div>
-							<div class="dropdown">
-								<a id="dLabel" class="btn btn-default btn-block js-choice" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-									<div style="margin-right:20px">
-										<span class="js-name">Select</span>
-									</div>
-									<span class="caret"></span>
-								</a>
-
-								<ul style="width:100%;" class="dropdown-menu" aria-labelledby="dLabel">
-									<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">10 | 4 | $30.00</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">74</span><span class="js-name">250 | 6 | $461.50</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">34</span><span class="js-name">500 | 1 | $17.00</span></a></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">144</span><span class="js-name">4000 | 1 | $131.00</span></a></li>
-									<li class="divider"></li>
-									<li><a class="btn text-left"><span class="badge pull-right js-count">285</span><span class="js-name">All Quantity</span></a></li>
-								</ul>
-							</div>
 						</div>
 					</div>			
   
-  
-					<hr>
 
 					<div class="table-responsive" id="sorted_imposition_table" style="">
 					    <div class="colvis"></div>
