@@ -254,16 +254,16 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: 'Bfrtip',
-			'buttons': [
-	            {
-	                text: '<i class="fa fa-plus"></i> Create XML',
-	                className: 'btn btn-default',
-	                action: function ( e, dt, node, config ) {
-	                    alert( 'Create XML from selected rows & remove rows from job list' );
-	                }
-	            }
-	        ],
+			dom: '<toolbar>Bfrtip',
+			//'buttons': [
+	        //    {
+	        //        text: '<i class="fa fa-plus"></i> Create XML',
+	        //        className: 'btn btn-default',
+	        //        action: function ( e, dt, node, config ) {
+	        //            alert( 'Create XML from selected rows & remove rows from job list' );
+	        //        }
+	        //    }
+	        //],
 			'order': [3, 'asc'],
 			"orderCellsTop": false, // use the top header row for sorting
 			initComplete: function () {
@@ -289,7 +289,7 @@
 	        }
 	    } );
 
-		
+		$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
