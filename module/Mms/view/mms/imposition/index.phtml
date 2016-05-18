@@ -554,13 +554,15 @@ var chartOptions = {
 						<div class="col-xs-3">
 							<div>Pre-set Filters</div>
 							<div class="dropdown">
-								<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">
+								<div class="input-group">
+									<a id="pre-set-filters"  class="btn btn-default btn-block form-control js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
 									<div style="margin-right:20px">
 										<span class="js-name">Select</span>
 									</div>
 									<span class="caret"></span>
 								</a>
-								<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">
+								<span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button></span>
+								<ul aria-labelledby="pre-set-filters" class="dropdown-menu" style="width:100%;">
 									<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>
 									<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>
 									<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>
