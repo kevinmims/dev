@@ -196,8 +196,7 @@
 //--------------------------------------------------------------------------------------------
 	$('.js-create-xml').on('click', function(){
 		alert( table.rows('.selected').data().length +' row(s) selected' );
-		var anSelected = fnGetSelected( table );
-    	$(anSelected).remove();
+		table.rows('.selected').remove();
 	});
 
 // file upload
