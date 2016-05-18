@@ -85,6 +85,7 @@
 	    border: medium none;
 	    border-radius: 3px;
 	    padding: 3px 2px;
+	    color:black;
 	}
 	
 </style>
@@ -265,7 +266,7 @@
 	        //    }
 	        //],
 			'order': [3, 'asc'],
-			"orderCellsTop": false, // use the top header row for sorting
+			"orderCellsTop": true, // use the top header row for sorting
 			initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
