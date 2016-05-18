@@ -226,6 +226,7 @@
 //------------------------------------------------------------
 	   var table = $('#job-data-table').DataTable( {
 	        "paging": false,
+	        "scrollY": "500px",
 	        'columnDefs': [{
 				'targets': 0,
 				'searchable':false,
@@ -243,16 +244,7 @@
 	                action: function ( e, dt, node, config ) {
 	                    alert( 'Button activated' );
 	                }
-	            },
-	            {
-		            extend: 'collection',
-		            text: 'Select Columns',
-		            buttons: [ {
-		                extend: 'columnsToggle',
-		                columns: ':not([data-visible="false"])'
-		            } ],
-		            className: 'btn btn-primary btn-sm m-5 width-140 assets-select-btn toolbox-delete-selected'
-		        }
+	            }
 	        ],
 			'order': [3, 'asc'],
 			initComplete: function () {
