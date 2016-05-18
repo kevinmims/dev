@@ -105,6 +105,8 @@
         });
 		$('.js-impo-stats.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
+			$("#sub-dashboard").slideDown("slow");
+
 		});
 
 		$(".dropdown-menu li a").click(function(){
@@ -463,12 +465,13 @@ $('#chart').highcharts({
 	        <a href="#" class="btn btn-default"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
         </div>
         <div class="col-xs-12 ">
-			<div style="background:rgb(51, 122, 183);color:white;padding:15px;">
+			<div id="sub-dashboard" style="display:none; background:rgb(51, 122, 183);color:white;padding:15px;">
 				<div class="row">
 					<div class="col-sm-3">
 						<label>Quantities</label>
 						<div class="list-group">
 							<button class="list-group-item" type="button">Total Same Day's <span class="badge pull-right">34</span></button>
+							<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>
 							<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>
 						</div>
 					</div>
