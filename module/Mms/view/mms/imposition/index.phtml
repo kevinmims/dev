@@ -255,7 +255,7 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: '<toolbar>frtip',
+			dom: 'frtip',
 			//'buttons': [
 	        //    {
 	        //        text: '<i class="fa fa-plus"></i> Create XML',
@@ -291,7 +291,7 @@ console.log($(column.header()));
 	        }
 	    } );
 
-		$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+		
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
