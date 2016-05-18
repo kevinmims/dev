@@ -238,13 +238,13 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: '<"toolbar"Bf>rtip',
+			dom: '<"toolbar"B>rtip',
 			'buttons': [
 	            {
 	                text: '<i class="fa fa-plus"></i> Create XML',
 	                className: 'btn btn-default js-create-xml',
 	                action: function ( e, dt, node, config ) {
-	                    alert( 'Create XML from selected rows & remove rows from job list' );
+	                    alert( table.rows('.selected').data().length +' row(s) selected' );
 	                }
 	            }
 	        ],
