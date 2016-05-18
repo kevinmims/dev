@@ -290,7 +290,9 @@
 	        }
 	    } );
 
-		$("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+		$("div.toolbar").html('<button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
+								'<i class="fa fa-plus"></i> Create XML'+
+							'</button>');
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
