@@ -196,7 +196,7 @@
 //--------------------------------------------------------------------------------------------
 	$('.js-create-xml').on('click', function(){
 		alert( table.rows('.selected').data().length +' row(s) selected' );
-		table.rows('.selected').remove().draw();
+		table.rows('.selected').remove();
 		table.columns().every( function () {
             var column = this;
 
@@ -216,7 +216,7 @@
                 select.append( '<option value="'+d+'">'+d+'</option>' )
             } );
         } );
-
+		table.draw();
 	});
 
 // file upload
