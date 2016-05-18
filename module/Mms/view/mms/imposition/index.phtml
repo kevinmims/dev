@@ -105,17 +105,38 @@
         });
 		$('.js-impo-stats.btn-group').on('click', '.btn', function() {
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
-			if ( $('#sub-dashboard').is(':visible') ){
+			var template = '<div class="row">'+
+					'<div class="col-sm-3">'+
+						'<label>Quantities</label>'+
+						'<div class="list-group">'+
+							'<button class="list-group-item" type="button">Total Same Days <span class="badge pull-right">34</span></button>'+
+							'<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>'+
+							'<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>'+
+						'</div>'+
+					'</div>'+
+					'<div class="col-sm-3">paper stats</div>'+
+					'<div class="col-sm-3">finish stats</div>'+
+					'<div class="col-sm-3">'+
+						'<div id="chart"></div>'+
+					'</div>'+
+				'</div>';
+
+			//if ( $('#sub-dashboard').is(':visible') ){
 				$("#sub-dashboard").slideUp("slow", function(){
 					$('#sub-dashboard').html('');
-					$('#sub-dashboard').html('test');
+					$('#sub-dashboard').html(template);
+					
 				});
 				
-				$("#sub-dashboard").slideToggle("slow");
-			} else {
-				$("#sub-dashboard").slideToggle("slow");
+				$("#sub-dashboard").slideToggle("slow", function(){
 
-			}
+					$('#chart').highcharts(chartOptions);
+				});
+
+			//} else {
+			//	$("#sub-dashboard").slideToggle("slow");
+
+			//}
 			
 			
 
@@ -359,7 +380,11 @@
 
 // highchart
 // ------------------------------------------------------------------------------
-$('#chart').highcharts({
+var chartOptions = {
+        //chart:{
+        //    renderTo:'chart',
+        //    type:'line'
+        //},
         title: {
             text: 'Same Day Jobs',
             x: -20 //center
@@ -374,7 +399,7 @@ $('#chart').highcharts({
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Qty'
             },
             plotLines: [{
                 value: 0,
@@ -383,7 +408,7 @@ $('#chart').highcharts({
             }]
         },
         tooltip: {
-            valueSuffix: '°C'
+            //valueSuffix: '#'
         },
         legend: {
             layout: 'vertical',
@@ -401,7 +426,7 @@ $('#chart').highcharts({
             name: 'Remaining',
             data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 48, 41, 43, 42, 35, 29, 23, 22, 11, 6, 0,0, 0, 0, 0]
         }]
-    });
+    };
 		
 
 
@@ -469,7 +494,7 @@ $('#chart').highcharts({
 
 	<div style="background: rgba(51, 122, 183, 0.2); padding: 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px" class="row">
         <div class="col-xs-12 dashboard-btns js-impo-stats btn-group btn-group-justified">
-			<a href="#" class="btn btn-blue"><div class="icon">Same Day Jobs</div><div class="count">9 </div></a>
+			<a href="#" class="btn btn-default"><div class="icon">Same Day Jobs</div><div class="count">9 </div></a>
 			<a href="#" class="btn btn-default"><div class="icon">Approved Jobs</div><div class="count">65 </div></a>
 			<a href="#" class="btn btn-default"><div class="icon">Total Jobs</div><div class="count">124 </div></a>
       		<a href="#" class="btn btn-default"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
@@ -478,21 +503,7 @@ $('#chart').highcharts({
         </div>
         <div class="col-xs-12 ">
 			<div id="sub-dashboard" style="display:none; background:rgb(51, 122, 183);color:white;padding:15px;">
-				<div class="row">
-					<div class="col-sm-3">
-						<label>Quantities</label>
-						<div class="list-group">
-							<button class="list-group-item" type="button">Total Same Day's <span class="badge pull-right">34</span></button>
-							<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>
-							<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>
-						</div>
-					</div>
-					<div class="col-sm-3">paper stats</div>
-					<div class="col-sm-3">finish stats</div>
-					<div class="col-sm-3">
-						<div id="chart"></div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
