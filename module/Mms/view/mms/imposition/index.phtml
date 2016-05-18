@@ -236,7 +236,7 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
-			dom: 'Bfrtip',
+			dom: 'BfrHFtip',
 			'buttons': [
 	            {
 	                text: 'My button',
@@ -252,8 +252,7 @@
 	                var column = this;
 
 	                var select = $('<select class="filter"><option value=""></option></select>')
-	                    //.appendTo( $(column.footer()).empty() )
-	                    .appendTo( $("div.filter tr th").empty() )
+	                    .appendTo( $(column.footer()).empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
