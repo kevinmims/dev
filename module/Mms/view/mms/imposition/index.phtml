@@ -252,7 +252,7 @@
 	                var column = this;
 
 	                var select = $('<select class="filter"><option value=""></option></select>')
-	                    .appendTo( $(column.footer()).empty() )
+	                    .appendTo( $("thead tr.filter th").empty() )
 	                    .on( 'change', function () {
 	                        var val = $.fn.dataTable.util.escapeRegex(
 	                            $(this).val()
@@ -270,13 +270,7 @@
 	        }
 	    } );
 
-		$("thead tr.filter th").each(function (i) { 
-	        this.innerHTML = fnCreateSelect(table.fnGetColumnData(i)) + this.innerHTML;
-	        $('select', this).change(function () {
-	            table.fnFilter( $(this).val(), i );
-	        });
-	    });
-
+		
 		// handle checkbox click
 		$('#job-data-table input:checkbox').on('change', function(){
 		    if(!$(this).hasClass('js-select-all')){
