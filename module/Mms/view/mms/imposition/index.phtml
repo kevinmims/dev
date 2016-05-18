@@ -235,6 +235,14 @@
 					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
 				}
 			}],
+			'buttons': [
+	            {
+	                text: 'My button',
+	                action: function ( e, dt, node, config ) {
+	                    alert( 'Button activated' );
+	                }
+	            }
+	        ],
 			'order': [3, 'asc'],
 			initComplete: function () {
 	            this.api().columns().every( function () {
