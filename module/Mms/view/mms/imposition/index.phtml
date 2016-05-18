@@ -270,6 +270,7 @@
 			initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
+console.log($(column.header()));
 
 	                var select = $('<select class="filter"><option value=""></option></select>')
 	                    .appendTo( $(column.header()).empty() )
