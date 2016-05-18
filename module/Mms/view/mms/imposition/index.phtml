@@ -135,14 +135,13 @@
 				'</div>';
 
 			//if ( $('#sub-dashboard').is(':visible') ){
-				$('.js-submenu-left-menu-wrapper').fadeOut();
+				$('.js-submenu-left-menu-wrapper').remove();
 				$('#sub-dashboard').slideUp('slow', function(){
 					$('#sub-dashboard').empty().html(template);
-					
 				});
 				
 				$("#sub-dashboard").slideToggle("slow", function(){
-					$('.js-submenu-left-menu-wrapper').fadeIn();
+					$('.js-submenu-left-menu-wrapper').show();
 					$('#chart').highcharts(chartOptions);
 				});
 
