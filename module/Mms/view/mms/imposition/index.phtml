@@ -197,7 +197,26 @@
 	$('.js-create-xml').on('click', function(){
 		alert( table.rows('.selected').data().length +' row(s) selected' );
 		table.rows('.selected').remove().draw();
-		table.fnResetAllFilters();
+		table.api().columns().every( function () {
+            var column = this;
+
+            var select = $('<select class="filter"><option value=""></option></select>')
+                .appendTo( $(column.footer()).empty() )
+                .on( 'change', function () {
+                    var val = $.fn.dataTable.util.escapeRegex(
+                        $(this).val()
+                    );
+
+                    column
+                        .search( val ? '^'+val+'$' : '', true, false )
+                        .draw();
+                } );
+
+            column.data().unique().sort().each( function ( d, j ) {
+                select.append( '<option value="'+d+'">'+d+'</option>' )
+            } );
+        } );
+
 	});
 
 // file upload
@@ -227,18 +246,7 @@
 
 // datatables
 //------------------------------------------------------------
-		$.fn.dataTableExt.oApi.fnResetAllFilters = function (oSettings, bDraw) {
-			for(iCol = 0; iCol < oSettings.aoPreSearchCols.length; iCol++) {
-				oSettings.aoPreSearchCols[ iCol ].sSearch = '';
-			}
-			
-			$('.filter-term').remove();
-			oSettings.oPreviousSearch.sSearch = '';
-			if(typeof bDraw === 'undefined') bDraw = true;
-			if(bDraw) this.fnDraw();
-			
-		}
-
+		
 	   var table = $('#job-data-table').DataTable( {
 	        "paging": false,
 	        //"scrollY": "500px",
@@ -287,7 +295,7 @@
 	                } );
 	            } );
 	        }
-	    } ).fnResetAllFilters();
+	    } );
 
 /*
 		$("div.toolbar").html('<div class="row"><div class="col-sm-3"><button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
