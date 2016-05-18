@@ -266,7 +266,7 @@
 	        //    }
 	        //],
 			'order': [3, 'asc'],
-			"orderCellsTop": true, // use the top header row for sorting
+			"orderCellsTop": false, // use the top header row for sorting
 			initComplete: function () {
 	            this.api().columns().every( function () {
 	                var column = this;
@@ -524,41 +524,41 @@ console.log($(column.header()));
 					      <thead>
 					        <tr>
 					          <th><input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" /></th>
-					          <th>User</th>
-					          <th>Component ID</th>
-					          <th>Job ID</th>
-					          <th>Priority</th>
-					          <th>Gang By</th>
-					          <th>Due Date</th>
-					          <th>Product</th>
-					          <th>Paper Type</th>
-					          <th>Color</th>
-					          <th>Qty</th>
-					          <th>Size</th>
-					          <th>Total</th>
-					          <th>Front Finish</th>
-					          <th>Back Finish</th>
-					          <th>Custom</th>
-					          <th>Binding</th>
+					          <th class="sorting">User</th>
+					          <th class="sorting">Component ID</th>
+					          <th class="sorting">Job ID</th>
+					          <th class="sorting">Priority</th>
+					          <th class="sorting">Gang By</th>
+					          <th class="sorting">Due Date</th>
+					          <th class="sorting">Product</th>
+					          <th class="sorting">Paper Type</th>
+					          <th class="sorting">Color</th>
+					          <th class="sorting">Qty</th>
+					          <th class="sorting">Size</th>
+					          <th class="sorting">Total</th>
+					          <th class="sorting">Front Finish</th>
+					          <th class="sorting">Back Finish</th>
+					          <th class="sorting">Custom</th>
+					          <th class="sorting">Binding</th>
 					        </tr>
 					      	<tr class="filter">
-					          <th></th>
-					          <th>User</th>
-					          <th>Component ID</th>
-					          <th>Job ID</th>
-					          <th>Priority</th>
-					          <th>Gang By</th>
-					          <th>Due Date</th>
-					          <th>Product</th>
-					          <th>Paper Type</th>
-					          <th>Color</th>
-					          <th>Qty</th>
-					          <th>Size</th>
-					          <th>Total</th>
-					          <th>Front Finish</th>
-					          <th>Back Finish</th>
-					          <th>Custom</th>
-					          <th>Binding</th>
+					          <th class="sorting_disabled"></th>
+					          <th class="sorting_disabled">User</th>
+					          <th class="sorting_disabled">Component ID</th>
+					          <th class="sorting_disabled">Job ID</th>
+					          <th class="sorting_disabled">Priority</th>
+					          <th class="sorting_disabled">Gang By</th>
+					          <th class="sorting_disabled">Due Date</th>
+					          <th class="sorting_disabled">Product</th>
+					          <th class="sorting_disabled">Paper Type</th>
+					          <th class="sorting_disabled">Color</th>
+					          <th class="sorting_disabled">Qty</th>
+					          <th class="sorting_disabled">Size</th>
+					          <th class="sorting_disabled">Total</th>
+					          <th class="sorting_disabled">Front Finish</th>
+					          <th class="sorting_disabled">Back Finish</th>
+					          <th class="sorting_disabled">Custom</th>
+					          <th class="sorting_disabled">Binding</th>
 					        </tr>
 					      </thead>
 
