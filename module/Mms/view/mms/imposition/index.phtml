@@ -227,7 +227,7 @@
 
 // datatables
 //------------------------------------------------------------
-		$.fn.dataTableExt.oApi.fnResetAllFilters = function (oSettings, bDraw/default true/) {
+		$.fn.dataTableExt.oApi.fnResetAllFilters = function (oSettings, bDraw) {
 			for(iCol = 0; iCol < oSettings.aoPreSearchCols.length; iCol++) {
 				oSettings.aoPreSearchCols[ iCol ].sSearch = '';
 			}
