@@ -216,8 +216,8 @@
 	    	
 	    	
 			$(document).on("click", s.btn_show_graph, function() { 
+				$('#graph-modal').modal('show');
 				$('#chart').highcharts(s.chart_options);
-				$('#graph-modal').modal('show')
 			});
 		},
 
