@@ -121,8 +121,11 @@
 
 		$('.dashboard-stat').on('click', 'a.submenu', function() {
 			var type = $(this).attr('data-type');
+console.log('type= '+type);
 
-			$('.dashboard-stat a.submenu').each().removeClass('btn-blue').addClass('btn-default');
+			$('.dashboard-stat a.submenu').each(function(){
+				$(this).removeClass('btn-blue').addClass('btn-default');
+			});
 			$(this).removeClass('btn-default').addClass('btn-blue');
 
 			var template = '<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>'+
