@@ -106,18 +106,55 @@
 </style>
 
 <script>
-	$(document).ready(function () {
-		
-		var username = "Kevin";
+	var s,
+	Imposition = {
 
+	  settings: {
+	    username: 'Kevin',
+	    numArticles: 5,
+	    btn_refresh: $(".js-refresh"),
+	    articleList: $("#article-list"),
+	    moreButton: $("#more-button")
+	  },
 
-		$('.js-refresh').on('click', function(){
-			var $elem = $(this).find('i');
+	  init: function() {
+	    s = this.settings;
+	    this.bindUIActions();
+	  },
+
+	  bindUIActions: function() {
+	    $(document).on('click', s.moreButton, function(){
+	    	Imposition.getMoreArticles(s.numArticles);
+	    });
+
+	    $(document).on('click', s.btn_refresh, function(){
+	    	var $elem = $(this).find('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
 		        $elem.removeClass('fa-spin');
-			}, 2000);	
-        });
+			}, 2000);
+	    });
+	  },
+
+	  getMoreArticles: function(numToGet) {
+	    // $.ajax or something
+	    // using numToGet as param
+	  }
+	  refreshData: function(){
+	  	//
+	  }
+	};
+
+
+
+
+	$(document).ready(function () {
+		
+		Imposition.init();
+
+		var username = "Kevin";
+
+
 
 		$('.dashboard-stat').on('click', 'a.submenu', function() {
 			var type = $(this).parent().attr('data-type');
