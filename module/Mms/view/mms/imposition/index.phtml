@@ -113,6 +113,7 @@
 			username: '',
 			btn_refresh: ".js-refresh",
 			btn_submenu: "a.submenu",
+			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
 			submenuTemplate_job: '<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
@@ -222,19 +223,33 @@
 		showSubmenu: function($elem){
 			var type = $elem.parent().attr('data-type');
 			$(s.btn_submenu).each(function(){
-				console.log($(this));
 				$(this).removeClass('btn-blue').addClass('btn-default');
 			});
 			$elem.removeClass('btn-default').addClass('btn-blue');
-			$('.js-submenu-left-menu-wrapper').remove();
-			$('#sub-dashboard').slideUp('slow', function(){
-				$('#sub-dashboard').empty().html(s.submenuTemplate_job);
-			});
+			if($elem.hasClass('.btn-blue')){
+				$(s.btn_submenuCollapse).remove();
+				$('#sub-dashboard').slideUp('slow', function(){
+					$('#sub-dashboard').empty();
+				});
+			} else {
+				if($('#sub-dashboard').is(':visible')){
+					$(s.btn_submenuCollapse).remove();
+					$('#sub-dashboard').slideUp('slow', function(){
+						$('#sub-dashboard').empty();
+					});
+					$('#sub-dashboard').slideDown('slow', function(){
+						$('.js-submenu-left-menu-wrapper').show();
+						$('#chart').highcharts(s.chart_options);
+					});
+				} else {
+					$('#sub-dashboard').empty().html(s.submenuTemplate_job);
+					$('#sub-dashboard').slideDown('slow', function(){
+						$('.js-submenu-left-menu-wrapper').show();
+						$('#chart').highcharts(s.chart_options);
+					});
+				}
+
 			
-			$("#sub-dashboard").slideToggle("slow", function(){
-				$('.js-submenu-left-menu-wrapper').show();
-				$('#chart').highcharts(s.chart_options);
-			});
 		}
 	};
 
