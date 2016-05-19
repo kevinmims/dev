@@ -112,7 +112,7 @@
 		settings: {
 			username: '',
 			js_refresh: ".js-refresh",
-			btn_submenu: ".dashboard-stat a.submenu",
+			btn_submenu: $('.dashboard-stat a.submenu'),
 			job_template: '<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
@@ -158,8 +158,8 @@
 				Imposition.refreshData($(s.js_refresh));
 			});
 
-			$(document).on('click', s.btn_submenu, function(){
-				Imposition.showSubmenu($(s.btn_submenu));
+			s.btn_submenu.on("click", function() { 
+				Imposition.showSubmenu(s.btn_submenu);
 			});
 	    
 		},
@@ -180,6 +180,7 @@
 
 		showSubmenu: function($btn){
 			var type = $btn.parent().attr('data-type');
+			console.log('TYPE= '+type);
 			$btn.each(function(){
 				$(this).removeClass('btn-blue').addClass('btn-default');
 			});
