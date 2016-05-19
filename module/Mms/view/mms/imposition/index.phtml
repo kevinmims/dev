@@ -178,13 +178,22 @@
 
 		},
 
-		showSubmenu: function($btn){
-			var type = $btn.parent().attr('data-type');
+		showSubmenu: function($elem){
+			var type = $elem.parent().attr('data-type');
 			console.log('TYPE= '+type);
-			$btn.each(function(){
+			$elem.each(function(){
 				$(this).removeClass('btn-blue').addClass('btn-default');
 			});
-			$btn.removeClass('btn-default').addClass('btn-blue');
+			$elem.removeClass('btn-default').addClass('btn-blue');
+			$('.js-submenu-left-menu-wrapper').remove();
+			$('#sub-dashboard').slideUp('slow', function(){
+				$('#sub-dashboard').empty().html(template);
+			});
+			
+			$("#sub-dashboard").slideToggle("slow", function(){
+				$('.js-submenu-left-menu-wrapper').show();
+				$('#chart').highcharts(chartOptions);
+			});
 		}
 	};
 
@@ -199,68 +208,7 @@
 
 
 
-		$('.dashboard-stat').on('click', 'a.submenu', function() {
-			var type = $(this).parent().attr('data-type');
-console.log('type= '+type);
-
-			$('.dashboard-stat a.submenu').each(function(){
-				$(this).removeClass('btn-blue').addClass('btn-default');
-			});
-			$(this).removeClass('btn-default').addClass('btn-blue');
-
-			var template = '<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>'+
-			'<div class="row">'+
-					'<div class="col-sm-3">'+
-						'<label>Quantities</label>'+
-						'<div class="list-group">'+
-							'<button class="list-group-item" type="button">Total Same Days <span class="badge pull-right">34</span></button>'+
-							'<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>'+
-							'<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-3">'+
-						'<label>Paper Type Imposition</label>'+
-						'<div class="list-group">'+
-							'<button type="button" class="list-group-item">100# <span class="badge pull-right">34</span></button>'+
-							'<button type="button" class="list-group-item">70# <span class="badge pull-right">25</span></button>'+
-							'<button type="button" class="list-group-item">10pt <span class="badge pull-right">9</span></button>'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-3">'+
-						'<label>Finish</label>'+
-						'<div class="list-group">'+
-							'<button type="button" class="list-group-item">Gloss Aqueous <span class="badge pull-right">34</span></button>'+
-							'<button type="button" class="list-group-item">Matte Aqueous <span class="badge pull-right">25</span></button>'+
-							'<button type="button" class="list-group-item">UV Front Only <span class="badge pull-right">9</span></button>'+
-							'<button type="button" class="list-group-item">UV Back Only <span class="badge pull-right">9</span></button>'+
-							'<button type="button" class="list-group-item">UV Both Sides <span class="badge pull-right">9</span></button>'+
-						'</div>'+
-					'</div>'+
-					'<div class="col-sm-3">'+
-						'<div id="chart"></div>'+
-					'</div>'+
-				'</div>';
-
-			//if ( $('#sub-dashboard').is(':visible') ){
-				$('.js-submenu-left-menu-wrapper').remove();
-				$('#sub-dashboard').slideUp('slow', function(){
-					$('#sub-dashboard').empty().html(template);
-				});
-				
-				$("#sub-dashboard").slideToggle("slow", function(){
-					$('.js-submenu-left-menu-wrapper').show();
-					$('#chart').highcharts(chartOptions);
-				});
-
-
-			//} else {
-			//	$("#sub-dashboard").slideToggle("slow");
-
-			//}
-			
-			
-
-		});
+		
 
 		$(document).on('click', '.js-toggle-sub-menu', function(){ 
 			$("#sub-dashboard").slideToggle("slow");
