@@ -124,10 +124,7 @@
 
 	  bindUIActions: function() {
 	    $(document).on('click', s.btn_refresh, function(){
-	    	console.log($(s.btn_refresh));
-	    	$(s.btn_refresh).addClass('hereIamNowComeFindMe');
-alert($(s.btn_refresh));
-	    	Imposition.refreshData(s.btn_refresh);
+	    	Imposition.refreshData($(s.btn_refresh);
 	    });
 
 	    
@@ -137,8 +134,12 @@ alert($(s.btn_refresh));
 	    // $.ajax or something
 	    // using numToGet as param
 	  },
-	  refreshData: function(){
-	  	// do stuff here
+	  refreshData: function($btn){
+	  		$btn.find('i').addClass('fa-spin');
+			setTimeout(function(){
+		        $btn.removeClass('fa-spin');
+			}, 2000);
+
 	  }
 	};
 
