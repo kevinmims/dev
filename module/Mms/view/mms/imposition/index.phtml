@@ -530,6 +530,209 @@ var chartOptions = {
 		</div>
 	</div>
 
+
+	<div class="row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 0 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px">
+<style>
+  .dashboard-btn .gray {
+   background:white;
+    border:1px solid rgb(230,230,230);
+  }
+  .dashboard-btn .gray .submenu {
+   background:rgb(230,230,230);
+    color:#333;
+    border-color:rgb(230,230,230);
+  }
+  .dashboard-stat::after, .dashboard-stat::before {
+    content: " ";
+    display: table;
+}
+  .dashboard-stat::after {
+    clear: both;
+}
+  .dashboard-stat {
+    border-radius: 4px;
+    display: block;
+	font-family: "Oswald",sans-serif;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+.dashboard-stat .main {
+	display:table;
+	width:100%;
+}
+  .dashboard-stat .visual {
+    display: block;
+    float: left;
+    font-size: 35px;
+    height: 60px;
+    line-height: 35px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 60px;
+}
+  .dashboard-stat .visual > i {
+    color: rgb(230,230,230);
+    opacity: 1;
+}
+.dashboard-stat .visual > i {
+    font-size: 90px;
+    line-height: 90px;
+    margin-left: -25px;
+}
+  .dashboard-stat .details {
+    padding-right: 15px;
+    position: absolute;
+    right: 15px;
+}
+  .dashboard-stat .details .number {
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 36px;
+    margin-bottom: 0;
+    padding-top: 15px;
+    text-align: right;
+}
+  .dashboard-stat .details .desc {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: right;
+}
+  .dashboard-stat .submenu {
+    clear: both;
+    display: block;
+    font-size: 11px;
+    font-weight: 300;
+    opacity: 1;
+    padding: 6px 10px;
+    position: relative;
+    text-transform: uppercase;
+    width:100%;
+    border-top:1px solid;
+    text-decoration:none;
+    background:lightgray;
+}
+  .dashboard-stat .submenu > i {
+    display: inline-block;
+    float: right;
+    margin-top: 1px;
+    background-position: -27px -10px;
+    padding:0px;
+    color:inherit;
+}
+.m-icon-swapright {
+    
+}
+  
+  
+</style>
+  
+		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-stat gray">
+                <a class="main" href="#">
+                  <div class="visual">
+                    	<i class="fa fa-file-o"></i>
+                	</div>
+                  <div class="details">
+                      <div class="number"> 9 </div>
+                      <div class="desc"> Same Day Jobs </div>
+                  </div>
+              </a>
+                <a class="submenu" href="javascript:;"> View Stats
+                    <i class="fa fa-line-chart"></i>
+                </a>
+            </div>
+        </div>
+		
+		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dashboard-stat gray">
+                <a class="main" href="#">
+					<div class="visual">
+						<i class="fa fa-check"></i>
+					</div>
+					<div class="details">
+						<div class="number"> 65 </div>
+						<div class="desc"> Approved Jobs </div>
+					</div>
+				</a>
+                <a class="submenu" href="javascript:;"> View Stats
+                    <i class="fa fa-line-chart"></i>
+                </a>
+            </div>
+        </div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
+			<div class="dashboard-stat gray">
+			    <a class="main" href="#">
+					<div class="visual">
+						<i class="fa fa-gear"></i>
+					</div>
+					<div class="details">
+						<div class="number"> 124 </div>
+						<div class="desc"> Total Jobs </div>
+					</div>
+				</a>
+			    <a class="submenu" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
+			<div class="dashboard-stat gray">
+			    <a class="main" href="#">
+					<div class="visual">
+						<i class="fa fa-refresh"></i>
+					</div>
+					<div class="details">
+						<div class="number"> 3 </div>
+						<div class="desc"> Gangs In Process </div>
+					</div>
+				</a>
+			    <a class="submenu" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
+			<div class="dashboard-stat gray">
+			    <a class="main" href="#">
+					<div class="visual">
+						<i class="fa fa-exclamation-triangle"></i>
+					</div>
+					<div class="details">
+						<div class="number"> 0 </div>
+						<div class="desc"> Rip Errors </div>
+					</div>
+				</a>
+			    <a class="submenu" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
+			<div class="dashboard-stat gray">
+			    <a class="main" href="#">
+					<div class="visual">
+						<i class="fa fa-thumbs-o-up"></i>
+					</div>
+					<div class="details">
+						<div class="number"> 26 </div>
+						<div class="desc"> Gangs Created </div>
+					</div>
+				</a>
+			    <a class="submenu" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+	</div>
+
+
 	<div style="background: rgba(51, 122, 183, 0.2); padding: 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px" class="row">
         <div class="col-xs-12 dashboard-btns js-impo-stats btn-group btn-group-justified">
 			<a href="#" class="btn btn-default"><div class="icon">Same Day Jobs</div><div class="count">9 </div></a>
