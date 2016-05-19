@@ -124,7 +124,7 @@
 
 	  bindUIActions: function() {
 	    $(document).on('click', s.btn_refresh, function(){
-	    	console.log(this);
+	    	console.log(s.btn_refresh);
 	    	var $elem = s.btn_refresh.find('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
