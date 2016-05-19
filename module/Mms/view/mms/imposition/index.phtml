@@ -180,7 +180,10 @@
 
 		showSubmenu: function($btn){
 			var type = $btn.parent().attr('data-type');
-			console.log('TYPE = '+ type);
+			$btn.each(function(){
+				$(this).removeClass('btn-blue').addClass('btn-default');
+			});
+			$btn.removeClass('btn-default').addClass('btn-blue');
 		}
 	};
 
