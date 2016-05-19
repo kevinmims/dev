@@ -235,20 +235,22 @@
 				
 				if($('#sub-dashboard').is(':visible')){
 					console.log('#sub-dashbaord is visible');
+					$(s.btn_submenu).each(function(){
+						$(this).removeClass('btn-blue').addClass('btn-default');
+					});
+					$elem.removeClass('btn-default').addClass('btn-blue');
 					$(s.btn_submenuCollapse).remove();
-					$('#sub-dashboard').slideUp('slow', function(){
-						$('#sub-dashboard').empty();
-					});
-					$('#sub-dashboard').slideDown('slow', function(){
-						$('.js-submenu-left-menu-wrapper').show();
-						$('#chart').highcharts(s.chart_options);
-					});
+					$('#sub-dashboard')
+						.slideUp('slow', function(){
+							$('#sub-dashboard').empty().html(s.submenuTemplate_job);
+						}).slideDown('slow', function(){
+							$('.js-submenu-left-menu-wrapper').show();
+							$('#chart').highcharts(s.chart_options);
+						});
+					
 				} else {
 					console.log('#sub-dashbaord is NOT visible');
-					$(s.btn_submenu).each(function(){
-					$(this).removeClass('btn-blue').addClass('btn-default');
-				});
-				$elem.removeClass('btn-default').addClass('btn-blue');
+					$elem.removeClass('btn-default').addClass('btn-blue');
 					$('#sub-dashboard').empty().html(s.submenuTemplate_job);
 					$('#sub-dashboard').slideDown('slow', function(){
 						$('.js-submenu-left-menu-wrapper').show();
