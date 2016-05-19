@@ -221,8 +221,9 @@
 
 		showSubmenu: function($elem){
 			var type = $elem.parent().attr('data-type');
-			$elem.each(function(e){
-				$(e).removeClass('btn-blue').addClass('btn-default');
+			$elem.each(function(){
+				console.log($(this));
+				$(this).removeClass('btn-blue').addClass('btn-default');
 			});
 			$elem.removeClass('btn-default').addClass('btn-blue');
 			$('.js-submenu-left-menu-wrapper').remove();
