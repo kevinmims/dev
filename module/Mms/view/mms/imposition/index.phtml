@@ -120,7 +120,7 @@
         });
 
 		$('.dashboard-stat').on('click', 'a.submenu', function() {
-			var type = $(this).attr('data-type');
+			var type = $(this).parent().attr('data-type');
 console.log('type= '+type);
 
 			$('.dashboard-stat a.submenu').each(function(){
@@ -633,8 +633,8 @@ var chartOptions = {
 </style>
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
-            <div class="dashboard-stat">
-                <a class="main btn btn-default" data-type="same_day_jobs" href="#">
+            <div class="dashboard-stat" data-type="same_day_jobs">
+                <a class="main btn btn-default" href="#">
                   <div class="visual"><i class="fa fa-file-o"></i></div>
                   <div class="details">
                       <div class="number"> 9 </div>
@@ -648,8 +648,8 @@ var chartOptions = {
         </div>
 		
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
-            <div class="dashboard-stat">
-                <a class="main btn btn-default" data-type="approved_jobs" href="#">
+            <div class="dashboard-stat" data-type="approved_jobs">
+                <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-check"></i></div>
 					<div class="details">
 						<div class="number"> 65 </div>
@@ -663,8 +663,8 @@ var chartOptions = {
         </div>
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
-			<div class="dashboard-stat">
-			    <a class="main btn btn-default" data-type="total_jobs" href="#">
+			<div class="dashboard-stat" data-type="total_jobs">
+			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-gear"></i></div>
 					<div class="details">
 						<div class="number"> 124 </div>
@@ -678,8 +678,8 @@ var chartOptions = {
 		</div>
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
-			<div class="dashboard-stat">
-			    <a class="main btn btn-default" data-type="gangs_in_process" href="#">
+			<div class="dashboard-stat" data-type="gangs_in_process">
+			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-refresh"></i></div>
 					<div class="details">
 						<div class="number"> 3 </div>
@@ -693,8 +693,8 @@ var chartOptions = {
 		</div>
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
-			<div class="dashboard-stat">
-			    <a class="main btn btn-default" data-type="rip_errors" href="#">
+			<div class="dashboard-stat" data-type="rip_errors">
+			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-exclamation-triangle"></i></div>
 					<div class="details">
 						<div class="number"> 0 </div>
@@ -708,8 +708,8 @@ var chartOptions = {
 		</div>
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
-			<div class="dashboard-stat">
-			    <a class="main btn btn-default" data-type="gangs_created" href="#">
+			<div class="dashboard-stat" data-type="gangs_created">
+			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-thumbs-o-up"></i></div>
 					<div class="details">
 						<div class="number"> 26 </div>
