@@ -144,7 +144,48 @@
 						'<div class="col-sm-3">'+
 							'<div id="chart"></div>'+
 						'</div>'+
-					'</div>'
+					'</div>',
+			chartOptions: {
+		        title: {
+		            text: 'Same Day Jobs',
+		            x: -20 //center
+		        },
+		        xAxis: {
+		            categories: ['12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am',
+		            				'12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm' ]
+		        },
+		        yAxis: {
+		            title: {
+		                text: 'Qty'
+		            },
+		            plotLines: [{
+		                value: 0,
+		                width: 1,
+		                color: '#808080'
+		            }]
+		        },
+		        tooltip: {
+		            //valueSuffix: '#'
+		        },
+		        legend: {
+		            layout: 'horizontal',
+		            align: 'bottom',
+		            verticalAlign: 'bottom',
+		            borderWidth: 0
+		        },
+		        series: [
+		        	{
+		            	name: 'Total',
+		            	data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 49, 51, 58, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63]
+		        	}, {
+		            	name: 'Completed',
+		            	data: [	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 10, 15, 21, 28, 34, 40, 41, 52, 57, 63, 63, 63, 63, 63 ]
+		        	}, {
+						name: 'Remaining',
+						data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 48, 41, 43, 42, 35, 29, 23, 22, 11, 6, 0,0, 0, 0, 0]
+		        	}
+		        ]
+		    }
 		},
 
 		init: function() {
@@ -192,7 +233,7 @@
 			
 			$("#sub-dashboard").slideToggle("slow", function(){
 				$('.js-submenu-left-menu-wrapper').show();
-				$('#chart').highcharts(chartOptions);
+				$('#chart').highcharts(s.chart_options);
 			});
 		}
 	};
@@ -453,53 +494,7 @@
 
 // highchart
 // ------------------------------------------------------------------------------
-var chartOptions = {
-        //chart:{
-        //    renderTo:'chart',
-        //    type:'line'
-        //},
-        title: {
-            text: 'Same Day Jobs',
-            x: -20 //center
-        },
-        //subtitle: {
-        //   text: 'Source: WorldClimate.com',
-        //    x: -20
-        //},
-        xAxis: {
-            categories: ['12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am',
-            				'12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm' ]
-        },
-        yAxis: {
-            title: {
-                text: 'Qty'
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
-        },
-        tooltip: {
-            //valueSuffix: '#'
-        },
-        legend: {
-            layout: 'horizontal',
-            align: 'bottom',
-            verticalAlign: 'bottom',
-            borderWidth: 0
-        },
-        series: [{
-            name: 'Total',
-            data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 49, 51, 58, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63]
-        }, {
-            name: 'Completed',
-            data: [	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 10, 15, 21, 28, 34, 40, 41, 52, 57, 63, 63, 63, 63, 63 ]
-        }, {
-            name: 'Remaining',
-            data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 48, 41, 43, 42, 35, 29, 23, 22, 11, 6, 0,0, 0, 0, 0]
-        }]
-    };
+
 		
 
 
