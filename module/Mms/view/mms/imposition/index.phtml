@@ -112,8 +112,7 @@
 		settings: {
 			username: '',
 			js_refresh: ".js-refresh",
-			
-			btn_submenu: 'a.submenu',
+			btn_submenu: "a.submenu",
 			job_template: '<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
@@ -159,8 +158,8 @@
 				Imposition.refreshData($(s.js_refresh));
 			});
 
-			$('.dashboard-stat').on("click", btn_submenu, function() { 
-				Imposition.showSubmenu(s.btn_submenu);
+			$('.dashboard-stat').on("click", s.btn_submenu, function() { 
+				Imposition.showSubmenu($(this));
 			});
 	    
 		},
