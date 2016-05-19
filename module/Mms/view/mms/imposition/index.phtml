@@ -128,7 +128,7 @@
 	    });
 
 	    $(document).on('click', s.btn_refresh, function(){
-	    	var $elem = $(this).next('i');
+	    	var $elem = $(this).closest('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
 		        $elem.removeClass('fa-spin');
