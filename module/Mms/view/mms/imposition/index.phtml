@@ -115,7 +115,7 @@
 			}, 2000);	
         });
 
-		$('.js-impo-stats').on('click', '.btn', function() {
+		$('.dashboard-stat').on('click', 'a.main', function() {
 			var type = $(this).attr('data-type');
 
 			$(this).removeClass('btn-default').addClass('btn-blue').siblings().removeClass('btn-blue').addClass('btn-default');
@@ -633,7 +633,7 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <div class="dashboard-stat gray">
-                <a class="main js-impo-stats" data-type="same_day_jobs" href="#">
+                <a class="main" data-type="same_day_jobs" href="#">
                   <div class="visual">
                     	<i class="fa fa-file-o"></i>
                 	</div>
@@ -641,7 +641,7 @@ var chartOptions = {
                       <div class="number"> 9 </div>
                       <div class="desc"> Same Day Jobs </div>
                   </div>
-              </a>
+				</a>
                 <a class="submenu" href="javascript:;"> View Stats
                     <i class="fa fa-line-chart"></i>
                 </a>
@@ -650,7 +650,7 @@ var chartOptions = {
 		
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <div class="dashboard-stat gray">
-                <a class="main js-impo-stats" data-type="approved_jobs" href="#">
+                <a class="main" data-type="approved_jobs" href="#">
 					<div class="visual">
 						<i class="fa fa-check"></i>
 					</div>
@@ -667,7 +667,7 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main js-impo-stats" data-type="total_jobs" href="#">
+			    <a class="main" data-type="total_jobs" href="#">
 					<div class="visual">
 						<i class="fa fa-gear"></i>
 					</div>
@@ -684,7 +684,7 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main js-impo-stats" data-type="gangs_in_process" href="#">
+			    <a class="main" data-type="gangs_in_process" href="#">
 					<div class="visual">
 						<i class="fa fa-refresh"></i>
 					</div>
@@ -701,7 +701,7 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main js-impo-stats" data-type="rip_errors" href="#">
+			    <a class="main" data-type="rip_errors" href="#">
 					<div class="visual">
 						<i class="fa fa-exclamation-triangle"></i>
 					</div>
@@ -718,7 +718,7 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main js-impo-stats" data-type="gangs_created" href="#">
+			    <a class="main" data-type="gangs_created" href="#">
 					<div class="visual">
 						<i class="fa fa-thumbs-o-up"></i>
 					</div>
