@@ -220,6 +220,8 @@
 					.modal('show')
 					.on('shown.bs.modal', function () {
 						$('#chart').highcharts(s.chart_options);
+					}).on('hidden.bs.modal', function () {
+						$('#chart').empty();
 					});
 			});
 		},
