@@ -559,8 +559,11 @@ var chartOptions = {
     overflow: hidden;
 }
 .dashboard-stat .main {
-	display:table;
-	width:100%;
+    border: medium none;
+    border-radius: 0;
+    display: table;
+    padding: 0;
+    width: 100%;
 }
   .dashboard-stat .visual {
     display: block;
@@ -573,14 +576,13 @@ var chartOptions = {
     padding-top: 10px;
     width: 60px;
 }
-  .dashboard-stat .visual > i {
-    color: rgb(230,230,230);
-    opacity: 1;
-}
+
 .dashboard-stat .visual > i {
     font-size: 90px;
     line-height: 90px;
     margin-left: -25px;
+    color: inherit;
+    opacity: 0.1;
 }
   .dashboard-stat .details {
     padding-right: 15px;
@@ -624,8 +626,11 @@ var chartOptions = {
     padding:0px;
     color:inherit;
 }
-.m-icon-swapright {
-    
+#sub-dashboard {
+	display:none;
+	background:rgb(51, 122, 183);
+	color:white;
+	padding:15px;    
 }
   
   
@@ -633,10 +638,8 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <div class="dashboard-stat gray">
-                <a class="main" data-type="same_day_jobs" href="#">
-                  <div class="visual">
-                    	<i class="fa fa-file-o"></i>
-                	</div>
+                <a class="main btn btn-default" data-type="same_day_jobs" href="#">
+                  <div class="visual"><i class="fa fa-file-o"></i></div>
                   <div class="details">
                       <div class="number"> 9 </div>
                       <div class="desc"> Same Day Jobs </div>
@@ -650,10 +653,8 @@ var chartOptions = {
 		
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
             <div class="dashboard-stat gray">
-                <a class="main" data-type="approved_jobs" href="#">
-					<div class="visual">
-						<i class="fa fa-check"></i>
-					</div>
+                <a class="main btn btn-default" data-type="approved_jobs" href="#">
+					<div class="visual"><i class="fa fa-check"></i></div>
 					<div class="details">
 						<div class="number"> 65 </div>
 						<div class="desc"> Approved Jobs </div>
@@ -667,10 +668,8 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main" data-type="total_jobs" href="#">
-					<div class="visual">
-						<i class="fa fa-gear"></i>
-					</div>
+			    <a class="main btn btn-default" data-type="total_jobs" href="#">
+					<div class="visual"><i class="fa fa-gear"></i></div>
 					<div class="details">
 						<div class="number"> 124 </div>
 						<div class="desc"> Total Jobs </div>
@@ -684,10 +683,8 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main" data-type="gangs_in_process" href="#">
-					<div class="visual">
-						<i class="fa fa-refresh"></i>
-					</div>
+			    <a class="main btn btn-default" data-type="gangs_in_process" href="#">
+					<div class="visual"><i class="fa fa-refresh"></i></div>
 					<div class="details">
 						<div class="number"> 3 </div>
 						<div class="desc"> Gangs In Process </div>
@@ -701,10 +698,8 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main" data-type="rip_errors" href="#">
-					<div class="visual">
-						<i class="fa fa-exclamation-triangle"></i>
-					</div>
+			    <a class="main btn btn-default" data-type="rip_errors" href="#">
+					<div class="visual"><i class="fa fa-exclamation-triangle"></i></div>
 					<div class="details">
 						<div class="number"> 0 </div>
 						<div class="desc"> Rip Errors </div>
@@ -718,10 +713,8 @@ var chartOptions = {
   
 		<div class="dashboard-btn col-lg-2 col-md-4 col-sm-6 col-xs-12">
 			<div class="dashboard-stat gray">
-			    <a class="main" data-type="gangs_created" href="#">
-					<div class="visual">
-						<i class="fa fa-thumbs-o-up"></i>
-					</div>
+			    <a class="main btn btn-default" data-type="gangs_created" href="#">
+					<div class="visual"><i class="fa fa-thumbs-o-up"></i></div>
 					<div class="details">
 						<div class="number"> 26 </div>
 						<div class="desc"> Gangs Created </div>
@@ -733,7 +726,7 @@ var chartOptions = {
 			</div>
 		</div>
 		<div class="col-xs-12 ">
-			<div id="sub-dashboard" style="display:none; background:rgb(51, 122, 183);color:white;padding:15px;"></div>
+			<div id="sub-dashboard"></div>
 		</div>
 	</div>
 
