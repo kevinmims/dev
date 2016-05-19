@@ -124,25 +124,23 @@
 
 	  bindUIActions: function() {
 	    $(document).on('click', s.moreButton, function(){
-	    	Imposition.getMoreArticles(s.numArticles);
+	    	Imposition.refreshData(s.moreButton);
 	    });
 
-	    $(document).on('click', s.btn_refresh, function(){
-	    	console.log(s.btn_refresh);
-	    	var $elem = s.btn_refresh.closest('i');
-			$elem.addClass('fa-spin');
-			setTimeout(function(){
-		        $elem.removeClass('fa-spin');
-			}, 2000);
-	    });
+	    
 	  },
 
 	  getMoreArticles: function(numToGet) {
 	    // $.ajax or something
 	    // using numToGet as param
 	  },
-	  refreshData: function(){
-	  	//
+	  refreshData: function(button){
+	  	console.log(button.find('i'));
+    	var $elem = $(button).find('i');
+		$elem.addClass('fa-spin');
+		setTimeout(function(){
+	        $elem.removeClass('fa-spin');
+		}, 2000);
 	  }
 	};
 
