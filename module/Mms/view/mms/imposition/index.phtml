@@ -128,8 +128,8 @@
 	    });
 
 	    $(document).on('click', s.btn_refresh, function(){
-	    	console.log($(this));
-	    	var $elem = $(this).closest('i');
+	    	//console.log($(this));
+	    	var $elem = s.btn_refresh.find('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
 		        $elem.removeClass('fa-spin');
