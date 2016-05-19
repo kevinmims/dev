@@ -123,15 +123,15 @@
 	  },
 
 	  bindUIActions: function() {
-	    $(document).on('click', s.moreButton, function(){
+	    $(document).on('click', s.btn_refresh, function(){
 	    	console.log(this);
-	    	var $elem = s.moreButton.find('i');
+	    	var $elem = s.btn_refresh.find('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
 		        $elem.removeClass('fa-spin');
 			}, 2000);
 
-	    	Imposition.refreshData(s.moreButton);
+	    	Imposition.refreshData(s.btn_refresh);
 	    });
 
 	    
