@@ -124,6 +124,13 @@
 
 	  bindUIActions: function() {
 	    $(document).on('click', s.moreButton, function(){
+	    	console.log($.s.moreButton.find('i'));
+	    	var $elem = $.s.moreButton.find('i');
+			$elem.addClass('fa-spin');
+			setTimeout(function(){
+		        $elem.removeClass('fa-spin');
+			}, 2000);
+
 	    	Imposition.refreshData(s.moreButton);
 	    });
 
@@ -134,13 +141,8 @@
 	    // $.ajax or something
 	    // using numToGet as param
 	  },
-	  refreshData: function(button){
-	  	console.log(button.find('i'));
-    	var $elem = $(button).find('i');
-		$elem.addClass('fa-spin');
-		setTimeout(function(){
-	        $elem.removeClass('fa-spin');
-		}, 2000);
+	  refreshData: function(){
+	  	// do stuff here
 	  }
 	};
 
