@@ -124,8 +124,8 @@
 
 	  bindUIActions: function() {
 	    $(document).on('click', s.moreButton, function(){
-	    	console.log($.s.moreButton.find('i'));
-	    	var $elem = $.s.moreButton.find('i');
+	    	console.log($(s.moreButton).find('i'));
+	    	var $elem = $(s.moreButton).find('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
 		        $elem.removeClass('fa-spin');
