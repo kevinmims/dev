@@ -278,7 +278,10 @@
 		},
 
 		getTemplate: function(){
-			return s.submenuTemplate_same_day_jobs;
+			var template = 's.submenuTemplate_';
+			var type = 'same_day_jobs';
+			template.concat(type);
+			return eval(template);
 		},
 
 		handleSubmenu: function($elem){
