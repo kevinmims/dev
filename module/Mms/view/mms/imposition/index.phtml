@@ -109,39 +109,79 @@
 	var s,
 	Imposition = {
 
-	  settings: {
-	    username: 'Kevin',
-	    numArticles: 5,
-	    btn_refresh: ".js-refresh",
-	    articleList: $("#article-list"),
-	    moreButton: $("#more-button")
-	  },
+		settings: {
+			username: '',
+			js_refresh: ".js-refresh",
+			btn_submenu: ".dashboard-stat a.submenu",
+			job_template: '<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>'+
+				'<div class="row">'+
+						'<div class="col-sm-3">'+
+							'<label>Quantities</label>'+
+							'<div class="list-group">'+
+								'<button class="list-group-item" type="button">Total Same Days <span class="badge pull-right">34</span></button>'+
+								'<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>'+
+								'<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-3">'+
+							'<label>Paper Type Imposition</label>'+
+							'<div class="list-group">'+
+								'<button type="button" class="list-group-item">100# <span class="badge pull-right">34</span></button>'+
+								'<button type="button" class="list-group-item">70# <span class="badge pull-right">25</span></button>'+
+								'<button type="button" class="list-group-item">10pt <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-3">'+
+							'<label>Finish</label>'+
+							'<div class="list-group">'+
+								'<button type="button" class="list-group-item">Gloss Aqueous <span class="badge pull-right">34</span></button>'+
+								'<button type="button" class="list-group-item">Matte Aqueous <span class="badge pull-right">25</span></button>'+
+								'<button type="button" class="list-group-item">UV Front Only <span class="badge pull-right">9</span></button>'+
+								'<button type="button" class="list-group-item">UV Back Only <span class="badge pull-right">9</span></button>'+
+								'<button type="button" class="list-group-item">UV Both Sides <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-3">'+
+							'<div id="chart"></div>'+
+						'</div>'+
+					'</div>';
+		},
 
-	  init: function() {
-	    s = this.settings;
-	    this.bindUIActions();
-	  },
+		init: function() {
+			s = this.settings;
+			this.bindUIActions();
+			s.username = 'Kevin';
+		},
 
-	  bindUIActions: function() {
-	    $(document).on('click', s.btn_refresh, function(){
-	    	Imposition.refreshData($(s.btn_refresh));
-	    });
+		bindUIActions: function() {
+			$(document).on('click', s.js_refresh, function(){
+				Imposition.refreshData($(s.js_refresh));
+			});
 
+			$(document).on('click', s.btn_submenu, function(){
+				Imposition.showSubmenu($(s.btn_submenu));
+			});
 	    
-	  },
+		},
 
-	  getMoreArticles: function(numToGet) {
-	    // $.ajax or something
-	    // using numToGet as param
-	  },
-	  refreshData: function($btn){
+		getMoreArticles: function(numToGet) {
+			// $.ajax or something
+			// using numToGet as param
+		},
+		 
+		refreshData: function($btn){
 	  		var elem = $btn.find('i');
 	  		elem.addClass('fa-spin');
 			setTimeout(function(){
 		        elem.removeClass('fa-spin');
 			}, 2000);
 
-	  }
+		},
+
+		showSubmenu: function($btn){
+			var type = $btn.parent().attr('data-type');
+			console.log('TYPE = '+ type);
+		}
 	};
 
 
