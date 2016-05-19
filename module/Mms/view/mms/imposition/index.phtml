@@ -277,9 +277,9 @@
 
 		},
 
-		getTemplate: function(){
+		getTemplate: function(type){
 			var base = 's.submenuTemplate_';
-			var type = 'same_day_jobs';
+			//var type = 'same_day_jobs';
 			var template = base.concat(type);
 			return eval(template);
 		},
@@ -303,7 +303,7 @@
 						.slideUp('slow', function(){
 							$(this)
 								.empty()
-								.html(Imposition.getTemplate());
+								.html(Imposition.getTemplate(type));
 						}).slideDown('slow', function(){
 							//$('#chart').highcharts(s.chart_options);
 						});
@@ -312,7 +312,7 @@
 					$elem.removeClass('btn-default').addClass('btn-blue');
 					$(s.subDashboard)
 						.empty()
-						.html(Imposition.getTemplate())
+						.html(Imposition.getTemplate(type))
 						.slideDown('slow', function(){
 							//$('#chart').highcharts(s.chart_options);
 						});
