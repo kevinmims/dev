@@ -558,7 +558,7 @@ var chartOptions = {
   .dashboard-stat {
     display: block;
 	font-family: "Oswald",sans-serif;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
     overflow: hidden;
 }
 .dashboard-stat .main {
@@ -568,7 +568,7 @@ var chartOptions = {
     padding: 0;
     width: 100%;
 }
-  .dashboard-stat .visual {
+  .dashboard-stat .main .visual {
     display: block;
     float: left;
     font-size: 35px;
@@ -580,19 +580,19 @@ var chartOptions = {
     width: 60px;
 }
 
-.dashboard-stat .visual > i {
+.dashboard-stat .main .visual > i {
     font-size: 90px;
     line-height: 90px;
     margin-left: -25px;
     color: inherit;
     opacity: 0.1;
 }
-  .dashboard-stat .details {
+  .dashboard-stat .main .details {
     padding-right: 15px;
     position: absolute;
     right: 15px;
 }
-  .dashboard-stat .details .number {
+  .dashboard-stat .main .details .number {
     font-size: 34px;
     font-weight: 300;
     letter-spacing: -1px;
@@ -601,7 +601,7 @@ var chartOptions = {
     padding-top: 15px;
     text-align: right;
 }
-  .dashboard-stat .details .desc {
+  .dashboard-stat .main .details .desc {
     font-size: 16px;
     font-weight: 300;
     letter-spacing: 0;
@@ -619,6 +619,7 @@ var chartOptions = {
     width:100%;
     border-top:1px solid;
     text-decoration:none;
+    text-align:left;
     background:lightgray;
 }
   .dashboard-stat .submenu > i {
@@ -763,10 +764,14 @@ var chartOptions = {
 							<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">
 								<i class="fa fa-plus"></i> Create XML
 							</button>-->
-							
-							<button class="btn btn-block js-create-xml" type="button" style="background: lightgray">
-								<i class="fa fa-plus"></i> Create XML
-							</button>
+							<div class="btn-group btn-group-justified">
+								<a class="btn btn-default js-create-xml" type="button" style="background: lightgray">
+									<i class="fa fa-code"></i> Create XML
+								</a>
+								<a class="btn btn-default js-create-xml" type="button" style="background: lightgray">
+									<i class="fa fa-plus"></i> Add to Existing Gang
+								</a>
+							</div>
 						</div>
 
 						
