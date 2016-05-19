@@ -106,13 +106,7 @@
 </style>
 
 <script>
-	
-
-
-
-
-	$(document).ready(function () {
-		var s,
+	var s,
 	Imposition = {
 
 	  settings: {
@@ -130,8 +124,8 @@
 
 	  bindUIActions: function() {
 	    $(document).on('click', s.moreButton, function(){
-	    	console.log($(this).find('i'));
-	    	var $elem = $(this).find('i');
+	    	console.log(s.moreButton.find('i'));
+	    	var $elem = s.moreButton.find('i');
 			$elem.addClass('fa-spin');
 			setTimeout(function(){
 		        $elem.removeClass('fa-spin');
@@ -151,8 +145,12 @@
 	  	// do stuff here
 	  }
 	};
-	
 
+
+
+
+	$(document).ready(function () {
+		
 		Imposition.init();
 
 		var username = "Kevin";
