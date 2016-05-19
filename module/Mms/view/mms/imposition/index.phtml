@@ -125,8 +125,8 @@
 	  bindUIActions: function() {
 	    $(document).on('click', s.btn_refresh, function(){
 	    	console.log($(s.btn_refresh));
-	    	s.btn_refresh.addClass('hereIamNowComeFindMe');
-
+	    	$(s.btn_refresh).addClass('hereIamNowComeFindMe');
+alert('hereIamNowComeFindMe');
 	    	Imposition.refreshData(s.btn_refresh);
 	    });
 
