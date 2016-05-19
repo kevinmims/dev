@@ -111,12 +111,16 @@
 
 		settings: {
 			username: '',
+			subDashboard: "#sub-dashboard",
+			graphModal: "#graph-modal",
 			btn_refresh: ".js-refresh",
 			btn_submenu: "a.submenu",
 			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
+			btn_show_graph: ".js-show-graph",
 			submenuTemplate_job: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
+							'<button class="btn btn-default btn-xs pull-right js-show-graph"><i class="fa fa-line-chart"></i> Graph</button>'+
 							'<label>Quantities</label>'+
 							'<div class="list-group">'+
 								'<button class="list-group-item" type="button">Total Same Days <span class="badge pull-right">34</span></button>'+
@@ -143,7 +147,13 @@
 							'</div>'+
 						'</div>'+
 						'<div class="col-sm-3">'+
-							'<div id="chart"></div>'+
+							'<label>Priority</label>'+
+							'<div class="list-group">'+
+								'<button type="button" class="list-group-item">A <span class="badge pull-right">34</span></button>'+
+								'<button type="button" class="list-group-item">B <span class="badge pull-right">25</span></button>'+
+								'<button type="button" class="list-group-item">C <span class="badge pull-right">9</span></button>'+
+								'<button type="button" class="list-group-item">D <span class="badge pull-right">9</span></button>'+
+							'</div>'+
 						'</div>'+
 					'</div>',
 			chart_options: {
@@ -201,9 +211,14 @@
 			});
 
 			$('.dashboard-stat').on("click", s.btn_submenu, function() { 
-				Imposition.showSubmenu($(this));
+				Imposition.handleSubmenu($(this));
 			});
-	    
+	    	
+	    	
+			$(s.btn_show_graph).on("click", function() { 
+				$('#graph-modal .chart').highcharts(s.chart_options);
+				$('#graph-modal').modal('show')
+			});
 		},
 
 		
@@ -216,39 +231,38 @@
 
 		},
 
-		showSubmenu: function($elem){
+		handleSubmenu: function($elem){
 			var type = $elem.parent().attr('data-type');
 			
 			if($elem.hasClass('btn-blue')){
-				console.log('has class .btn-blue');
 				$elem.removeClass('btn-blue').addClass('btn-default');
-				//$(s.btn_submenuCollapse).remove();
-				$('#sub-dashboard').slideUp('slow', function(){
+				$(s.subDashboard).slideUp('slow', function(){
 					$(this).empty();
 				});
 			} else {
 				
-				if($('#sub-dashboard').is(':visible')){
+				if($(s.subDashboard).is(':visible')){
 					$(s.btn_submenu).each(function(){
 						$(this).removeClass('btn-blue').addClass('btn-default');
 					});
 					$elem.removeClass('btn-default').addClass('btn-blue');
-					//$(s.btn_submenuCollapse).remove();
-					$('#sub-dashboard')
+					$(s.subDashboard)
 						.slideUp('slow', function(){
-							$(this).empty().html(s.submenuTemplate_job);
+							$(this)
+								.empty()
+								.html(s.submenuTemplate_job);
 						}).slideDown('slow', function(){
-							//$('.js-submenu-left-menu-wrapper').show();
-							$('#chart').highcharts(s.chart_options);
+							//$('#chart').highcharts(s.chart_options);
 						});
 					
 				} else {
 					$elem.removeClass('btn-default').addClass('btn-blue');
-					$('#sub-dashboard').empty().html(s.submenuTemplate_job);
-					$('#sub-dashboard').slideDown('slow', function(){
-						//$('.js-submenu-left-menu-wrapper').show();
-						$('#chart').highcharts(s.chart_options);
-					});
+					$(s.subDashboard)
+						.empty()
+						.html(s.submenuTemplate_job)
+						.slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+						});
 				}
 			}
 			
@@ -1725,6 +1739,25 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Download</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="graph-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Jobs Graph</h4>
+      </div>
+      <div class="modal-body">
+        <div id="chart"></div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
