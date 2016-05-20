@@ -117,6 +117,7 @@
 			btn_submenu: "a.submenu",
 			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
 			btn_show_graph: ".js-show-graph",
+			table_data: "#job-data-table",
 			submenuTemplate_same_day_jobs: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
@@ -279,6 +280,12 @@
 						$('#chart').empty();
 					});
 			});
+
+			$(s.table_data).on('change', 'input:checkbox', function(){
+				Imposition.handleCheckBox($(this));
+			});
+
+
 		},
 
 		
@@ -333,7 +340,41 @@
 				}
 			}
 			
+		}, // end, handleSubmenu()
+
+		handleCheckBox: function($e){
+			// handle checkbox click
+		//$('#job-data-table input:checkbox').on('change', function(){
+		    if(!$e.hasClass('js-select-all')){
+			    if($e.is(":checked")) {
+			        $e.parent().parent().addClass("selected").find('.user-selected').html(s.username);
+			    } else {
+			        if($('.js-select-all').prop('checked')) {
+			        	$('.js-select-all').removeProp('checked');
+			        }
+			        $e.parent().parent().removeClass("selected").find('.user-selected').html('');
+			    }
+			} else {
+				// select all checkbox
+				var rows = table.rows({ 'search': 'applied' }).nodes();
+			
+				if($e.prop('checked')){
+					$('input[type="checkbox"]', rows).each(function(){
+						$e.prop('checked', true);
+				  		$e.parent().parent().addClass('selected').find('.user-selected').html(s.username);
+					});
+				} else {	
+					$('input[type="checkbox"]', rows).each(function(){
+						$e.removeProp('checked');
+				  		$e.parent().parent().removeClass('selected').find('.user-selected').html('');
+					});
+				}
+
+			}
+		//});
 		}
+
+
 	};
 
 
@@ -349,10 +390,7 @@
 
 		
 
-		$(document).on('click', '.js-toggle-sub-menu', function(){ 
-			$("#sub-dashboard").slideToggle("slow");
-		})
-
+		
 		$(".dropdown-menu li a").click(function(){
 			$(this).closest('.dropdown').find('.btn.js-choice').html(
 				'<span class="caret"></span><div style="margin-right:20px">' + $(this).html() + '</div>'
@@ -556,39 +594,7 @@
 						);
 */
 
-		// handle checkbox click
-		$('#job-data-table input:checkbox').on('change', function(){
-		    if(!$(this).hasClass('js-select-all')){
-			    if($(this).is(":checked")) {
-			        $(this).parent().parent().addClass("selected");
-			        $(this).parent().parent().find('.user-selected').html(username);
-			    } else {
-			        if($('.js-select-all').prop('checked')) {
-			        	$('.js-select-all').removeProp('checked');
-			        }
-			        $(this).parent().parent().removeClass("selected");
-					$(this).parent().parent().find('.user-selected').html('');
-			    }
-			} else {
-				// select all checkbox
-				var rows = table.rows({ 'search': 'applied' }).nodes();
-			
-				if($(this).prop('checked')){
-					$('input[type="checkbox"]', rows).each(function(){
-						$(this).prop('checked', true);
-				  		$(this).parent().parent().addClass('selected');
-				  		$(this).parent().parent().find('.user-selected').html(username);
-					});
-				} else {	
-					$('input[type="checkbox"]', rows).each(function(){
-						$(this).removeProp('checked');
-				  		$(this).parent().parent().removeClass('selected');
-				  		$(this).parent().parent().find('.user-selected').html('');
-					});
-				}
-
-			}
-		});
+		
 
 // highchart
 // ------------------------------------------------------------------------------
