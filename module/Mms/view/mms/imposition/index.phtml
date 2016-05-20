@@ -544,24 +544,22 @@
 			
 			if(s.data_btns.data_tab.indexOf(type) >= 0){
 				//this.handleError('show data tab');
-				$(s.tabs_imposition +'a[href="#data_tab"]').tab('show');
+				$(s.tabs_imposition +' a[href="#data_tab"]').tab('show');
 				//$('#mytabs a[href="#second"]').tab('show');
 			} else if (s.data_btns.gang_tab.indexOf(type) >= 0){
 				//this.handleError('show gang tab');
-				$(s.tabs_imposition +'a[href="#gang_tab"]').tab('show');
+				$(s.tabs_imposition +' a[href="#gang_tab"]').tab('show');
 			} else {
 				this.handleError('not in array');
 			}
 
 			this.refreshData($(s.btn_refresh));
 			if($elem.hasClass('btn-primary')){
-				console.log('has class, refresh data');
 				//$elem.removeClass('btn-primary').addClass('btn-default');
 				//$(s.subDashboard).slideUp('slow', function(){
 				//	$(this).empty();
 				//});
 			} else {
-				console.log('does NOT have class, get new data');
 				$(s.btn_dashboardMain).each(function(){
 					$(this).removeClass('btn-primary').addClass('btn-default');
 				});
