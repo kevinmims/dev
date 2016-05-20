@@ -655,7 +655,7 @@
 				tableBody= "";
 
 			if (s.dashboard_items.hasOwnProperty(type)){
-				eval('Imposition.build_'+type);
+				eval('Imposition.build_'+type+'('+type+')');
 			}
 /*				
 				title = s.dashboard_items[type].title;
@@ -735,7 +735,8 @@
 		},
 
 		build_job_table: function(type){
-			var type = $elem.parent().attr('data-type'),
+			
+			var type = type,
 				data = '',
 				title = '',
 				table = '',
