@@ -662,25 +662,25 @@
 				$(s.tab_mainTab).tab('show');
 				
 				tableHead = '<thead><tr>';
-				for (x = 0; x < s.[data].thead.length; x++) {
-					tableHead+= "<th>"+s.[data].thead[x]+"</th>";
+				for (x = 0; x < s[data].thead.length; x++) {
+					tableHead+= "<th>"+s[data].thead[x]+"</th>";
 				}
 				tableHead+= '</tr></thead>'; 
 
 				tableFoot = '<tfoot><tr>';
-				for (x = 0; x < s.[data].tfoot.length; x++) {
-					tableFoot+= "<th>"+s.[data].tfoot[x]+"</th>";
+				for (x = 0; x < s[data].tfoot.length; x++) {
+					tableFoot+= "<th>"+s[data].tfoot[x]+"</th>";
 				}
 				tableFoot+= '</tr></tfoot>';
 	
 				tableBody = '<tbody>';
 				for (x = 0; x < 20; x++) {
 					tableBody+= '<tr>';
-					for (y = 0; y < s.[data].tbody[0].length; y++) {
+					for (y = 0; y < s[data].tbody[0].length; y++) {
 						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s.[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= '<td class="user-selected">'+s[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
 						} else {
-							tableBody+= "<td>"+s.[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= "<td>"+s[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
 						}
 						
 					}
@@ -688,7 +688,7 @@
 				}
 				tableBody+= '</tfoot>';
 
-				table = '<table id="'+s.[data].id+'" class="'+s.[data].classes+'">';
+				table = '<table id="'+s[data].id+'" class="'+s[data].classes+'">';
 				table+= tableHead;
 				table+= tableFoot;
 				table+= tableBody;
