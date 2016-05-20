@@ -217,6 +217,10 @@
 			username: '',
 			subDashboard: "#sub-dashboard",
 			graphModal: "#graph-modal",
+			data_btns: {
+				data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
+				gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
+			},
 			table: "",
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
@@ -487,6 +491,10 @@
 		    } );
 		},
 
+		handleError: function(err){
+			alert(err);
+		},
+
 		refreshData: function($btn){
 	  		var elem = $btn.find('i');
 	  		elem.addClass('fa-spin');
@@ -530,6 +538,18 @@
 
 		handleMainData: function($elem){
 			var type = $elem.parent().attr('data-type');
+			
+			//
+			
+			if(data_btns.data_tab.indexOf(type) >= 0){
+				this.handleError('show data tab');
+				//$('#mytabs a[href="#second"]').tab('show');
+			} else if (data_btns.gang_tab.indexOf(type) >= 0){
+				this.handleError('show gang tab');
+			} else {
+				this.handleError('not in array');
+			}
+
 			this.refreshData($(s.btn_refresh));
 			if($elem.hasClass('btn-primary')){
 				console.log('has class, refresh data');
