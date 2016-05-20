@@ -658,69 +658,7 @@
 				var data = s.dashboard_items[type].data;
 				eval('Imposition.build_'+data+'("'+type+'")');
 			}
-/*				
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
-				
-				$(s.tab_mainTab).text(title);
-				$(s.tab_mainTab).tab('show');
-				
-				tableHead = '<thead><tr>';
-				for (x = 0; x < s[data].thead.length; x++) {
-					tableHead+= "<th>"+s[data].thead[x]+"</th>";
-				}
-				tableHead+= '</tr></thead>'; 
 
-				tableFoot = '<tfoot><tr>';
-				for (x = 0; x < s[data].tfoot.length; x++) {
-					tableFoot+= "<th>"+s[data].tfoot[x]+"</th>";
-				}
-				tableFoot+= '</tr></tfoot>';
-	
-				tableBody = '<tbody>';
-				for (x = 0; x < 20; x++) {
-					tableBody+= '<tr>';
-					for (y = 0; y < s[data].tbody[0].length; y++) {
-						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
-						} else {
-							tableBody+= "<td>"+s[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
-						}
-						
-					}
-					tableBody+= '</tr>';
-				}
-				tableBody+= '</tfoot>';
-
-				table = '<table id="'+s[data].id+'" class="'+s[data].classes+'">';
-				table+= tableHead;
-				table+= tableFoot;
-				table+= tableBody;
-				table+= '</table>';
-
-
-
-				$(s.tab_mainBody).html(s.job_table_controls + table);
-				Imposition.makeDataTable();
-				
-				
-
-
-			} 
-/*
-			if (s.data_btns.data_tab.indexOf(type) >= 0){
-				//this.handleError('show data tab');
-				this.log('data_tab: '+s.data_btns.data_tab.indexOf(type));
-				$(s.tabs_imposition +' a[href="#data_tab"]').tab('show');
-				//$('#mytabs a[href="#second"]').tab('show');
-			} else if (s.data_btns.gang_tab.indexOf(type) >= 0){
-				//this.handleError('show gang tab');
-				this.log('gang_tab: '+s.data_btns.gang_tab.indexOf(type));
-				$(s.tabs_imposition +' a[href="#gang_tab"]').tab('show');
-			} else {
-				this.handleError('not in array');
-			}
-*/
 			this.refreshData($(s.btn_refresh));
 			if($elem.hasClass('btn-primary')){
 				//$elem.removeClass('btn-primary').addClass('btn-default');
@@ -844,6 +782,12 @@
 				table = '',
 				tableHead= "",
 				tableBody= "";
+			title = s.dashboard_items[type].title;
+			data = s.dashboard_items[type].data;
+				
+			$(s.tab_mainTab).text(title);
+			$(s.tab_mainTab).tab('show');
+
 			$(s.tab_mainBody).html('<h4>Not done yet</h4>');
 		},
 
