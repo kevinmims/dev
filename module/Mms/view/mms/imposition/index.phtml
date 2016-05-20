@@ -544,19 +544,19 @@
 		handleMainData: function($elem){
 			var type = $elem.parent().attr('data-type');
 			
-			//
 			
-			if(s.data_btns.data_tab.indexOf(type) >= 0){
+			if (s.data_btns.data_tab.indexOf(type) >= 0){
 				//this.handleError('show data tab');
 				this.log('data_tab: '+s.data_btns.data_tab.indexOf(type));
 				$(s.tabs_imposition +' a[href="#data_tab"]').tab('show');
 				//$('#mytabs a[href="#second"]').tab('show');
-			} 
-			if (s.data_btns.gang_tab.indexOf(type) >= 0){
+			} else if (s.data_btns.gang_tab.indexOf(type) >= 0){
 				//this.handleError('show gang tab');
 				this.log('gang_tab: '+s.data_btns.data_tab.indexOf(type));
 				$(s.tabs_imposition +' a[href="#gang_tab"]').tab('show');
-			} 
+			} else {
+				this.handleError('not in array');
+			}
 
 			this.refreshData($(s.btn_refresh));
 			if($elem.hasClass('btn-primary')){
