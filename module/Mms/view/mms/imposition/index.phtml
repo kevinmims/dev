@@ -477,7 +477,6 @@
 			});
 	    	
 			$(document).on("click", s.btn_createXml, function() { 
-			//$(s.btn_createXml).on("click", function(){
 				Imposition.createXML($(s.btn_createXml));
 			});
 
@@ -493,7 +492,9 @@
 				});
 			});
 
-			$(s.container_tableData).on('change', 'input:checkbox', function(){
+			$(document).on("change", s.container_tableData+'input:checkbox', function() { 
+			//$(s.container_tableData).on('change', 'input:checkbox', function(){
+			//	Imposition.handleCheckBox($(this));
 				Imposition.handleCheckBox($(this));
 			});
 
