@@ -530,11 +530,19 @@
 
 		handleMainData: function($elem){
 			var type = $elem.parent().attr('data-type');
-			$(s.btn_dashboardMain).each(function(){
-				$(this).removeClass('btn-primary').addClass('btn-default');
-			});
-			$elem.removeClass('btn-default').addClass('btn-primary');
-
+			if($elem.hasClass('btn-primary')){
+				console.log('has class, refresh data');
+				//$elem.removeClass('btn-primary').addClass('btn-default');
+				//$(s.subDashboard).slideUp('slow', function(){
+				//	$(this).empty();
+				//});
+			} else {
+				console.log('does NOT have class, get new data');
+				$(s.btn_dashboardMain).each(function(){
+					$(this).removeClass('btn-primary').addClass('btn-default');
+				});
+				$elem.removeClass('btn-default').addClass('btn-primary');
+			}
 		},
 
 		handleSubmenu: function($elem){
