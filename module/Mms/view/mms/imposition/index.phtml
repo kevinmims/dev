@@ -101,6 +101,91 @@
 		padding:0 20px 5px 20px;
 		font-size:30px;
 	}
+.dashboard-stat::after, .dashboard-stat::before {
+    content: " ";
+    display: table;
+}
+  .dashboard-stat::after {
+    clear: both;
+}
+  .dashboard-stat {
+    display: block;
+	font-family: "Oswald",sans-serif;
+    margin-bottom: 0px;
+    overflow: hidden;
+}
+.dashboard-stat .main {
+    border: medium none;
+    border-radius: 0;
+    display: table;
+    padding: 0;
+    width: 100%;
+}
+  .dashboard-stat .main .visual {
+    display: block;
+    float: left;
+    font-size: 35px;
+    height: 60px;
+    line-height: 35px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    width: 60px;
+}
+
+.dashboard-stat .main .visual > i {
+    font-size: 90px;
+    line-height: 90px;
+    margin-left: -25px;
+    color: inherit;
+    opacity: 0.1;
+}
+.dashboard-stat .main .details {
+    padding-right: 15px;
+    position: absolute;
+    right: 15px;
+}
+.dashboard-stat .main .details .number {
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 36px;
+    margin-bottom: 0;
+    padding-top: 15px;
+    text-align: right;
+}
+.dashboard-stat .main .details .desc {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-align: right;
+}
+.dashboard-stat .submenu {
+    font-size: 11px;
+    font-weight: 300;
+    opacity: 1;
+    padding: 6px 10px;
+    position: relative;
+    text-transform: uppercase;
+    width:100%;
+    border-width:1px 0 0;
+    text-decoration:none;
+    text-align:left;
+}
+.dashboard-stat .submenu > i {
+    margin: -10px 0 0;
+    float: right;
+    padding:0px;
+    color:inherit;
+}
+#sub-dashboard {
+	display:none;
+	background:rgb(51, 122, 183);
+	color:white;
+	padding:15px;    
+}
+  
+ 
 
 
 </style>
@@ -307,11 +392,11 @@
 				Imposition.handleMxmlUpload(event, numFiles, fileNames);
 			});
 
-			$(s.btn_ripReportUpload).on('click', function(){
+			$(document).on("click", s.btn_ripReportUpload, function() { 
 				Imposition.showModal(s.modal_ripUpload);
 			});
 
-			$(s.btn_ripFileUpload).on('click', function(){
+			$(document).on("click", s.btn_ripFileUpload, function() { 
 				Imposition.showModal(s.modal_ripUpload);
 			});
 
@@ -487,10 +572,7 @@
 		
 		Imposition.init();
 
-		var username = "Kevin";
-
-
-
+		
 		
 
 		
@@ -561,144 +643,9 @@
 			}, 500);
 		});
 
-// multi select
-//--------------------------------------------------------------------------------------------
-			
-		//$('.finish-select').selectpicker({
-		//  width: '100%',
-		//  style: 'btn-default',
-		//  tickIcon: '',
-		//  showTick: false
-		//});
-
-	
-// create xml button
-//--------------------------------------------------------------------------------------------
-	//$('.js-create-xml').on('click', function(){
-	//	alert( table.rows('.selected').data().length +' row(s) selected' );
-	//	table.rows('.selected').remove().draw();
-		
- 		   
-		
-	//});
-
-// file upload
-//--------------------------------------------------------------------------------------------
-			
-//		$('#file-upload-modal').on('shown.bs.modal', function () {
-//			$('#imposition-file-upload-name').focus()
-//		});
-
-
-// file change
-//---------------------------------------------------------------------------
-/*
-	    $(document).on('change', '.js-upload-mxml :file', function() {
-	        var input = $(this),
-	            numFiles = input.get(0).files ? input.get(0).files.length : 1,
-	            files = $(this).prop("files"),
-	            fileNames = $.map(files, function(val) { return val.name; });
-	        input.trigger('fileselect', [numFiles, fileNames]);
-	    });
-
-		$('.js-upload-mxml :file').on('fileselect', function(event, numFiles, fileNames) {
-			console.log(numFiles);
-			console.log(fileNames);
-			$('#metrix-xml-files').val(numFiles+' files selected');
-		});
-*/
-// datatables
-//------------------------------------------------------------
-/*		
-	   var table = $('#job-data-table').DataTable( {
-	        "paging": false,
-	        //"scrollY": "500px",
-	        'columnDefs': [{
-				'targets': 0,
-				'searchable':false,
-				'orderable':false,
-				'className': 'dt-body-center',
-				'render': function (data, type, full, meta){
-					return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
-				}
-			}],
-			dom: '<"toolbar">rtip',
-			/*
-			// add 'B' to the dom element above to show
-			'buttons': [
-	            {
-	                text: '<i class="fa fa-plus"></i> Create XML',
-	                className: 'btn btn-default js-create-xml',
-	                action: function ( e, dt, node, config ) {
-	                    alert( table.rows('.selected').data().length +' row(s) selected' );
-	                }
-	            }
-	        ],
-	        */
-/*			'order': [3, 'asc'],
-			"orderCellsTop": false, // use the top header row for sorting
-			initComplete: function () {
-	            this.api().columns().every( function () {
-	                var column = this;
-
-	                var select = $('<select class="filter"><option value=""></option></select>')
-	                    .appendTo( $(column.footer()).empty() )
-	                    .on( 'change', function () {
-	                        var val = $.fn.dataTable.util.escapeRegex(
-	                            $(this).val()
-	                        );
-	
-	                        column
-	                            .search( val ? '^'+val+'$' : '', true, false )
-	                            .draw();
-	                    } );
-	 
-	                column.data().unique().sort().each( function ( d, j ) {
-	                    select.append( '<option value="'+d+'">'+d+'</option>' )
-	                } );
-	            } );
-	        }
-	    } );
-*/
-
-/*
-		$("div.toolbar").html('<div class="row"><div class="col-sm-3"><button style="background: lightgray" type="button" class="btn btn-block js-create-xml">'+
-								'<i class="fa fa-plus"></i> Create XML'+
-							'</button></div>'+
-							'<div class="dropdown col-sm-3">'+
-								'<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="http://example.com" data-target="#" class="btn btn-default btn-block js-choice" id="dLabel">'+
-									'<div style="margin-right:20px">'+
-										'<span class="js-name">Select</span>'+
-									'</div>'+
-									'<span class="caret"></span>'+
-								'</a>'+
-								'<ul aria-labelledby="dLabel" class="dropdown-menu" style="width:100%;">'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>'+
-									'<li class="divider"></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
-								'</ul>'+
-							'</div>'+
-							'</div>'
-
-						);
-*/
-
-		
-
-// highchart
-// ------------------------------------------------------------------------------
-
-		
-
 
 	});
+
 </script>
 
 
@@ -782,95 +729,6 @@
 
 
 	<div class="row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px">
-<style>
-  
-  .dashboard-stat::after, .dashboard-stat::before {
-    content: " ";
-    display: table;
-}
-  .dashboard-stat::after {
-    clear: both;
-}
-  .dashboard-stat {
-    display: block;
-	font-family: "Oswald",sans-serif;
-    margin-bottom: 0px;
-    overflow: hidden;
-}
-.dashboard-stat .main {
-    border: medium none;
-    border-radius: 0;
-    display: table;
-    padding: 0;
-    width: 100%;
-}
-  .dashboard-stat .main .visual {
-    display: block;
-    float: left;
-    font-size: 35px;
-    height: 60px;
-    line-height: 35px;
-    margin-bottom: 15px;
-    padding-left: 15px;
-    padding-top: 10px;
-    width: 60px;
-}
-
-.dashboard-stat .main .visual > i {
-    font-size: 90px;
-    line-height: 90px;
-    margin-left: -25px;
-    color: inherit;
-    opacity: 0.1;
-}
-  .dashboard-stat .main .details {
-    padding-right: 15px;
-    position: absolute;
-    right: 15px;
-}
-  .dashboard-stat .main .details .number {
-    font-size: 34px;
-    font-weight: 300;
-    letter-spacing: -1px;
-    line-height: 36px;
-    margin-bottom: 0;
-    padding-top: 15px;
-    text-align: right;
-}
-  .dashboard-stat .main .details .desc {
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 0;
-    text-align: right;
-}
-  .dashboard-stat .submenu {
-    font-size: 11px;
-    font-weight: 300;
-    opacity: 1;
-    padding: 6px 10px;
-    position: relative;
-    text-transform: uppercase;
-    width:100%;
-    border-width:1px 0 0;
-    text-decoration:none;
-    text-align:left;
-}
-  .dashboard-stat .submenu > i {
-    margin: -10px 0 0;
-    float: right;
-    padding:0px;
-    color:inherit;
-}
-#sub-dashboard {
-	display:none;
-	background:rgb(51, 122, 183);
-	color:white;
-	padding:15px;    
-}
-  
-  
-</style>
-  
 		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
             <div class="dashboard-stat" data-type="same_day_jobs">
                 <a class="main btn btn-default" href="#">
