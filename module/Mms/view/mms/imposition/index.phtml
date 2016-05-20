@@ -552,7 +552,7 @@
 				//$('#mytabs a[href="#second"]').tab('show');
 			} else if (s.data_btns.gang_tab.indexOf(type) >= 0){
 				//this.handleError('show gang tab');
-				this.log('gang_tab: '+s.data_btns.data_tab.indexOf(type));
+				this.log('gang_tab: '+s.data_btns.gang_tab.indexOf(type));
 				$(s.tabs_imposition +' a[href="#gang_tab"]').tab('show');
 			} else {
 				this.handleError('not in array');
@@ -910,7 +910,7 @@
 	<div class="row">
         <div class="col-xs-12">
 			<ul id="tabs-imposition" class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a data-toggle="tab" role="tab" aria-controls="data_tab"  aria-expanded="true">Jobs</a></li>
+				<li role="presentation"><a data-toggle="tab" role="tab" aria-controls="data_tab"  aria-expanded="true">Jobs</a></li>
 				<li role="presentation"><a href="#gang_tab" aria-expanded="false" data-toggle="tab" role="tab" aria-controls="gang_tab">Ganging</a></li>
 				<li role="presentation"><a href="#file_tab" aria-expanded="false" data-toggle="tab" role="tab" aria-controls="file_tab">File History</a></li>
 			</ul>
