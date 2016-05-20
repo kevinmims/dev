@@ -460,7 +460,7 @@
 			s = this.settings;
 			s.username = 'Kevin';
 			this.bindUIActions();
-			//this.createDataTable();
+			//this.makeDataTable();
 		},
 
 		bindUIActions: function() {
@@ -476,8 +476,9 @@
 				Imposition.handleSubmenu($(this));
 			});
 	    	
-			$(s.btn_createXml).on("click", function(){
-				Imposition.createXML($(this));
+			$(document).on("click", s.btn_createXml, function() { 
+			//$(s.btn_createXml).on("click", function(){
+				Imposition.createXML($(s.btn_createXml));
 			});
 
 	    	$(s.btn_menuDropdown).on('click', function(){
@@ -522,7 +523,7 @@
 			});
 		},
 
-		createDataTable: function(){
+		makeDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
 		        "paging": false,
 		        //"scrollY": "500px",
@@ -624,6 +625,8 @@
 		},
 
 		handleDashboardBtnClick: function($elem){
+			$(s.tab_mainBody).html('building data...');
+
 			var type = $elem.parent().attr('data-type'),
 				title = '',
 				table = '',
@@ -673,7 +676,7 @@
 
 
 				$(s.tab_mainBody).html(s.job_table_controls + table);
-				Imposition.createDataTable();
+				Imposition.makeDataTable();
 				
 				
 
