@@ -607,8 +607,30 @@
 				for (x = 0; x < s.table_template.thead.length; x++) {
 					tableHead+= "<th>"+s.table_template.thead[x]+"</th>";
 				}
-				tableHead+= '</tr></thead>' 
-this.log(tableHead);
+				tableHead+= '</tr></thead>'; 
+
+				tableFoot = '<tfoot><tr>';
+				for (x = 0; x < s.table_template.tfoot.length; x++) {
+					tableFoot+= "<th>"+s.table_template.tfoot[x]+"</th>";
+				}
+				tableFoot+= '</tr></tfoot>';
+				
+				tableBody = '<tbody>';
+				for (x = 0; x < 20; x++) {
+					tableBody+= '<tr>';
+					for (y = 0; y < s.job_data.length; y++) {
+						if(y == 1){
+							tableBody+= '<td class="user-selected">'+s.job_data[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
+						} else {
+							tableBody+= "<td>"+s.job_data[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
+						}
+						
+					}
+					tableBody+= '</tr>';
+				}
+				tableBody+= '</tfoot>';
+
+this.log(tableBody);
 
 				table = '<table id="'+s.table_template.id+'" class="'+s.table_template.classes+'"></table>';
 
