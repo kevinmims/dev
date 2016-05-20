@@ -584,19 +584,23 @@
 				title = '',
 				data = '';
 
+			this.log('dashboard btn clicked');
 			if (s.dashboard_items.hasOwnProperty(type)){
+				this.log('element found in object');
+
 				title = s.dashboard_items[type].title;
 				data = s.dashboard_items[type].data;
 				// set title of tab
 				$(s.tab_mainTab).text(title);
-
+				this.log('title set');
 
 				// show tab
 				$(s.tab_mainTab).tab('show');
+				this.log('tab shown');
 
 				// populate data in tab
 				$(s.tab_mainBody).html('<h1>Here now</h1>');
-
+				this.log('tab body populated');
 				
 
 
