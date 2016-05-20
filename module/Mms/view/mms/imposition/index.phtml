@@ -655,7 +655,8 @@
 				tableBody= "";
 
 			if (s.dashboard_items.hasOwnProperty(type)){
-				eval('Imposition.build_'+type+'('+type+')');
+				var data = s.dashboard_items[type].data;
+				eval('Imposition.build_'+data+'('+type+')');
 			}
 /*				
 				title = s.dashboard_items[type].title;
