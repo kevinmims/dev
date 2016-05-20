@@ -253,17 +253,17 @@
 					data: ""
 				}
 			},
-			table_template: {
+			job_table: {
 				id: "job-data-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
 				thead: [ '<input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" />', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
 				tfoot: [ '', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
+				tbody:[ 
+					["","","6n6q47m4qe","a34ty32wert2","A","5/12/16","5/15/16","Brochures","100#","4/0","100",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", '<b>Page Size</b>: <span class="Data">8.5"x5.5"</span><b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span><b>Binding Side</b>: <span class="Data">Left</span><b>Cover Stock</b>: <span class="Data">Same As Inside</span><b>Binding</b>: <span class="Data">Saddle Stitching</span>']
+				],
 				notes: "the second <td> needs class='user-selected'"
 			},
-			job_data:[ 
-				["","","6n6q47m4qe","a34ty32wert2","A","5/12/16","5/15/16","Brochures","100#","4/0","100",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", '<b>Page Size</b>: <span class="Data">8.5"x5.5"</span><b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span><b>Binding Side</b>: <span class="Data">Left</span><b>Cover Stock</b>: <span class="Data">Same As Inside</span><b>Binding</b>: <span class="Data">Saddle Stitching</span>']
-				],
-
+			
 			table: "",
 			tabs_imposition: "#tabs-imposition",
 			tab_mainBody: "#main_tab",
@@ -642,25 +642,25 @@
 				$(s.tab_mainTab).tab('show');
 				
 				tableHead = '<thead><tr>';
-				for (x = 0; x < s.table_template.thead.length; x++) {
-					tableHead+= "<th>"+s.table_template.thead[x]+"</th>";
+				for (x = 0; x < s.job_table.thead.length; x++) {
+					tableHead+= "<th>"+s.job_table.thead[x]+"</th>";
 				}
 				tableHead+= '</tr></thead>'; 
 
 				tableFoot = '<tfoot><tr>';
-				for (x = 0; x < s.table_template.tfoot.length; x++) {
-					tableFoot+= "<th>"+s.table_template.tfoot[x]+"</th>";
+				for (x = 0; x < s.job_table.tfoot.length; x++) {
+					tableFoot+= "<th>"+s.job_table.tfoot[x]+"</th>";
 				}
 				tableFoot+= '</tr></tfoot>';
 	
 				tableBody = '<tbody>';
 				for (x = 0; x < 20; x++) {
 					tableBody+= '<tr>';
-					for (y = 0; y < s.job_data[0].length; y++) {
+					for (y = 0; y < s.job_table.tbody[0].length; y++) {
 						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s.job_data[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= '<td class="user-selected">'+s.job_table.tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
 						} else {
-							tableBody+= "<td>"+s.job_data[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= "<td>"+s.job_table.tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
 						}
 						
 					}
@@ -668,7 +668,7 @@
 				}
 				tableBody+= '</tfoot>';
 
-				table = '<table id="'+s.table_template.id+'" class="'+s.table_template.classes+'">';
+				table = '<table id="'+s.job_table.id+'" class="'+s.job_table.classes+'">';
 				table+= tableHead;
 				table+= tableFoot;
 				table+= tableBody;
