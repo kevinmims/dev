@@ -55,11 +55,11 @@
 		background: rgba(51, 122, 183,0.9) none repeat scroll 0 0;
     	color: rgb(255, 255, 255);
 	}
-	  .btn-file {
+	.js-upload-mxml {
         position: relative;
         overflow: hidden;
     }
-    .btn-file input[type=file] {
+    .js-upload-mxml input[type=file] {
         position: absolute;
         top: 0;
         right: 0;
@@ -120,39 +120,8 @@
 			btn_show_graph: ".js-show-graph",
 			btn_menuDropdown: ".dropdown-menu li a",
 			btn_createXml: ".js-create-xml",
+			btn_uploadMxml: ".js-upload-mxml :file",
 			container_tableData: "#job-data-table",
-			table_options: {
-		        "paging": false,
-		        //"scrollY": "500px",
-		        'columnDefs': [{
-					'targets': 0,
-					'searchable':false,
-					'orderable':false,
-					'className': 'dt-body-center',
-					'render': function (data, type, full, meta){
-						return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
-					}
-				}],
-				dom: '<"toolbar">rtip',
-				/*
-				// add 'B' to the dom element above to show
-				'buttons': [
-		            {
-		                text: '<i class="fa fa-plus"></i> Create XML',
-		                className: 'btn btn-default js-create-xml',
-		                action: function ( e, dt, node, config ) {
-		                    alert( table.rows('.selected').data().length +' row(s) selected' );
-		                }
-		            }
-		        ],
-		        */
-				'order': [3, 'asc'],
-				"orderCellsTop": false // use the top header row for sorting
-				
-		    }, // end table_options
-
-
-			
 			submenuTemplate_same_day_jobs: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
@@ -193,7 +162,7 @@
 						'</div>'+
 						
 					'</div>',
-				submenuTemplate_gangs_in_process: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
+			submenuTemplate_gangs_in_process: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
 				'<div class="row">'+
 						'<div class="col-sm-3">'+
 							'<button class="btn btn-default btn-xs pull-right js-show-graph"><i class="fa fa-line-chart"></i> Graph</button>'+
@@ -328,6 +297,14 @@
 				Imposition.handleCheckBox($(this));
 			});
 
+			$(s.btn_uploadMxml).on('change', function(){
+				Imposition.triggerMxmlFileSelect($(this));
+			});
+			
+			$(s.btn_uploadMxml).on('fileselect', function(event, numFiles, fileNames) {
+				Imposition.handleMxmlUpload(event, numFiles, fileNames);
+			});
+
 
 		},
 
@@ -399,9 +376,22 @@
 		},
 
 		createXML: function($e){
-			alert('create xml');
-			//alert( table.rows('.selected').data().length +' row(s) selected' );
-			//table.rows('.selected').remove().draw();
+			alert(s.table.rows('.selected').data().length +' row(s) selected' );
+			s.table.rows('.selected').remove().draw();
+		},
+
+		triggerMxmlFileSelect: function($e){
+			var input = $e,
+	            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	            files = $e.prop("files"),
+	            fileNames = $.map(files, function(val) { return val.name; });
+	        input.trigger('fileselect', [numFiles, fileNames]);
+		},
+
+		handleMxmlUpload: function(event, numFiles, fileNames){
+			console.log(numFiles);
+			console.log(fileNames);
+			$('#metrix-xml-files').val(numFiles+' files selected');
 		},
 
 		getTemplate: function(type){
@@ -444,7 +434,6 @@
 
 		handleCheckBox: function($e){
 			if(!$e.hasClass('js-select-all')){
-			    console.log('in not has class js-select-all');
 			    if($e.is(":checked")) {
 			        $e.parent().parent().addClass("selected").find('.user-selected').html(s.username);
 			    } else {
@@ -454,18 +443,14 @@
 			        $e.parent().parent().removeClass("selected").find('.user-selected').html('');
 			    }
 			} else {
-				console.log('in HAS class js-select-all');
-				// select all checkbox
 				var rows = s.table.rows({ 'search': 'applied' }).nodes();
-			console.log('rows='+rows);
+			
 				if($e.prop('checked')){
-					console.log('select all IS checked');
 					$('input[type="checkbox"]', rows).each(function(){
 						$(this).prop('checked', true);
 				  		$(this).parent().parent().addClass('selected').find('.user-selected').html(s.username);
 					});
 				} else {	
-					console.log('select all is NOT checked');
 					$('input[type="checkbox"]', rows).each(function(){
 						$(this).removeProp('checked');
 				  		$(this).parent().parent().removeClass('selected').find('.user-selected').html('');
@@ -590,8 +575,8 @@
 
 // file change
 //---------------------------------------------------------------------------
-
-	    $(document).on('change', '.btn-file :file', function() {
+/*
+	    $(document).on('change', '.js-upload-mxml :file', function() {
 	        var input = $(this),
 	            numFiles = input.get(0).files ? input.get(0).files.length : 1,
 	            files = $(this).prop("files"),
@@ -599,12 +584,12 @@
 	        input.trigger('fileselect', [numFiles, fileNames]);
 	    });
 
-		$('.btn-file :file').on('fileselect', function(event, numFiles, fileNames) {
+		$('.js-upload-mxml :file').on('fileselect', function(event, numFiles, fileNames) {
 			console.log(numFiles);
 			console.log(fileNames);
 			$('#metrix-xml-files').val(numFiles+' files selected');
 		});
-
+*/
 // datatables
 //------------------------------------------------------------
 /*		
@@ -1552,7 +1537,7 @@
 								<i class="fa fa-wrench"></i> Gangs In Process
 								<div style="width:300px;display: inline" class="input-group input-group-sm">
 					                <span class="input-group-btn" style="display: inline">
-					                    <span class="btn btn-primary btn-file">
+					                    <span class="btn btn-primary js-upload-mxml">
 					                        XML from Metrix <input type="file" multiple="">
 					                    </span>
 					                </span>
