@@ -492,6 +492,10 @@
 		    } );
 		},
 
+		log: function(text){
+			console.log(text);
+		},
+
 		handleError: function(err){
 			alert(err);
 		},
@@ -544,10 +548,12 @@
 			
 			if(s.data_btns.data_tab.indexOf(type) >= 0){
 				//this.handleError('show data tab');
+				this.log('data_tab: '+s.data_btns.data_tab.indexOf(type));
 				$(s.tabs_imposition +' a[href="#data_tab"]').tab('show');
 				//$('#mytabs a[href="#second"]').tab('show');
 			} else if (s.data_btns.gang_tab.indexOf(type) >= 0){
 				//this.handleError('show gang tab');
+				this.log('gang_tab: '+s.data_btns.data_tab.indexOf(type));
 				$(s.tabs_imposition +' a[href="#gang_tab"]').tab('show');
 			} else {
 				this.handleError('not in array');
