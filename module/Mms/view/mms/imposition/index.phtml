@@ -46,6 +46,16 @@
 		background: rgb(31, 74, 112);
 		color:white;
 	}
+	
+	.btn-blue-light, .btn-blue-light:focus, .btn-blue-light:active {
+		background: rgb(191, 216, 237);
+		color: white;
+		outline:none;
+	}
+	.btn-blue-light:hover {
+		background: rgb(159, 196, 229);
+		color:white;
+	}
 	.dashboard-btns a .count {
 		font-size:20px;
 	}
@@ -189,7 +199,7 @@
 	}
 	#sub-dashboard {
 		display:none;
-		background:rgb(40, 96, 144);
+		background:rgb(191, 216, 237);
 		color:white;
 		padding:15px;    
 	}
@@ -515,8 +525,8 @@
 		handleSubmenu: function($elem){
 			var type = $elem.parent().attr('data-type');
 			
-			if($elem.hasClass('btn-blue-dark')){
-				$elem.removeClass('btn-blue-dark').addClass('btn-default');
+			if($elem.hasClass('btn-blue-light')){
+				$elem.removeClass('btn-blue-light').addClass('btn-default');
 				$(s.subDashboard).slideUp('slow', function(){
 					$(this).empty();
 				});
@@ -524,9 +534,9 @@
 				
 				if($(s.subDashboard).is(':visible')){
 					$(s.btn_submenu).each(function(){
-						$(this).removeClass('btn-blue-dark').addClass('btn-default');
+						$(this).removeClass('btn-blue-light').addClass('btn-default');
 					});
-					$elem.removeClass('btn-default').addClass('btn-blue-dark');
+					$elem.removeClass('btn-default').addClass('btn-blue-light');
 					$(s.subDashboard).slideUp('slow', function(){
 						$(this).empty().html(Imposition.getTemplate(type));
 					}).slideDown('slow', function(){
@@ -534,7 +544,7 @@
 					});
 					
 				} else {
-					$elem.removeClass('btn-default').addClass('btn-blue-dark');
+					$elem.removeClass('btn-default').addClass('btn-blue-light');
 					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
 							//$('#chart').highcharts(s.chart_options);
 					});
