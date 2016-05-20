@@ -629,12 +629,15 @@
 				}
 				tableBody+= '</tfoot>';
 
-this.log(tableBody);
+				table = '<table id="'+s.table_template.id+'" class="'+s.table_template.classes+'">';
+				table+= tableHead;
+				table+= tableFoot;
+				table+= tableBody;
+				table+= '</table>';
 
-				table = '<table id="'+s.table_template.id+'" class="'+s.table_template.classes+'"></table>';
 
 
-				$(s.tab_mainBody).html('<h1>Here now</h1>');
+				$(s.tab_mainBody).html(table);
 				
 
 
