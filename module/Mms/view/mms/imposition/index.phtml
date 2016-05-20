@@ -225,34 +225,36 @@
 				total_jobs: {
 					title: "Total Jobs",
 					type: "total_jobs",
-					data: ""
+					data: "job_table"
 				},
 				approved_jobs: {
 					title: "Approved Jobs",
 					type: "approved_jobs",
-					data: ""
+					data: "job_table"
 				},
 				same_day_jobs: {
 					title: "Same Day Jobs",
 					type: "same_day_jobs",
-					data: ""
+					data: "job_table"
 				},
-				gangs_created: {
-					title: "Gangs Created",
-					type: "gangs_created",
-					data: ""
+				gangs_in_process: {
+					title: "Gangs in Process",
+					type: "gangs_in_process",
+					data: "gang_table"
 				},
 				rip_errors: {
 					title: "Rip Errors",
 					type: "rip_errors",
 					data: ""
 				},
-				gangs_in_process: {
-					title: "Gangs in Process",
-					type: "gangs_in_process",
-					data: ""
+				gangs_created: {
+					title: "Gangs Created",
+					type: "gangs_created",
+					data: "gang_table"
 				}
+				
 			},
+
 			job_table: {
 				id: "job-data-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
@@ -263,6 +265,22 @@
 				],
 				notes: "the second <td> needs class='user-selected'"
 			},
+			
+			gang_table: {
+				id: "gang-table",
+				classes: "table table-hover table-condensed draggable table-bordered",
+				thead: [ '', 'Date', 'Time', 'User', 'Gang Id', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
+				tfoot: [],
+				tbody:[ 
+					["1", "5/12/16", "10:35am", "Brian", "235gg25gwrf456", '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>', '<button class="btn btn-xs btn-success"><i class="fa fa-thumbs-o-up"></i> GANG CREATED</button>' ],
+					['2', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
+					[ '3', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button>'   ]
+				],
+				notes: "the second <td> needs class='user-selected'"
+			},
+
+			
+						           
 			
 			table: "",
 			tabs_imposition: "#tabs-imposition",
@@ -629,6 +647,7 @@
 			$(s.tab_mainBody).html('building data...');
 
 			var type = $elem.parent().attr('data-type'),
+				data = '',
 				title = '',
 				table = '',
 				tableHead= "",
@@ -637,30 +656,31 @@
 
 			if (s.dashboard_items.hasOwnProperty(type)){
 				title = s.dashboard_items[type].title;
-				//data = s.dashboard_items[type].data;
+				data = s.dashboard_items[type].data;
+				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
 				
 				tableHead = '<thead><tr>';
-				for (x = 0; x < s.job_table.thead.length; x++) {
-					tableHead+= "<th>"+s.job_table.thead[x]+"</th>";
+				for (x = 0; x < s.[data].thead.length; x++) {
+					tableHead+= "<th>"+s.[data].thead[x]+"</th>";
 				}
 				tableHead+= '</tr></thead>'; 
 
 				tableFoot = '<tfoot><tr>';
-				for (x = 0; x < s.job_table.tfoot.length; x++) {
-					tableFoot+= "<th>"+s.job_table.tfoot[x]+"</th>";
+				for (x = 0; x < s.[data].tfoot.length; x++) {
+					tableFoot+= "<th>"+s.[data].tfoot[x]+"</th>";
 				}
 				tableFoot+= '</tr></tfoot>';
 	
 				tableBody = '<tbody>';
 				for (x = 0; x < 20; x++) {
 					tableBody+= '<tr>';
-					for (y = 0; y < s.job_table.tbody[0].length; y++) {
+					for (y = 0; y < s.[data].tbody[0].length; y++) {
 						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s.job_table.tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= '<td class="user-selected">'+s.[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
 						} else {
-							tableBody+= "<td>"+s.job_table.tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= "<td>"+s.[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
 						}
 						
 					}
@@ -668,7 +688,7 @@
 				}
 				tableBody+= '</tfoot>';
 
-				table = '<table id="'+s.job_table.id+'" class="'+s.job_table.classes+'">';
+				table = '<table id="'+s.[data].id+'" class="'+s.[data].classes+'">';
 				table+= tableHead;
 				table+= tableFoot;
 				table+= tableBody;
@@ -709,6 +729,14 @@
 				});
 				$elem.removeClass('btn-default').addClass('btn-primary');
 			}
+		},
+
+		buildJobTable: function(){
+
+		},
+
+		buildGangTable: function(){
+
 		},
 
 		handleSubmenu: function($elem){
