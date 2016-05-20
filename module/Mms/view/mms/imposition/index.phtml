@@ -219,6 +219,7 @@
 			graphModal: "#graph-modal",
 			table: "",
 			btn_refresh: ".js-refresh",
+			btn_dashboardMain: "a.main",
 			btn_submenu: "a.submenu",
 			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
 			btn_show_graph: ".js-show-graph",
@@ -228,6 +229,7 @@
 			btn_ripReportUpload: ".js-rip-report-upload",
 			btn_ripFileUpload: ".js-rip-file-upload",
 			modal_ripUpload: "#file-upload-modal",
+			container_dashboardTopRow: ".dashboard-top-row",
 
 			container_tableData: "#job-data-table",
 			submenuTemplate_same_day_jobs: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
@@ -379,6 +381,10 @@
 				Imposition.refreshData($(this));
 			});
 
+			$('.dashboard-stat').on("click", s.btn_main, function() { 
+				Imposition.handleMainData($(this));
+			});
+
 			$('.dashboard-stat').on("click", s.btn_submenu, function() { 
 				Imposition.handleSubmenu($(this));
 			});
@@ -520,6 +526,15 @@
 			//var type = 'same_day_jobs';
 			var template = base.concat(type);
 			return eval(template);
+		},
+
+		handleMainData: function($elem){
+			var type = $elem.parent().attr('data-type');
+			$(s.btn_dashboardMain).each(function(){
+				$(this).removeClass('btn-primary').addClass('btn-default');
+			});
+			$elem.removeClass('btn-default').addClass('btn-primary');
+
 		},
 
 		handleSubmenu: function($elem){
@@ -747,7 +762,7 @@
 	</div>
 
 
-	<div class="row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px">
+	<div class="row dashboard-top-row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px">
 		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
             <div class="dashboard-stat" data-type="same_day_jobs">
                 <a class="main btn btn-default" href="#">
