@@ -496,7 +496,6 @@
 			//$(s.container_tableData).on('change', 'input:checkbox', function(){
 			//	Imposition.handleCheckBox($(this));
 				Imposition.handleCheckBox($(this));
-				alert('clicked');
 			});
 
 			$(s.btn_uploadMxml).on('change', function(){
@@ -1053,13 +1052,10 @@
 				<li role="presentation" class="active">
 					<a href="#main_tab" aria-expanded="true" data-toggle="tab" role="tab" aria-controls="main_tab">Main Tab</a>
 				</li>
-				<li role="presentation" class="">
-					<a href="#data_tab" aria-expanded="true" data-toggle="tab" role="tab" aria-controls="data_tab">Jobs</a>
-				</li>
 				<li role="presentation">
 					<a href="#gang_tab" aria-expanded="false" data-toggle="tab" role="tab" aria-controls="gang_tab">Ganging</a>
 				</li>
-				<li role="presentation">
+				<li class="pull-right" role="presentation">
 					<a href="#file_tab" aria-expanded="false" data-toggle="tab" role="tab" aria-controls="file_tab">File History</a>
 				</li>
 			</ul>
