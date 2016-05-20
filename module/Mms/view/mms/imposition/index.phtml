@@ -579,9 +579,9 @@
 		handleMainData: function($elem){
 			var type = $elem.parent().attr('data-type');
 			
-			//if (s.dashboard_items.indexOf(type) >= 0){
-				this.log(s.dashboard_items);
-			//} 
+			if (s.dashboard_items.hasOwnProperty(type)){
+				this.log('found: '+type);
+			} 
 			
 			if (s.data_btns.data_tab.indexOf(type) >= 0){
 				//this.handleError('show data tab');
