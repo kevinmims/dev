@@ -121,6 +121,10 @@
 			btn_menuDropdown: ".dropdown-menu li a",
 			btn_createXml: ".js-create-xml",
 			btn_uploadMxml: ".js-upload-mxml :file",
+			btn_ripReportUpload: ".js-rip-report-upload",
+			btn_ripFileUpload: ".js-rip-file-upload",
+			modal_ripUpload: "#file-upload-modal",
+
 			container_tableData: "#job-data-table",
 			submenuTemplate_same_day_jobs: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
 				'<div class="row">'+
@@ -284,13 +288,11 @@
 	    	});
 	    	
 			$(document).on("click", s.btn_show_graph, function() { 
-				$('#graph-modal')
-					.modal('show')
-					.on('shown.bs.modal', function () {
-						$('#chart').highcharts(s.chart_options);
-					}).on('hidden.bs.modal', function () {
-						$('#chart').empty();
-					});
+				$('#graph-modal').modal('show').on('shown.bs.modal', function () {
+					$('#chart').highcharts(s.chart_options);
+				}).on('hidden.bs.modal', function () {
+					$('#chart').empty();
+				});
 			});
 
 			$(s.container_tableData).on('change', 'input:checkbox', function(){
@@ -305,7 +307,22 @@
 				Imposition.handleMxmlUpload(event, numFiles, fileNames);
 			});
 
+			$(s.btn_ripReportUpload).on('click', function(){
+				Imposition.showModal(s.modal_ripUpload);
+			});
 
+			$(s.btn_ripFileUpload).on('click', function(){
+				Imposition.showModal(s.modal_ripUpload);
+			});
+
+		},
+
+		showModal: function(modal){
+			$($modal).modal('show').on('shown.bs.modal', function () {
+				$('#imposition-file-upload-name').focus()
+			}).on('hidden.bs.modal', function () {
+				$('#imposition-file-upload-name').empty();
+			});
 		},
 
 		createDataTable: function(){
@@ -568,9 +585,9 @@
 // file upload
 //--------------------------------------------------------------------------------------------
 			
-		$('#file-upload-modal').on('shown.bs.modal', function () {
-			$('#imposition-file-upload-name').focus()
-		});
+//		$('#file-upload-modal').on('shown.bs.modal', function () {
+//			$('#imposition-file-upload-name').focus()
+//		});
 
 
 // file change
@@ -972,10 +989,10 @@
 			</ul>
 
 			 <div class="tab-content" style="margin-bottom:40px;">
-			    <div style="margin-top:15px;" role="tabpanel" class="tab-pane active" id="data_set">
+			    <div id="data_set" class="tab-pane active" style="margin-top:15px;" role="tabpanel">
 					<div style="" class="row">
   
-						<div class="col-xs-3">
+						<div class="col-sm-6 col-md-4">
 							<div>With selected jobs:</div>
 							<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">
 								<i class="fa fa-plus"></i> Create XML
@@ -991,7 +1008,7 @@
 						</div>
 
 						
-						<div class="col-xs-3">
+						<div class="col-sm-6 col-md-3">
 							<div>Pre-set Filters</div>
 							<div class="dropdown">
 								<a id="pre-set-filters" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
@@ -1554,10 +1571,10 @@
 						              <th>Time</th>
 						              <th>User</th>
 						              <th>Gang Id</th>
-						              <th>XML From Metrix</th>
-						              <th>Report Uploaded</th>
-						              <th>File Uploaded</th>
-						              <th>Metrix Passed</th>
+						              <th>mXML From Metrix</th>
+						              <th>Rip Report Uploaded</th>
+						              <th>Rip File Uploaded</th>
+						              <th>Rip Passed</th>
 									  <th>Status</th>
 						            </tr>
 						          </thead>
@@ -1597,11 +1614,11 @@
 						              </td>
 						              <td>
 						                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-						                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#file-upload-modal" data-title="XML Upload"><i class="fa fa-download"></i> Save Now</button>
+						                <button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>
 						              </td>
 						              <td>
 						                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-						                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#file-upload-modal" data-title="XML Upload"><i class="fa fa-download"></i> Save Now</button>
+						                <button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>
 						              </td>
 						              <td>
 						                <button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>
@@ -1620,11 +1637,11 @@
 						              </td>
 						              <td>
 						                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-						                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#file-upload-modal" data-title="XML Upload"><i class="fa fa-download"></i> Save Now</button>
+						                <button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>
 						              </td>
 						              <td>
 						                <button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-						                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#file-upload-modal" data-title="XML Upload"><i class="fa fa-download"></i> Save Now</button>
+						                <button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>
 						              </td>
 						              <td>
 						                <button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>
