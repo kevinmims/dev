@@ -318,7 +318,7 @@
 		},
 
 		showModal: function(modal){
-			$($modal).modal('show').on('shown.bs.modal', function () {
+			$(modal).modal('show').on('shown.bs.modal', function () {
 				$('#imposition-file-upload-name').focus()
 			}).on('hidden.bs.modal', function () {
 				$('#imposition-file-upload-name').empty();
