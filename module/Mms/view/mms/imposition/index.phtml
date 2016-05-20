@@ -656,7 +656,7 @@
 
 			if (s.dashboard_items.hasOwnProperty(type)){
 				var data = s.dashboard_items[type].data;
-				eval('Imposition.build_'+data+'('+type+')');
+				eval('Imposition.build_'+data+'("'+type+'")');
 			}
 /*				
 				title = s.dashboard_items[type].title;
@@ -735,9 +735,9 @@
 			}
 		},
 
-		build_job_table: function(type){
+		build_job_table: function(type2){
 			
-			var type = type,
+			var type = type2,
 				data = '',
 				title = '',
 				table = '',
