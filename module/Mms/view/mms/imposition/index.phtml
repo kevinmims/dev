@@ -792,12 +792,11 @@
 		},
 
 		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_table"
-		build_gang_table: function(){
+		build_gang_table: function(type){
 			var data = '',
 				title = '',
 				table = '',
 				tableHead= "",
-				tableFoot= ""
 				tableBody= "";
 
 				title = s.dashboard_items[type].title;
@@ -812,38 +811,28 @@
 				}
 				tableHead+= '</tr></thead>'; 
 
-				tableFoot = '<tfoot><tr>';
-				for (x = 0; x < s[data].tfoot.length; x++) {
-					tableFoot+= "<th>"+s[data].tfoot[x]+"</th>";
-				}
-				tableFoot+= '</tr></tfoot>';
-	
+				
 				tableBody = '<tbody>';
-				for (x = 0; x < 20; x++) {
+				for (x = 0; x < 2; x++) {
 					tableBody+= '<tr>';
-					for (y = 0; y < s[data].tbody[0].length; y++) {
-						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
-						} else {
-							tableBody+= "<td>"+s[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
-						}
-						
+					for (y = 0; y < s[data].tbody[x].length; y++) {
+						tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
 					}
+					
 					tableBody+= '</tr>';
 				}
 				tableBody+= '</tfoot>';
 
 				table = '<table id="'+s[data].id+'" class="'+s[data].classes+'">';
 				table+= tableHead;
-				table+= tableFoot;
 				table+= tableBody;
 				table+= '</table>';
 
 
 
 				$(s.tab_mainBody).html(s.job_table_controls + table);
-				Imposition.makeDataTable();
-				
+				//Imposition.makeDataTable();
+				$(s.tab_mainBody).DataTable();
 				
 
 
