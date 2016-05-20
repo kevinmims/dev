@@ -444,6 +444,7 @@
 
 		handleCheckBox: function($e){
 			if(!$e.hasClass('js-select-all')){
+			    console.log('in not has class js-select-all');
 			    if($e.is(":checked")) {
 			        $e.parent().parent().addClass("selected").find('.user-selected').html(s.username);
 			    } else {
@@ -453,6 +454,7 @@
 			        $e.parent().parent().removeClass("selected").find('.user-selected').html('');
 			    }
 			} else {
+				console.log('in HAS class js-select-all');
 				// select all checkbox
 				var rows = s.table.rows({ 'search': 'applied' }).nodes();
 			
