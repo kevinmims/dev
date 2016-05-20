@@ -457,18 +457,18 @@
 				console.log('in HAS class js-select-all');
 				// select all checkbox
 				var rows = s.table.rows({ 'search': 'applied' }).nodes();
-			
+			console.log('rows='+rows);
 				if($e.prop('checked')){
 					console.log('select all IS checked');
 					$('input[type="checkbox"]', rows).each(function(){
-						$e.prop('checked', true);
-				  		$e.parent().parent().addClass('selected').find('.user-selected').html(s.username);
+						$(this).prop('checked', true);
+				  		$(this).parent().parent().addClass('selected').find('.user-selected').html(s.username);
 					});
 				} else {	
 					console.log('select all is NOT checked');
 					$('input[type="checkbox"]', rows).each(function(){
-						$e.removeProp('checked');
-				  		$e.parent().parent().removeClass('selected').find('.user-selected').html('');
+						$(this).removeProp('checked');
+				  		$(this).parent().parent().removeClass('selected').find('.user-selected').html('');
 					});
 				}
 
