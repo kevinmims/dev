@@ -221,6 +221,41 @@
 				data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
 				gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
 			},
+			dashboard_items: {
+				total_jobs: {
+					title: "Total Jobs",
+					type: "total_jobs",
+					data: ""
+				},
+				approved_jobs: {
+					title: "Approved Jobs",
+					type: "approved_jobs",
+					data: ""
+				},
+				same_day_jobs: {
+					title: "Same Day Jobs",
+					type: "same_day_jobs",
+					data: ""
+				},
+				gangs_created: {
+					title: "Gangs Created",
+					type: "gangs_created",
+					data: ""
+				},
+				rip_errors: {
+					title: "Rip Errors",
+					type: "rip_errors",
+					data: ""
+				},
+				gangs_in_process: {
+					title: "Gangs in Process",
+					type: "gangs_in_process",
+					data: ""
+				}
+			},
+
+				
+
 			table: "",
 			tabs_imposition: "#tabs-imposition",
 			btn_refresh: ".js-refresh",
@@ -544,6 +579,9 @@
 		handleMainData: function($elem){
 			var type = $elem.parent().attr('data-type');
 			
+			if(s.dashboard_items.indexOf(type)){
+				alert('found the tab');
+			} 
 			
 			if (s.data_btns.data_tab.indexOf(type) >= 0){
 				//this.handleError('show data tab');
@@ -799,7 +837,7 @@
 
 	<div class="row dashboard-top-row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px">
 		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
-            <div class="dashboard-stat" data-type="same_day_jobs">
+            <div class="dashboard-stat" data-title="" data-type="same_day_jobs">
                 <a class="main btn btn-default" href="#">
                   <div class="visual"><i class="fa fa-file-o"></i></div>
                   <div class="details">
