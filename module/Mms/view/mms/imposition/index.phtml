@@ -258,6 +258,9 @@
 
 			table: "",
 			tabs_imposition: "#tabs-imposition",
+			tab_mainTab: tabs_imposition+' a[href="#main_tab"]',
+			tab_mainBody: "#main_tab",
+
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
 			btn_submenu: "a.submenu",
@@ -422,7 +425,7 @@
 			});
 
 			$('.dashboard-stat').on("click", s.btn_dashboardMain, function() { 
-				Imposition.handleMainData($(this));
+				Imposition.handleDashboardBtnClick($(this));
 			});
 
 			$('.dashboard-stat').on("click", s.btn_submenu, function() { 
@@ -576,16 +579,29 @@
 			return eval(template);
 		},
 
-		handleMainData: function($elem){
-			var type = $elem.parent().attr('data-type');
-			var title = '',
+		handleDashboardBtnClick: function($elem){
+			var type = $elem.parent().attr('data-type'),
+				title = '',
 				data = '';
 
 			if (s.dashboard_items.hasOwnProperty(type)){
 				title = s.dashboard_items[type].title;
-				this.log(title);
+				data = s.dashboard_items[type].data;
+				// set title of tab
+				$(s.tab_mainTab).text(title);
+
+
+				// show tab
+				$(s.tab_mainTab).tab('show');
+
+				// populate data in tab
+				$(s.tab_mainBody).html('<h1>Here now</h1>');
+
+				
+
+
 			} 
-			
+/*
 			if (s.data_btns.data_tab.indexOf(type) >= 0){
 				//this.handleError('show data tab');
 				this.log('data_tab: '+s.data_btns.data_tab.indexOf(type));
@@ -598,7 +614,7 @@
 			} else {
 				this.handleError('not in array');
 			}
-
+*/
 			this.refreshData($(s.btn_refresh));
 			if($elem.hasClass('btn-primary')){
 				//$elem.removeClass('btn-primary').addClass('btn-default');
@@ -952,6 +968,9 @@
         <div class="col-xs-12">
 			<ul id="tabs-imposition" class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active">
+					<a href="#main_tab" aria-expanded="true" data-toggle="tab" role="tab" aria-controls="main_tab">Main Tab</a>
+				</li>
+				<li role="presentation" class="">
 					<a href="#data_tab" aria-expanded="true" data-toggle="tab" role="tab" aria-controls="data_tab">Jobs</a>
 				</li>
 				<li role="presentation">
@@ -963,7 +982,12 @@
 			</ul>
 
 			 <div class="tab-content" style="margin-bottom:40px;">
-			    <div id="data_tab" class="tab-pane active" style="margin-top:15px;" role="tabpanel">
+			    <div id="main_tab" class="tab-pane active" style="margin-top:15px;" role="tabpanel">
+					processing request...
+				</div>
+
+
+				<div id="data_tab" class="tab-pane" style="margin-top:15px;" role="tabpanel">
 					<div style="" class="row">
   
 						<div class="col-sm-6 col-md-4">
@@ -1517,7 +1541,7 @@
 					  </div>
 				</div>
 
-			    <div style="margin-top:15px;" id="gang_tab" class="tab-pane" role="tabpanel">
+			    <div id="gang_tab" class="tab-pane" style="margin-top:15px;" role="tabpanel">
 			    	<div class="row" style="margin-top:15px;">
 					    <div class="col-sm-12">
 					      <div class="panel panel-default">
