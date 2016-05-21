@@ -16,7 +16,7 @@
             ->appendName('theme-color', '#3e454c')
         ?>
 
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/dri_logo.png'))
                         
             //->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
             ->prependStylesheet($this->basePath('css/bootstrap.min.css')) 
@@ -40,7 +40,7 @@
 
     <body>
     <div class="brand clearfix">
-        <a href="dashboard" class="logo"><i class="fa fa-bolt"></i> DRI MMS</a>
+        <a class="logo" href="dashboard" style="padding:0px;"><img src="/img/dri_logo.png" style="height:100%;"> MMS</a>
         <span class="menu-btn"><i class="fa fa-bars"></i></span>
         <ul class="ts-profile-nav">
             <li class="dropdown">
