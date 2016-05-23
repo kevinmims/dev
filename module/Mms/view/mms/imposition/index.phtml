@@ -625,6 +625,7 @@
 					var filterValue = "a34ty32wert2";
 
 					$(document).on("click", s.btn_filterSelect, function(){
+						Imposition.handleMenuDropdown($(this));
 						$(this).parent().on('hidden.bs.dropdown', function () {
 					  		api.columns( 3 ).every( function(){
 								var column = this;
