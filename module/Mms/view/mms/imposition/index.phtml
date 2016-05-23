@@ -622,13 +622,14 @@
 		            });
 
 					var api = this.api();
+					var filterValue = "a34ty32wert2";
 
 					$(document).on("click", s.btn_filterSelect, function(){
 						$(this).parent().on('hidden.bs.dropdown', function () {
 					  		api.columns( 3 ).every( function(){
 								var column = this;
-								$(column.footer()).find('select').val("a34ty32wert2");
-							}).search( 'a34ty32wert29' ).draw();;
+								$(column.footer()).find('select').val(filterValue);
+							}).search(filterValue).draw();;
 					  	});
 						
 					});
