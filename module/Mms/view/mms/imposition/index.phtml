@@ -759,7 +759,8 @@
 		},
 
 		handleLocationChange: function($e){
-			console.log('handle location change stuff');
+			var selected = $e.find('a.selected').text();
+			console.log('handle location change stuff for: ' + selected);
 		},
 
 		handleJobFilterChange: function(){
