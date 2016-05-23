@@ -615,8 +615,19 @@
 		            } );
 
 					this.api().columns( 3 ).every( function(){
-						
-						console.log('in column 3 filter');
+						var column = this;
+
+						$(column).find('select').val('hello');
+
+						//$("div#selection select.select option").each(function(){
+					    //    if($(this).val()==num){ // EDITED THIS LINE
+					    //        $(this).attr("selected","selected");    
+					    //    }
+					    //});
+
+
+						//$(this).find('select $("div.id_100 select").val("val2");
+						//console.log('in column 3 filter');
 					}).search( 'a34ty32wert29' ).draw();
 					
 
