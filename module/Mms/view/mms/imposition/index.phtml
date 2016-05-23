@@ -707,7 +707,7 @@
 
 		handleMenuDropdown: function($e){
 			
-			$e.closest('.dropdown-menu li a').each(function(){
+			$e.closest('.dropdown-menu').find('li a').each(function(){
 				$(this).addClass('hello'); //.each('li a').removeClass('active');
 			})
 			$e.addClass('active');
