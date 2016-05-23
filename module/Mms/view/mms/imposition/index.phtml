@@ -335,7 +335,7 @@
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
 			
-			btn_locationSelect: "#btn-location",
+			dropdown_location: "#btn-location",
 			btn_filterSelect: "#pre-set-filters",
 			
 			btn_submenu: "a.submenu",
@@ -558,18 +558,18 @@
 			//	Imposition.filterTable($(s.btn_filterSelect));
 			//});
 			
-			$(s.btn_locationSelect).on("click", 'a.js-choice', function(){
+			$(s.dropdown_location).on("click", 'a.js-choice', function(){
 				// handle on close event
 				// handle setting of value and class
 
-				//$(s.btn_locationSelect).on('shown.bs.dropdown', function(){
+				//$(s.dropdown_location).on('shown.bs.dropdown', function(){
 					alert('a clicked');
 				//});
 
-				//Imposition.handleLocationChange($(s.btn_locationSelect));
+				//Imposition.handleLocationChange($(s.dropdown_location));
 			});
 
-			$(s.btn_locationSelect).on('shown.bs.dropdown', function(){
+			$('.dropdown').on('shown.bs.dropdown', function(){
 				alert('closed');
 			});
 		},
