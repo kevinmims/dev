@@ -565,31 +565,20 @@
 			//	Imposition.filterTable($(s.btn_filterSelect));
 			//});
 			
-			$(s.dropdown_location).on("click", 'a.js-choice', function(){
-				// handle on close event
-				// handle setting of value and class
-				console.log('location main <a> was clicked');
-			});
+			//$(s.dropdown_location).on("click", 'a.js-choice', function(){
+			//	console.log('location main <a> was clicked');
+			//});
 
 			$(s.dropdown_location).on('hidden.bs.dropdown', function(){
-				//console.log('location dropdown is closed');	
 				Imposition.handleLocationChange($(s.dropdown_location));
 			});
 
-			//$(s.dropdown_location + ' .dropdown-menu li a').on('click', function(){
-			//	console.log('location child <a> was clicked');
+			//$(document).on('click', s.dropdown_jobFilter + ' a.js-choice', function(){
+			//	console.log('job filter main <a> was clicked');
 			//});
-			
-
-			$(document).on('click', s.dropdown_jobFilter + ' a.js-choice', function(){
-			//$(s.dropdown_jobFilter).on("click", 'a.js-choice', function(){
-				console.log('job filter main <a> was clicked');
-			});
 
 			$(document).on('hidden.bs.dropdown', s.dropdown_jobFilter, function(){
-			//$(s.dropdown_jobFilter).on('hidden.bs.dropdown', function(){
-				console.log('job filter dropdown is closed');	
-				// call func to handle active class and text
+				Imposition.handleJobFilterChange($(s.dropdown_location));
 			});
 
 			// handle all dropdowns text change
@@ -759,13 +748,13 @@
 		},
 
 		handleLocationChange: function($e){
-			console.log($e);
 			var selected = $e.find('a.js-choice .js-name').text();
 			console.log('handle location change stuff for: ' + selected);
 		},
 
-		handleJobFilterChange: function(){
-
+		handleJobFilterChange: function($e){
+			var selected = $e.find('a.js-choice .js-name').text();
+			console.log('handle job filter stuff for: ' + selected);
 		},
 
 		createXML: function($e){
