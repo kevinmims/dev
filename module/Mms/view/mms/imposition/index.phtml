@@ -225,6 +225,7 @@
 		settings: {
 			username: '',
 			location: '',
+			job_preFilter: '',
 
 			subDashboard: "#sub-dashboard",
 			graphModal: "#graph-modal",
@@ -758,6 +759,8 @@
 		handleJobFilterChange: function($e){
 			var selected = $e.find('a.js-choice .js-name').text();
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
+			console.log(s.table);
+			
 		},
 
 		createXML: function($e){
