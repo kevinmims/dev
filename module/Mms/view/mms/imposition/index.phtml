@@ -755,10 +755,10 @@
 		handleJobFilterChange: function($e){
 			var filterValue = "a34ty32wert2";
 			var column = "3";
-			var filterArray = {
-				[ "column": "2", "value": "a34ty32wert2" ],
-				[ "column": "3", "value": "a34ty32wert2" ]
-			}
+			var filterArray = [
+				{ "column": "2", "value": "a34ty32wert2" },
+				{ "column": "3", "value": "a34ty32wert2" }
+			];
 			var selected = $e.find('a.js-choice .js-name').text();
 			
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
