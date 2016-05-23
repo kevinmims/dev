@@ -617,7 +617,7 @@
 					this.api().columns( 3 ).every( function(){
 						var column = this;
 						//column.data().unique().sort().each( function ( d, j ) {
-						this.log('hereIamNowFindMe');
+						console.log('hereIamNowFindMe');
 							$(this).addClass("hereIamNowFindMe"); //.find('select.filter').val('a34ty32wert2');
 						//});
 						//console.log(this);
@@ -662,7 +662,7 @@
 		},
 
 		createXML: function($e){
-			alert(s.table.rows('.selected').data().length +' row(s) selected' );
+			this.handleError(s.table.rows('.selected').data().length +' row(s) selected' );
 			s.table.rows('.selected').remove().draw();
 		},
 
