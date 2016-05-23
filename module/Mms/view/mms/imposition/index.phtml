@@ -531,11 +531,13 @@
 				Imposition.handleCheckBox($(this));
 			});
 
-			$(s.btn_uploadMxml).on('change', function(){
-				Imposition.triggerMxmlFileSelect($(this));
+			$(document).on("change", s.btn_uploadMxml, function() { 
+			//$(s.btn_uploadMxml).on('change', function(){
+				Imposition.triggerMxmlFileSelect($(s.btn_uploadMxml));
 			});
 			
-			$(s.btn_uploadMxml).on('fileselect', function(event, numFiles, fileNames) {
+			$(document).on("fileselect", s.btn_uploadMxml, function(event, numFiles, fileNames) {
+			//$(s.btn_uploadMxml).on('fileselect', function(event, numFiles, fileNames) {
 				Imposition.handleMxmlUpload(event, numFiles, fileNames);
 			});
 
