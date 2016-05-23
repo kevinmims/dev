@@ -558,18 +558,23 @@
 			//	Imposition.filterTable($(s.btn_filterSelect));
 			//});
 			
-			$(s.dropdown_location).on("click", 'a.js-choice', function(){
+			$(s.dropdown_location).on("click", 'a', function(){
 				// handle on close event
 				// handle setting of value and class
+				console.log('a was clicked');
 
-				//$(s.dropdown_location).on('shown.bs.dropdown', function(){
-					alert('a clicked');
+				$(s.dropdown_location + ' .dropdown li a').on('click', function(){
+					coslole.log('child a was clicked');
+				});
+
+				//$(s.dropdown_location).on('hidden.bs.dropdown', function(){
+					
 				//});
 
 				//Imposition.handleLocationChange($(s.dropdown_location));
 			});
 
-			$('.dropdown').on('hidden.bs.dropdown', function(){
+			$('.dropdown li a').on('hidden.bs.dropdown', function(){
 				alert('closed');
 			});
 		},
