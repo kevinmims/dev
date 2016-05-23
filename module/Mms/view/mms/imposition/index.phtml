@@ -310,8 +310,8 @@
 
 						'<div class="col-sm-6 col-md-3">'+
 							'<div>Pre-set Filters</div>'+
-							'<div id="pre-set-filters" class="dropdown">'+
-								'<a id="pre-set-filters" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
+							'<div id="dropdown_jobFilter" class="dropdown">'+
+								'<a id="" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
 									'<span class="caret"></span>'+
 									'<div class="pull-right" style="letter-spacing:1px;"></div>'+
 									'<span class="js-name">Select</span>	'+
@@ -335,7 +335,9 @@
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
 			
-			dropdown_location: "#btn-location",
+			dropdown_location: "#dropdown_location",
+			dropdown_jobFilter: "#dropdown_jobFilter",
+
 			btn_filterSelect: "#pre-set-filters",
 			
 			btn_submenu: "a.submenu",
@@ -561,23 +563,36 @@
 			$(s.dropdown_location).on("click", 'a.js-choice', function(){
 				// handle on close event
 				// handle setting of value and class
-				console.log('a was clicked');
+				console.log('location main <a> was clicked');
 			});
 				
 
-				$(s.dropdown_location).on('hidden.bs.dropdown', function(){
-					console.log('location dropdown is closed');	
-				});
+			$(s.dropdown_location).on('hidden.bs.dropdown', function(){
+				console.log('location dropdown is closed');	
+				// call func to handle active class and text
+			});
 
 				//Imposition.handleLocationChange($(s.dropdown_location));
 			
 
-			$(s.dropdown_location + ' .dropdown-menu li a').on('click', function(){
-					console.log('child a was clicked');
-				});
-			//$('.dropdown li a').on('hidden.bs.dropdown', function(){
-			//	alert('closed');
+			//$(s.dropdown_location + ' .dropdown-menu li a').on('click', function(){
+			//	console.log('location child <a> was clicked');
 			//});
+			
+
+			$(s.dropdown_jobFilter).on("click", 'a.js-choice', function(){
+				console.log('job filter main <a> was clicked');
+			});
+
+			$(s.dropdown_jobFilter).on('hidden.bs.dropdown', function(){
+				console.log('job filter dropdown is closed');	
+				// call func to handle active class and text
+			});
+
+			// handle all dropdowns text change
+			$(document).on('click', '.dropdown li a', function(){
+				Imposition.handleMenuDropdown($(this));
+			});
 		},
 
 		showModal: function(modal){
@@ -1085,7 +1100,7 @@
 
 		<div class="col-sm-3 col-sm-offset-3">
 			<div>Location</div>
-			<div id="btn-location" class="dropdown">
+			<div id="dropdown_location" class="dropdown">
 				<a class="btn btn-default btn-block js-choice"aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
 					<span class="caret"></span>
 					<div class="pull-right" style="letter-spacing:1px;">
