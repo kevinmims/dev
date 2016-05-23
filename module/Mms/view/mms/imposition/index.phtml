@@ -729,7 +729,7 @@
 			var x = 0;
 			$('.dropdown-menu li a').on('click', function(){
 				x++;
-				console.log('clicked '+ x + 'time');
+				console.log('clicked '+ x + ' times');
 			});
 
 		},
@@ -1068,8 +1068,8 @@
 
 		<div class="col-sm-3 col-sm-offset-3">
 			<div>Location</div>
-			<div class="dropdown">
-				<a id="btn-location" class="btn btn-default btn-block js-choice"aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
+			<div id="btn-location" class="dropdown">
+				<a class="btn btn-default btn-block js-choice"aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
 					<span class="caret"></span>
 					<div class="pull-right" style="letter-spacing:1px;">
 						<span class="badge js-count">2</span> 
@@ -1079,7 +1079,7 @@
 					<span class="js-name">Arlington Ave H</span>
 				</a>
 
-				<ul aria-labelledby="dLbtn-locationabel" class="dropdown-menu" style="width:100%;">
+				<ul aria-labelledby="" class="dropdown-menu" style="width:100%;">
 					<li>
 						<a class="btn text-left">
 							<div class="pull-right" style="letter-spacing:1px;">
