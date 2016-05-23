@@ -616,12 +616,15 @@
 							}
 							//select.append( '<option value="'+d+'">'+d+'</option>' )
 		                } );
-		            } );
+		            
 
-					var table = this.api();
+
+		            });
+
+					var api = this.api();
 
 					$(document).on("click", s.btn_filterSelect, function(){
-						table.api().columns( 3 ).every( function(){
+						api.columns( 3 ).every( function(){
 						//Imposition.filterTable($(s.btn_filterSelect));
 							var column = this;
 							$(column.footer()).find('select').val("a34ty32wert2");
