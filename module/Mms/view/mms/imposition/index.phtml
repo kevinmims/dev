@@ -224,6 +224,8 @@
 
 		settings: {
 			username: '',
+			location: '',
+
 			subDashboard: "#sub-dashboard",
 			graphModal: "#graph-modal",
 			//data_btns: {
@@ -578,7 +580,7 @@
 			//});
 
 			$(document).on('hidden.bs.dropdown', s.dropdown_jobFilter, function(){
-				Imposition.handleJobFilterChange($(s.dropdown_location));
+				Imposition.handleJobFilterChange($(s.dropdown_jobFilter));
 			});
 
 			// handle all dropdowns text change
@@ -749,12 +751,13 @@
 
 		handleLocationChange: function($e){
 			var selected = $e.find('a.js-choice .js-name').text();
+			s.location = selected;
 			console.log('handle location change stuff for: ' + selected);
 		},
 
 		handleJobFilterChange: function($e){
 			var selected = $e.find('a.js-choice .js-name').text();
-			console.log('handle job filter stuff for: ' + selected);
+			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
 		},
 
 		createXML: function($e){
