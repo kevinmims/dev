@@ -562,15 +562,15 @@
 				// handle on close event
 				// handle setting of value and class
 				console.log('a was clicked');
-
+			});
 				
 
-				//$(s.dropdown_location).on('hidden.bs.dropdown', function(){
-					
-				//});
+				$(s.dropdown_location).on('hidden.bs.dropdown', function(){
+					console.log('location dropdown is closed');	
+				});
 
 				//Imposition.handleLocationChange($(s.dropdown_location));
-			});
+			
 
 			$(s.dropdown_location + ' .dropdown-menu li a').on('click', function(){
 					console.log('child a was clicked');
