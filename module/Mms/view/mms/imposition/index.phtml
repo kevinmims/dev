@@ -550,9 +550,9 @@
 				Imposition.showModal(s.modal_ripUpload);
 			});
 
-			$(document).on("click", s.btn_filterSelect, function(){
-				Imposition.filterTable($(s.btn_filterSelect));
-			});
+			//$(document).on("click", s.btn_filterSelect, function(){
+			//	Imposition.filterTable($(s.btn_filterSelect));
+			//});
 		},
 
 		showModal: function(modal){
@@ -618,6 +618,17 @@
 		                } );
 		            } );
 
+					$(document).on("click", s.btn_filterSelect, function(){
+						this.api().columns( 3 ).every( function(){
+						//Imposition.filterTable($(s.btn_filterSelect));
+						var column = this;
+						$(column.footer()).find('select').val("a34ty32wert2");
+					});
+
+					
+					//api.$('td').click( function () {
+					//	api.search( this.innerHTML ).draw();
+					//} );
 					//this.api().columns( 3 ).every( function(){
 						//var column = this;
 						//column.data().unique().sort().each( function ( d, j ) {
