@@ -616,8 +616,9 @@
 
 					this.api().columns( 3 ).every( function(){
 						var column = this;
-
-						$(this).closest('select.filter').val('a34ty32wert2');
+						column.data().unique().sort().each( function ( d, j ) {
+							$(column).closest('th').find('select.filter').val('a34ty32wert2');
+						}
 						//console.log(this);
 
 						//$("div#selection select.select option").each(function(){
@@ -629,7 +630,7 @@
 
 						//$(this).find('select $("div.id_100 select").val("val2");
 						//console.log('in column 3 filter');
-					}).search( 'a34ty32wert29' ).draw();
+					});//.search( 'a34ty32wert29' ).draw();
 					
 
 
