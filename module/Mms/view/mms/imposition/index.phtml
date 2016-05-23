@@ -617,8 +617,8 @@
 					this.api().columns( 3 ).every( function(){
 						var column = this;
 
-						$(this).find('select').val('a34ty32wert2');
-						console.log(this);
+						$(this).closest('select.filter').val('a34ty32wert2');
+						//console.log(this);
 
 						//$("div#selection select.select option").each(function(){
 					    //    if($(this).val()==num){ // EDITED THIS LINE
