@@ -614,9 +614,10 @@
 		                } );
 		            } );
 
-					this.api().columns( 3 )
-						.search( 'a34ty32wert29' )
-						.draw();
+					this.api().columns( 3, function(){
+						
+						alert('here');
+					})this.search( 'a34ty32wert29' ).draw();
 					
 
 
