@@ -516,6 +516,7 @@
 
 	    	$(s.btn_menuDropdown).on('click', function(){
 	    		Imposition.handleMenuDropdown($(this));
+	    		console.log($(this));
 	    	});
 	    	
 			$(document).on("click", s.btn_show_graph, function() { 
@@ -625,6 +626,8 @@
 					var filterValue = "a34ty32wert2";
 
 					$(document).on("click", s.btn_filterSelect, function(){
+						console.log($(this));
+
 						Imposition.handleMenuDropdown($(this));
 						$(this).parent().on('hidden.bs.dropdown', function () {
 					  		api.columns( 3 ).every( function(){
