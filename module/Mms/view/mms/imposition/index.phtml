@@ -559,7 +559,14 @@
 			//});
 			
 			$(document).on("click", s.btn_locationSelect, function(){
-				Imposition.handleLocationChange($(s.btn_locationSelect));
+				// handle on close event
+				// handle setting of value and class
+
+				$(s.btn_locationSelect).on('shown.bs.dropdown', function(){
+					alert('closed');
+				});
+
+				//Imposition.handleLocationChange($(s.btn_locationSelect));
 			});
 		},
 
