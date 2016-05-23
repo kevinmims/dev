@@ -625,6 +625,7 @@
 
 					$(document).on("click", s.btn_filterSelect, function(){
 						console.log('in dropdown click');
+						console.log(this);
 						$(this).on('hidden.bs.dropdown', function () {
 					  		console.log('hidden');
 					  	})
