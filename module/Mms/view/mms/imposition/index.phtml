@@ -707,7 +707,7 @@
 
 		handleMenuDropdown: function($e){
 			
-			$e.closest('.dropdown-menu ul').each('li a').removeClass('active');
+			$e.closest('.dropdown-menu').addClass('hello'); //.each('li a').removeClass('active');
 			$e.addClass('active');
 			$e.closest('.dropdown').find('.btn.js-choice').html(
 				'<span class="caret"></span><div style="margin-right:20px">' + $e.html() + '</div>'
