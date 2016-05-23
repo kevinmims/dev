@@ -617,7 +617,8 @@
 					this.api().columns( 3 ).every( function(){
 						var column = this;
 						//column.data().unique().sort().each( function ( d, j ) {
-						//	$(this).addClass("hereIamNowFindMe"); //.find('select.filter').val('a34ty32wert2');
+						this.log('hereIamNowFindMe');
+							$(this).addClass("hereIamNowFindMe"); //.find('select.filter').val('a34ty32wert2');
 						//});
 						//console.log(this);
 
@@ -630,7 +631,7 @@
 
 						//$(this).find('select $("div.id_100 select").val("val2");
 						//console.log('in column 3 filter');
-					}).search( 'a34ty32wert29' ).draw();
+					});//.search( 'a34ty32wert29' ).draw();
 					
 
 		        }
