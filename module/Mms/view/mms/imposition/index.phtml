@@ -563,10 +563,14 @@
 				// handle setting of value and class
 
 				//$(s.btn_locationSelect).on('shown.bs.dropdown', function(){
-					alert('closed');
+					alert('a clicked');
 				//});
 
 				//Imposition.handleLocationChange($(s.btn_locationSelect));
+			});
+
+			$(s.btn_locationSelect).on('shown.bs.dropdown', function(){
+				alert('closed');
 			});
 		},
 
