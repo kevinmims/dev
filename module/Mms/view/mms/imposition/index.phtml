@@ -616,9 +616,9 @@
 
 					this.api().columns( 3 ).every( function(){
 						var column = this;
-						column.data().unique().sort().each( function ( d, j ) {
-							$(column).closest('th').find('select.filter').val('a34ty32wert2');
-						});
+						//column.data().unique().sort().each( function ( d, j ) {
+							$(column).closest('th').addClass("hereIamNowFindMe"); //.find('select.filter').val('a34ty32wert2');
+						//});
 						//console.log(this);
 
 						//$("div#selection select.select option").each(function(){
