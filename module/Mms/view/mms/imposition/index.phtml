@@ -334,6 +334,7 @@
 
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
+			btn_filterSelect: "#pre-set-filters",
 			btn_submenu: "a.submenu",
 			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
 			btn_show_graph: ".js-show-graph",
@@ -549,6 +550,9 @@
 				Imposition.showModal(s.modal_ripUpload);
 			});
 
+			$(document).on("click", s.btn_filterSelect, function(){
+				Imosition.filterTable($(s.btn_filterSelect));
+			});
 		},
 
 		showModal: function(modal){
@@ -618,7 +622,7 @@
 						var column = this;
 						//column.data().unique().sort().each( function ( d, j ) {
 						console.log('hereIamNowFindMe');
-							$(column.footer()).find('select').val(""); //.find('select.filter').val('a34ty32wert2');
+							$(column.footer()).find('select').val("a34ty32wert2"); //.find('select.filter').val('a34ty32wert2');
 						//});
 						//console.log(this);
 
@@ -638,6 +642,27 @@
 		    } );
 
 
+		},
+
+		filterTable: function(){
+			s.table.api().columns( 3 ).every( function(){
+						var column = this;
+						//column.data().unique().sort().each( function ( d, j ) {
+						console.log('hereIamNowFindMe');
+							$(column.footer()).find('select').val("a34ty32wert2"); //.find('select.filter').val('a34ty32wert2');
+						//});
+						//console.log(this);
+
+						//$("div#selection select.select option").each(function(){
+					    //    if($(this).val()==num){ // EDITED THIS LINE
+					    //        $(this).attr("selected","selected");    
+					    //    }
+					    //});
+
+
+						//$(this).find('select $("div.id_100 select").val("val2");
+						//console.log('in column 3 filter');
+					});//.search( 'a34ty32wert29' ).draw();
 		},
 
 		log: function(text){
