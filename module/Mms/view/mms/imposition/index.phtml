@@ -624,6 +624,9 @@
 					var api = this.api();
 
 					$(document).on("click", s.btn_filterSelect, function(){
+						this.on('show.bs.dropdown', function () {
+					  		alert('hidden');
+					  	})
 						api.columns( 3 ).every( function(){
 						//Imposition.filterTable($(s.btn_filterSelect));
 							var column = this;
