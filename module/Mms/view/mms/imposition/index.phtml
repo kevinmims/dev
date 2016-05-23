@@ -226,8 +226,9 @@
 			username: '',
 			location: '',
 			job_preFilter: '',
+			table: '',
 
-			defaultsOnLoad: {
+			defaults_onLoad: {
 				location: "",
 				dashboard_item: "",
 				jobPreFilter: ""
@@ -305,7 +306,7 @@
 			
 						           
 			
-			table: "",
+			
 			tabs_imposition: "#tabs-imposition",
 			tab_mainBody: "#main_tab",
 			tab_mainTab: '#tabs-imposition a[href="#main_tab"]',
@@ -708,8 +709,8 @@
 
 		},
 
-		filterTable: function(column, value){
-			
+		filterTable: function(column, value, array){
+			this.log(array);
 			s.table.columns( column ).every( function(){
 				var column = this;
 				$(column.footer()).find('select').val(value);
@@ -754,10 +755,14 @@
 		handleJobFilterChange: function($e){
 			var filterValue = "a34ty32wert2";
 			var column = "3";
+			var filterArray = {
+				[ "column": "2", "value": "a34ty32wert2" ],
+				[ "column": "3", "value": "a34ty32wert2" ]
+			}
 			var selected = $e.find('a.js-choice .js-name').text();
 			
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
-			this.filterTable(column, filterValue);
+			this.filterTable(column, filterValue, filterArray);
 		},
 
 		createXML: function($e){
@@ -790,12 +795,7 @@
 			$(s.tab_mainBody).html('building data...');
 
 			var type = $elem.parent().attr('data-type'),
-				data = '',
-				title = '',
-				table = '',
-				tableHead= "",
-				tableFoot= ""
-				tableBody= "";
+				data = '';
 
 			if (s.dashboard_items.hasOwnProperty(type)){
 				var data = s.dashboard_items[type].data;
@@ -803,6 +803,7 @@
 			}
 
 			this.refreshData($(s.btn_refresh));
+			
 			if($elem.hasClass('btn-primary')){
 				//$elem.removeClass('btn-primary').addClass('btn-default');
 				//$(s.subDashboard).slideUp('slow', function(){
@@ -1103,7 +1104,7 @@
 
 				<ul aria-labelledby="" class="dropdown-menu" style="width:100%;">
 					<li>
-						<a class="btn text-left">
+						<a class="btn text-left" data-name="Arlington Ave R" data-id="21">
 							<div class="pull-right" style="letter-spacing:1px;">
 								<span class="badge js-count">4</span> 
 								<span class="badge js-count">11</span> 
@@ -1113,7 +1114,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="btn text-left">
+						<a class="btn text-left" data-name="Arlington Ave H" data-id="22">
 							<div class="pull-right" style="letter-spacing:1px;">
 								<span class="badge js-count">2</span> 
 								<span class="badge js-count">14</span> 
@@ -1123,7 +1124,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="btn text-left">
+						<a class="btn text-left" data-name="Van Neyes" data-id="45">
 							<div class="pull-right" style="letter-spacing:1px;">
 								<span class="badge js-count">19</span> 
 								<span class="badge js-count">123</span> 
@@ -1133,7 +1134,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="btn text-left">
+						<a class="btn text-left" data-name="Cleveland" data-id="2">
 							<div class="pull-right" style="letter-spacing:1px;">
 								<span class="badge js-count">21</span> 
 								<span class="badge js-count">2</span> 
@@ -1144,7 +1145,7 @@
 					</li>
 					<li class="divider"></li>
 					<li>
-						<a class="btn text-left">
+						<a class="btn text-left" data-name="All Locations" data-id="0">
 							<div class="pull-right" style="letter-spacing:1px;">
 								<span class="badge js-count">2</span> 
 								<span class="badge js-count">14</span> 
