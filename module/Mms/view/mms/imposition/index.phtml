@@ -703,24 +703,14 @@
 		},
 
 		filterTable: function(){
-			s.table.api().columns( 3 ).every( function(){
-						var column = this;
-						//column.data().unique().sort().each( function ( d, j ) {
-						console.log('hereIamNowFindMe');
-							$(column.footer()).find('select').val("a34ty32wert2"); //.find('select.filter').val('a34ty32wert2');
-						//});
-						//console.log(this);
+			var filterValue = "a34ty32wert2";
 
-						//$("div#selection select.select option").each(function(){
-					    //    if($(this).val()==num){ // EDITED THIS LINE
-					    //        $(this).attr("selected","selected");    
-					    //    }
-					    //});
+			s.table.columns( 3 ).every( function(){
+				var column = this;
+				$(column.footer()).find('select').val(filterValue);
+			}).search(filterValue).draw();
 
-
-						//$(this).find('select $("div.id_100 select").val("val2");
-						//console.log('in column 3 filter');
-					});//.search( 'a34ty32wert29' ).draw();
+			
 		},
 
 		log: function(text){
@@ -759,8 +749,7 @@
 		handleJobFilterChange: function($e){
 			var selected = $e.find('a.js-choice .js-name').text();
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
-			console.log(s.table);
-			
+			this.filterTable();
 		},
 
 		createXML: function($e){
