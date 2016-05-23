@@ -710,14 +710,17 @@
 		},
 
 		filterTable: function(column, value, array){
-			this.log(array);
-			this.log('array length: '+array.length);
-			s.table.columns( column ).every( function(){
-				var column = this;
-				$(column.footer()).find('select').val(value);
-			}).search(value).draw();
-
-			
+			//this.log(array);
+			//this.log('array length: '+array.length);
+			for(x = 0; x < array.length; x++){
+				s.table.columns( column[x] ).every( function(){
+					var column = this;
+				
+					$(column.footer()).find('select').val(value[x]);
+				
+				}).search(value[x]);//.draw();
+			}
+			s.table.draw();
 		},
 
 		log: function(text){
