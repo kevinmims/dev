@@ -726,8 +726,10 @@
 		},
 
 		handleLocationChange: function($e){
+			var x = 0;
 			$('.dropdown-menu li a').on('click', function(){
-				alert('clicked');
+				x++;
+				alert('clicked '+ x + 'time');
 			});
 
 		},
