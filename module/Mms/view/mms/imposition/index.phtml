@@ -628,7 +628,7 @@
 					$(document).on("click", s.btn_filterSelect, function(){
 						console.log($(this));
 
-						Imposition.handleMenuDropdown($(this));
+						//Imposition.handleMenuDropdown($(this).next('ul'));
 						$(this).parent().on('hidden.bs.dropdown', function () {
 					  		api.columns( 3 ).every( function(){
 								var column = this;
