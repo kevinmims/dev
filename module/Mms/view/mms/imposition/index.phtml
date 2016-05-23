@@ -209,6 +209,11 @@
 	table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
 	    background-color: rgb(51, 122, 183);
 	} 
+	.dropdown-menu li a.active {
+    	background: rgb(51, 122, 183) none repeat scroll 0 0;
+    	box-shadow: none;
+    	color: rgb(255, 255, 255);
+	}
 
 
 </style>
@@ -565,15 +570,11 @@
 				// handle setting of value and class
 				console.log('location main <a> was clicked');
 			});
-				
 
 			$(s.dropdown_location).on('hidden.bs.dropdown', function(){
-				console.log('location dropdown is closed');	
-				// call func to handle active class and text
+				//console.log('location dropdown is closed');	
+				Imposition.handleLocationChange($(s.dropdown_location));
 			});
-
-				//Imposition.handleLocationChange($(s.dropdown_location));
-			
 
 			//$(s.dropdown_location + ' .dropdown-menu li a').on('click', function(){
 			//	console.log('location child <a> was clicked');
@@ -748,7 +749,6 @@
 		},
 
 		handleMenuDropdown: function($e){
-			
 			$e.closest('.dropdown-menu').find('li a').each(function(){
 				$(this).removeClass('active'); //.each('li a').removeClass('active');
 			});
@@ -756,17 +756,10 @@
 			$e.closest('.dropdown').find('.btn.js-choice').html(
 				'<span class="caret"></span><div style="margin-right:20px">' + $e.html() + '</div>'
 			);
-
-			
 		},
 
 		handleLocationChange: function($e){
-			var x = 0;
-			$('.dropdown-menu li a').on('click', function(){
-				x++;
-				console.log('clicked '+ x + ' times');
-			});
-
+			console.log('handle location change stuff');
 		},
 
 		handleJobFilterChange: function(){
