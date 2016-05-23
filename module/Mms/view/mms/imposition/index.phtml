@@ -702,13 +702,12 @@
 
 		},
 
-		filterTable: function(){
-			var filterValue = "a34ty32wert2";
-
-			s.table.columns( 3 ).every( function(){
+		filterTable: function(column, value){
+			
+			s.table.columns( column ).every( function(){
 				var column = this;
-				$(column.footer()).find('select').val(filterValue);
-			}).search(filterValue).draw();
+				$(column.footer()).find('select').val(value);
+			}).search(value).draw();
 
 			
 		},
@@ -747,9 +746,12 @@
 		},
 
 		handleJobFilterChange: function($e){
+			var filterValue = "a34ty32wert2";
+			var column = "3";
 			var selected = $e.find('a.js-choice .js-name').text();
+			
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
-			this.filterTable();
+			this.filterTable(column, filterValue);
 		},
 
 		createXML: function($e){
