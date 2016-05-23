@@ -711,6 +711,7 @@
 
 		filterTable: function(column, value, array){
 			this.log(array);
+			this.log('array length: '+array.length);
 			s.table.columns( column ).every( function(){
 				var column = this;
 				$(column.footer()).find('select').val(value);
@@ -755,6 +756,8 @@
 		handleJobFilterChange: function($e){
 			var filterValue = "a34ty32wert2";
 			var column = "3";
+			
+			// column, value
 			var filterArray = [
 				[2,"a34ty32wert2"],
 				[3,"a34ty32wert2"]
