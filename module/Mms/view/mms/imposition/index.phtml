@@ -624,14 +624,11 @@
 					var api = this.api();
 
 					$(document).on("click", s.btn_filterSelect, function(){
-						console.log('in dropdown click');
-						console.log(this);
 						$(this).parent().on('hidden.bs.dropdown', function () {
 					  		api.columns( 3 ).every( function(){
-							//Imposition.filterTable($(s.btn_filterSelect));
 								var column = this;
 								$(column.footer()).find('select').val("a34ty32wert2");
-							});
+							}).search( 'a34ty32wert29' ).draw();;
 					  	});
 						
 					});
