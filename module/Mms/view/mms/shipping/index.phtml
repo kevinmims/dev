@@ -1,6 +1,225 @@
 <h1><?php //echo $heading;?></h1>
 <h3><?php //echo $subHeading;?></h3>
 
+<style>
+	a, button, .btn {
+		border-radius: 0px;
+
+	}
+	.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus {
+		outline:none;
+	}
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    	white-space: nowrap;
+	}	
+	.nav-tabs li.active a, .nav-tabs li.active  a:focus, .nav-tabs  li.active a:hover {
+		border-top:3px solid #337ab7;
+		font-weight:bold;
+		color:#555;
+		border-radius:0px;
+
+	}
+	a:focus{
+		outline:none;
+	}  
+	a.js-choice { 
+		text-align:left;
+	}
+	a.js-choice .caret { 
+		float:right;
+		margin-top:10px;
+	}
+	.btn-blue, .btn-blue:focus, .btn-blue:active {
+		background: #337ab7;
+		color: white;
+		outline:none;
+	}
+	.btn-blue:hover {
+		background: #286090;
+		color:white;
+	}
+	.btn-blue-dark, .btn-blue-dark:focus, .btn-blue-dark:active {
+		background: rgb(40, 96, 144);
+		color: white;
+		outline:none;
+	}
+	.btn-blue-dark:hover {
+		background: rgb(31, 74, 112);
+		color:white;
+	}
+	
+	.btn-blue-light, .btn-blue-light:focus, .btn-blue-light:active {
+		background: rgb(191, 216, 237);
+		color: rgb(85, 85, 85);
+		outline:none;
+	}
+	.btn-blue-light:hover {
+		background: rgb(159, 196, 229);
+		color:rgb(85, 85, 85);
+	}
+	.dashboard-btn{
+		margin-bottom:10px;
+	}
+	.dashboard-btns a .count {
+		font-size:20px;
+	}
+	table tr.selected {
+		background: rgba(255, 0, 0, 0.1) none repeat scroll 0% 0%;
+		color: brown;
+		cursor: not-allowed;
+	}
+
+	.bootstrap-select .selected a {
+		background: rgba(51, 122, 183,1) none repeat scroll 0 0;
+    	color: rgb(255, 255, 255);
+	}
+
+	.bootstrap-select .selected a:hover {
+		background: rgba(51, 122, 183,0.9) none repeat scroll 0 0;
+    	color: rgb(255, 255, 255);
+	}
+	.js-upload-mxml {
+        position: relative;
+        overflow: hidden;
+    }
+    .js-upload-mxml input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+    #job-data-table thead {
+    	background: gray;
+    	color: white;
+    }
+    #job-data-table tfoot {
+    	display: table-header-group;
+    	background: lightgray;
+    }
+    #job-data-table tfoot th, #job-data-table tfoot td {
+	    border-bottom: 3px solid rgb(128, 128, 128);
+	}
+	#job-data-table th .filter {
+		background: rgb(255, 255, 255);
+	    border: medium none;
+	    border-radius: 3px;
+	    padding: 3px 2px;
+	    color:black;
+	}
+	.js-toggle-sub-menu {
+		position: absolute;
+		margin-left:-75px;
+		z-index:99;
+		border-radius:0px;
+		margin-top:-15px;
+		padding:0 20px 5px 20px;
+		font-size:30px;
+	}
+	.dashboard-stat::after, .dashboard-stat::before {
+	    content: " ";
+	    display: table;
+	}
+	.dashboard-stat::after {
+	    clear: both;
+	}
+	.dashboard-stat {
+	    display: block;
+		font-family: "Oswald",sans-serif;
+	    margin-bottom: 0px;
+	    overflow: hidden;
+	}
+	.dashboard-stat .main {
+	    border: medium none;
+	    border-radius: 0;
+	    display: table;
+	    padding: 0;
+	    width: 100%;
+	}
+	.dashboard-stat .main .visual {
+	    display: block;
+	    float: left;
+	    font-size: 35px;
+	    height: 60px;
+	    line-height: 35px;
+	    margin-bottom: 15px;
+	    padding-left: 15px;
+	    padding-top: 10px;
+	    width: 60px;
+	}
+
+	.dashboard-stat .main .visual > i {
+	    font-size: 90px;
+	    line-height: 90px;
+	    margin-left: -25px;
+	    color: inherit;
+	    opacity: 0.1;
+	}
+	.dashboard-stat .main .details {
+	    padding-right: 15px;
+	    position: absolute;
+	    right: 15px;
+	}
+	.dashboard-stat .main .details .number {
+	    font-size: 34px;
+	    font-weight: 300;
+	    letter-spacing: -1px;
+	    line-height: 36px;
+	    margin-bottom: 0;
+	    padding-top: 15px;
+	    text-align: right;
+	}
+	.dashboard-stat .main .details .desc {
+	    font-size: 16px;
+	    font-weight: 300;
+	    letter-spacing: 0;
+	    text-align: right;
+	}
+	.dashboard-stat .submenu {
+	    font-size: 11px;
+	    font-weight: 300;
+	    opacity: 1;
+	    padding: 6px 10px;
+	    position: relative;
+	    text-transform: uppercase;
+	    width:100%;
+	    border-width:1px 0 0;
+	    text-decoration:none;
+	    text-align:left;
+	}
+	.dashboard-stat .submenu > i {
+	    margin: -10px 0 0;
+	    float: right;
+	    padding:0px;
+	    color:inherit;
+	}
+	#sub-dashboard {
+		display:none;
+		background:rgb(191, 216, 237);
+		color:rgb(85, 85, 85);
+		padding:15px;    
+	}
+	table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+	    background-color: rgb(51, 122, 183);
+	} 
+	.dropdown-menu li a.active {
+    	background: rgb(51, 122, 183) none repeat scroll 0 0;
+    	box-shadow: none;
+    	color: rgb(255, 255, 255);
+	}
+
+
+</style>
+
+
 
 <div class="row" style="padding-bottom:10px; border-bottom:5px solid rgb(51, 122, 183);">
 	<div style="" class="col-sm-6">
