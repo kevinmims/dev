@@ -57,7 +57,7 @@ return array(
                         'options' => array(
                             'route' => '/shipping',
                             'defaults' => array(
-                                'controller' => 'Mms\Controller\Ratchet',
+                                'controller' => 'Mms\Controller\Shipping',
                                 'action' => 'index'
                             )
                         )
