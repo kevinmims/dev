@@ -269,7 +269,7 @@
 				gangs_created: {
 					title: "Gangs Created",
 					type: "gangs_created",
-					data: "gang_table"
+					data: "gang_created_table"
 				}
 				
 			},
@@ -303,7 +303,35 @@
 				notes: "the second <td> needs class='user-selected'"
 			},
 
+			gang_created_table: {
+				id: "gang-created-table",
+				classes: "table table-hover table-condensed draggable table-bordered",
+				thead: [ '', 'Date', 'Time', 'User', 'Gang Id', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
+				tfoot: [],
+				tbody:[ 
+					["1", "5/12/16", "10:35am", "Brian", "235gg25gwrf456", '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>', '<button class="btn btn-xs btn-success"><i class="fa fa-thumbs-o-up"></i> GANG CREATED</button>' ],
+					['2', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
+					['3', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button>'   ]
+				],
+				controls: '<div class="well"><div class="input-group input-group-sm" style="width:300px;display: inline">'+
+			                '<span style="display: inline" class="input-group-btn"><span class="btn btn-primary js-upload-mxml">XML from Metrix <input type="file" multiple=""></span></span>'+
+			                '<input type="text" style="display: inline;width:200px;float:none" class="form-control" readonly="" id="metrix-xml-files">'+
+			            '</div></div>',
+				notes: "the second <td> needs class='user-selected'"
+			},
+
+
+
+
+
+
 			
+
+
+
+
+
+
 						           
 			
 			
@@ -935,6 +963,53 @@
 			$(s.tab_mainTab).tab('show');
 
 			$(s.tab_mainBody).html('<h4>Not done yet</h4>');
+		},
+
+		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_created_table"
+		build_gang_created_table: function(type){
+			var data = '',
+				title = '',
+				table = '',
+				tableHead= "",
+				tableBody= "";
+
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
+				
+				$(s.tab_mainTab).text(title);
+				$(s.tab_mainTab).tab('show');
+				
+				tableHead = '<thead><tr>';
+				for (x = 0; x < s[data].thead.length; x++) {
+					tableHead+= "<th>"+s[data].thead[x]+"</th>";
+				}
+				tableHead+= '</tr></thead>'; 
+
+				
+				tableBody = '<tbody>';
+				for (x = 0; x < 2; x++) {
+					tableBody+= '<tr>';
+					for (y = 0; y < s[data].tbody[x].length; y++) {
+						tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
+					}
+					
+					tableBody+= '</tr>';
+				}
+				tableBody+= '</tfoot>';
+
+				table = '<div class="table-resonsive"><table id="'+s[data].id+'" class="'+s[data].classes+'">';
+				table+= tableHead;
+				table+= tableBody;
+				table+= '</table></div>';
+
+
+
+				$(s.tab_mainBody).html(s[data].controls + table);
+				//Imposition.makeDataTable();
+				//$(s.tab_mainBody).DataTable();
+				
+
+
 		},
 
 		handleSubmenu: function($elem){
