@@ -52,10 +52,10 @@ return array(
                             )
                         )
                     ),
-                    'ratchet' => array(
+                    'shipping' => array(
                         'type' => 'Segment',
                         'options' => array(
-                            'route' => '/ratchet',
+                            'route' => '/shipping',
                             'defaults' => array(
                                 'controller' => 'Mms\Controller\Ratchet',
                                 'action' => 'index'
@@ -143,7 +143,7 @@ return array(
         'invokables' => array(
             'Mms\Controller\Index' => 'Mms\Controller\IndexController',
             'Mms\Controller\Dashboard' => 'Mms\Controller\DashboardController',
-            'Mms\Controller\Ratchet' => 'Mms\Controller\RatchetController',
+            'Mms\Controller\Shipping' => 'Mms\Controller\ShippingController',
             'Mms\Controller\Workstation' => 'Mms\Controller\WorkstationController',
             'Mms\Controller\Reporting' => 'Mms\Controller\ReportingController',
             'Mms\Controller\Imposition' => 'Mms\Controller\ImpositionController'

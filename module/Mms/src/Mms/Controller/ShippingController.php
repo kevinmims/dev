@@ -12,14 +12,14 @@ namespace Mms\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class RatchetController extends AbstractActionController
+class ShippingController extends AbstractActionController
 {
     public function indexAction()
     {
         $this->layout('layout/mms-layout');
         return new ViewModel(
         	array(
-        		'heading' => 'Ratchet Dashboard',
+        		'heading' => 'Shipping Dashboard',
         		'subHeading' => 'Under Construction'
         	)
 		);     
