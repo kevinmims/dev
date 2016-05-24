@@ -1,0 +1,198 @@
+<?php   //--------------------------------
+        // LAYOUT - mms-layout.phtml 
+        //--------------------------------
+?>
+<?php date_default_timezone_set("America/Chicago"); ?>
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('MMS') ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+            ->appendName('theme-color', '#3e454c')
+        ?>
+
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/dri_logo.png'))
+                        
+            //->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css')) 
+            ->prependStylesheet($this->basePath('fonts/font-awesome/css/font-awesome.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-select.min.css')) 
+            ->prependStylesheet($this->basePath('css/datatables.css')) 
+            ->prependStylesheet($this->basePath('css/theme.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->appendFile($this->basePath('js/jquery.min.js'))
+            ->appendFile($this->basePath('js/jquery-ui.min.js'))
+            ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath('js/html5shiv.min.js'),   'text/javascript', array('conditional' => 'lt IE 9',))
+           // ->prependFile($this->basePath('js/theme.js'))
+        ; ?>
+
+       
+    </head>
+
+    <body>
+    <div class="brand clearfix">
+        <a class="logo" href="dashboard" style="padding:0px;"><img src="/img/dri_logo.png" style="height:100%;"> MMS</a>
+        <span class="menu-btn"><i class="fa fa-bars"></i></span>
+        <ul class="ts-profile-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                   Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu  pull-right">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Settings</a></li>
+            <li class="ts-account">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="glyphicon glyphicon-user"></i> Steve <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="ts-main-content">
+        <nav class="ts-sidebar">
+            <ul class="ts-sidebar-menu">
+                <li class="ts-label">Search</li>
+                <li>
+                    <input type="text" class="ts-sidebar-search" placeholder="Search here...">
+                </li>
+                <!-- Account from above -->
+                <ul class="ts-profile-nav">
+                    <li class="ts-label">User</li>
+                    <li class="ts-account">
+                        <a href="#"><i class="glyphicon glyphicon-user"></i> Steve <i class="fa fa-angle-down hidden-side"></i></a>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+
+                <li class="ts-label">Main</li>
+                <li class="open"><a href="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="imposition"><i class="fa fa-files-o"></i> Imposition</a></li>
+                <li><a href="ratchet"><i class="fa fa-refresh"></i> Ratchet</a></li>
+                <li><a href="#"><i class="fa fa-desktop"></i> Workstation</a>
+                    <ul>
+                        <li><a href="workstation">Choice 1</a></li>
+                        <li><a href="workstation">Choice 2</a></li>
+                    </ul>
+                </li>
+                <hr style="border-color:#444;">
+                <li><a href="http://swagger.zfdev.net" target="_blank"><i class="fa fa-code"></i> Swagger</a></li>
+                <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a>
+                    <ul>
+                        <li><a href="reporting">Report 1</a></li>
+                        <li><a href="reporting">Report 2</a></li>
+                    </ul>
+                </li>
+                <!--
+                <li><a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown</a>
+                    <ul>
+                        <li><a href="#">2nd level</a></li>
+                        <li><a href="#">2nd level</a></li>
+                        <li><a href="#">3rd level</a>
+                            <ul>
+                                <li><a href="#">3rd level</a></li>
+                                <li><a href="#">3rd level</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                -->
+
+                
+
+            </ul>
+        </nav>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <?php //echo $this->navigation('default')->menu(); ?>
+                <?php echo $this->content; ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Scripts -->
+    
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-select.min.js"></script>
+    
+    <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/js/datatables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.highcharts.com/highcharts.js"></script>
+    <!--<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
+    
+    
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+ <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+    -->
+    
+   
+
+    <script>
+        $(document).ready(function () {
+     
+            $(".ts-sidebar-menu li a").each(function () {
+                if ($(this).next().length > 0) {
+                    $(this).addClass("parent");
+                };
+            });
+            
+            var menux = $('.ts-sidebar-menu li a.parent');
+            
+            $('<div class="more"><i class="fa fa-angle-down"></i></div>').insertBefore(menux);
+                
+            $('.more').click(function () {
+                $(this).parent('li').toggleClass('open');
+            });
+            
+            $('.parent').click(function (e) {
+                e.preventDefault();
+                $(this).parent('li').toggleClass('open');
+            });
+            
+            $('.menu-btn').click(function () {
+                $('nav.ts-sidebar').toggleClass('menu-open');
+            });
+         
+            $('#zctb').DataTable();
+             
+             
+            // $("#input-43").fileinput({
+            //  showPreview: false,
+            //  allowedFileExtensions: ["zip", "rar", "gz", "tgz"],
+            //  elErrorContainer: "#errorBlock43"
+            //      // you can configure `msgErrorClass` and `msgInvalidFileExtension` as well
+            //});
+
+         });
+
+    </script>
+
+</body>

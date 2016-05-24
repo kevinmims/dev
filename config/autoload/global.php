@@ -12,5 +12,14 @@
  */
 
 return array(
-    // ...
+   'db' => array(
+       //.........
+   ),
+   'service_manager' => array(
+       //...........
+   ),
+   'module_layouts' => array(
+       //'Application' => 'layout/layout.phtml',
+       //'Mms' => 'layout/layout.phtml',
+   ),
 );

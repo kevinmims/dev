@@ -1,0 +1,1571 @@
+<?php // VIEW - imposition/index.php test?>
+<?php echo"HERE NOW"; ?>
+<style>
+	a, button, .btn {
+		border-radius: 0px;
+
+	}
+	.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus {
+		outline:none;
+	}
+	.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    	white-space: nowrap;
+	}	
+	.nav-tabs li.active a, .nav-tabs li.active  a:focus, .nav-tabs  li.active a:hover {
+		border-top:3px solid #337ab7;
+		font-weight:bold;
+		color:#555;
+		border-radius:0px;
+
+	}
+	a:focus{
+		outline:none;
+	}  
+	a.js-choice { 
+		text-align:left;
+	}
+	a.js-choice .caret { 
+		float:right;
+		margin-top:10px;
+	}
+	.btn-blue, .btn-blue:focus, .btn-blue:active {
+		background: #337ab7;
+		color: white;
+		outline:none;
+	}
+	.btn-blue:hover {
+		background: #286090;
+		color:white;
+	}
+	.btn-blue-dark, .btn-blue-dark:focus, .btn-blue-dark:active {
+		background: rgb(40, 96, 144);
+		color: white;
+		outline:none;
+	}
+	.btn-blue-dark:hover {
+		background: rgb(31, 74, 112);
+		color:white;
+	}
+	
+	.btn-blue-light, .btn-blue-light:focus, .btn-blue-light:active {
+		background: rgb(191, 216, 237);
+		color: rgb(85, 85, 85);
+		outline:none;
+	}
+	.btn-blue-light:hover {
+		background: rgb(159, 196, 229);
+		color:rgb(85, 85, 85);
+	}
+	.dashboard-btn{
+		margin-bottom:10px;
+	}
+	.dashboard-btns a .count {
+		font-size:20px;
+	}
+	table tr.selected {
+		background: rgba(255, 0, 0, 0.1) none repeat scroll 0% 0%;
+		color: brown;
+		cursor: not-allowed;
+	}
+
+	.bootstrap-select .selected a {
+		background: rgba(51, 122, 183,1) none repeat scroll 0 0;
+    	color: rgb(255, 255, 255);
+	}
+
+	.bootstrap-select .selected a:hover {
+		background: rgba(51, 122, 183,0.9) none repeat scroll 0 0;
+    	color: rgb(255, 255, 255);
+	}
+	.js-upload-mxml {
+        position: relative;
+        overflow: hidden;
+    }
+    .js-upload-mxml input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+    #job-data-table thead {
+    	background: gray;
+    	color: white;
+    }
+    #job-data-table tfoot {
+    	display: table-header-group;
+    	background: lightgray;
+    }
+    #job-data-table tfoot th, #job-data-table tfoot td {
+	    border-bottom: 3px solid rgb(128, 128, 128);
+	}
+	#job-data-table th .filter {
+		background: rgb(255, 255, 255);
+	    border: medium none;
+	    border-radius: 3px;
+	    padding: 3px 2px;
+	    color:black;
+	}
+	.js-toggle-sub-menu {
+		position: absolute;
+		margin-left:-75px;
+		z-index:99;
+		border-radius:0px;
+		margin-top:-15px;
+		padding:0 20px 5px 20px;
+		font-size:30px;
+	}
+	.dashboard-stat::after, .dashboard-stat::before {
+	    content: " ";
+	    display: table;
+	}
+	.dashboard-stat::after {
+	    clear: both;
+	}
+	.dashboard-stat {
+	    display: block;
+		font-family: "Oswald",sans-serif;
+	    margin-bottom: 0px;
+	    overflow: hidden;
+	}
+	.dashboard-stat .main {
+	    border: medium none;
+	    border-radius: 0;
+	    display: table;
+	    padding: 0;
+	    width: 100%;
+	}
+	.dashboard-stat .main .visual {
+	    display: block;
+	    float: left;
+	    font-size: 35px;
+	    height: 60px;
+	    line-height: 35px;
+	    margin-bottom: 15px;
+	    padding-left: 15px;
+	    padding-top: 10px;
+	    width: 60px;
+	}
+
+	.dashboard-stat .main .visual > i {
+	    font-size: 90px;
+	    line-height: 90px;
+	    margin-left: -25px;
+	    color: inherit;
+	    opacity: 0.1;
+	}
+	.dashboard-stat .main .details {
+	    padding-right: 15px;
+	    position: absolute;
+	    right: 15px;
+	}
+	.dashboard-stat .main .details .number {
+	    font-size: 34px;
+	    font-weight: 300;
+	    letter-spacing: -1px;
+	    line-height: 36px;
+	    margin-bottom: 0;
+	    padding-top: 15px;
+	    text-align: right;
+	}
+	.dashboard-stat .main .details .desc {
+	    font-size: 16px;
+	    font-weight: 300;
+	    letter-spacing: 0;
+	    text-align: right;
+	}
+	.dashboard-stat .submenu {
+	    font-size: 11px;
+	    font-weight: 300;
+	    opacity: 1;
+	    padding: 6px 10px;
+	    position: relative;
+	    text-transform: uppercase;
+	    width:100%;
+	    border-width:1px 0 0;
+	    text-decoration:none;
+	    text-align:left;
+	}
+	.dashboard-stat .submenu > i {
+	    margin: -10px 0 0;
+	    float: right;
+	    padding:0px;
+	    color:inherit;
+	}
+	#sub-dashboard {
+		display:none;
+		background:rgb(191, 216, 237);
+		color:rgb(85, 85, 85);
+		padding:15px;    
+	}
+	table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+	    background-color: rgb(51, 122, 183);
+	} 
+	.dropdown-menu li a.active {
+    	background: rgb(51, 122, 183) none repeat scroll 0 0;
+    	box-shadow: none;
+    	color: rgb(255, 255, 255);
+	}
+
+
+</style>
+
+<script>
+	var s,
+	Imposition = {
+
+		settings: {
+			username: '',
+			location: '',
+			job_preFilter: '',
+			table: '',
+
+			defaults_onLoad: {
+				location: "",
+				dashboard_item: "",
+				jobPreFilter: ""
+			},
+			
+			subDashboard: "#sub-dashboard",
+			graphModal: "#graph-modal",
+			//data_btns: {
+			//	data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
+			//	gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
+			//},
+			dashboard_items: {
+				total_jobs: {
+					title: "Total Jobs",
+					type: "total_jobs",
+					data: "job_table"
+				},
+				approved_jobs: {
+					title: "Approved Jobs",
+					type: "approved_jobs",
+					data: "job_table"
+				},
+				same_day_jobs: {
+					title: "Same Day Jobs",
+					type: "same_day_jobs",
+					data: "job_table"
+				},
+				gangs_in_process: {
+					title: "Gangs in Process",
+					type: "gangs_in_process",
+					data: "gang_table"
+				},
+				rip_errors: {
+					title: "Rip Errors",
+					type: "rip_errors",
+					data: "rip_table"
+				},
+				gangs_created: {
+					title: "Gangs Created",
+					type: "gangs_created",
+					data: "gang_table"
+				}
+				
+			},
+
+			job_table: {
+				id: "job-data-table",
+				classes: "table table-hover table-condensed draggable table-bordered",
+				thead: [ '<input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" />', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
+				tfoot: [ '', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
+				tbody:[ 
+					["","","6n6q47m4qe","a34ty32wert2","A","5/12/16","5/15/16","Brochures","100#","4/0","100",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", '<b>Page Size</b>: <span class="Data">8.5"x5.5"</span><b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span><b>Binding Side</b>: <span class="Data">Left</span><b>Cover Stock</b>: <span class="Data">Same As Inside</span><b>Binding</b>: <span class="Data">Saddle Stitching</span>']
+				],
+				controls: '',
+				notes: "the second <td> needs class='user-selected'"
+			},
+			
+			gang_table: {
+				id: "gang-table",
+				classes: "table table-hover table-condensed draggable table-bordered",
+				thead: [ '', 'Date', 'Time', 'User', 'Gang Id', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
+				tfoot: [],
+				tbody:[ 
+					["1", "5/12/16", "10:35am", "Brian", "235gg25gwrf456", '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button>', '<button class="btn btn-xs btn-success"><i class="fa fa-thumbs-o-up"></i> GANG CREATED</button>' ],
+					['2', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
+					['3', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button>'   ]
+				],
+				controls: '<div class="well"><div class="input-group input-group-sm" style="width:300px;display: inline">'+
+			                '<span style="display: inline" class="input-group-btn"><span class="btn btn-primary js-upload-mxml">XML from Metrix <input type="file" multiple=""></span></span>'+
+			                '<input type="text" style="display: inline;width:200px;float:none" class="form-control" readonly="" id="metrix-xml-files">'+
+			            '</div></div>',
+				notes: "the second <td> needs class='user-selected'"
+			},
+
+			
+						           
+			
+			
+			tabs_imposition: "#tabs-imposition",
+			tab_mainBody: "#main_tab",
+			tab_mainTab: '#tabs-imposition a[href="#main_tab"]',
+			
+			job_table_controls: '<div style="" class="row">'+
+						'<div class="col-sm-6 col-md-4">'+
+							'<div>With selected jobs:</div>'+
+							'<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">'+
+								'<i class="fa fa-plus"></i> Create XML'+
+							'</button>-->'+
+							'<div class="btn-group btn-group-justified">'+
+								'<a class="btn btn-default js-create-xml" type="button"><i class="fa fa-code"></i> Create XML</a>'+
+								'<a class="btn btn-default js-create-xml" type="button"><i class="fa fa-plus"></i> Add to Existing Gang</a>'+
+							'</div>'+
+						'</div>'+
+
+						'<div class="col-sm-6 col-md-3">'+
+							'<div>Pre-set Filters</div>'+
+							'<div id="dropdown_jobFilter" class="dropdown">'+
+								'<a id="" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
+									'<span class="caret"></span>'+
+									'<div class="pull-right" style="letter-spacing:1px;"></div>'+
+									'<span class="js-name">Select</span>	'+
+								'</a>'+
+								'<ul aria-labelledby="pre-set-filters" class="dropdown-menu" style="width:100%;">'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>'+
+									'<li class="divider"></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
+								'</ul>'+
+							'</div>'+
+						'</div>'+
+					'</div>',
+
+			btn_refresh: ".js-refresh",
+			btn_dashboardMain: "a.main",
+			
+			dropdown_location: "#dropdown_location",
+			dropdown_jobFilter: "#dropdown_jobFilter",
+
+			btn_filterSelect: "#pre-set-filters",
+			
+			btn_submenu: "a.submenu",
+			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
+			btn_show_graph: ".js-show-graph",
+			btn_menuDropdown: ".dropdown-menu li a",
+			btn_createXml: ".js-create-xml",
+			btn_uploadMxml: ".js-upload-mxml :file",
+			btn_ripReportUpload: ".js-rip-report-upload",
+			btn_ripFileUpload: ".js-rip-file-upload",
+			modal_ripUpload: "#file-upload-modal",
+			container_dashboardTopRow: ".dashboard-top-row",
+
+			container_tableData: "#job-data-table",
+			submenuTemplate_same_day_jobs: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
+				'<div class="row">'+
+						'<div class="col-sm-3">'+
+							'<button class="btn btn-default btn-xs pull-right js-show-graph"><i class="fa fa-line-chart"></i> Graph</button>'+
+							'<label>Quantities</label>'+
+							'<div class="list-group">'+
+								'<button class="list-group-item" type="button">Total Same Days <span class="badge pull-right">34</span></button>'+
+								'<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>'+
+								'<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-3">'+
+							'<label>Priority</label>'+
+							'<div class="list-group">'+
+								'<button type="button" class="list-group-item">A <span class="badge pull-right">34</span></button>'+
+								'<button type="button" class="list-group-item">B <span class="badge pull-right">25</span></button>'+
+								'<button type="button" class="list-group-item">C <span class="badge pull-right">9</span></button>'+
+								'<button type="button" class="list-group-item">D <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-3">'+
+							'<label>Paper Type Imposition</label>'+
+							'<div class="list-group">'+
+								'<button type="button" class="list-group-item">100# <span class="badge pull-right">34</span></button>'+
+								'<button type="button" class="list-group-item">70# <span class="badge pull-right">25</span></button>'+
+								'<button type="button" class="list-group-item">10pt <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-3">'+
+							'<label>Finish</label>'+
+							'<div class="list-group">'+
+								'<button type="button" class="list-group-item">Gloss Aqueous <span class="badge pull-right">34</span></button>'+
+								'<button type="button" class="list-group-item">Matte Aqueous <span class="badge pull-right">25</span></button>'+
+								'<button type="button" class="list-group-item">UV Front Only <span class="badge pull-right">9</span></button>'+
+								'<button type="button" class="list-group-item">UV Back Only <span class="badge pull-right">9</span></button>'+
+								'<button type="button" class="list-group-item">UV Both Sides <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						
+					'</div>',
+			submenuTemplate_gangs_in_process: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
+				'<div class="row">'+
+						'<div class="col-sm-3">'+
+							'<button class="btn btn-default btn-xs pull-right js-show-graph"><i class="fa fa-line-chart"></i> Graph</button>'+
+							'<label>Quantities</label>'+
+							'<div class="list-group">'+
+								'<button class="list-group-item" type="button">Total Same Days <span class="badge pull-right">34</span></button>'+
+								'<button class="list-group-item" type="button">Completed <span class="badge pull-right">25</span></button>'+
+								'<button class="list-group-item" type="button">Remaining <span class="badge pull-right">9</span></button>'+
+							'</div>'+
+						'</div>'+
+						'<div class="col-sm-9">'+
+ 							'<label>Priority</label>'+
+  
+							'<table class="table">'+
+								'<thead>'+
+							    '<tr>'+
+							      '<th>Gang ID</th>'+
+							      '<th>User Name</th>'+
+							      '<th>Time Elapsed</th>'+
+							      '<th>When Started</th>'+
+							      '<th># Jobs on Gang</th>'+
+							      '<th>Action</th>'+
+							    '</tr>'+
+							    '</thead>'+
+							    '<tbody>'+
+							      '<tr>'+
+							        '<td>fs978fsd89s69df</td>'+
+							        '<td>Kevin Mims</td>'+
+							        '<td>37min</td>'+
+							        '<td>10:30am 5/19/16</td>'+
+							        '<td>7</td>'+
+							        '<td><button class="btn btn-xs btn-default">View Jobs on Gang <i class="fa fa-angle-down"></i> </button> <button class="btn btn-xs btn-default"><i class="fa fa-mail-reply"></i> Release all Jobs</button></td>'+
+							      '</tr>'+
+							      '<tr>'+
+							        '<td>fs978fsd89s69df</td>'+
+							        '<td>Kevin Mims</td>'+
+							        '<td>37min</td>'+
+							        '<td>10:30am 5/19/16</td>'+
+							        '<td>7</td>'+
+							        '<td><button class="btn btn-xs btn-default">View Jobs on Gang <i class="fa fa-angle-down"></i> </button> <button class="btn btn-xs btn-default"><i class="fa fa-mail-reply"></i> Release all Jobs</button></td>'+
+							      '</tr>'+
+							      '<tr>'+
+							        '<td>fs978fsd89s69df</td>'+
+							        '<td>Kevin Mims</td>'+
+							        '<td>37min</td>'+
+							        '<td>10:30am 5/19/16</td>'+
+							        '<td>7</td>'+
+							        '<td><button class="btn btn-xs btn-default">View Jobs on Gang <i class="fa fa-angle-down"></i> </button> <button class="btn btn-xs btn-default"><i class="fa fa-mail-reply"></i> Release all Jobs</button></td>'+
+							      '</tr>'+
+							    '</tbody>'+
+							  '</table>'+
+							'</div>'+
+					'</div>',
+			chart_options: {
+		        title: {
+		            text: 'Same Day Jobs',
+		            x: -20 //center
+		        },
+		        xAxis: {
+		            categories: ['12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am',
+		            				'12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm' ]
+		        },
+		        yAxis: {
+		            title: {
+		                text: 'Qty'
+		            },
+		            plotLines: [{
+		                value: 0,
+		                width: 1,
+		                color: '#808080'
+		            }]
+		        },
+		        tooltip: {
+		            //valueSuffix: '#'
+		        },
+		        legend: {
+		            enabled: true,
+		            floating: true,
+		            verticalAlign: 'bottom',
+		            align:'right',
+		            y:40
+
+		           // layout: 'horizontal',
+		           // align: 'middle',
+		           // verticalAlign: 'bottom',
+		           // borderWidth: 0
+		        },
+		        series: [
+		        	{
+		            	name: 'Total',
+		            	data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 49, 51, 58, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63]
+		        	}, {
+		            	name: 'Completed',
+		            	data: [	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 10, 15, 21, 28, 34, 40, 41, 52, 57, 63, 63, 63, 63, 63 ]
+		        	}, {
+						name: 'Remaining',
+						data: [	24, 25, 28, 31, 31, 31, 34, 37, 37, 44, 48, 41, 43, 42, 35, 29, 23, 22, 11, 6, 0,0, 0, 0, 0]
+		        	}
+		        ]
+		    } // end chart_options
+		},
+
+		init: function() {
+			s = this.settings;
+			s.username = 'Kevin';
+			this.bindUIActions();
+			//this.makeDataTable();
+		},
+
+		bindUIActions: function() {
+			$(s.btn_refresh).on("click", function() { 
+				Imposition.refreshData($(this));
+			});
+
+			$('.dashboard-stat').on("click", s.btn_dashboardMain, function() { 
+				Imposition.handleDashboardBtnClick($(this));
+			});
+
+			$('.dashboard-stat').on("click", s.btn_submenu, function() { 
+				Imposition.handleSubmenu($(this));
+			});
+	    	
+			$(document).on("click", s.btn_createXml, function() { 
+				Imposition.createXML($(s.btn_createXml));
+			});
+
+	    	//$(s.btn_menuDropdown).on('click', function(){
+	    	//	Imposition.handleMenuDropdown($(this));
+	    	//	//console.log($(this));
+	    	//});
+	    	
+			$(document).on("click", s.btn_show_graph, function() { 
+				$('#graph-modal').modal('show').on('shown.bs.modal', function () {
+					$('#chart').highcharts(s.chart_options);
+				}).on('hidden.bs.modal', function () {
+					$('#chart').empty();
+				});
+			});
+
+			$(document).on("change", s.container_tableData+' input:checkbox', function() { 
+			//$(s.container_tableData).on('change', 'input:checkbox', function(){
+			//	Imposition.handleCheckBox($(this));
+				Imposition.handleCheckBox($(this));
+			});
+
+			$(document).on("change", s.btn_uploadMxml, function() { 
+			//$(s.btn_uploadMxml).on('change', function(){
+				Imposition.triggerMxmlFileSelect($(s.btn_uploadMxml));
+			});
+			
+			$(document).on("fileselect", s.btn_uploadMxml, function(event, numFiles, fileNames) {
+			//$(s.btn_uploadMxml).on('fileselect', function(event, numFiles, fileNames) {
+				Imposition.handleMxmlUpload(event, numFiles, fileNames);
+			});
+
+			$(document).on("click", s.btn_ripReportUpload, function() { 
+				Imposition.showModal(s.modal_ripUpload);
+			});
+
+			$(document).on("click", s.btn_ripFileUpload, function() { 
+				Imposition.showModal(s.modal_ripUpload);
+			});
+
+			//$(document).on("click", s.btn_filterSelect, function(){
+			//	Imposition.filterTable($(s.btn_filterSelect));
+			//});
+			
+			//$(s.dropdown_location).on("click", 'a.js-choice', function(){
+			//	console.log('location main <a> was clicked');
+			//});
+
+			$(s.dropdown_location).on('hidden.bs.dropdown', function(){
+				Imposition.handleLocationChange($(s.dropdown_location));
+			});
+
+			//$(document).on('click', s.dropdown_jobFilter + ' a.js-choice', function(){
+			//	console.log('job filter main <a> was clicked');
+			//});
+
+			$(document).on('hidden.bs.dropdown', s.dropdown_jobFilter, function(){
+				Imposition.handleJobFilterChange($(s.dropdown_jobFilter));
+			});
+
+			// handle all dropdowns text change
+			$(document).on('click', '.dropdown li a', function(){
+				Imposition.handleMenuDropdown($(this));
+			});
+		},
+
+		showModal: function(modal){
+			$(modal).modal('show').on('shown.bs.modal', function () {
+				$('#imposition-file-upload-name').focus()
+			}).on('hidden.bs.modal', function () {
+				$('#imposition-file-upload-name').empty();
+			});
+		},
+
+		makeDataTable: function(){
+			s.table = $(s.container_tableData).DataTable({
+		        "paging": false,
+		        //stateSave: true,
+		        //"scrollY": "500px",
+		        'columnDefs': [{
+					'targets': 0,
+					'searchable':false,
+					'orderable':false,
+					'className': 'dt-body-center',
+					'render': function (data, type, full, meta){
+						return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+					}
+				}],
+				dom: '<"toolbar">rtip',
+				/*
+				// add 'B' to the dom element above to show
+				'buttons': [
+		            {
+		                text: '<i class="fa fa-plus"></i> Create XML',
+		                className: 'btn btn-default js-create-xml',
+		                action: function ( e, dt, node, config ) {
+		                    alert( table.rows('.selected').data().length +' row(s) selected' );
+		                }
+		            }
+		        ],
+		        */
+				'order': [3, 'asc'],
+				"orderCellsTop": false, // use the top header row for sorting
+				initComplete: function () {
+		            this.api().columns().every( function () {
+		                var column = this;
+
+		                var select = $('<select class="filter"><option value=""></option></select>')
+		                    .appendTo( $(column.footer()).empty() )
+		                    .on( 'change', function () {
+		                        var val = $.fn.dataTable.util.escapeRegex(
+		                            $(this).val()
+		                        );
+		
+		                        column
+		                            .search( val ? '^'+val+'$' : '', true, false )
+		                            .draw();
+		                    } );
+		 
+		                column.data().unique().sort().each( function ( d, j ) {
+		                    if(column.search() === '^'+d+'$'){
+								select.append( '<option value="'+d+'" selected="selected">'+d+'</option>' )
+							} else {
+								select.append( '<option value="'+d+'">'+d+'</option>' )
+							}
+							//select.append( '<option value="'+d+'">'+d+'</option>' )
+		                } );
+		            
+
+
+		            });
+
+					var api = this.api();
+					var filterValue = "a34ty32wert2";
+/*
+					$(document).on("click", s.btn_filterSelect, function(){
+						
+						//Imposition.handleMenuDropdown($(this).next('ul'));
+						$(this).parent().on('hidden.bs.dropdown', function () {
+					  		console.log('now hidden');
+					  		api.columns( 3 ).every( function(){
+								var column = this;
+								$(column.footer()).find('select').val(filterValue);
+							}).search(filterValue).draw();;
+					  	});
+						
+					});
+*/
+
+					//api.$('td').click( function () {
+					//	api.search( this.innerHTML ).draw();
+					//} );
+					//this.api().columns( 3 ).every( function(){
+						//var column = this;
+						//column.data().unique().sort().each( function ( d, j ) {
+						//console.log('hereIamNowFindMe');
+							//$(column.footer()).find('select').val("a34ty32wert2"); //.find('select.filter').val('a34ty32wert2');
+						//});
+						//console.log(this);
+
+						//$("div#selection select.select option").each(function(){
+					    //    if($(this).val()==num){ // EDITED THIS LINE
+					    //        $(this).attr("selected","selected");    
+					    //    }
+					    //});
+
+
+						//$(this).find('select $("div.id_100 select").val("val2");
+						//console.log('in column 3 filter');
+					//});//.search( 'a34ty32wert29' ).draw();
+					
+
+		        }
+		    } );
+
+
+		},
+
+		filterTable: function(column, value, array){
+			this.log(array);
+			s.table.columns( column ).every( function(){
+				var column = this;
+				$(column.footer()).find('select').val(value);
+			}).search(value).draw();
+
+			
+		},
+
+		log: function(text){
+			console.log(text);
+		},
+
+		handleError: function(err){
+			alert(err);
+		},
+
+		refreshData: function($btn){
+	  		var elem = $btn.find('i');
+	  		elem.addClass('fa-spin');
+			setTimeout(function(){
+		        elem.removeClass('fa-spin');
+			}, 2000);
+
+		},
+
+		handleMenuDropdown: function($e){
+			$e.closest('.dropdown-menu').find('li a').each(function(){
+				$(this).removeClass('active'); //.each('li a').removeClass('active');
+			});
+			$e.addClass('active');
+			$e.closest('.dropdown').find('.btn.js-choice').html(
+				'<span class="caret"></span><div style="margin-right:20px">' + $e.html() + '</div>'
+			);
+		},
+
+		handleLocationChange: function($e){
+			var selected = $e.find('a.js-choice .js-name').text();
+			s.location = selected;
+			console.log('handle location change stuff for: ' + selected);
+		},
+
+		handleJobFilterChange: function($e){
+			var filterValue = "a34ty32wert2";
+			var column = "3";
+			
+			// column, value
+			var filterArray = [
+				[2,"a34ty32wert2"],
+				[3,"a34ty32wert2"]
+			];
+			var selected = $e.find('a.js-choice .js-name').text();
+			
+			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
+			this.filterTable(column, filterValue, filterArray);
+		},
+
+		createXML: function($e){
+			this.handleError(s.table.rows('.selected').data().length +' row(s) selected' );
+			s.table.rows('.selected').remove().draw();
+		},
+
+		triggerMxmlFileSelect: function($e){
+			var input = $e,
+	            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+	            files = $e.prop("files"),
+	            fileNames = $.map(files, function(val) { return val.name; });
+	        input.trigger('fileselect', [numFiles, fileNames]);
+		},
+
+		handleMxmlUpload: function(event, numFiles, fileNames){
+			console.log(numFiles);
+			console.log(fileNames);
+			$('#metrix-xml-files').val(numFiles+' files selected');
+		},
+
+		getTemplate: function(type){
+			var base = 's.submenuTemplate_';
+			//var type = 'same_day_jobs';
+			var template = base.concat(type);
+			return eval(template);
+		},
+
+		handleDashboardBtnClick: function($elem){
+			$(s.tab_mainBody).html('building data...');
+
+			var type = $elem.parent().attr('data-type'),
+				data = '';
+
+			if (s.dashboard_items.hasOwnProperty(type)){
+				var data = s.dashboard_items[type].data;
+				eval('Imposition.build_'+data+'("'+type+'")');
+			}
+
+			this.refreshData($(s.btn_refresh));
+			
+			if($elem.hasClass('btn-primary')){
+				//$elem.removeClass('btn-primary').addClass('btn-default');
+				//$(s.subDashboard).slideUp('slow', function(){
+				//	$(this).empty();
+				//});
+			} else {
+				$(s.btn_dashboardMain).each(function(){
+					$(this).removeClass('btn-primary').addClass('btn-default');
+				});
+				$elem.removeClass('btn-default').addClass('btn-primary');
+			}
+		},
+
+		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "job_table"
+		build_job_table: function(type){
+			
+			var data = '',
+				title = '',
+				table = '',
+				tableHead= "",
+				tableFoot= ""
+				tableBody= "";
+
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
+				
+				$(s.tab_mainTab).text(title);
+				$(s.tab_mainTab).tab('show');
+				
+				tableHead = '<thead><tr>';
+				for (x = 0; x < s[data].thead.length; x++) {
+					tableHead+= "<th>"+s[data].thead[x]+"</th>";
+				}
+				tableHead+= '</tr></thead>'; 
+
+				tableFoot = '<tfoot><tr>';
+				for (x = 0; x < s[data].tfoot.length; x++) {
+					tableFoot+= "<th>"+s[data].tfoot[x]+"</th>";
+				}
+				tableFoot+= '</tr></tfoot>';
+	
+				tableBody = '<tbody>';
+				for (x = 0; x < 20; x++) {
+					tableBody+= '<tr>';
+					for (y = 0; y < s[data].tbody[0].length; y++) {
+						if(y == 1){
+							tableBody+= '<td class="user-selected">'+s[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
+						} else {
+							tableBody+= "<td>"+s[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
+						}
+						
+					}
+					tableBody+= '</tr>';
+				}
+				tableBody+= '</tfoot>';
+
+				table = '<div class="table-responsive"><table id="'+s[data].id+'" class="'+s[data].classes+'">';
+				table+= tableHead;
+				table+= tableFoot;
+				table+= tableBody;
+				table+= '</table></div>';
+
+
+
+				$(s.tab_mainBody).html(s.job_table_controls + table);
+				Imposition.makeDataTable();
+			
+		},
+
+		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_table"
+		build_gang_table: function(type){
+			var data = '',
+				title = '',
+				table = '',
+				tableHead= "",
+				tableBody= "";
+
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
+				
+				$(s.tab_mainTab).text(title);
+				$(s.tab_mainTab).tab('show');
+				
+				tableHead = '<thead><tr>';
+				for (x = 0; x < s[data].thead.length; x++) {
+					tableHead+= "<th>"+s[data].thead[x]+"</th>";
+				}
+				tableHead+= '</tr></thead>'; 
+
+				
+				tableBody = '<tbody>';
+				for (x = 0; x < 2; x++) {
+					tableBody+= '<tr>';
+					for (y = 0; y < s[data].tbody[x].length; y++) {
+						tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
+					}
+					
+					tableBody+= '</tr>';
+				}
+				tableBody+= '</tfoot>';
+
+				table = '<div class="table-resonsive"><table id="'+s[data].id+'" class="'+s[data].classes+'">';
+				table+= tableHead;
+				table+= tableBody;
+				table+= '</table></div>';
+
+
+
+				$(s.tab_mainBody).html(s[data].controls + table);
+				//Imposition.makeDataTable();
+				//$(s.tab_mainBody).DataTable();
+				
+
+
+		},
+
+		build_rip_table: function(type){
+			var data = '',
+				title = '',
+				table = '',
+				tableHead= "",
+				tableBody= "";
+			title = s.dashboard_items[type].title;
+			data = s.dashboard_items[type].data;
+				
+			$(s.tab_mainTab).text(title);
+			$(s.tab_mainTab).tab('show');
+
+			$(s.tab_mainBody).html('<h4>Not done yet</h4>');
+		},
+
+		handleSubmenu: function($elem){
+			var type = $elem.parent().attr('data-type');
+			
+			if($elem.hasClass('btn-blue-light')){
+				$elem.removeClass('btn-blue-light').addClass('btn-default');
+				$(s.subDashboard).slideUp('slow', function(){
+					$(this).empty();
+				});
+			} else {
+				
+				if($(s.subDashboard).is(':visible')){
+					$(s.btn_submenu).each(function(){
+						$(this).removeClass('btn-blue-light').addClass('btn-default');
+					});
+					$elem.removeClass('btn-default').addClass('btn-blue-light');
+					$(s.subDashboard).slideUp('slow', function(){
+						$(this).empty().html(Imposition.getTemplate(type));
+					}).slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+					});
+					
+				} else {
+					$elem.removeClass('btn-default').addClass('btn-blue-light');
+					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+					});
+				}
+			}
+			
+		}, // end, handleSubmenu()
+
+		handleCheckBox: function($e){
+			if(!$e.hasClass('js-select-all')){
+			    if($e.is(":checked")) {
+			        $e.parent().parent().addClass("selected").find('.user-selected').html(s.username);
+			    } else {
+			        if($('.js-select-all').prop('checked')) {
+			        	$(this).removeProp('checked');
+			        }
+			        $e.parent().parent().removeClass("selected").find('.user-selected').html('');
+			    }
+			} else {
+				var rows = s.table.rows({ 'search': 'applied' }).nodes();
+			
+				if($e.prop('checked')){
+					$('input[type="checkbox"]', rows).each(function(){
+						$(this).prop('checked', true);
+				  		$(this).parent().parent().addClass('selected').find('.user-selected').html(s.username);
+					});
+				} else {	
+					$('input[type="checkbox"]', rows).each(function(){
+						$(this).removeProp('checked');
+				  		$(this).parent().parent().removeClass('selected').find('.user-selected').html('');
+					});
+				}
+
+			}
+		}
+
+
+	};
+
+
+
+
+	$(document).ready(function () {
+		
+		Imposition.init();
+
+		
+		
+
+		
+		
+
+		
+// enable horizontal drag scroll
+//--------------------------------------------------------------------------------------------
+/*	
+		var mouseNotInSortableElement = false,
+			drag_div = document.getElementById('imposition_data_table'),
+			space = window.innerHeight - drag_div.offsetTop ,
+			elem_height = $('#imposition_data_table').height();
+
+	
+	
+		$.fn.draggable = function(){
+			var lastPosition, position, difference;
+			$( $(this).selector ).on("mousedown mouseup mousemove",function(e){
+				if($("#imposition_data_table").hasClass('no-drag')){
+					//console.log('has class');
+					e.preventDefault();
+				} else {
+					if ( e.type == "mousedown" ) { mouseNotInSortableElement = true, lastPosition = [e.clientX, e.clientY];}
+					if ( e.type == "mouseup" ) { mouseNotInSortableElement = false, $(this).css("cursor", 'grab'); }
+					if ( e.type == "mousemove" && mouseNotInSortableElement == true ){
+						$(this).css("cursor", 'grabbing');
+						position = [e.clientX, e.clientY];
+						difference = [ (position[0]-lastPosition[0]), (position[1]-lastPosition[1]) ];
+						$(this).scrollLeft( $(this).scrollLeft() - difference[0] );
+						//$(this).scrollTop( $(this).scrollTop() - difference[1] );
+						lastPosition = [e.clientX, e.clientY];
+					}
+				}
+				//console.log('done');
+			});
+			$(window).on("mouseup", function(){
+				mouseNotInSortableElement = false;
+			});
+		}
+
+		$("#imposition_data_table").draggable();
+*/
+		
+// set the height to screen height
+//--------------------------------------------------------------------------------------------
+		
+		function resize(){
+			var space = window.innerHeight - drag_div.offsetTop;
+			//$(drag_div).css("min-height", space - 55);
+			//$(drag_div).css("height", space - 55); 
+		}
+		
+		var delay = (function(){
+			var timer = 0;
+			return function(callback, ms){
+				clearTimeout (timer);
+				timer = setTimeout(callback, ms);
+			};
+		})();
+
+		//resize();
+
+		$(window).resize(function() {
+			delay(function(){
+				// callback
+				//resize();
+			}, 500);
+		});
+
+
+	});
+
+</script>
+
+
+<section class="">
+	<div style="padding-bottom:10px" class="row">
+		<div style="" class="col-sm-6">
+			<h2 style="margin:0px;padding-top:7px;">
+				IMPOSITION <small>dashboard</small><a class="btn js-refresh" href="#"><i class="fa fa-refresh"></i></a>
+			</h2>
+		</div>
+
+		<div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2 pull-right" style="max-width: 400px">
+			<div>Location</div>
+			<div id="dropdown_location" class="dropdown">
+				<a class="btn btn-default btn-block js-choice"aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
+					<span class="caret"></span>
+					<div class="pull-right" style="letter-spacing:1px;">
+						<span class="badge js-count">2</span> 
+						<span class="badge js-count">12</span> 
+						<span class="badge js-count">34</span>
+					</div>
+					<span class="js-name">Arlington Ave H</span>
+				</a>
+
+				<ul aria-labelledby="" class="dropdown-menu" style="width:100%;">
+					<li>
+						<a class="btn text-left" data-name="Arlington Ave R" data-id="21">
+							<div class="pull-right" style="letter-spacing:1px;">
+								<span class="badge js-count">4</span> 
+								<span class="badge js-count">11</span> 
+								<span class="badge js-count">56</span>
+							</div>
+							<span class="js-name">Arlington Ave R</span>
+						</a>
+					</li>
+					<li>
+						<a class="btn text-left" data-name="Arlington Ave H" data-id="22">
+							<div class="pull-right" style="letter-spacing:1px;">
+								<span class="badge js-count">2</span> 
+								<span class="badge js-count">14</span> 
+								<span class="badge js-count">34</span>
+							</div>
+							<span class="js-name">Arlington Ave H</span>
+						</a>
+					</li>
+					<li>
+						<a class="btn text-left" data-name="Van Neyes" data-id="45">
+							<div class="pull-right" style="letter-spacing:1px;">
+								<span class="badge js-count">19</span> 
+								<span class="badge js-count">123</span> 
+								<span class="badge js-count">340</span>
+							</div>
+							<span class="js-name">Van Neyes</span>
+						</a>
+					</li>
+					<li>
+						<a class="btn text-left" data-name="Cleveland" data-id="2">
+							<div class="pull-right" style="letter-spacing:1px;">
+								<span class="badge js-count">21</span> 
+								<span class="badge js-count">2</span> 
+								<span class="badge js-count">101</span>
+							</div>
+							<span class="js-name">Cleveland</span>
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a class="btn text-left" data-name="All Locations" data-id="0">
+							<div class="pull-right" style="letter-spacing:1px;">
+								<span class="badge js-count">2</span> 
+								<span class="badge js-count">14</span> 
+								<span class="badge js-count">34</span>
+							</div>
+							<span class="js-name">All Locations</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row dashboard-top-row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px">
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+            <div class="dashboard-stat" data-title="" data-type="same_day_jobs">
+                <a class="main btn btn-default" href="#">
+                  <div class="visual"><i class="fa fa-file-o"></i></div>
+                  <div class="details">
+                      <div class="number"> 9 </div>
+                      <div class="desc"> Same Day Jobs </div>
+                  </div>
+				</a>
+                <a class="submenu btn btn-default" href="javascript:;"> View Stats
+                    <i class="fa fa-line-chart"></i>
+                </a>
+            </div>
+        </div>
+		
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+            <div class="dashboard-stat" data-type="approved_jobs">
+                <a class="main btn btn-default" href="#">
+					<div class="visual"><i class="fa fa-check"></i></div>
+					<div class="details">
+						<div class="number"> 65 </div>
+						<div class="desc"> Approved Jobs </div>
+					</div>
+				</a>
+                <a class="submenu btn btn-default" href="javascript:;"> View Stats
+                    <i class="fa fa-line-chart"></i>
+                </a>
+            </div>
+        </div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+			<div class="dashboard-stat" data-type="total_jobs">
+			    <a class="main btn btn-default" href="#">
+					<div class="visual"><i class="fa fa-gear"></i></div>
+					<div class="details">
+						<div class="number"> 124 </div>
+						<div class="desc"> Total Jobs </div>
+					</div>
+				</a>
+			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+			<div class="dashboard-stat" data-type="gangs_in_process">
+			    <a class="main btn btn-default" href="#">
+					<div class="visual"><i class="fa fa-refresh"></i></div>
+					<div class="details">
+						<div class="number"> 3 </div>
+						<div class="desc"> Gangs In Process </div>
+					</div>
+				</a>
+			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+			<div class="dashboard-stat" data-type="rip_errors">
+			    <a class="main btn btn-default" href="#">
+					<div class="visual"><i class="fa fa-exclamation-triangle"></i></div>
+					<div class="details">
+						<div class="number"> 0 </div>
+						<div class="desc"> Rip Errors </div>
+					</div>
+				</a>
+			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+			<div class="dashboard-stat" data-type="gangs_created">
+			    <a class="main btn btn-default" href="#">
+					<div class="visual"><i class="fa fa-thumbs-o-up"></i></div>
+					<div class="details">
+						<div class="number"> 26 </div>
+						<div class="desc"> Gangs Created </div>
+					</div>
+				</a>
+			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+		<div class="col-xs-12 ">
+			<div id="sub-dashboard" style="margin-top: 15px;"></div>
+		</div>
+	</div>
+
+
+<!--
+	<div style="background: rgba(51, 122, 183, 0.2); padding: 15px 0; border-top: 5px solid rgb(51, 122, 183); margin-bottom:15px" class="row">
+        <div class="col-xs-12 dashboard-btns js-impo-stats btn-group btn-group-justified">
+			<a href="#" class="btn btn-default"><div class="icon">Same Day Jobs</div><div class="count">9 </div></a>
+			<a href="#" class="btn btn-default"><div class="icon">Approved Jobs</div><div class="count">65 </div></a>
+			<a href="#" class="btn btn-default"><div class="icon">Total Jobs</div><div class="count">124 </div></a>
+      		<a href="#" class="btn btn-default"><div class="icon">Gangs In Process</div><div class="count">3 </div></a>
+	        <a href="#" class="btn btn-default"><div class="icon">Rip Errors</div><div class="count">0 </div></a>
+	        <a href="#" class="btn btn-default"><div class="icon">Gangs Created</div> <div class="count">26 </div></a>
+        </div>
+	</div>
+ -->   
+	
+
+	<div class="row">
+        <div class="col-xs-12">
+			<ul id="tabs-imposition" class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#main_tab" aria-expanded="true" data-toggle="tab" role="tab" aria-controls="main_tab">Main Tab</a></li>
+				<li class="pull-right" role="presentation"><a href="#file_tab" aria-expanded="false" data-toggle="tab" role="tab" aria-controls="file_tab">File History</a></li>
+				<li class="pull-right" role="presentation"><a href="#user_tab" aria-expanded="false" data-toggle="tab" role="tab" aria-controls="user_tab">Users</a></li>
+			</ul>
+
+			 <div class="tab-content" style="margin-bottom:40px;">
+			    <div id="main_tab" class="tab-pane active" style="margin-top:15px;" role="tabpanel">
+					processing request...
+					<div id="imposition_data_table" class="table-responsive" style=""></div>
+				</div>
+
+				<div id="user_tab" role="tabpanel" class="tab-pane">
+					<div class="row" style="margin-top:15px; margin-bottom:100px;">
+						<div class="col-sm-12">
+						  <div class="table-responsive table-bordered ">
+						    <table class="table">
+						      <thead>
+						        <tr>
+						          <th>Username</th>
+						          <th>Location</th>
+						          <th>Last Gang</th>
+						          <th>Gangs Today</th>
+						          <th>Gangs WTD</th>
+						          <th>Jobs Assigned</th>
+						          <th>Jobs</th>
+						      </thead>
+						      <tbody>
+						        <tr>
+						          <td>Kevin Mims</td>
+						          <td>Arlington, TX</td>
+						          <td>24 min ago</td>
+						          <td>23</td>
+						          <td>154</td>
+						          <td>3</td>
+						          <td>
+						            <button class="btn btn-sm"><i class="fa fa-eye"></i> View</button>
+						          	<button class="btn btn-sm"><i class="fa fa-undo"></i> Release All</button>
+						         	</td>
+						        </tr>
+						        <tr>
+						          <td>Kevin Mims</td>
+						          <td>Arlington, TX</td>
+						          <td>24 min ago</td>
+						          <td>23</td>
+						          <td>154</td>
+						          <td>3</td>
+						          <td>
+						            <button class="btn btn-sm"><i class="fa fa-eye"></i> View</button>
+						          	<button class="btn btn-sm"><i class="fa fa-undo"></i> Release All</button>
+						         	</td>
+						        </tr>
+						        <tr>
+						          <td>Kevin Mims</td>
+						          <td>Arlington, TX</td>
+						          <td>24 min ago</td>
+						          <td>23</td>
+						          <td>154</td>
+						          <td>3</td>
+						          <td>
+						            <button class="btn btn-sm"><i class="fa fa-eye"></i> View</button>
+						          	<button class="btn btn-sm"><i class="fa fa-undo"></i> Release All</button>
+						         	</td>
+						        </tr>
+						        
+						      </tbody>
+						    </table>
+						  </div>
+						</div>
+					</div>
+				</div>
+
+			    <div id="file_tab" role="tabpanel" class="tab-pane">
+				  <div style="margin-top:15px;" class="row">
+				    <div class="col-sm-3">
+				      <div class="panel panel-primary">
+				        <div class="panel-heading">
+						    <div class="pull-right">
+						      <button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+						      <button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+						    </div>
+				   		 XML Created
+				    	</div>
+  
+				        <table class="table table-hover text-sm table-condensed">
+				          <thead>
+				            <tr>
+				              <th></th>
+				              <th>User</th>
+				              <th>Filename</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <tr>
+				              <td>1</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>2</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>3</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				          </tbody>
+				        </table>
+						</div>
+					</div>
+    
+				    <div class="col-sm-3">
+				      <div class="panel panel-default">
+				        <div class="panel-heading">
+							<div class="pull-right">
+								<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+								<button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+							</div>
+							XML From Metrix
+						</div>
+				  
+				        <table class="table table-hover text-sm table-condensed">
+				          <thead>
+				            <tr>
+				              <th></th>
+				              <th>User</th>
+				              <th>Filename</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <tr>
+				              <td>1</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>2</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>3</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				          </tbody>
+				        </table>
+					  </div>
+				    </div>
+
+				    <div class="col-sm-3">
+				      <div class="panel panel-default">
+				        <div class="panel-heading">
+							<div class="pull-right">
+								<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+								<button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+							</div>
+							 Files for Rampage
+						</div>
+				  
+				        <table class="table table-hover text-sm table-condensed">
+				          <thead>
+				            <tr>
+				              <th></th>
+				              <th>User</th>
+				              <th>Filename</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <tr>
+				              <td>1</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>2</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>3</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				          </tbody>
+				        </table>
+					  </div>
+				    </div>
+
+				    <div class="col-sm-3">
+				      <div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="pull-right">
+								<button class="btn btn-default btn-xs"><i class="fa fa-info"></i></button>
+								<button class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+							</div>
+							Reports for Cutting 
+						</div>
+				  
+				        <table class="table table-hover text-sm table-condensed">
+				          <thead>
+				            <tr>
+				              <th></th>
+				              <th>User</th>
+				              <th>Filename</th>
+				            </tr>
+				          </thead>
+				          <tbody>
+				            <tr>
+				              <td>1</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>2</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				            <tr>
+				              <td>3</td>
+				              <td>Brian</td>
+				              <td>23AGDS23asd28j.xml</td>
+				            </tr>
+				          </tbody>
+				        </table>
+					  </div>
+				    </div>
+			    
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>	
+
+</section> 
+
+
+<div id="file-upload-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">File Upload</h4>
+      </div>
+      <div class="modal-body">
+        <div class="">Drag file or click to upload</div>
+        <input id="imposition-file-upload-name" class="form-control"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Upload</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="create-xml-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Create XML from selected Components</h4>
+      </div>
+      <div class="modal-body">
+        <div class="">Here are your selected components for the XML file</div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Download</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div id="graph-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Jobs Graph</h4>
+      </div>
+      <div class="modal-body">
+        <div id="chart"></div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
