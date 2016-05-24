@@ -1,6 +1,84 @@
 <h1><?php //echo $heading;?></h1>
 <h3><?php //echo $subHeading;?></h3>
 
+
+<div class="row" style="padding-bottom:10px; border-bottom:5px solid rgb(51, 122, 183);">
+	<div style="" class="col-sm-6">
+		<h2 style="margin:0px;padding-top:7px;">
+			IMPOSITION <small>dashboard</small><a class="btn js-refresh" href="#"><i class="fa fa-refresh"></i></a>
+		</h2>
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2 pull-right" style="max-width: 400px">
+		<div>Location</div>
+		<div id="dropdown_location" class="dropdown">
+			<a class="btn btn-default btn-block js-choice"aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
+				<span class="caret"></span>
+				<div class="pull-right" style="letter-spacing:1px;">
+					<span class="badge js-count">2</span> 
+					<span class="badge js-count">12</span> 
+					<span class="badge js-count">34</span>
+				</div>
+				<span class="js-name">Arlington Ave H</span>
+			</a>
+
+			<ul aria-labelledby="" class="dropdown-menu" style="width:100%;">
+				<li>
+					<a class="btn text-left" data-name="Arlington Ave R" data-id="21">
+						<div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">4</span> 
+							<span class="badge js-count">11</span> 
+							<span class="badge js-count">56</span>
+						</div>
+						<span class="js-name">Arlington Ave R</span>
+					</a>
+				</li>
+				<li>
+					<a class="btn text-left" data-name="Arlington Ave H" data-id="22">
+						<div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div>
+						<span class="js-name">Arlington Ave H</span>
+					</a>
+				</li>
+				<li>
+					<a class="btn text-left" data-name="Van Neyes" data-id="45">
+						<div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">19</span> 
+							<span class="badge js-count">123</span> 
+							<span class="badge js-count">340</span>
+						</div>
+						<span class="js-name">Van Neyes</span>
+					</a>
+				</li>
+				<li>
+					<a class="btn text-left" data-name="Cleveland" data-id="2">
+						<div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">21</span> 
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">101</span>
+						</div>
+						<span class="js-name">Cleveland</span>
+					</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a class="btn text-left" data-name="All Locations" data-id="0">
+						<div class="pull-right" style="letter-spacing:1px;">
+							<span class="badge js-count">2</span> 
+							<span class="badge js-count">14</span> 
+							<span class="badge js-count">34</span>
+						</div>
+						<span class="js-name">All Locations</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <div class="row">
     <div class="col-sm-3">
       <h3><button class="btn btn-xs btn-default pull-right"><i class="fa fa-info"></i></button>
