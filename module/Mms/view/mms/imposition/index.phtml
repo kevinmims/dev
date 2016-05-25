@@ -282,7 +282,41 @@
 				tbody:[ 
 					["","","6n6q47m4qe","a34ty32wert2","A","5/12/16","5/15/16","Brochures","100#","4/0","100",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", '<b>Page Size</b>: <span class="Data">8.5"x5.5"</span><b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span><b>Binding Side</b>: <span class="Data">Left</span><b>Cover Stock</b>: <span class="Data">Same As Inside</span><b>Binding</b>: <span class="Data">Saddle Stitching</span>']
 				],
-				controls: '',
+				controls: '<div style="" class="row">'+
+						'<div class="col-sm-6 col-md-4">'+
+							'<div>With selected jobs:</div>'+
+							'<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">'+
+								'<i class="fa fa-plus"></i> Create XML'+
+							'</button>-->'+
+							'<div class="btn-group btn-group-justified">'+
+								'<a class="btn btn-default js-create-xml" type="button"><i class="fa fa-code"></i> Create XML</a>'+
+								'<a class="btn btn-default js-create-xml" type="button"><i class="fa fa-plus"></i> Add to Existing Gang</a>'+
+							'</div>'+
+						'</div>'+
+
+						'<div class="col-sm-6 col-md-3">'+
+							'<div>Pre-set Filters</div>'+
+							'<div id="dropdown_jobFilter" class="dropdown">'+
+								'<a id="" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
+									'<span class="caret"></span>'+
+									'<div class="pull-right" style="letter-spacing:1px;"></div>'+
+									'<span class="js-name">Select</span>	'+
+								'</a>'+
+								'<ul aria-labelledby="pre-set-filters" class="dropdown-menu" style="width:100%;">'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>'+
+									'<li class="divider"></li>'+
+									'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
+								'</ul>'+
+							'</div>'+
+						'</div>'+
+					'</div>',
 				notes: "the second <td> needs class='user-selected'"
 			},
 			
@@ -366,41 +400,7 @@
 			tab_mainBody: "#main_tab",
 			tab_mainTab: '#tabs-imposition a[href="#main_tab"]',
 			
-			job_table_controls: '<div style="" class="row">'+
-						'<div class="col-sm-6 col-md-4">'+
-							'<div>With selected jobs:</div>'+
-							'<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">'+
-								'<i class="fa fa-plus"></i> Create XML'+
-							'</button>-->'+
-							'<div class="btn-group btn-group-justified">'+
-								'<a class="btn btn-default js-create-xml" type="button"><i class="fa fa-code"></i> Create XML</a>'+
-								'<a class="btn btn-default js-create-xml" type="button"><i class="fa fa-plus"></i> Add to Existing Gang</a>'+
-							'</div>'+
-						'</div>'+
-
-						'<div class="col-sm-6 col-md-3">'+
-							'<div>Pre-set Filters</div>'+
-							'<div id="dropdown_jobFilter" class="dropdown">'+
-								'<a id="" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
-									'<span class="caret"></span>'+
-									'<div class="pull-right" style="letter-spacing:1px;"></div>'+
-									'<span class="js-name">Select</span>	'+
-								'</a>'+
-								'<ul aria-labelledby="pre-set-filters" class="dropdown-menu" style="width:100%;">'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>'+
-									'<li class="divider"></li>'+
-									'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
-								'</ul>'+
-							'</div>'+
-						'</div>'+
-					'</div>',
+			
 
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
@@ -927,7 +927,7 @@
 
 
 
-				$(s.tab_mainBody).html(s.job_table_controls + table);
+				$(s.tab_mainBody).html(s[data].controls  + table);
 				Imposition.makeDataTable();
 			
 		},
