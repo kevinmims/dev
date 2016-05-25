@@ -947,7 +947,9 @@
 						if(y == 5){
 							this.log('in y=5');
 							this.log(s[data].tbody[x][y]);
-							if (s[data].tbody[x][y][0] == 'success'){
+							this.log(s[data].tbody[x][y][0]);
+							
+							if (s[data].tbody[x][y][0] == "success"){
 								tableBody+= '<i class="text-success fa fa-check"></i> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>';
 							} else if (s[data].tbody[x][y][0] == 'needed'){
 								tableBody+= '<i class="fa fa-times"></i><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>';
