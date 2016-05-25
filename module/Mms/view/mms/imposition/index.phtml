@@ -283,7 +283,13 @@
 					["","","6n6q47m4qe","a34ty32wert2","A","5/12/16","5/15/16","Brochures","100#","4/0","100",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", '<b>Page Size</b>: <span class="Data">8.5"x5.5"</span><b>Page Count</b>: <span class="Data">8 Pages (Cover+4 pages)</span><b>Binding Side</b>: <span class="Data">Left</span><b>Cover Stock</b>: <span class="Data">Same As Inside</span><b>Binding</b>: <span class="Data">Saddle Stitching</span>']
 				],
 				controls: '<div style="" class="row">'+
-						'<div class="col-sm-6 col-md-3">'+
+						'<div class="col-sm-6 col-md-4">'+
+							'<a type="button" class="btn btn-primary js-create-xml"><i class="fa fa-code"></i> Create XML From Selected Jobs</a>'+
+							'<a type="button" class="btn btn-success js-upload-mxml"><i class="fa fa-download"></i> Create Gang From mXML</a>'+
+							'<a style="" class="btn" type="button">Reset All Filters</a>'+
+						'</div>'+
+
+						'<div class="col-sm-6 col-md-4">'+
 							'<div>With selected jobs:</div>'+
 							'<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">'+
 								'<i class="fa fa-plus"></i> Create XML'+
@@ -319,7 +325,7 @@
 
 						'<div class="col-md-3">'+
 							'<div style="height: 1.42857em"> </div>'+
-							'<a style="" class="btn btn-danger " type="button">Reset All Filters</a>'+
+							'<a style="" class="btn btn-default " type="button">Reset All Filters</a>'+
 						'</div>'+
 					'</div>',
 				notes: "the second <td> needs class='user-selected'"
