@@ -945,6 +945,8 @@
 					tableBody+= '<tr>';
 					for (y = 0; y < s[data].tbody[x].length; y++) {
 						if(y == 5){
+							this.log('in y=5');
+							this.log(s[data].tbody[x][y]);
 							if (s[data].tbody[x][y][0] == 'success'){
 								tableBody+= '<i class="text-success fa fa-check"></i> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>';
 							} else if (s[data].tbody[x][y][0] == 'needed'){
