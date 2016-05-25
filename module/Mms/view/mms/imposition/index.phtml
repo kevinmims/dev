@@ -264,7 +264,7 @@
 				gangs_in_process: {
 					title: "Gangs in Process",
 					type: "gangs_in_process",
-					data: "gang_table"
+					data: "gangs_in_process_table"
 				},
 				gangs_completed: {
 					title: "Gangs Created",
@@ -286,7 +286,7 @@
 				notes: "the second <td> needs class='user-selected'"
 			},
 			
-			gang_table: {
+			gangs_in_process_table: {
 				id: "gang-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
 				thead: [ 'User', 'Jobs Selected', 'Elapsed Time', 'Last Gang',  'Temp Id', 'Status',  'Actions'],
@@ -913,8 +913,8 @@
 			
 		},
 
-		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_table"
-		build_gang_table: function(type){
+		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gangs_in_process_table"
+		build_gangs_in_process_table: function(type){
 			var data = '',
 				title = '',
 				table = '',
