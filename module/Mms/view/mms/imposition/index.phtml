@@ -323,14 +323,14 @@
 			jobs_selected_table: {
 				id: "job-selected-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
-				thead: [ 'User', 'Location', 'Jobs Selected', 'Elapsed Time', 'Last Gang',  'Gangs Today', 'Gangs WTD',  'Actions'],
+				thead: [ 'User', 'Location', 'Jobs Selected', 'Elapsed Time', 'Priorities', 'Paper Types', 'Finishes', 'Actions'],
 				tfoot: [],
 				tbody:[ 
-					["Brian", "Arlington", "3", "1 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","7", "67 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","12", "14 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","27", "10 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","41", "33 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>']
+					["Brian", "Arlington", "3", "1 <small>min</small>", 'A', '100#', 'UV Front Only', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","7", "67 <small>min</small>", 'A, B', '100#', 'UV Front Only', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","12", "14 <small>min</small>", 'C', '70#', 'UV Front Only, UV Back Only', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","27", "10 <small>min</small>", 'A, B, C', '10pt', 'UV Both Sides', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","41", "33 <small>min</small>", 'A', '100#', 'Gloss', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>']
 				],
 				controls: '',
 				notes: ""
@@ -566,7 +566,8 @@
 			s = this.settings;
 			s.username = 'Kevin';
 			this.bindUIActions();
-			//this.makeDataTable();
+			// retreive data to calc tile quantaties
+			// retreive first tile data and display
 		},
 
 		bindUIActions: function() {
@@ -976,6 +977,55 @@
 
 		},
 
+		
+
+		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_completed_table"
+		build_gang_completed_table: function(type){
+			var data = '',
+				title = '',
+				table = '',
+				tableHead= "",
+				tableBody= "";
+
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
+				
+				$(s.tab_mainTab).text(title);
+				$(s.tab_mainTab).tab('show');
+				
+				tableHead = '<thead><tr>';
+				for (x = 0; x < s[data].thead.length; x++) {
+					tableHead+= "<th>"+s[data].thead[x]+"</th>";
+				}
+				tableHead+= '</tr></thead>'; 
+
+				
+				tableBody = '<tbody>';
+				for (x = 0; x < s[data].tbody.length; x++) {
+					tableBody+= '<tr>';
+					for (y = 0; y < s[data].tbody[x].length; y++) {
+						tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
+					}
+					
+					tableBody+= '</tr>';
+				}
+				tableBody+= '</tfoot>';
+
+				table = '<div class="table-resonsive"><table id="'+s[data].id+'" class="'+s[data].classes+'">';
+				table+= tableHead;
+				table+= tableBody;
+				table+= '</table></div>';
+
+
+
+				$(s.tab_mainBody).html(s[data].controls + table);
+				//Imposition.makeDataTable();
+				//$(s.tab_mainBody).DataTable();
+				
+
+
+		},
+
 		build_jobs_selected_table: function(type){
 			var data = '',
 				title = '',
@@ -1020,53 +1070,6 @@
 				//$('#'+s[data].id).DataTable();
 
 
-				//Imposition.makeDataTable();
-				//$(s.tab_mainBody).DataTable();
-				
-
-
-		},
-
-		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_completed_table"
-		build_gang_completed_table: function(type){
-			var data = '',
-				title = '',
-				table = '',
-				tableHead= "",
-				tableBody= "";
-
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
-				
-				$(s.tab_mainTab).text(title);
-				$(s.tab_mainTab).tab('show');
-				
-				tableHead = '<thead><tr>';
-				for (x = 0; x < s[data].thead.length; x++) {
-					tableHead+= "<th>"+s[data].thead[x]+"</th>";
-				}
-				tableHead+= '</tr></thead>'; 
-
-				
-				tableBody = '<tbody>';
-				for (x = 0; x < s[data].tbody.length; x++) {
-					tableBody+= '<tr>';
-					for (y = 0; y < s[data].tbody[x].length; y++) {
-						tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
-					}
-					
-					tableBody+= '</tr>';
-				}
-				tableBody+= '</tfoot>';
-
-				table = '<div class="table-resonsive"><table id="'+s[data].id+'" class="'+s[data].classes+'">';
-				table+= tableHead;
-				table+= tableBody;
-				table+= '</table></div>';
-
-
-
-				$(s.tab_mainBody).html(s[data].controls + table);
 				//Imposition.makeDataTable();
 				//$(s.tab_mainBody).DataTable();
 				
