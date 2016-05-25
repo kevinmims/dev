@@ -325,11 +325,11 @@
 				thead: [ 'User', 'Location', 'Jobs Selected', 'Elapsed Time', 'Priorities', 'Paper Types', 'Finishes', 'Actions'],
 				tfoot: [],
 				tbody:[ 
-					["Brian", "Arlington", "3", "1", 'A', '100#', 'UV Front Only', ''],
-					["Paul", "Arlington","7", "67", 'A &middot; B', '100#', 'UV Front Only', ''],
-					["Seth", "Arlington","12", "14", 'C', '70#', 'UV Front Only &middot; UV Back Only', ''],
-					["Max", "Arlington","27", "10", 'A &middot; B &middot; C', '10pt', 'UV Both Sides', ''],
-					["Rachel", "Arlington","41", "33", 'A', '100#', 'Gloss', ''],
+					["Brian", "Arlington", "3", "1", 'A', '100#', 'UV Front Only'],
+					["Paul", "Arlington","7", "67", 'A &middot; B', '100#', 'UV Front Only'],
+					["Seth", "Arlington","12", "14", 'C', '70#', 'UV Front Only &middot; UV Back Only'],
+					["Max", "Arlington","27", "10", 'A &middot; B &middot; C', '10pt', 'UV Both Sides'],
+					["Rachel", "Arlington","41", "33", 'A', '100#', 'Gloss'],
 				],
 				controls: '',
 				notes: ""
@@ -338,12 +338,12 @@
 			gangs_in_process_table: {
 				id: "gangs-in-process-table",
 				classes: "table table-hover table-condensed draggable",
-				thead: [ '', 'Date', 'Time', 'User', 'Gang Id', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
+				thead: [ '', 'User', 'When', 'Job Count', 'Gang Id', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
 				tfoot: [],
 				tbody:[ 
 					
-					['1', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
-					['2', '5/12/16', '10:35am', 'Brian', '235gg25gwrf456', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button>'   ]
+					['1', 'Brian', '10:35am 5/12/16', '6', '235gg25gwrf456', [ 'success', 'view' ], '<i class="fa fa-times"></i><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button><button type="button" class="btn btn-xs btn-danger js-rip-file-upload"><i class="fa fa-download"></i> Save Now</button>', '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
+					['2', 'Brian', '10:35am 5/12/16', '6', '235gg25gwrf456', [ 'success', 'view' ], '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-default"><i class="text-success fa fa-check"></i></button><button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button>'   ]
 				],
 				controls: '',
 				notes: "the second <td> needs class='user-selected'"
@@ -944,7 +944,17 @@
 				for (x = 0; x < 2; x++) {
 					tableBody+= '<tr>';
 					for (y = 0; y < s[data].tbody[x].length; y++) {
-						tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
+						if(y == 5){
+							if (s[data].tbody[x][0] == 'success'){
+								tableBody+= '<i class="text-success fa fa-check"></i> <button class="btn btn-default btn-xs"><i class="fa fa-file-o"></i> View</button>';
+							} else if (s[data].tbody[x][0] == 'needed'){
+								tableBody+= '<i class="fa fa-times"></i><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button>';
+							}
+						} else {
+							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
+						}
+
+						
 					}
 					
 					tableBody+= '</tr>';
