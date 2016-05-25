@@ -256,20 +256,20 @@
 					type: "same_day_jobs",
 					data: "job_table"
 				},
+				jobs_selected: {
+					title: "Jobs Selected",			// added to the tab title
+					type: "jobs_selected",			// from 
+					data: "jobs_selected_table"		//
+				},
 				gangs_in_process: {
 					title: "Gangs in Process",
 					type: "gangs_in_process",
 					data: "gang_table"
 				},
-				rip_errors: {
-					title: "Rip Errors",
-					type: "rip_errors",
-					data: "rip_table"
-				},
-				gangs_created: {
+				gangs_completed: {
 					title: "Gangs Created",
-					type: "gangs_created",
-					data: "gang_created_table"
+					type: "gangs_completed",
+					data: "gang_completed_table"
 				}
 				
 			},
@@ -305,8 +305,8 @@
 				notes: "the second <td> needs class='user-selected'"
 			},
 
-			gang_created_table: {
-				id: "gang-created-table",
+			gang_completed_table: {
+				id: "gang-completed-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
 				thead: [ '', 'Date', 'Time', 'User', 'Gang Id', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
 				tfoot: [],
@@ -975,8 +975,8 @@
 			$(s.tab_mainBody).html('<h4>Not done yet</h4>');
 		},
 
-		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_created_table"
-		build_gang_created_table: function(type){
+		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_completed_table"
+		build_gang_completed_tablee: function(type){
 			var data = '',
 				title = '',
 				table = '',
@@ -1296,11 +1296,26 @@
 		</div>
   
 		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
-			<div class="dashboard-stat" data-type="gangs_in_process">
+			<div class="dashboard-stat" data-type="jobs_selected">
 			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-refresh"></i></div>
 					<div class="details">
 						<div class="number"> 3 </div>
+						<div class="desc"> Jobs Selected </div>
+					</div>
+				</a>
+			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
+			        <i class="fa fa-line-chart"></i>
+			    </a>
+			</div>
+		</div>
+  
+		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
+			<div class="dashboard-stat" data-type="gangs_in_process">
+			    <a class="main btn btn-default" href="#">
+					<div class="visual"><i class="fa fa-exclamation-triangle"></i></div>
+					<div class="details">
+						<div class="number"> 0 </div>
 						<div class="desc"> Gangs In Process </div>
 					</div>
 				</a>
@@ -1311,27 +1326,12 @@
 		</div>
   
 		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
-			<div class="dashboard-stat" data-type="rip_errors">
-			    <a class="main btn btn-default" href="#">
-					<div class="visual"><i class="fa fa-exclamation-triangle"></i></div>
-					<div class="details">
-						<div class="number"> 0 </div>
-						<div class="desc"> Rip Errors </div>
-					</div>
-				</a>
-			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
-			        <i class="fa fa-line-chart"></i>
-			    </a>
-			</div>
-		</div>
-  
-		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
-			<div class="dashboard-stat" data-type="gangs_created">
+			<div class="dashboard-stat" data-type="gangs_completed">
 			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-thumbs-o-up"></i></div>
 					<div class="details">
 						<div class="number"> 26 </div>
-						<div class="desc"> Gangs Created </div>
+						<div class="desc"> Gangs Completed </div>
 					</div>
 				</a>
 			    <a class="submenu btn btn-default" href="javascript:;"> View Stats
