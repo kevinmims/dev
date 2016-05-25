@@ -644,7 +644,7 @@
 
 			
 			$(document).on("click", s.btn_view_selected_jobs_by_user, function() { 
-				$('#jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
+				$('#view-jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
 					//$('#chart').highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
 					//$('#chart').empty();
@@ -652,10 +652,10 @@
 			});
 
 			$(document).on("click", s.btn_release_selected_jobs_by_user, function() { 
-				$('#jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
-					$('#chart').highcharts(s.chart_options);
+				$('#release-jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
+					//$('#chart').highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					$('#chart').empty();
+					//$('#chart').empty();
 				});
 			});
 
@@ -1736,7 +1736,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="jobs-by-user-modal" class="modal fade" tabindex="-1" role="dialog">
+<div id="view-jobs-by-user-modal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -1770,6 +1770,25 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="release-jobs-by-user-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Jobs Selected by **USERNAME**</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Are you sure you want to release all **NUMBER** jobs back to the pool?
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Release Jobs</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
