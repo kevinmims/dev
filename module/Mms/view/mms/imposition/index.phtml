@@ -644,15 +644,15 @@
 
 			
 			$(document).on("click", s.btn_view_selected_jobs_by_user, function() { 
-				$('#graph-modal').modal('show').on('shown.bs.modal', function () {
-					$('#chart').highcharts(s.chart_options);
+				$('#jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
+					//$('#chart').highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					$('#chart').empty();
+					//$('#chart').empty();
 				});
 			});
 
 			$(document).on("click", s.btn_release_selected_jobs_by_user, function() { 
-				$('#graph-modal').modal('show').on('shown.bs.modal', function () {
+				$('#jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
 					$('#chart').highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
 					$('#chart').empty();
@@ -1727,6 +1727,45 @@
       </div>
       <div class="modal-body">
         <div id="chart"></div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="jobs-by-user-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Jobs Selected by **USERNAME**</h4>
+      </div>
+      <div class="modal-body">
+        <div class="responsive-table">
+        	<table class="table">
+        		<thead>
+        			<tr>
+        				<td>Job Id</td>
+        				<td>When Selected</td>
+        				<td>Priority</td>
+        				<td>Paper Type</td>
+        				<td>Finish</td>
+        			</tr>
+        		</thead>
+        		<tbody>
+        			<tr>
+        				<td>24f8999483</td>
+        				<td>11:21am 4/5/16</td>
+        				<td>B</td>
+        				<td>70#</td>
+        				<td>UV Front Only</td>
+        			</tr>
+        		</tbody>
+        	</table>
+        </div>
         
       </div>
       <div class="modal-footer">
