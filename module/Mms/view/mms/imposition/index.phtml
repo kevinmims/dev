@@ -325,11 +325,11 @@
 				thead: [ 'User', 'Location', 'Jobs Selected', 'Elapsed Time', 'Priorities', 'Paper Types', 'Finishes', 'Actions'],
 				tfoot: [],
 				tbody:[ 
-					["Brian", "Arlington", "3", "1", 'A', '100#', 'UV Front Only', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Paul", "Arlington","7", "67", 'A &middot; B', '100#', 'UV Front Only', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Seth", "Arlington","12", "14", 'C', '70#', 'UV Front Only &middot; UV Back Only', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Max", "Arlington","27", "10", 'A &middot; B &middot; C', '10pt', 'UV Both Sides', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Rachel", "Arlington","41", "33", 'A', '100#', 'Gloss', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>']
+					["Brian", "Arlington", "3", "1", 'A', '100#', 'UV Front Only', ''],
+					["Paul", "Arlington","7", "67", 'A &middot; B', '100#', 'UV Front Only', ''],
+					["Seth", "Arlington","12", "14", 'C', '70#', 'UV Front Only &middot; UV Back Only', ''],
+					["Max", "Arlington","27", "10", 'A &middot; B &middot; C', '10pt', 'UV Both Sides', ''],
+					["Rachel", "Arlington","41", "33", 'A', '100#', 'Gloss', ''],
 				],
 				controls: '',
 				notes: ""
@@ -1045,7 +1045,8 @@
 							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
 						}
 					}
-					
+					// add action buttons for every row
+					tableBody+= '<td><button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button></td>';
 					tableBody+= '</tr>';
 				}
 				tableBody+= '</tfoot>';
