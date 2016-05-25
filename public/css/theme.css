@@ -67,12 +67,12 @@ a:hover {
   background: #2c849c;
 }
 .btn-dark {
-  background: #272727;
+  background: rgb(80, 80, 80);
   color: #fff;
 }
-.btn-dark:hover {
-  color: #fff;
-  background: #2c849c;
+.btn.btn-dark:hover {
+  background: rgb(30, 30, 30);
+  color: rgb(255, 255, 255);
 }
 .btn-red {
   background: #4f5362;
