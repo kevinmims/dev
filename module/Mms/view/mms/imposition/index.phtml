@@ -326,11 +326,11 @@
 				thead: [ 'User', 'Location', 'Jobs Selected', 'Elapsed Time', 'Last Gang',  'Gangs Today', 'Gangs WTD',  'Actions'],
 				tfoot: [],
 				tbody:[ 
-					["Brian", "Arlington", "3", "1 min", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","7", "67 min", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","12", "14 min", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","27", "10 min", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
-					["Brian", "Arlington","41", "33 min", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>']
+					["Brian", "Arlington", "3", "1 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","7", "67 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","12", "14 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","27", "10 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'],
+					["Brian", "Arlington","41", "33 <small>min</small>", "5/15/16 10:35am",  "23", "145", '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>', '<button class="btn btn-xs btn-default"><i class="fa fa-eye"></i> View</button><button class="btn btn-xs btn-danger"><i class="fa fa-mail-reply"></i> Release All Jobs</button>']
 				],
 				controls: '<div class="well"><div class="input-group input-group-sm" style="width:300px;display: inline">'+
 			                '<span style="display: inline" class="input-group-btn"><span class="btn btn-primary js-upload-mxml">XML from Metrix <input type="file" multiple=""></span></span>'+
@@ -1019,7 +1019,9 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls + table);
-				
+				s.table.destroy();
+				$('#'+s[data].id).DataTable();
+
 
 				//Imposition.makeDataTable();
 				//$(s.tab_mainBody).DataTable();
