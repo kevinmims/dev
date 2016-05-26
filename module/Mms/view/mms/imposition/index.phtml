@@ -840,6 +840,10 @@
 					});
 				} else {
 					this.log('submenu does not have class selected');
+					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
+					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+						//$('#chart').highcharts(s.chart_options);
+					});
 				}
 			} else {
 				this.log('main tile does not have class selected');
@@ -906,9 +910,8 @@
 				this.log('submenu clicked');
 
 				this.dashboardTile_showHide(sibling, type, $elem);
-				$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
-					//$('#chart').highcharts(s.chart_options);
-				});
+				
+
 				
 			}
 			
