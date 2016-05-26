@@ -840,10 +840,11 @@
 					});
 				} else {
 					this.log('submenu does not have class selected');
-					sibling.removeClass('btn-default').addClass('selected btn-blue-light');
-					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
-						//$('#chart').highcharts(s.chart_options);
-					});
+					if($(s.subDashboard).is(':visible')){
+					} else {
+
+					}
+					
 				}
 			} else {
 				this.log('main tile does not have class selected');
@@ -911,6 +912,10 @@
 
 				this.dashboardTile_showHide(sibling, type, $elem);
 				
+				$elem.removeClass('btn-default').addClass('selected btn-blue-light');
+					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+						//$('#chart').highcharts(s.chart_options);
+					});
 
 				
 			}
