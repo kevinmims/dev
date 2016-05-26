@@ -562,8 +562,6 @@
 					sibling = $(this).siblings("a.submenu");
 			
 				Imposition.dashboardTile_showHide($(this), type, sibling);
-
-				//Imposition.handleDashboardBtnClick($(this));
 			});
 
 			$('.dashboard-stat').on("click", s.btn_submenu, function(e) { 
@@ -572,7 +570,6 @@
 					sibling = $(this).siblings("a.main");
 				Imposition.subdashboard_showHide($(this), type, sibling);
 
-				//Imposition.handleSubmenu($(this));
 			});
 	    	
 			$(document).on("click", s.btn_createXml, function() { 
@@ -815,24 +812,7 @@
 			return eval(template);
 		},
 
-		handleDashboardBtnClick: function($elem){
-			var type = $elem.parent().attr('data-type'),
-				sibling = $elem.siblings("a.submenu"),
-				data = '';
-			
-			this.dashboardTile_showHide($elem, type, sibling);
-			
-			//if (s.dashboard_items.hasOwnProperty(type)){
-			//	var data = s.dashboard_items[type].data;
-			//	eval('Imposition.build_'+data+'("'+type+'")');
-			//} else {
-			//	this.handleError('Error, type not found.')
-			//}
-
-			//this.refreshData($(s.btn_refresh));
-			
-			
-		},
+		
 
 		dashboardTile_showHide: function($elem, type, sibling){
 			if($elem.hasClass('selected')){
@@ -910,7 +890,7 @@
 
 
 
-		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "job_table"
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "job_table"
 		build_job_table: function(type){
 			
 			var data = '',
@@ -972,7 +952,7 @@
 			
 		},
 
-		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gangs_in_process_table"
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "gangs_in_process_table"
 		build_gangs_in_process_table: function(type){
 			var data = '',
 				title = '',
@@ -1031,7 +1011,7 @@
 
 		
 
-		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "gang_completed_table"
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "gang_completed_table"
 		build_gang_completed_table: function(type){
 			var data = '',
 				title = '',
