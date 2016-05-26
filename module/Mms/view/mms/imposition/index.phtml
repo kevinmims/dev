@@ -837,6 +837,8 @@
 		handleSubmenu: function($elem){
 			var type = $elem.parent().attr('data-type');
 			
+			$elem.siblings("a").addClass('foundYou');
+			
 			if($elem.hasClass('selected')){
 				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
 				$(s.subDashboard).slideUp('slow', function(){
