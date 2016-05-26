@@ -840,7 +840,7 @@
 					});
 				} else {
 					this.log('submenu does not have class selected');
-					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
+					sibling.removeClass('btn-default').addClass('selected btn-blue-light');
 					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
 						//$('#chart').highcharts(s.chart_options);
 					});
