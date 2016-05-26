@@ -732,13 +732,11 @@
 			this.log(array);
 			
 			for(x = 0; x < array.length; x++){
-				s.table.columns( array[x][0] ).footer().find('select').val(array[x][1]);
-				//.search(array[x][1]).draw();
+				s.table.columns( array[x][0] ).every( function(){
+					$(this.footer()).find('select').val(array[x][1]);
+				}).search(array[x][1]);
 			}
-			s.table.columns( column ).every( function(){
-				var column = this;
-				$(column.footer()).find('select').val(value);
-			}).search(value).draw();
+			s.table.draw();
 
 			
 		},
