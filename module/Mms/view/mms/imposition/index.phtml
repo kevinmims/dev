@@ -897,15 +897,9 @@
 					$(this).empty();
 				});
 			} else {
-				if(sibling.hasClass('selected')) {
-					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
-					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
-							//$('#chart').highcharts(s.chart_options);
-					});
-				} else {
-					this.dashboardTile_showHide(sibling, type, $elem);
+				this.dashboardTile_showHide(sibling, type, $elem);
 					
-				}
+				
 			}
 			
 		}, // end, handleSubmenu()
