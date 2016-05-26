@@ -807,6 +807,18 @@
 		},
 
 		handleDashboardBtnClick: function($elem){
+			if($elem.hasClass('selected')){
+				//$elem.removeClass('btn-primary').addClass('btn-default');
+				//$(s.subDashboard).slideUp('slow', function(){
+				//	$(this).empty();
+				//});
+			} else {
+				$(s.btn_dashboardMain).each(function(){
+					$(this).removeClass('btn-primary selected').addClass('btn-default');
+				});
+				$elem.removeClass('btn-default').addClass('btn-primary selected');
+			}
+
 			$(s.tab_mainBody).html('building data...');
 
 			var type = $elem.parent().attr('data-type'),
@@ -819,17 +831,7 @@
 
 			this.refreshData($(s.btn_refresh));
 			
-			if($elem.hasClass('selected')){
-				//$elem.removeClass('btn-primary').addClass('btn-default');
-				//$(s.subDashboard).slideUp('slow', function(){
-				//	$(this).empty();
-				//});
-			} else {
-				$(s.btn_dashboardMain).each(function(){
-					$(this).removeClass('btn-primary selected').addClass('btn-default');
-				});
-				$elem.removeClass('btn-default').addClass('btn-primary selected');
-			}
+			
 		},
 
 		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "job_table"
