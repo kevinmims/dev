@@ -835,9 +835,16 @@
 		},
 
 		handleSubmenu: function($elem){
-			var type = $elem.parent().attr('data-type');
+			this.submenu_showHide($elem);
 			
-			$elem.siblings("a").addClass('foundYou');
+		}, // end, handleSubmenu()
+
+
+
+
+		submenu_showHide: function($elem){
+			var type = $elem.parent().attr('data-type'),
+				sibling = $elem.siblings("a.main");
 
 			if($elem.hasClass('selected')){
 				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
@@ -845,7 +852,7 @@
 					$(this).empty();
 				});
 			} else {
-				if($elem.siblings('a').hasClass('selected')) {
+				if(sibling.hasClass('selected')) {
 					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
 					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
 							//$('#chart').highcharts(s.chart_options);
@@ -853,7 +860,7 @@
 				} else {
 					this.log('not going to happen');
 
-					this.handleDashboardBtnClick($elem.siblings('a'));
+					this.handleDashboardBtnClick(sibling);
 					
 					if($(s.subDashboard).is(':visible')){
 						$(s.btn_submenu).each(function(){
@@ -874,36 +881,14 @@
 								//$('#chart').highcharts(s.chart_options);
 						});
 					}
-
-
-
-
 				}
-/*
-				if($(s.subDashboard).is(':visible')){
-					$(s.btn_submenu).each(function(){
-						$(this).removeClass('selected btn-blue-light').addClass('btn-default');
-					});
-					
-					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
-					
-					$(s.subDashboard).slideUp('slow', function(){
-						$(this).empty().html(Imposition.getTemplate(type));
-					}).slideDown('slow', function(){
-							//$('#chart').highcharts(s.chart_options);
-					});
-					
-				} else {
-					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
-					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
-							//$('#chart').highcharts(s.chart_options);
-					});
-				}
-			} else {
-*/
 			}
 			
 		}, // end, handleSubmenu()
+
+
+
+
 
 
 		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "job_table"
