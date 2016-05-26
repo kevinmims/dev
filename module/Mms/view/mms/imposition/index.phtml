@@ -732,7 +732,7 @@
 			this.log(array);
 			
 			for(x = 0; x < array.length; x++){
-				s.table.column( array[x][0] ).footer().find('select').val(array[x][1]);
+				s.table.columns( array[x][0] ).footer().find('select').val(array[x][1]);
 				//.search(array[x][1]).draw();
 			}
 			s.table.columns( column ).every( function(){
