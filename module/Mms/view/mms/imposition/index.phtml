@@ -564,7 +564,7 @@
 			$('.dashboard-stat').on("click", s.btn_submenu, function(e) { 
 				e.preventDefault();
 				var type = $(this).parent().attr('data-type'),
-					sibling = $elem.siblings("a.main");
+					sibling = $(this).siblings("a.main");
 				this.subdashboard_showHide($elem, type, sibling);
 
 				//Imposition.handleSubmenu($(this));
