@@ -558,7 +558,12 @@
 
 			$('.dashboard-stat').on("click", s.btn_dashboardMain, function(e) { 
 				e.preventDefault();
-				Imposition.handleDashboardBtnClick($(this));
+				var type = $(this).parent().attr('data-type'),
+					sibling = $(this).siblings("a.submenu");
+			
+				Imposition.dashboardTile_showHide($(this), type, sibling);
+
+				//Imposition.handleDashboardBtnClick($(this));
 			});
 
 			$('.dashboard-stat').on("click", s.btn_submenu, function(e) { 
@@ -882,14 +887,7 @@
 		},
 
 
-		handleSubmenuBtnClick: function($elem){
-			var type = $elem.parent().attr('data-type'),
-				sibling = $elem.siblings("a.main");
-			this.subdashboard_showHide($elem, type, sibling);
-			
-		}, // end, handleSubmenuBtnClick()
-
-
+		
 		subdashboard_showHide: function($elem, type, sibling){
 			if($elem.hasClass('selected')){
 				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
