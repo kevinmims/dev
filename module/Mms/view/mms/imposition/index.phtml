@@ -819,16 +819,16 @@
 
 			this.refreshData($(s.btn_refresh));
 			
-			if($elem.hasClass('btn-primary')){
+			if($elem.hasClass('selected')){
 				//$elem.removeClass('btn-primary').addClass('btn-default');
 				//$(s.subDashboard).slideUp('slow', function(){
 				//	$(this).empty();
 				//});
 			} else {
 				$(s.btn_dashboardMain).each(function(){
-					$(this).removeClass('btn-primary').addClass('btn-default');
+					$(this).removeClass('btn-primary selected').addClass('btn-default');
 				});
-				$elem.removeClass('btn-default').addClass('btn-primary');
+				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 		},
 
