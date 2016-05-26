@@ -807,6 +807,26 @@
 		},
 
 		handleDashboardBtnClick: function($elem){
+			var type = $elem.parent().attr('data-type'),
+				data = '';
+			
+			this.dashboardTile_showHide($elem);
+
+			$(s.tab_mainBody).html('building data...');
+
+			if (s.dashboard_items.hasOwnProperty(type)){
+				var data = s.dashboard_items[type].data;
+				eval('Imposition.build_'+data+'("'+type+'")');
+			} else {
+				this.handleError('Error, type not found.')
+			}
+
+			this.refreshData($(s.btn_refresh));
+			
+			
+		},
+
+		dashboardTile_showHide: function($elem){
 			if($elem.hasClass('selected')){
 				//$elem.removeClass('btn-primary').addClass('btn-default');
 				//$(s.subDashboard).slideUp('slow', function(){
@@ -819,30 +839,19 @@
 				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 
-			$(s.tab_mainBody).html('building data...');
-
-			var type = $elem.parent().attr('data-type'),
-				data = '';
-
-			if (s.dashboard_items.hasOwnProperty(type)){
-				var data = s.dashboard_items[type].data;
-				eval('Imposition.build_'+data+'("'+type+'")');
-			}
-
-			this.refreshData($(s.btn_refresh));
-			
 			
 		},
 
+
 		handleSubmenu: function($elem){
-			this.submenu_showHide($elem);
+			this.subdashboard_showHide($elem);
 			
 		}, // end, handleSubmenu()
 
 
 
 
-		submenu_showHide: function($elem){
+		subdashboard_showHide: function($elem){
 			var type = $elem.parent().attr('data-type'),
 				sibling = $elem.siblings("a.main");
 
@@ -860,7 +869,7 @@
 				} else {
 					this.log('not going to happen');
 
-					this.handleDashboardBtnClick(sibling);
+					this.dashboardTile_showHide(sibling);
 					
 					if($(s.subDashboard).is(':visible')){
 						$(s.btn_submenu).each(function(){
