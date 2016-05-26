@@ -341,11 +341,11 @@
 			gangs_in_process_table: {
 				id: "gangs-in-process-table",
 				classes: "table table-hover table-condensed draggable",
-				thead: [ '', 'User', 'When Created', 'Gang Id', 'Jobs on Gang', 'Priority', 'Paper Type', 'Finish', 'mXML From Metrix', 'Rip Report', 'Rip File', 'Rip Passed',  'Status'],
+				thead: [ '', 'User', 'When Created', 'Gang Id', 'Jobs on Gang', 'Priority', 'Paper Type', 'Finish', 'mXML From Metrix', 'Rip Report', 'Rip File', 'Rip Passed',  'Actions'],
 				tfoot: [],
 				tbody:[ 
-					['1', 'Brian', '10:35am 5/12/16', '235gg25gwrf456', '6', 'A', '100#', 'Gloss Aqueous', [ 'success', 'view' ], [ 'needed', 'view' ], [ 'needed', 'view' ], '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
-					['2', 'Brian', '10:35am 5/12/16', '235gg25gwrf456', '6', 'A', '100#', 'Gloss Aqueous', [ 'success', 'view' ], [ 'success', 'view' ], [ 'needed', 'view' ], '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>', '<button class="btn btn-xs btn-danger"><i class="fa fa-wrench"></i> Metrix Error</button>'   ]
+					['1', 'Brian', '10:35am 5/12/16', '235gg25gwrf456', '6', 'A', '100#', 'Gloss Aqueous', [ 'success', 'view' ], [ 'needed', 'view' ], [ 'needed', 'view' ], '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>' ],
+					['2', 'Brian', '10:35am 5/12/16', '235gg25gwrf456', '6', 'A', '100#', 'Gloss Aqueous', [ 'success', 'view' ], [ 'success', 'view' ], [ 'needed', 'view' ], '<button class="btn btn-xs btn-danger"><i class="fa fa-times"></i></button>' ]
 				],
 				controls: '',
 				notes: ''
@@ -928,6 +928,7 @@
 							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
 						}
 
+						tableBody+= '<td><button class="btn btn-xs btn-success">Send to Plating</button> <button class="btn btn-xs btn-warning">Transfer Location</button> <button class="btn btn-xs btn-danger">Delete Gang</button></td>';
 						
 					}
 					
