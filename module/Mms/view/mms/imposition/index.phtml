@@ -283,7 +283,14 @@
 				thead: [ '<input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" />', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
 				tfoot: [ '', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
 				tbody:[ 
-					["","","6n6q47m4qe","a34ty32wert2","A","5/12/16","5/15/16","Brochures","100#","4/0","100",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ]
+					["","","6n6q47m4qe","a34ty32wert2","B","5/13/16","5/15/16","Brochures","100#","4/0","500",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","6246n456","a34ty32wert2","B","5/12/16","5/15/16","Brochures","100#","4/0","500",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","taebertae6","a46nawe4esdg","A","5/12/16","5/15/16","Business Cards","14pt","4/0","1000",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","an6w3ete","a46nawe4esdg","A","5/12/16","5/15/16","Business Cards","14pt","4/0","1000",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","6363nsytdgds","a46nawe4esdg","A","5/12/16","5/15/16","Business Cards","14pt","4/0","1000",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","srmu6er4u4a","a46nawe4esdg","A","5/12/16","5/15/16","Business Cards","14pt","4/0","1000",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","yaytae5365","a46nawe4esdg","A","5/12/16","5/15/16","Business Cards","14pt","4/0","1000",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
+					["","","am6a634wd","nby6q346vede","C","5/14/16","5/15/16","Door Hanger","70#","4/0","2500",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ]
 				],
 				controls: '<div style="" class="row">'+
 							'<div class="col-sm-8 col-md-8">'+
@@ -923,18 +930,18 @@
 				tableFoot+= '</tr></tfoot>';
 	
 				tableBody = '<tbody>';
-				for (x = 0; x < 20; x++) {
+				for (x = 0; x < s[data].tbody.length; x++) {
 					tableBody+= '<tr>';
-					for (y = 0; y < s[data].tbody[0].length; y++) { // x is fixed to 0 for now as there is only one
+					for (y = 0; y < s[data].tbody[x].length; y++) { 
 						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s[data].tbody[0][y]+'</td>'; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= '<td class="user-selected">'+s[data].tbody[x][y]+'</td>';  row of data
 						} else if (y== 16) {
 							tableBody+= '<td>'
-							for(z = 0; z < s[data].tbody[0][y].length; z++){
-								tableBody+= '<b>'+s[data].tbody[0][y][z][0]+':</b> <span class="mr25">'+s[data].tbody[0][y][z][1]+'</span>'
+							for(z = 0; z < s[data].tbody[x][y].length; z++){
+								tableBody+= '<b>'+s[data].tbody[x][y][z][0]+':</b> <span class="mr25">'+s[data].tbody[x][y][z][1]+'</span>'
 							}
 						} else {
-							tableBody+= "<td>"+s[data].tbody[0][y]+"</td>"; // x is fixed to 0 for now as there is only one row of data
+							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
 						
 						}
 						
