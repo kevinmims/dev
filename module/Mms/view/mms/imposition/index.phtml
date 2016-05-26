@@ -853,9 +853,9 @@
 					});
 				} else {
 					this.log('unselected main tile clicked && submenu is not visible');
-					//$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
-					//			//$('#chart').highcharts(s.chart_options);
-					//	});
+					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+						//$('#chart').highcharts(s.chart_options);
+					});
 				}
 
 				$(s.btn_dashboardMain).each(function(){
@@ -898,7 +898,6 @@
 				});
 			} else {
 				this.dashboardTile_showHide(sibling, type, $elem);
-					
 				
 			}
 			
