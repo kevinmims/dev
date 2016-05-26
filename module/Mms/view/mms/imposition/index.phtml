@@ -808,9 +808,10 @@
 
 		handleDashboardBtnClick: function($elem){
 			var type = $elem.parent().attr('data-type'),
+				sibling = $elem.siblings("a.submenu"),
 				data = '';
 			
-			this.dashboardTile_showHide($elem);
+			this.dashboardTile_showHide($elem, type, sibling);
 
 			$(s.tab_mainBody).html('building data...');
 
@@ -826,16 +827,40 @@
 			
 		},
 
-		dashboardTile_showHide: function($elem){
+		dashboardTile_showHide: function($elem, type, sibling){
 			if($elem.hasClass('selected')){
-				//$elem.removeClass('btn-primary').addClass('btn-default');
-				//$(s.subDashboard).slideUp('slow', function(){
-				//	$(this).empty();
-				//});
+				// refresh table data here
+
+				if(sibling.hasClass('selected')){
+					$(s.subDashboard).slideUp('slow', function(){
+						$(this).empty().html(Imposition.getTemplate(type));
+					}).slideDown('slow', function(){
+						//$('#chart').highcharts(s.chart_options);
+					});
+				} else {
+					this.log('here 1');
+				}
 			} else {
+				if($(s.subDashboard).is(':visible')){
+					$(s.btn_submenu).each(function(){
+						$(this).removeClass('selected btn-blue-light').addClass('btn-default');
+					});
+					
+					sibling.removeClass('btn-default').addClass('selected btn-blue-light');
+					
+					$(s.subDashboard).slideUp('slow', function(){
+						$(this).empty().html(Imposition.getTemplate(type));
+					}).slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+					});
+				} else {
+					this.log('here 2');
+				}
+
 				$(s.btn_dashboardMain).each(function(){
 					$(this).removeClass('btn-primary selected').addClass('btn-default');
 				});
+				
 				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 
@@ -844,16 +869,18 @@
 
 
 		handleSubmenu: function($elem){
-			this.subdashboard_showHide($elem);
+			var type = $elem.parent().attr('data-type'),
+				sibling = $elem.siblings("a.main");
+			this.subdashboard_showHide($elem, type, sibling);
 			
 		}, // end, handleSubmenu()
 
 
 
 
-		subdashboard_showHide: function($elem){
-			var type = $elem.parent().attr('data-type'),
-				sibling = $elem.siblings("a.main");
+		subdashboard_showHide: function($elem, type, sibling){
+			//var type = $elem.parent().attr('data-type'),
+			//	sibling = $elem.siblings("a.main");
 
 			if($elem.hasClass('selected')){
 				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
