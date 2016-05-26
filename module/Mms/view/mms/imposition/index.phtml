@@ -838,14 +838,22 @@
 			var type = $elem.parent().attr('data-type');
 			
 			$elem.siblings("a").addClass('foundYou');
-			
+
 			if($elem.hasClass('selected')){
 				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
 				$(s.subDashboard).slideUp('slow', function(){
 					$(this).empty();
 				});
 			} else {
-				
+				if($elem.siblings('a').hasClass('selected')) {
+					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
+					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+					});
+				} else {
+					this.alert('not going to happen');
+				}
+/*
 				if($(s.subDashboard).is(':visible')){
 					$(s.btn_submenu).each(function(){
 						$(this).removeClass('selected btn-blue-light').addClass('btn-default');
@@ -865,6 +873,8 @@
 							//$('#chart').highcharts(s.chart_options);
 					});
 				}
+			} else {
+*/
 			}
 			
 		}, // end, handleSubmenu()
