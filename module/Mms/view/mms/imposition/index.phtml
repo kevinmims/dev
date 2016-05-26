@@ -730,6 +730,11 @@
 
 		filterTable: function(column, value, array){
 			this.log(array);
+			
+			for(x = 0; x < array.length; x++){
+				s.table.column( array[x][0] ).footer().find('select').val(array[x][1]);
+				//.search(array[x][1]).draw();
+			}
 			s.table.columns( column ).every( function(){
 				var column = this;
 				$(column.footer()).find('select').val(value);
@@ -777,8 +782,9 @@
 			
 			// column, value
 			var filterArray = [
-				[2,"a34ty32wert2"],
-				[3,"a34ty32wert2"]
+				[4,"A"],
+				[5,"5/12/16"],
+				[9,'4/0']
 			];
 			var selected = $e.find('a.js-choice .js-name').text();
 			
