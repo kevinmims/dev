@@ -545,7 +545,7 @@
 			s = this.settings;
 			s.username = 'Kevin';
 			this.bindUIActions();
-			$('.dashboard-stat:first-child').click();
+			$('a.main.js-default').click();
 
 			// retreive data to calc tile quantaties
 			// retreive first tile data and display
@@ -1212,7 +1212,7 @@
 		<div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2 pull-right" style="max-width: 400px">
 			<div>Location</div>
 			<div id="dropdown_location" class="dropdown">
-				<a class="btn btn-default btn-block js-choice"aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
+				<a class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">
 					<span class="caret"></span>
 					<div class="pull-right" style="letter-spacing:1px;">
 						<span class="badge js-count">2</span> 
@@ -1283,7 +1283,7 @@
 	<div class="row dashboard-top-row" style="background: rgba(51, 122, 183, 0.2); padding: 15px 0 15px 0; margin-bottom:15px">
 		<div class="dashboard-btn col-lg-2 col-md-2 col-sm-2 col-xs-4">
             <div class="dashboard-stat" data-title="" data-type="same_day_jobs">
-                <a class="main btn btn-default" href="#">
+                <a class="main btn btn-default js-default" href="#">
                   <div class="visual"><i class="fa fa-hourglass-half"></i></div>
                   <div class="details">
                       <div class="number">
