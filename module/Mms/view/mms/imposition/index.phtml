@@ -838,7 +838,7 @@
 						//$('#chart').highcharts(s.chart_options);
 					});
 				} else {
-					this.log('submenu does is not selected');
+					this.log('selected main tile clicked && submenu is not selected');
 				}
 			} else {
 				if($(s.subDashboard).is(':visible')){
@@ -854,7 +854,7 @@
 							//$('#chart').highcharts(s.chart_options);
 					});
 				} else {
-					this.log('here 2');
+					this.log('unselected main tile clicked && submenu is not visible');
 				}
 
 				$(s.btn_dashboardMain).each(function(){
@@ -894,7 +894,7 @@
 							//$('#chart').highcharts(s.chart_options);
 					});
 				} else {
-					this.log('not going to happen');
+					this.log('submenu clicked under non-active main tile');
 
 					this.dashboardTile_showHide(sibling);
 					
