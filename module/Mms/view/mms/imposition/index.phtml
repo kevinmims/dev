@@ -919,11 +919,11 @@
 				for (x = 0; x < s[data].tbody.length; x++) {
 					tableBody+= '<tr>';
 					for (y = 0; y < s[data].tbody[x].length; y++) {
-						if(y == 8 ){
+						if(y == 9 ){
 							if (s[data].tbody[x][y][0] == "success"){
 								tableBody+= '<td><button style="margin-left:5px;" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> view</button></td>';
 							}
-						} else if(y == 9 || y == 10) {
+						} else if(y == 10 || y == 11) {
 							if (s[data].tbody[x][y][0] == "success"){
 								tableBody+= '<td><button style="margin-left:5px;" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> view</button> <button class="btn btn-default btn-xs" style="margin-left:5px;"><i class="fa fa-refresh"></i> reload</button></td>';
 							} else if (s[data].tbody[x][y][0] == "needed"){
@@ -933,8 +933,6 @@
 							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
 						}
 
-						
-						
 					}
 					
 					tableBody+= '<td><button class="btn btn-xs btn-success">Send to Plating</button> <button class="btn btn-xs btn-warning">Transfer Location</button> <button class="btn btn-xs btn-danger">Delete Gang</button></td>';
