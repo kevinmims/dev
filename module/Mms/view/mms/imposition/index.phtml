@@ -1120,7 +1120,10 @@
 			$('tfoot .filter').each(function(){
 				$(this).val('');
 			})
-			this.log('reset');
+			s.table
+				.search( '' )
+				.columns().search( '' )
+				.draw();
 
 		},
 
