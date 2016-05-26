@@ -1116,11 +1116,11 @@
 
 		resetJobTableFilters: function(){
 			this.log('resetting');
-			//s.table
-			//	.search( '' )
-			//	.columns().search( '' )
-			//	.fnFilterClear();
-			//	.draw();
+			s.table
+				.search( '' )
+				.columns().search( '' )
+				.fnFilterClear();
+				.draw();
 			$('tfoot .filter select').each(function(){
 				$(this).val('');
 			})
