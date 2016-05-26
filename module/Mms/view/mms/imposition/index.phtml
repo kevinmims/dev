@@ -563,7 +563,11 @@
 
 			$('.dashboard-stat').on("click", s.btn_submenu, function(e) { 
 				e.preventDefault();
-				Imposition.handleSubmenu($(this));
+				var type = $elem.parent().attr('data-type'),
+					sibling = $elem.siblings("a.main");
+				this.subdashboard_showHide($elem, type, sibling);
+
+				//Imposition.handleSubmenu($(this));
 			});
 	    	
 			$(document).on("click", s.btn_createXml, function() { 
@@ -827,19 +831,14 @@
 
 		dashboardTile_showHide: function($elem, type, sibling){
 			if($elem.hasClass('selected')){
-				// refresh table data here
-				this.log('main tile has class selected');
-
 				if(sibling.hasClass('selected')){
-					this.log('submenu has class selected');
-
 					$(s.subDashboard).slideUp('slow', function(){
 						$(this).empty().html(Imposition.getTemplate(type));
 					}).slideDown('slow', function(){
 						//$('#chart').highcharts(s.chart_options);
 					});
 				} else {
-					this.log('submenu does not have class selected');
+					//this.log('submenu does not have class selected');
 					if($(s.subDashboard).is(':visible')){
 					} else {
 
@@ -847,10 +846,8 @@
 					
 				}
 			} else {
-				this.log('main tile does not have class selected');
-
+				
 				if($(s.subDashboard).is(':visible')){
-					this.log('submenu is visible');
 					$(s.btn_submenu).each(function(){
 						$(this).removeClass('selected btn-blue-light').addClass('btn-default');
 					});
@@ -863,8 +860,7 @@
 							//$('#chart').highcharts(s.chart_options);
 					});
 				} else {
-					this.log('submenu is not visible');
-					//this.log('unselected main tile clicked && submenu is not visible');
+					//this.log('submenu is not visible');
 					
 				}
 
@@ -881,43 +877,32 @@
 				this.refreshData($(s.btn_refresh));
 			} else {
 				this.handleError('Error, type not found.')
-			}
-
-			
+			}	
 			
 		},
 
 
-		handleSubmenu: function($elem){
+		handleSubmenuBtnClick: function($elem){
 			var type = $elem.parent().attr('data-type'),
 				sibling = $elem.siblings("a.main");
 			this.subdashboard_showHide($elem, type, sibling);
 			
-		}, // end, handleSubmenu()
-
-
+		}, // end, handleSubmenuBtnClick()
 
 
 		subdashboard_showHide: function($elem, type, sibling){
-			//var type = $elem.parent().attr('data-type'),
-			//	sibling = $elem.siblings("a.main");
-
 			if($elem.hasClass('selected')){
 				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
 				$(s.subDashboard).slideUp('slow', function(){
 					$(this).empty();
 				});
 			} else {
-				this.log('submenu clicked');
-
 				this.dashboardTile_showHide(sibling, type, $elem);
 				
 				$elem.removeClass('btn-default').addClass('selected btn-blue-light');
 					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
 						//$('#chart').highcharts(s.chart_options);
 					});
-
-				
 			}
 			
 		}, // end, handleSubmenu()
