@@ -812,17 +812,15 @@
 				data = '';
 			
 			this.dashboardTile_showHide($elem, type, sibling);
+			
+			//if (s.dashboard_items.hasOwnProperty(type)){
+			//	var data = s.dashboard_items[type].data;
+			//	eval('Imposition.build_'+data+'("'+type+'")');
+			//} else {
+			//	this.handleError('Error, type not found.')
+			//}
 
-			$(s.tab_mainBody).html('building data...');
-
-			if (s.dashboard_items.hasOwnProperty(type)){
-				var data = s.dashboard_items[type].data;
-				eval('Imposition.build_'+data+'("'+type+'")');
-			} else {
-				this.handleError('Error, type not found.')
-			}
-
-			this.refreshData($(s.btn_refresh));
+			//this.refreshData($(s.btn_refresh));
 			
 			
 		},
@@ -864,6 +862,14 @@
 				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 
+			if (s.dashboard_items.hasOwnProperty(type)){
+				var data = s.dashboard_items[type].data;
+				eval('Imposition.build_'+data+'("'+type+'")');
+			} else {
+				this.handleError('Error, type not found.')
+			}
+
+			this.refreshData($(s.btn_refresh));
 			
 		},
 
