@@ -903,7 +903,7 @@
 					$(this).empty();
 				});
 			} else {
-				this.log('submenu clicked && main tile not selected');
+				this.log('submenu clicked');
 
 				this.dashboardTile_showHide(sibling, type, $elem);
 				$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
