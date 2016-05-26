@@ -914,9 +914,12 @@
 				for (x = 0; x < s[data].tbody.length; x++) {
 					tableBody+= '<tr>';
 					for (y = 0; y < s[data].tbody[x].length; y++) {
-						if(y == 8 || y == 9 || y == 10){
+						if(y == 8 ){
 							if (s[data].tbody[x][y][0] == "success"){
-								tableBody+= '<td><i class="text-success fa fa-check"></i> <small>10:37am</small> <button style="margin-left:5px;" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> view</button> <button class="btn btn-default btn-xs" style="margin-left:5px;"><i class="fa fa-refresh"></i> reload</button></td>';
+								tableBody+= '<td><button style="margin-left:5px;" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> view</button></td>';
+						} else if(y == 9 || y == 10){
+							if (s[data].tbody[x][y][0] == "success"){
+								tableBody+= '<td><button style="margin-left:5px;" class="btn btn-default btn-xs"><i class="fa fa-eye"></i> view</button> <button class="btn btn-default btn-xs" style="margin-left:5px;"><i class="fa fa-refresh"></i> reload</button></td>';
 							} else if (s[data].tbody[x][y][0] == "needed"){
 								tableBody+= '<td><button type="button" class="btn btn-xs btn-danger js-rip-report-upload"><i class="fa fa-download"></i> Save Now</button></td>';
 							}
