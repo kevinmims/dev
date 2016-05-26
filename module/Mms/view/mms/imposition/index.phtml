@@ -934,11 +934,11 @@
 					tableBody+= '<tr>';
 					for (y = 0; y < s[data].tbody[x].length; y++) { 
 						if(y == 1){
-							tableBody+= '<td class="user-selected">'+s[data].tbody[x][y]+'</td>';  row of data
+							tableBody+= '<td class="user-selected">'+s[data].tbody[x][y]+'</td>'; 
 						} else if (y== 16) {
 							tableBody+= '<td>'
 							for(z = 0; z < s[data].tbody[x][y].length; z++){
-								tableBody+= '<b>'+s[data].tbody[x][y][z][0]+':</b> <span class="mr25">'+s[data].tbody[x][y][z][1]+'</span>'
+								tableBody+= '<b>'+s[data].tbody[x][y][z][0]+':</b> <span class="mr25">'+s[data].tbody[x][y][z][1]+'</span>';
 							}
 						} else {
 							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
