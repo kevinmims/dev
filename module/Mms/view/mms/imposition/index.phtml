@@ -943,11 +943,7 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls + table);
-				//Imposition.makeDataTable();
-				//$(s.tab_mainBody).DataTable();
-				
-
-
+				$('#'+s[data].id).DataTable( { paging:false, bFilter:false, });
 		},
 
 		
@@ -1000,11 +996,8 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls + table);
-				//Imposition.makeDataTable();
-				//$(s.tab_mainBody).DataTable();
+				$('#'+s[data].id).DataTable( { paging:false, bFilter:false, });
 				
-
-
 		},
 
 		build_jobs_selected_table: function(type){
@@ -1056,7 +1049,6 @@
 				$('#'+s[data].id).DataTable( { paging:false, bFilter:false, });
 
 				
-
 		},
 
 		handleSubmenu: function($elem){
