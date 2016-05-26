@@ -834,6 +834,40 @@
 			
 		},
 
+		handleSubmenu: function($elem){
+			var type = $elem.parent().attr('data-type');
+			
+			if($elem.hasClass('selected')){
+				$elem.removeClass('selected btn-blue-light').addClass('btn-default');
+				$(s.subDashboard).slideUp('slow', function(){
+					$(this).empty();
+				});
+			} else {
+				
+				if($(s.subDashboard).is(':visible')){
+					$(s.btn_submenu).each(function(){
+						$(this).removeClass('selected btn-blue-light').addClass('btn-default');
+					});
+					
+					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
+					
+					$(s.subDashboard).slideUp('slow', function(){
+						$(this).empty().html(Imposition.getTemplate(type));
+					}).slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+					});
+					
+				} else {
+					$elem.removeClass('btn-default').addClass('selected btn-blue-light');
+					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+							//$('#chart').highcharts(s.chart_options);
+					});
+				}
+			}
+			
+		}, // end, handleSubmenu()
+
+
 		// this function is called from "handleDashboardBtnClick" using eval in the object def in settings "build_" + "job_table"
 		build_job_table: function(type){
 			
@@ -1066,37 +1100,7 @@
 				.draw();
 		},
 
-		handleSubmenu: function($elem){
-			var type = $elem.parent().attr('data-type');
-			
-			if($elem.hasClass('btn-blue-light')){
-				$elem.removeClass('btn-blue-light').addClass('btn-default');
-				$(s.subDashboard).slideUp('slow', function(){
-					$(this).empty();
-				});
-			} else {
-				
-				if($(s.subDashboard).is(':visible')){
-					$(s.btn_submenu).each(function(){
-						$(this).removeClass('btn-blue-light').addClass('btn-default');
-					});
-					$elem.removeClass('btn-default').addClass('btn-blue-light');
-					$(s.subDashboard).slideUp('slow', function(){
-						$(this).empty().html(Imposition.getTemplate(type));
-					}).slideDown('slow', function(){
-							//$('#chart').highcharts(s.chart_options);
-					});
-					
-				} else {
-					$elem.removeClass('btn-default').addClass('btn-blue-light');
-					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
-							//$('#chart').highcharts(s.chart_options);
-					});
-				}
-			}
-			
-		}, // end, handleSubmenu()
-
+		
 		handleCheckBox: function($e){
 			if(!$e.hasClass('js-select-all')){
 			    if($e.is(":checked")) {
