@@ -341,7 +341,7 @@
 			gangs_in_process_table: {
 				id: "gangs-in-process-table",
 				classes: "table table-hover table-condensed draggable",
-				thead: [ '', 'User', 'When Created', 'Gang Id', 'Jobs on Gang', 'Priority', 'Paper Type', 'Finish', 'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
+				thead: [ '', 'User', 'When Created', 'Gang Id', 'Jobs on Gang', 'Priority', 'Paper Type', 'Finish', 'mXML From Metrix', 'Rip Report', 'Rip File', 'Rip Passed',  'Status'],
 				tfoot: [],
 				tbody:[ 
 					['1', 'Brian', '10:35am 5/12/16', '235gg25gwrf456', '6', 'A', '100#', 'Gloss Aqueous', [ 'success', 'view' ], [ 'needed', 'view' ], [ 'needed', 'view' ], '<button class="btn btn-default disabled btn-xs"><i class="fa fa-history"></i> waiting</button>', '<button class="btn btn-xs"><i class="fa fa-wrench"></i> Gang In Process</button></td>' ],
@@ -1419,22 +1419,23 @@
 						        <tr>
 						          <th>Username</th>
 						          <th>Location</th>
+						          <th>Gangs Today</th>
+						          <th>Gangs WTD</th>
 						          <th>Jobs Selected</th>
 						          <th>Elapsed Time</th>
 						          <th>Last Gang</th>
-						          <th>Gangs Today</th>
-						          <th>Gangs WTD</th>
 						          <th>Actions</th>
 						      </thead>
 						      <tbody>
 						        <tr>
 						          <td>Kevin Mims</td>
 						          <td>Arlington, TX</td>
+						          <td>23</td>
+						          <td>154</td>
 						          <td>3</td>
 						          <td>23 <small>min</small></td>
 						          <td>24 min ago</td>
-						          <td>23</td>
-						          <td>154</td>
+						          
 						          <td>
 						            <button class="btn btn-sm"><i class="fa fa-eye"></i> View Gangs Today</button>
 						          	<button class="btn btn-sm"><i class="fa fa-undo"></i> View Gangs WTD</button>
@@ -1443,11 +1444,12 @@
 						        <tr>
 						          <td>Kevin Mims</td>
 						          <td>Arlington, TX</td>
+						          <td>23</td>
+						          <td>154</td>
 						          <td>3</td>
 						          <td>23 <small>min</small></td>
 						          <td>24 min ago</td>
-						          <td>23</td>
-						          <td>154</td>
+						          
 						          <td>
 						            <button class="btn btn-sm"><i class="fa fa-eye"></i> View Gangs Today</button>
 						          	<button class="btn btn-sm"><i class="fa fa-undo"></i> View Gangs WTD</button>
@@ -1456,11 +1458,12 @@
 						        <tr>
 						          <td>Kevin Mims</td>
 						          <td>Arlington, TX</td>
+						          <td>23</td>
+						          <td>154</td>
 						          <td>3</td>
 						          <td>23 <small>min</small></td>
 						          <td>24 min ago</td>
-						          <td>23</td>
-						          <td>154</td>
+						          
 						          <td>
 						            <button class="btn btn-sm"><i class="fa fa-eye"></i> View Gangs Today</button>
 						          	<button class="btn btn-sm"><i class="fa fa-undo"></i> View Gangs WTD</button>
@@ -1649,7 +1652,7 @@
       </div>
       <div class="modal-body">
         <div class="">Drag file or click to upload</div>
-        <input id="imposition-file-upload-name" class="form-control"/>
+        <input id="imposition-file-upload-name" class="form-control" type="file" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
