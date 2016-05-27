@@ -751,7 +751,7 @@
 			for(x = 0; x < array.length; x++){
 				s.table.columns( array[x].column ).every( function(){
 					$(this.footer()).find('select').val(array[x].value);
-				}).search(array[x][.value);
+				}).search(array[x].value);
 			}
 			s.table.draw();
 
