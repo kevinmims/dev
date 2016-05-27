@@ -243,42 +243,42 @@
 			//	data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
 			//	gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
 			//},
-			dashboard_tiles: {
+			dashboard_items: {
 				total_jobs: {
 					title: "Total Jobs",
 					type: "total_jobs",
-					data: "table_sameDayJobs"
+					data: "job_table"
 				},
 				approved_jobs: {
 					title: "Approved Jobs",
 					type: "approved_jobs",
-					data: "table_sameDayJobs"
+					data: "job_table"
 				},
 				same_day_jobs: {
 					title: "Same Day Jobs",
 					type: "same_day_jobs",
-					data: "table_sameDayJobs"
+					data: "job_table"
 				},
 				jobs_selected: {
 					title: "Jobs Selected",			// added to the tab title
 					type: "jobs_selected",			// from 
-					data: "table_selectedJobs"		//
+					data: "jobs_selected_table"		//
 				},
 				gangs_in_process: {
 					title: "Gangs in Process",
 					type: "gangs_in_process",
-					data: "table_gangsInProcess"
+					data: "gangs_in_process_table"
 				},
 				gangs_completed: {
 					title: "Gangs Ready for Plating",
 					type: "gangs_completed",
-					data: "table_gangsCompleted"
+					data: "gang_completed_table"
 				}
 				
 			},
 
-			table_sameDayJobs: {
-				id: "same-day-job-data-table",
+			job_table: {
+				id: "job-data-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
 				thead: [ '<input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" />', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
 				tfoot: [ '', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
@@ -329,7 +329,7 @@
 				notes: "the second <td> needs class='user-selected'"
 			},
 			
-			table_selectedJobs: {
+			jobs_selected_table: {
 				id: "job-selected-table",
 				classes: "table table-hover table-condensed draggable",
 				thead: [ 'User', 'Location', 'Elapsed Time', 'Jobs Selected', 'Priorities', 'Paper Types', 'Finishes', 'Actions'],
@@ -345,7 +345,7 @@
 				notes: ''
 			},
 
-			table_gangsInProcess: {
+			gangs_in_process_table: {
 				id: "gangs-in-process-table",
 				classes: "table table-hover table-condensed draggable",
 				thead: [ '', 'User', 'Location', 'When Created', 'Gang Id', 'Jobs on Gang', 'Priority', 'Paper Type', 'Finish', 'mXML From Metrix', 'Rip Report', 'Rip File', 'Rip Passed',  'Actions'],
@@ -358,7 +358,7 @@
 				notes: ''
 			},
 
-			table_gangsCompleted: {
+			gang_completed_table: {
 				id: "gang-completed-table",
 				classes: "table table-hover table-condensed draggable",
 				thead: [ '', 'User', 'Location', 'When Completed', 'Gang #', 'Jobs on Gang', 'Priority', 'Paper Type', 'Finish',  'mXML From Metrix', 'Rip Report Uploaded', 'Rip File Uploaded', 'Rip Passed',  'Status'],
@@ -669,7 +669,7 @@
 			});
 		},
 
-		makeJobDataTable: function(){
+		makeDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
 		        "paging": false,
 		        stateSave: true,
@@ -846,8 +846,8 @@
 				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 
-			if (s.dashboard_tiles.hasOwnProperty(type)){
-				var data = s.dashboard_tiles[type].data;
+			if (s.dashboard_items.hasOwnProperty(type)){
+				var data = s.dashboard_items[type].data;
 				eval('Imposition.build_'+data+'("'+type+'")');
 				this.refreshData($(s.btn_refresh));
 			} else {
@@ -880,8 +880,8 @@
 
 
 
-		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "table_sameDayJobs"
-		build_table_sameDayJobs: function(type){
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "job_table"
+		build_job_table: function(type){
 			
 			var data = '',
 				title = '',
@@ -890,8 +890,8 @@
 				tableFoot= ""
 				tableBody= "";
 
-				title = s.dashboard_tiles[type].title;
-				data = s.dashboard_tiles[type].data;
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -938,20 +938,20 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls  + table);
-				Imposition.makeJobDataTable();
+				Imposition.makeDataTable();
 			
 		},
 
-		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "table_gangsInProcess"
-		build_table_gangsInProcess: function(type){
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "gangs_in_process_table"
+		build_gangs_in_process_table: function(type){
 			var data = '',
 				title = '',
 				table = '',
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_tiles[type].title;
-				data = s.dashboard_tiles[type].data;
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -1001,16 +1001,16 @@
 
 		
 
-		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "table_gangsCompleted"
-		build_table_gangsCompleted: function(type){
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "gang_completed_table"
+		build_gang_completed_table: function(type){
 			var data = '',
 				title = '',
 				table = '',
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_tiles[type].title;
-				data = s.dashboard_tiles[type].data;
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -1053,15 +1053,15 @@
 				
 		},
 
-		build_table_selectedJobs: function(type){
+		build_jobs_selected_table: function(type){
 			var data = '',
 				title = '',
 				table = '',
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_tiles[type].title;
-				data = s.dashboard_tiles[type].data;
+				title = s.dashboard_items[type].title;
+				data = s.dashboard_items[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
