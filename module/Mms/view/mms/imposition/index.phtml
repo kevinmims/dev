@@ -645,12 +645,14 @@
 			});
 
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
+				var userId = $(this).attr('data-userId');
+				s.jobs_to_release_userId = userId;
+				console.log(s.jobs_to_release_userId);
+
 				$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
-					s.jobs_to_release_userId = "13";
-					console.log(s.jobs_to_release_userId);
 					//$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					s.jobs_to_release_userId = "deleted";
+					s.jobs_to_release_userId = "";
 					console.log(s.jobs_to_release_userId);
 				});
 			});
@@ -1096,7 +1098,7 @@
 						}
 					}
 					// add action buttons for every row
-					tableBody+= '<td><button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger js-show-release-jobs-modal"><i class="fa fa-mail-reply"></i> Release All Jobs</button></td>';
+					tableBody+= '<td><button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger js-show-release-jobs-modal" data-userId="45"><i class="fa fa-mail-reply"></i> Release All Jobs</button></td>';
 					tableBody+= '</tr>';
 				}
 				tableBody+= '</tfoot>';
