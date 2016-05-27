@@ -277,38 +277,6 @@
 				
 			},
 
-			controls_jobTables: '<div style="" class="row">'+
-					'<div class="col-sm-8 col-md-8">'+
-						'<a type="button" class="btn btn-primary js-create-xml"><i class="fa fa-code"></i> Create XML From Selected Jobs</a> '+
-						'<span class="btn btn-success js-upload-mxml"><i class="fa fa-download"></i> Create Gang from mXML <input type="file" multiple=""></span> '+
-						'<a style="" class="btn js-reset-job-table-filters" type="button">Reset All Filters</a>'+
-					'</div>'+
-					'<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray"><i class="fa fa-plus"></i> Create XML</button>-->'+
-
-					'<div class="col-sm-4 col-md-4">'+
-						'<div id="dropdown_jobFilter" class="dropdown">'+
-							'<a id="" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
-								'<span class="caret"></span>'+
-								'<div class="pull-right" style="letter-spacing:1px;"></div>'+
-								'<span class="js-name">Select Table Pre-Filter</span>	'+
-							'</a>'+
-							'<ul aria-labelledby="pre-set-filters" class="dropdown-menu" style="width:100%;">'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>'+
-								'<li class="divider"></li>'+
-								'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
-							'</ul>'+
-						'</div>'+
-					'</div>'+
-
-				'</div>',
-
 			table_sameDayJobs: {
 				id: "same-day-job-data-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
@@ -324,7 +292,40 @@
 					["","","yaytae5365","a46nawe4esdg","A","5/12/16","5/15/16","Business Cards","14pt","4/0","1000",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ],
 					["","","am6a634wd","nby6q346vede","C","5/14/16","5/15/16","Door Hanger","70#","4/0","2500",'8.5"x11.00"',"$ 3.15","High Gloss UV Coating","High Gloss UV Coating","no", [ [ 'Page Size', '8.5"x5.5"'], [ 'Page Count', '8 Pages (Cover+4 pages)'], [ 'Binding Side', 'Left'], ['Cover Stock', 'Same As Inside'], ['Binding','Saddle Stitching'] ] ]
 				],
-				
+				controls: '<div style="" class="row">'+
+							'<div class="col-sm-8 col-md-8">'+
+								'<a type="button" class="btn btn-primary js-create-xml"><i class="fa fa-code"></i> Create XML From Selected Jobs</a> '+
+								'<span class="btn btn-success js-upload-mxml"><i class="fa fa-download"></i> Create Gang from mXML <input type="file" multiple=""></span> '+
+								'<a style="" class="btn js-reset-job-table-filters" type="button">Reset All Filters</a>'+
+							'</div>'+
+							'<!--<button class="btn btn-block" type="button" data-toggle="modal" data-target="#create-xml-modal" data-title="Create XML" style="background: lightgray">'+
+								'<i class="fa fa-plus"></i> Create XML'+
+								'</button>-->'+
+							
+
+							'<div class="col-sm-4 col-md-4">'+
+								'<div id="dropdown_jobFilter" class="dropdown">'+
+									'<a id="" class="btn btn-default btn-block js-choice" aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" href="#" data-target="#">'+
+										'<span class="caret"></span>'+
+										'<div class="pull-right" style="letter-spacing:1px;"></div>'+
+										'<span class="js-name">Select Table Pre-Filter</span>	'+
+									'</a>'+
+									'<ul aria-labelledby="pre-set-filters" class="dropdown-menu" style="width:100%;">'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">11</span><span class="js-name">100# Text, Gloss Text</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">51</span><span class="js-name">10pt Cover, Gloss 2 Sides</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">78</span><span class="js-name">14pt Cover, Gloss 1 side</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">23</span><span class="js-name">14pt Cover, Gloss 2 side</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">43</span><span class="js-name">14pt Cover, Uncoated</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">70# Text, Uncoated</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">9x12 Catalog Peal &amp; Seal</span></a></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">60</span><span class="js-name">Label, Uncoated White</span></a></li>'+
+										'<li class="divider"></li>'+
+										'<li><a class="btn text-left"><span class="badge pull-right js-count">216</span><span class="js-name">All Paperg</span></a></li>'+
+									'</ul>'+
+								'</div>'+
+							'</div>'+
+
+						'</div>',
 				notes: "the second <td> needs class='user-selected'"
 			},
 			
@@ -936,7 +937,7 @@
 
 
 
-				$(s.tab_mainBody).html(s.controls_jobTables  + table);
+				$(s.tab_mainBody).html(s[data].controls  + table);
 				Imposition.makeJobDataTable();
 			
 		},
