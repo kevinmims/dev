@@ -646,11 +646,20 @@
 
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				var userId = $(this).attr('data-userId');
-				Imposition.set_jobsToReleaseUserId(userId);
+				s.jobs_to_release_userId = userId;
 				console.log(s.jobs_to_release_userId);
-
+				$(s.modal_releaseSelectedJobsByUser).modal('show');
 				
 			});
+
+			$(s.modal_releaseSelectedJobsByUser).on('shown.bs.modal', function () {
+				console.log('i am showing');
+
+			}).on('hidden.bs.modal', function () {
+				s.jobs_to_release_userId = '';
+				console.log(s.jobs_to_release_userId);
+			});
+
 
 			$(document).on('click', s.btn_reset_job_table_filters, function(){
 				Imposition.resetJobTableFilters();
@@ -678,17 +687,6 @@
 			});
 		},
 
-		set_jobsToReleaseUserId: function(id){
-			console.log('this.set_jobsToReleaseUserId() was called');
-			s.jobs_to_release_userId = id;
-			$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
-				console.log('i am showing');
-				
-			}).on('hidden.bs.modal', function () {
-				s.jobs_to_release_userId = '';
-				console.log(s.jobs_to_release_userId);
-			});
-		},
 
 		makeJobDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
