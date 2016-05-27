@@ -236,9 +236,26 @@
 
 
 			defaults_onLoad: {
-				location: "",
-				dashboard_item: "",
-				jobPreFilter: ""
+				same_day_jobs: {
+					special_count: 5,
+					normal_count: 11
+				},
+				approved_jobs: {
+					count: 65
+				},
+				total_jobs: {
+					count: 124
+				},
+				jobs_selected: {
+					count: 32
+				},
+				gangs_in_process: {
+					count: 2
+				},
+				gangs_completed: {
+					count: 26
+				},
+
 			},
 			
 			subDashboard: "#sub-dashboard",
@@ -562,6 +579,8 @@
 			this.bindUIActions();
 			$('a.main.js-default').click();
 
+			this.log(s.defaults_onLoad);
+			
 			// retreive data to calc tile quantaties
 			// retreive first tile data and display
 		},
