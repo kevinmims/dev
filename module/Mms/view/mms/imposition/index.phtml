@@ -238,7 +238,6 @@
 			},
 			
 			subDashboard: "#sub-dashboard",
-			graphModal: "#graph-modal",
 			//data_btns: {
 			//	data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
 			//	gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
@@ -385,25 +384,29 @@
 			btn_view_selected_jobs_by_user: '.js-view-selected-jobs-by-user',
 			btn_release_selected_jobs_by_user: '.js-release-selected-jobs-by-user',
 			btn_reset_job_table_filters: '.js-reset-job-table-filters',
-			dropdown_location: "#dropdown_location",
-			dropdown_jobFilter: "#dropdown_jobFilter",
-
 			btn_filterSelect: "#pre-set-filters",
-			
 			btn_submenu: "a.submenu",
-			btn_submenuCollapse: ".js-submenu-left-menu-wrapper",
 			btn_show_graph: ".js-show-graph",
 			btn_menuDropdown: ".dropdown-menu li a",
 			btn_createXml: ".js-create-xml",
 			btn_uploadMxml: ".js-upload-mxml :file",
 			btn_ripReportUpload: ".js-rip-report-upload",
 			btn_ripFileUpload: ".js-rip-file-upload",
+
+			dropdown_location: "#dropdown_location",
+			dropdown_jobFilter: "#dropdown_jobFilter",
+			
 			modal_ripUpload: "#file-upload-modal",
+			modal_createXml: "#create-xml-modal",
+			modal_jobGraph: "#graph-modal",
+			modal_selectedJobsByUser: "#view-jobs-by-user-modal",
+			modal_releaseSelectedJobsByUser: "#release-jobs-by-user-modal",
+
 			container_dashboardTopRow: ".dashboard-top-row",
 			container_tableData: "#job-data-table",
+			container_jobChart: "#job-chart-container",
 
-			submenuTemplate_same_day_jobs: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
-				'<div class="row">'+
+			submenuTemplate_same_day_jobs: '<div class="row">'+
 						'<div class="col-sm-3">'+
 							'<button class="btn btn-default btn-xs pull-right js-show-graph"><i class="fa fa-line-chart"></i> Graph</button>'+
 							'<label>Quantities</label>'+
@@ -443,8 +446,7 @@
 						
 					'</div>',
 			
-			submenuTemplate_gangs_in_process: '<!--<div class="js-submenu-left-menu-wrapper" style="display:none;"><a class="btn btn-primary js-toggle-sub-menu" style=""><i class="fa fa-angle-up"></i></a></div>-->'+
-				'<div class="row">'+
+			submenuTemplate_gangs_in_process: '<div class="row">'+
 						'<div class="col-sm-3">'+
 							'<button class="btn btn-default btn-xs pull-right js-show-graph"><i class="fa fa-line-chart"></i> Graph</button>'+
 							'<label>Quantities</label>'+
@@ -590,10 +592,10 @@
 	    	//});
 	    	
 			$(document).on("click", s.btn_show_graph, function() { 
-				$('#graph-modal').modal('show').on('shown.bs.modal', function () {
-					$('#chart').highcharts(s.chart_options);
+				$(s.modal_jobGraph).modal('show').on('shown.bs.modal', function () {
+					$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					$('#chart').empty();
+					$(s.container_jobChart).empty();
 				});
 			});
 
@@ -632,18 +634,18 @@
 
 			
 			$(document).on("click", s.btn_view_selected_jobs_by_user, function() { 
-				$('#view-jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
-					//$('#chart').highcharts(s.chart_options);
+				$(s.modal_selectedJobsByUser).modal('show').on('shown.bs.modal', function () {
+					//$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					//$('#chart').empty();
+					//$(s.container_jobChart).empty();
 				});
 			});
 
 			$(document).on("click", s.btn_release_selected_jobs_by_user, function() { 
-				$('#release-jobs-by-user-modal').modal('show').on('shown.bs.modal', function () {
-					//$('#chart').highcharts(s.chart_options);
+				$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
+					//$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					//$('#chart').empty();
+					//$(s.container_jobChart).empty();
 				});
 			});
 
@@ -809,7 +811,7 @@
 					$(s.subDashboard).slideUp('slow', function(){
 						$(this).empty().html(Imposition.getSubmenuTemplate(type));
 					}).slideDown('slow', function(){
-						//$('#chart').highcharts(s.chart_options);
+						//$(s.container_jobChart).highcharts(s.chart_options);
 					});
 				} else {
 					//this.log('submenu does not have class selected');
@@ -831,7 +833,7 @@
 					$(s.subDashboard).slideUp('slow', function(){
 						$(this).empty().html(Imposition.getSubmenuTemplate(type));
 					}).slideDown('slow', function(){
-							//$('#chart').highcharts(s.chart_options);
+							//$(s.container_jobChart).highcharts(s.chart_options);
 					});
 				} else {
 					//this.log('submenu is not visible');
@@ -868,7 +870,7 @@
 				
 				$elem.removeClass('btn-default').addClass('selected btn-blue-light');
 					$(s.subDashboard).empty().html(Imposition.getSubmenuTemplate(type)).slideDown('slow', function(){
-						//$('#chart').highcharts(s.chart_options);
+						//$(s.container_jobChart).highcharts(s.chart_options);
 					});
 			}
 			
@@ -995,7 +997,7 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls + table);
-				$('#'+s[data].id).DataTable( { paging:false, bFilter:false, });
+				$('#'+s[data].id).DataTable( { paging:false, bFilter:false, } );
 		},
 
 		
@@ -1558,7 +1560,7 @@
         <h4 class="modal-title">Jobs Graph</h4>
       </div>
       <div class="modal-body">
-        <div id="chart"></div>
+        <div id="job-chart-container"></div>
         
       </div>
       <div class="modal-footer">
@@ -1588,6 +1590,20 @@
         			</tr>
         		</thead>
         		<tbody>
+        			<tr>
+        				<td>24f8999483</td>
+        				<td>11:21am 4/5/16</td>
+        				<td>B</td>
+        				<td>70#</td>
+        				<td>UV Front Only</td>
+        			</tr>
+        			<tr>
+        				<td>24f8999483</td>
+        				<td>11:21am 4/5/16</td>
+        				<td>B</td>
+        				<td>70#</td>
+        				<td>UV Front Only</td>
+        			</tr>
         			<tr>
         				<td>24f8999483</td>
         				<td>11:21am 4/5/16</td>
