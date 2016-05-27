@@ -805,8 +805,14 @@
 		},
 
 		createXML: function($e){
-			this.handleError(s.table.rows('.selected').data().length +' row(s) selected' );
-			s.table.rows('.selected').remove().draw();
+			var count = s.table.rows('.selected').data().length;
+			if(count > 0){
+				this.handleError('Creating the XML from the '+ s.table.rows('.selected').data().length +' row(s) selected' );
+				s.table.rows('.selected').remove().draw();
+			} else {
+				this.handleError('Please select a row first' );
+			}
+			
 		},
 
 		triggerMxmlFileSelect: function($e){
