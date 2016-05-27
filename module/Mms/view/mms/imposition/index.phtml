@@ -651,7 +651,7 @@
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				s.jobs_to_release_userId = $(this).attr('data-userId');
 				s.jobs_to_release_rowId = $(this).closest("tr").get(0); // this must be the row object to pass to the datatable
-				s.jobs_to_release_jobIds = $(this).parent().siblings('td.job-id').addClass('hereIam'); //.attr("data-jobIds").split(",");
+				s.jobs_to_release_jobIds = $(this).parent().siblings('td.job-id').attr("data-jobIds").split(",");
 				console.log('here are the ids: '+s.jobs_to_release_jobIds);
 
 				$(s.modal_releaseSelectedJobsByUser).modal('show');
