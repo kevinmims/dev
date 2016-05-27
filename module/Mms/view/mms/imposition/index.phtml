@@ -548,6 +548,8 @@
 		    } // end chart_options
 		},
 
+
+
 		init: function() {
 			s = this.settings;
 			s.username = 'Kevin';
@@ -666,6 +668,14 @@
 				Imposition.resetJobTableFilters();
 			});
 		},
+		
+		log: function(text){
+			console.log(text);
+		},
+
+		handleError: function(err){
+			alert(err);
+		},
 
 		showModal: function(modal){
 			$(modal).modal('show').on('shown.bs.modal', function () {
@@ -735,29 +745,22 @@
 
 		},
 
-		filterTable: function(column, value, array){
+		filterTable: function(array){
 			this.log(array);
 			
 			for(x = 0; x < array.length; x++){
-				s.table.columns( array[x][0] ).every( function(){
-					$(this.footer()).find('select').val(array[x][1]);
-				}).search(array[x][1]);
+				s.table.columns( array[x].column ).every( function(){
+					$(this.footer()).find('select').val(array[x].value);
+				}).search(array[x][.value);
 			}
 			s.table.draw();
 
 			
 		},
 
-		log: function(text){
-			console.log(text);
-		},
-
-		handleError: function(err){
-			alert(err);
-		},
-
-		refreshData: function($btn){
-	  		var elem = $btn.find('i');
+		
+		refreshData: function($e){
+	  		var elem = $e.find('i');
 	  		elem.addClass('fa-spin');
 			setTimeout(function(){
 		        elem.removeClass('fa-spin');
@@ -782,19 +785,15 @@
 		},
 
 		handleJobFilterChange: function($e){
-			var filterValue = "a34ty32wert2";
-			var column = "3";
-			
-			// column, value
 			var filterArray = [
-				[4,"A"],
-				[5,"5/12/16"],
-				[9,'4/0']
+				[ { 'column': 4, 'value': 'A' } ],
+				[ { 'column': 5, 'value': '5/12/16' } ],
+				[ { 'column': 9, 'value': '4/0' } ]
 			];
 			var selected = $e.find('a.js-choice .js-name').text();
 			
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
-			this.filterTable(column, filterValue, filterArray);
+			this.filterTable(filterArray);
 		},
 
 		createXML: function($e){
@@ -816,7 +815,7 @@
 			$('#metrix-xml-files').val(numFiles+' files selected');
 		},
 
-		getTemplate: function(type){
+		getSubmenuTemplate: function(type){
 			var base = 's.submenuTemplate_';
 			//var type = 'same_day_jobs';
 			var template = base.concat(type);
@@ -829,7 +828,7 @@
 			if($elem.hasClass('selected')){
 				if(sibling.hasClass('selected')){
 					$(s.subDashboard).slideUp('slow', function(){
-						$(this).empty().html(Imposition.getTemplate(type));
+						$(this).empty().html(Imposition.getSubmenuTemplate(type));
 					}).slideDown('slow', function(){
 						//$('#chart').highcharts(s.chart_options);
 					});
@@ -851,7 +850,7 @@
 					sibling.removeClass('btn-default').addClass('selected btn-blue-light');
 					
 					$(s.subDashboard).slideUp('slow', function(){
-						$(this).empty().html(Imposition.getTemplate(type));
+						$(this).empty().html(Imposition.getSubmenuTemplate(type));
 					}).slideDown('slow', function(){
 							//$('#chart').highcharts(s.chart_options);
 					});
@@ -889,7 +888,7 @@
 				this.dashboardTile_showHide(sibling, type, $elem);
 				
 				$elem.removeClass('btn-default').addClass('selected btn-blue-light');
-					$(s.subDashboard).empty().html(Imposition.getTemplate(type)).slideDown('slow', function(){
+					$(s.subDashboard).empty().html(Imposition.getSubmenuTemplate(type)).slideDown('slow', function(){
 						//$('#chart').highcharts(s.chart_options);
 					});
 			}
