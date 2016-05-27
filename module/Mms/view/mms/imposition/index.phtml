@@ -247,22 +247,22 @@
 				total_jobs: {
 					title: "Total Jobs",
 					type: "total_jobs",
-					data: "job_table"
+					data: "table_sameDayJobs"
 				},
 				approved_jobs: {
 					title: "Approved Jobs",
 					type: "approved_jobs",
-					data: "job_table"
+					data: "table_sameDayJobs"
 				},
 				same_day_jobs: {
 					title: "Same Day Jobs",
 					type: "same_day_jobs",
-					data: "job_table"
+					data: "table_sameDayJobs"
 				},
 				jobs_selected: {
 					title: "Jobs Selected",			// added to the tab title
 					type: "jobs_selected",			// from 
-					data: "jobs_selected_table"		//
+					data: "table_selectedJobs"		//
 				},
 				gangs_in_process: {
 					title: "Gangs in Process",
@@ -277,8 +277,8 @@
 				
 			},
 
-			job_table: {
-				id: "job-data-table",
+			table_sameDayJobs: {
+				id: "same-day-job-data-table",
 				classes: "table table-hover table-condensed draggable table-bordered",
 				thead: [ '<input id="select_all" class="js-select-all" name="select_all" value="1" type="checkbox" />', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
 				tfoot: [ '', 'User', 'Component ID', 'Job ID', 'Priority', 'Gang By', 'Due Date', 'Product', 'Paper Type',  'Color', 'Qty', 'Size', 'Total', 'Front Finish', 'Back Finish', 'Custom', 'Binding'],
@@ -329,7 +329,7 @@
 				notes: "the second <td> needs class='user-selected'"
 			},
 			
-			jobs_selected_table: {
+			table_selectedJobs: {
 				id: "job-selected-table",
 				classes: "table table-hover table-condensed draggable",
 				thead: [ 'User', 'Location', 'Elapsed Time', 'Jobs Selected', 'Priorities', 'Paper Types', 'Finishes', 'Actions'],
@@ -880,8 +880,8 @@
 
 
 
-		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "job_table"
-		build_job_table: function(type){
+		// this function is called from "dashboardTile_showHide" using eval in the object def in settings "build_" + "table_sameDayJobs"
+		build_table_sameDayJobs: function(type){
 			
 			var data = '',
 				title = '',
@@ -1053,7 +1053,7 @@
 				
 		},
 
-		build_jobs_selected_table: function(type){
+		build_table_selectedJobs: function(type){
 			var data = '',
 				title = '',
 				table = '',
