@@ -231,6 +231,7 @@
 			job_preFilter: '',
 			table: '',
 			jobs_to_release_userId: '',
+			jobs_to_release_rowId: '',
 
 
 			defaults_onLoad: {
@@ -647,14 +648,18 @@
 
 
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
-				var userId = $(this).attr('data-userId');
+				var userId = $(this).attr('data-userId'),
+					rowId = $(this).attr('data-rowId');
 				s.jobs_to_release_userId = userId;
+				s.jobs_to_release_rowId = rowId;
 				$(s.modal_releaseSelectedJobsByUser).modal('show');
 			});
 			$(s.modal_releaseSelectedJobsByUser).on('shown.bs.modal', function () {
 				
 			}).on('hidden.bs.modal', function () {
 				s.jobs_to_release_userId = '';
+				s.jobs_to_release_rowId = '';
+				$("#job-selected-table tr").eq(0).remove();
 			});
 
 
@@ -1101,7 +1106,10 @@
 						}
 					}
 					// add action buttons for every row
-					tableBody+= '<td><button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger js-show-release-jobs-modal" data-userId="45"><i class="fa fa-mail-reply"></i> Release All Jobs</button></td>';
+					tableBody+= '<td>'+
+									'<button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> '+
+									'<button class="btn btn-xs btn-danger js-show-release-jobs-modal" data-userId="45" data-rowId="'+x+'"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'+
+								'</td>';
 					tableBody+= '</tr>';
 				}
 				tableBody+= '</tfoot>';
