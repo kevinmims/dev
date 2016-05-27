@@ -647,7 +647,7 @@
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				var userId = $(this).attr('data-userId');
 				Imposition.set_jobsToReleaseUserId(userId);
-				this.log(s.jobs_to_release_userId);
+				console.log(s.jobs_to_release_userId);
 
 				
 			});
