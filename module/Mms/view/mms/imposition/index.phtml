@@ -637,27 +637,24 @@
 
 			
 			$(document).on("click", s.btn_view_selected_jobs_by_user, function() { 
-				$(s.modal_selectedJobsByUser).modal('show').on('shown.bs.modal', function () {
-					//$(s.container_jobChart).highcharts(s.chart_options);
-				}).on('hidden.bs.modal', function () {
-					//$(s.container_jobChart).empty();
-				});
+				$(s.modal_selectedJobsByUser).modal('show');
 			});
+			$(s.modal_selectedJobsByUser).on('shown.bs.modal', function () {
+				//$(s.container_jobChart).highcharts(s.chart_options);
+			}).on('hidden.bs.modal', function () {
+				//$(s.container_jobChart).empty();
+			});
+
 
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				var userId = $(this).attr('data-userId');
 				s.jobs_to_release_userId = userId;
-				console.log(s.jobs_to_release_userId);
 				$(s.modal_releaseSelectedJobsByUser).modal('show');
-				
 			});
-
 			$(s.modal_releaseSelectedJobsByUser).on('shown.bs.modal', function () {
-				console.log('i am showing');
-
+				
 			}).on('hidden.bs.modal', function () {
 				s.jobs_to_release_userId = '';
-				console.log(s.jobs_to_release_userId);
 			});
 
 
