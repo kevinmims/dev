@@ -649,7 +649,9 @@
 
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				var userId = $(this).attr('data-userId'),
-					rowId = $(this).attr('data-rowId');
+					rowId = $(this).parent().parent().index();;
+				console.log('the row id = '+rowId);
+				
 				s.jobs_to_release_userId = userId;
 				s.jobs_to_release_rowId = rowId;
 				$(s.modal_releaseSelectedJobsByUser).modal('show');
@@ -1111,7 +1113,7 @@
 					// add action buttons for every row
 					tableBody+= '<td>'+
 									'<button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> '+
-									'<button class="btn btn-xs btn-danger js-show-release-jobs-modal" data-userId="45" data-rowId="'+x+'"><i class="fa fa-mail-reply"></i> Release All Jobs</button>'+
+									'<button class="btn btn-xs btn-danger js-show-release-jobs-modal" data-userId="45" ><i class="fa fa-mail-reply"></i> Release All Jobs</button>'+
 								'</td>';
 					tableBody+= '</tr>';
 				}
