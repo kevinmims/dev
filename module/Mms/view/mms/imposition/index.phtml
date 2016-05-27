@@ -243,7 +243,7 @@
 			//	data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
 			//	gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
 			//},
-			dashboard_items: {
+			dashboard_tiles: {
 				total_jobs: {
 					title: "Total Jobs",
 					type: "total_jobs",
@@ -262,7 +262,7 @@
 				jobs_selected: {
 					title: "Jobs Selected",			// added to the tab title
 					type: "jobs_selected",			// from 
-					data: "jobs_selected_table"		//
+					data: "table_jobsSelected"		//
 				},
 				gangs_in_process: {
 					title: "Gangs in Process",
@@ -329,7 +329,7 @@
 				notes: "the second <td> needs class='user-selected'"
 			},
 			
-			jobs_selected_table: {
+			table_jobsSelected: {
 				id: "job-selected-table",
 				classes: "table table-hover table-condensed draggable",
 				thead: [ 'User', 'Location', 'Elapsed Time', 'Jobs Selected', 'Priorities', 'Paper Types', 'Finishes', 'Actions'],
@@ -586,7 +586,7 @@
 			});
 
 	    	//$(s.btn_menuDropdown).on('click', function(){
-	    	//	Imposition.handleMenuDropdown($(this));
+	    	//	Imposition.setDropdownOnClick($(this));
 	    	//	//console.log($(this));
 	    	//});
 	    	
@@ -599,18 +599,14 @@
 			});
 
 			$(document).on("change", s.container_tableData+' input:checkbox', function() { 
-			//$(s.container_tableData).on('change', 'input:checkbox', function(){
-			//	Imposition.handleCheckBox($(this));
 				Imposition.handleCheckBox($(this));
 			});
 
 			$(document).on("change", s.btn_uploadMxml, function() { 
-			//$(s.btn_uploadMxml).on('change', function(){
 				Imposition.triggerMxmlFileSelect($(s.btn_uploadMxml));
 			});
 			
 			$(document).on("fileselect", s.btn_uploadMxml, function(event, numFiles, fileNames) {
-			//$(s.btn_uploadMxml).on('fileselect', function(event, numFiles, fileNames) {
 				Imposition.handleMxmlUpload(event, numFiles, fileNames);
 			});
 
@@ -622,21 +618,9 @@
 				Imposition.showModal(s.modal_ripUpload);
 			});
 
-			//$(document).on("click", s.btn_filterSelect, function(){
-			//	Imposition.filterTable($(s.btn_filterSelect));
-			//});
-			
-			//$(s.dropdown_location).on("click", 'a.js-choice', function(){
-			//	console.log('location main <a> was clicked');
-			//});
-
 			$(s.dropdown_location).on('hidden.bs.dropdown', function(){
 				Imposition.handleLocationChange($(s.dropdown_location));
 			});
-
-			//$(document).on('click', s.dropdown_jobFilter + ' a.js-choice', function(){
-			//	console.log('job filter main <a> was clicked');
-			//});
 
 			$(document).on('hidden.bs.dropdown', s.dropdown_jobFilter, function(){
 				Imposition.handleJobFilterChange($(s.dropdown_jobFilter));
@@ -644,7 +628,7 @@
 
 			// handle all dropdowns text change
 			$(document).on('click', '.dropdown li a', function(){
-				Imposition.handleMenuDropdown($(this));
+				Imposition.setDropdownOnClick($(this));
 			});
 
 			
@@ -673,8 +657,8 @@
 			console.log(text);
 		},
 
-		handleError: function(err){
-			alert(err);
+		handleError: function(errorText){
+			alert(errorText);
 		},
 
 		showModal: function(modal){
@@ -685,7 +669,7 @@
 			});
 		},
 
-		makeDataTable: function(){
+		makeJobDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
 		        "paging": false,
 		        stateSave: true,
@@ -745,7 +729,7 @@
 
 		},
 
-		filterTable: function(array){
+		filterJobTable: function(array){
 			for(x = 0; x < array.length; x++){
 				s.table.columns( array[x].column ).every( function(){
 					$(this.footer()).find('select').val(array[x].value);
@@ -764,7 +748,7 @@
 
 		},
 
-		handleMenuDropdown: function($e){
+		setDropdownOnClick: function($e){
 			$e.closest('.dropdown-menu').find('li a').each(function(){
 				$(this).removeClass('active'); //.each('li a').removeClass('active');
 			});
@@ -789,7 +773,7 @@
 			var selected = $e.find('a.js-choice .js-name').text();
 			
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
-			this.filterTable(filterArray);
+			this.filterJobTable(filterArray);
 		},
 
 		createXML: function($e){
@@ -862,8 +846,8 @@
 				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 
-			if (s.dashboard_items.hasOwnProperty(type)){
-				var data = s.dashboard_items[type].data;
+			if (s.dashboard_tiles.hasOwnProperty(type)){
+				var data = s.dashboard_tiles[type].data;
 				eval('Imposition.build_'+data+'("'+type+'")');
 				this.refreshData($(s.btn_refresh));
 			} else {
@@ -906,8 +890,8 @@
 				tableFoot= ""
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -954,7 +938,7 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls  + table);
-				Imposition.makeDataTable();
+				Imposition.makeJobDataTable();
 			
 		},
 
@@ -966,8 +950,8 @@
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -1025,8 +1009,8 @@
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -1069,15 +1053,15 @@
 				
 		},
 
-		build_jobs_selected_table: function(type){
+		build_table_jobsSelected: function(type){
 			var data = '',
 				title = '',
 				table = '',
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
