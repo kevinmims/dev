@@ -746,9 +746,12 @@
 		},
 
 		filterTable: function(array){
-			this.log(array.length);
+			this.log(array);
 			
 			for(x = 0; x < array.length; x++){
+				this.log(array[x]);
+				this.log(array[x].column);
+this.log(array[x][column]);
 				s.table.columns( array[x].column ).every( function(){
 					$(this.footer()).find('select').val(array[x].value);
 				}).search(array[x].value);
