@@ -646,13 +646,13 @@
 
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				var userId = $(this).attr('data-userId');
-				s.jobs_to_release_userId = userId;
+				this.set_jobsToReleaseUserId(userId);
 				console.log(s.jobs_to_release_userId);
 
 				$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
 					//$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					s.jobs_to_release_userId = "";
+					this.set_jobsToReleaseUserId('');
 					console.log(s.jobs_to_release_userId);
 				});
 			});
@@ -683,6 +683,10 @@
 			});
 		},
 
+		set_jobsToReleaseUserId: function(id){
+			s.jobs_to_release_userId = id;
+
+		}
 		makeJobDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
 		        "paging": false,
