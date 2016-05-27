@@ -788,11 +788,11 @@ this.log(array[x][column]);
 		},
 
 		handleJobFilterChange: function($e){
-			var filterArray = [
-				[ { 'column': 4, 'value': 'A' } ],
-				[ { 'column': 5, 'value': '5/12/16' } ],
-				[ { 'column': 9, 'value': '4/0' } ]
-			];
+			var filterArray = {
+				 { column: 4, value: 'A' } ,
+				 { column: 5, value: '5/12/16' } ,
+				 { column: 9, value: '4/0' } 
+			};
 			var selected = $e.find('a.js-choice .js-name').text();
 			
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
