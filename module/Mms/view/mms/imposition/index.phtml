@@ -650,6 +650,9 @@
 			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				s.jobs_to_release_userId = $(this).attr('data-userId');
 				s.jobs_to_release_rowId = $(this).closest("tr").get(0); // this must be the row object to pass to the datatable
+				s.jobs_to_release_jobIds = $(this).closest('.job-ids').data("jobIds").split(",");
+				console.log('here are the ids: '+s.jobs_to_release_jobIds);
+
 				$(s.modal_releaseSelectedJobsByUser).modal('show');
 			});
 			$(s.modal_releaseSelectedJobsByUser).on('shown.bs.modal', function () {
@@ -657,7 +660,7 @@
 			}).on('hidden.bs.modal', function () {
 				s.jobs_to_release_userId = '';
 				s.jobs_to_release_rowId = '';
-
+				s.jobs_to_release_jobIds = '';
 			});
 
 
@@ -1103,6 +1106,8 @@
 					for (y = 0; y < s[data].tbody[x].length; y++) {
 						if (y == 2){
 							tableBody+= "<td>"+s[data].tbody[x][y]+" <small>min</small></td>"; 
+						} else if (){
+							tableBody+= '<td class="job-id" data-jobIds="1,24,7,12,613,74,236,322">'+s[data].tbody[x][y]+'</td>';
 						} else {
 							tableBody+= "<td>"+s[data].tbody[x][y]+"</td>"; 
 						}
