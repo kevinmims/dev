@@ -659,7 +659,7 @@
 			}).on('hidden.bs.modal', function () {
 				s.jobs_to_release_userId = '';
 				s.jobs_to_release_rowId = '';
-				$("#job-selected-table tr").eq(0).remove();
+
 			});
 
 
@@ -670,6 +670,9 @@
 			$(document).on('click', s.btn_releaseSelectedJobs, function(){
 				console.log('remove row from table and unselect jobs selected');
 				$(s.modal_releaseSelectedJobsByUser).modal('hide');
+				$("#job-selected-table tbody tr").eq(0).remove();
+				$("#job-selected-table").DataTable({ paging:false, bFilter:false, });
+
 			});
 
 		},
