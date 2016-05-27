@@ -230,6 +230,8 @@
 			location: '',
 			job_preFilter: '',
 			table: '',
+			jobs_to_release_userId: '',
+
 
 			defaults_onLoad: {
 				location: "",
@@ -382,7 +384,7 @@
 			btn_refresh: ".js-refresh",
 			btn_dashboardMain: "a.main",
 			btn_view_selected_jobs_by_user: '.js-view-selected-jobs-by-user',
-			btn_release_selected_jobs_by_user: '.js-release-selected-jobs-by-user',
+			btn_showReleaseJobsModal: '.js-show-release-jobs-modal',
 			btn_reset_job_table_filters: '.js-reset-job-table-filters',
 			btn_filterSelect: "#pre-set-filters",
 			btn_submenu: "a.submenu",
@@ -392,6 +394,7 @@
 			btn_uploadMxml: ".js-upload-mxml :file",
 			btn_ripReportUpload: ".js-rip-report-upload",
 			btn_ripFileUpload: ".js-rip-file-upload",
+			btn_releaseSelectedJobs: ".js-release-selected-jobs",
 
 			dropdown_location: "#dropdown_location",
 			dropdown_jobFilter: "#dropdown_jobFilter",
@@ -641,17 +644,25 @@
 				});
 			});
 
-			$(document).on("click", s.btn_release_selected_jobs_by_user, function() { 
+			$(document).on("click", s.btn_showReleaseJobsModal, function() { 
 				$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
+					s.jobs_to_release_userId = "13";
+					console.log(s.jobs_to_release_userId);
 					//$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					//$(s.container_jobChart).empty();
+					s.jobs_to_release_userId = "deleted";
+					console.log(s.jobs_to_release_userId);
 				});
 			});
 
 			$(document).on('click', s.btn_reset_job_table_filters, function(){
 				Imposition.resetJobTableFilters();
 			});
+			
+			$(document).on('click', s.btn_releaseSelectedJobs, function(){
+				Imposition.resetJobTableFilters();
+			});
+
 		},
 		
 		log: function(text){
@@ -1085,7 +1096,7 @@
 						}
 					}
 					// add action buttons for every row
-					tableBody+= '<td><button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger js-release-selected-jobs-by-user"><i class="fa fa-mail-reply"></i> Release All Jobs</button></td>';
+					tableBody+= '<td><button class="btn btn-xs btn-default js-view-selected-jobs-by-user"><i class="fa fa-eye"></i> View Jobs</button> <button class="btn btn-xs btn-danger js-show-release-jobs-modal"><i class="fa fa-mail-reply"></i> Release All Jobs</button></td>';
 					tableBody+= '</tr>';
 				}
 				tableBody+= '</tfoot>';
