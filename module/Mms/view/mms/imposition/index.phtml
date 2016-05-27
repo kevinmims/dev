@@ -243,7 +243,7 @@
 			//	data_tab: ["total_jobs", "approved_jobs", "same_day_jobs"],
 			//	gang_tab: ["gangs_created", "rip_errors", "gangs_in_process"]
 			//},
-			dashboard_items: {
+			dashboard_tiles: {
 				total_jobs: {
 					title: "Total Jobs",
 					type: "total_jobs",
@@ -669,7 +669,7 @@
 			});
 		},
 
-		makeDataTable: function(){
+		makeJobDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
 		        "paging": false,
 		        stateSave: true,
@@ -846,8 +846,8 @@
 				$elem.removeClass('btn-default').addClass('btn-primary selected');
 			}
 
-			if (s.dashboard_items.hasOwnProperty(type)){
-				var data = s.dashboard_items[type].data;
+			if (s.dashboard_tiles.hasOwnProperty(type)){
+				var data = s.dashboard_tiles[type].data;
 				eval('Imposition.build_'+data+'("'+type+'")');
 				this.refreshData($(s.btn_refresh));
 			} else {
@@ -890,8 +890,8 @@
 				tableFoot= ""
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -938,7 +938,7 @@
 
 
 				$(s.tab_mainBody).html(s[data].controls  + table);
-				Imposition.makeDataTable();
+				Imposition.makeJobDataTable();
 			
 		},
 
@@ -950,8 +950,8 @@
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -1009,8 +1009,8 @@
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
@@ -1060,8 +1060,8 @@
 				tableHead= "",
 				tableBody= "";
 
-				title = s.dashboard_items[type].title;
-				data = s.dashboard_items[type].data;
+				title = s.dashboard_tiles[type].title;
+				data = s.dashboard_tiles[type].data;
 				
 				$(s.tab_mainTab).text(title);
 				$(s.tab_mainTab).tab('show');
