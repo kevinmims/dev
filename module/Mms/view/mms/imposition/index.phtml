@@ -652,6 +652,10 @@
 					rowId = $(this).parent().parent().index();;
 				console.log('the row id = '+rowId);
 
+				var tableId = s.table.row( $(this).parent().parent() ).index()
+				console.log('the table row index is: '+ tableId);
+				console.log('the jquery row index is: '+rowId);
+				
 				s.jobs_to_release_userId = userId;
 				s.jobs_to_release_rowId = rowId;
 				$(s.modal_releaseSelectedJobsByUser).modal('show');
