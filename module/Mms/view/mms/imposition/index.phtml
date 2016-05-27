@@ -682,9 +682,10 @@
 			console.log('this.set_jobsToReleaseUserId() was called');
 			s.jobs_to_release_userId = id;
 			$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
-				//$(s.container_jobChart).highcharts(s.chart_options);
+				console.log('i am showing');
+				
 			}).on('hidden.bs.modal', function () {
-				s.jobs_to_release_userId = id;
+				s.jobs_to_release_userId = '';
 				console.log(s.jobs_to_release_userId);
 			});
 		},
