@@ -663,7 +663,8 @@
 			});
 			
 			$(document).on('click', s.btn_releaseSelectedJobs, function(){
-				Imposition.resetJobTableFilters();
+				console.log('remove row from table and unselect jobs selected');
+				
 			});
 
 		},
@@ -1651,7 +1652,7 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Release Jobs</button>
+        <button type="button" class="btn btn-danger js-release-selected-jobs" >Release Jobs</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
     </div><!-- /.modal-content -->
