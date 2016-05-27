@@ -652,7 +652,7 @@
 				$(s.modal_releaseSelectedJobsByUser).modal('show').on('shown.bs.modal', function () {
 					//$(s.container_jobChart).highcharts(s.chart_options);
 				}).on('hidden.bs.modal', function () {
-					this.set_jobsToReleaseUserId('');
+					Imposition.set_jobsToReleaseUserId('');
 					console.log(s.jobs_to_release_userId);
 				});
 			});
@@ -688,7 +688,7 @@
 			s.jobs_to_release_userId = id;
 
 		},
-		
+
 		makeJobDataTable: function(){
 			s.table = $(s.container_tableData).DataTable({
 		        "paging": false,
