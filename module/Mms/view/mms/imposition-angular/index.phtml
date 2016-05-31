@@ -4,35 +4,59 @@
 
 
 <script>
-	var app =  angular.module('Imposition',[]);
- 
-	app.controller('myFirstController', function($scope){
- 		$scope.appName = "Imposition";
- 		$scope.user = "Kevin";
- 		$scope.greet_user =  function(){
- 
-			$scope.greeting = "Hello " + $scope.user;
-		};
+	var app = angular.module('imposition', []);
 
+	app.controller('MainController', function($scope, $http) {
+	  $scope.message = "GitHub Viewer";
+	  $scope.imgWidth = '125';
+	  $scope.searchName = '';
+	  
+	  var onUserComplete = function(response) {
+	    console.log(response.data);
+	    $scope.user = response.data;
+	  };
+	  var onError = function(reason) {
+	    $scope.errClass = 'alert alert-danger';
+	    $scope.error = "ERROR.  Could not fetch the user's results";
+	  };
+
+	  $scope.search = function(searchUser){
+	    $http.get("https://api.github.com/users/"+searchUser)
+	    .then(onUserComplete, onError);
+	  }
+	  
+	  
 	});
  
 </script>
 
 
-<h1><?php echo $heading;?></h1>
-<h3><?php echo $subHeading;?></h3>
-
-<div ng-app="Imposition"> 
-	<div ng-controller="myFirstController">
-    	{{"AngularJS has started..."}} </br>
-    	{{"app name: " + appName}}	</br></br>
-
-		<p>Name : {{user}}</p>
- 
-    	<input type="text" ng-model="user">
-    	<button ng-click="greet_user()">Greetings</button>
- 
-    	<p>{{greeting}}</p>
-    </div>
-
+<div ng-app="imposition">
+	<div ng-controller="MainController">
+	  <div>
+	    <h1>{{message}}</h1>
+	    <p class="{{errClass}}">{{error}}</p>
+	  
+	    <form name="searchUser">
+	      <input type="search" class="form-control" placeholder="enter user to find" ng-model="searchName">
+	      <input type="submit" value="Search" class="btn btn-success" ng-click="search(searchName)">
+	    </form>
+	    
+	    <table class="table">
+	      <tr>
+	        <td>Name</td>
+	        <td><b>{{user.name}}</b></td>
+	      </tr>
+	      <tr>
+	        <td>Company</td>
+	        <td><b>{{user.company}}</b></td>
+	      </tr>
+	      <tr>
+	        <td>Location</td>
+	        <td><b>{{user.location}}</b></td>
+	      </tr>
+	    </table>
+	    <img width="{{imgWidth}}" ng-src="{{user.avatar_url}}" title="" />
+	  </div>
+	</div>
 </div>
