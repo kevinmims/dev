@@ -589,7 +589,7 @@
 			var zz = 1;
 			for (x in s.dashboard_tiles) {
 			    
-			    this.updateCount(zz, x, s.dashboard_tiles[x].count)
+			    this.updateCount(zz, x, s.dashboard_tiles[x][count]);
 			    zz++;
 			}
 
@@ -712,11 +712,13 @@
 			        .remove()
 			        .draw();
 			});
-6
+
 		},
 		
 		updateCount(x, btn, value){
 			console.log(x+' - '+ btn + ' - '+value);
+			// $('.slide-link[data-slide="0"]').addClass('active');
+
 		},
 
 		log: function(text){
