@@ -234,6 +234,7 @@
 			location: '',
 			job_preFilter: '',
 			table: '',
+			selectedTile: 'same_day_jobs',
 			jobs_to_release_userId: '',
 			jobs_to_release_rowId: '',
 			jobs_to_release_jobIds: '',
@@ -583,8 +584,11 @@
 			s = this.settings;
 			s.username = 'Kevin';
 			this.bindUIActions();
-			$('a.main.js-default').click();
+			//$('a.main.js-default').click();
 
+			// click default tile on load
+			$(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main').click();
+			
 			// display defaults
 			//this.log(s.defaults_onLoad);
 
@@ -721,9 +725,7 @@
 			        .draw();
 			});
 
-			$(s.table).on('update', function(){
-			    alert('Table updated, launching kill space goats sequence now.')
-			});
+			
 
 		},
 		
@@ -859,6 +861,10 @@
 			console.log('handle job filter stuff for: ' + selected + ' at location: ' + s.location);
 			this.filterJobTable(filterArray);
 		},
+
+		getSelectedTile: function(){
+
+		};
 
 		createXML: function($e){
 			var count = s.table.rows('.selected').data().length;
