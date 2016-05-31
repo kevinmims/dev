@@ -874,9 +874,11 @@
 			var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').text());
 			var newCount = (currentCount - selectedCount);
 			this.updateCount(s.selectedTile, newCount, '.count');
-			
-			// add to jobs selected tab
 
+			// add to jobs selected tab
+			var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="jobs_selected"] .main .count').text());
+			var newCount = (currentCount + selectedCount);
+			this.updateCount('jobs_selected', newCount, '.count');
 
 		},
 
