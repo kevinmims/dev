@@ -862,12 +862,6 @@
 
 		
 		createXML: function($e){
-<<<<<<< HEAD
-			var count = s.table.rows('.selected').data().length;
-			if(count > 0){
-				this.handleError('Creating the XML from the '+ s.table.rows('.selected').data().length +' row(s) selected' );
-				s.table.rows('.selected').remove().draw();
-=======
 			var selectedCount = s.table.rows('.selected').data().length;
 			if(selectedCount > 0){
 				//this.handleError('Creating the XML from the '+ selectedCount +' row(s) selected' );
@@ -883,15 +877,10 @@
 				var newCount = (currentCount + selectedCount);
 				this.updateCount('jobs_selected', newCount, '.count');
 
->>>>>>> kevin
 			} else {
 				this.handleError('Please select a row first' );
 			}
 			
-<<<<<<< HEAD
-=======
-
->>>>>>> kevin
 		},
 
 		triggerMxmlFileSelect: function($e){
