@@ -586,11 +586,17 @@
 
 			// set default values
 			//this.log('lenght = '+s.dashboard_tiles.keys(a).length);
-			var zz = 1;
+			
 			for (x in s.dashboard_tiles) {
 			    
-			    this.updateCount(zz, x, s.defaults_onLoad[x].count);
-			    zz++;
+			    this.updateCount(x, s.defaults_onLoad[x].count);
+
+			    if (s.defaults_onload[x].hasOwnProperty('special')){
+			    	console.log('has special');
+			    } else {
+			    	console.log('nope');
+			    }
+			    
 			}
 
 			
@@ -715,8 +721,8 @@
 
 		},
 		
-		updateCount(x, type, value){
-			console.log(x+' - '+ type + ' - '+value);
+		updateCount(type, value){
+			//console.log(type + ' - '+value);
 			$(s.btn_dashbaord_stat+'[data-type="'+type+'"] .main .count').text(value);
 
 		},
