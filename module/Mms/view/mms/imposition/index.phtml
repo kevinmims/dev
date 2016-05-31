@@ -166,8 +166,12 @@
 	    padding-right: 15px;
 	    position: absolute;
 	    right: 15px;
+	    text-align: right;
 	}
-	.dashboard-stat .main .details .number {
+	.dashboard-stat .main .details .count,
+	.dashboard-stat .main .details .special,
+	.dashboard-stat .main .details .seperator {
+		display: inline-block;
 	    font-size: 34px;
 	    font-weight: 300;
 	    letter-spacing: -1px;
@@ -230,15 +234,33 @@
 			location: '',
 			job_preFilter: '',
 			table: '',
+			selectedTile: 'same_day_jobs', // defined with data-type in element
 			jobs_to_release_userId: '',
 			jobs_to_release_rowId: '',
 			jobs_to_release_jobIds: '',
 
 
 			defaults_onLoad: {
-				location: "",
-				dashboard_item: "",
-				jobPreFilter: ""
+				same_day_jobs: {
+					special: 0,
+					count: 8
+				},
+				approved_jobs: {
+					count: 65
+				},
+				total_jobs: {
+					count: 124
+				},
+				jobs_selected: {
+					count: 32
+				},
+				gangs_in_process: {
+					count: 2
+				},
+				gangs_completed: {
+					count: 26
+				},
+
 			},
 			
 			subDashboard: "#sub-dashboard",
@@ -397,6 +419,8 @@
 			btn_ripReportUpload: ".js-rip-report-upload",
 			btn_ripFileUpload: ".js-rip-file-upload",
 			btn_releaseSelectedJobs: ".js-release-selected-jobs",
+
+			btn_dashbaord_stat: ".dashboard-stat",
 
 			dropdown_location: "#dropdown_location",
 			dropdown_jobFilter: "#dropdown_jobFilter",
@@ -560,7 +584,26 @@
 			s = this.settings;
 			s.username = 'Kevin';
 			this.bindUIActions();
-			$('a.main.js-default').click();
+			
+			// click default tile on load
+			$(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main').click();
+			
+			// display defaults
+			for (x in s.dashboard_tiles) {
+			    
+			    this.updateCount(x, s.defaults_onLoad[x].count, '.count');
+
+			    if (s.defaults_onLoad[x].hasOwnProperty('special')){
+			    	// same day special job count
+			    	this.updateCount(x, s.defaults_onLoad[x].special, '.special');
+			    }
+
+			}
+
+			
+
+			// bind counts
+
 
 			// retreive data to calc tile quantaties
 			// retreive first tile data and display
@@ -571,22 +614,24 @@
 				Imposition.refreshData($(this));
 			});
 
-			$('.dashboard-stat').on("click", s.btn_dashboardMain, function(e) { 
+			$(s.btn_dashbaord_stat).on("click", s.btn_dashboardMain, function(e) { 
 				e.preventDefault();
 				var type = $(this).parent().attr('data-type'),
 					sibling = $(this).siblings("a.submenu");
-			
+				
+				s.selectedTile = type;
+				
 				Imposition.dashboardTile_showHide($(this), type, sibling);
 			});
 
-			$('.dashboard-stat').on("click", s.btn_submenu, function(e) { 
+			$(s.btn_dashbaord_stat).on("click", s.btn_submenu, function(e) { 
 				e.preventDefault();
 				var type = $(this).parent().attr('data-type'),
 					sibling = $(this).siblings("a.main");
+				s.selectedTile = type;
 				Imposition.subdashboard_showHide($(this), type, sibling);
-
 			});
-	    	
+
 			$(document).on("click", s.btn_createXml, function() { 
 				Imposition.createXML($(s.btn_createXml));
 			});
@@ -678,9 +723,20 @@
 			        .draw();
 			});
 
+			
+
 		},
 		
+		updateCount(type, value, elem){
+			//console.log(type + ' - '+value);
+			$(s.btn_dashbaord_stat+'[data-type="'+type+'"] .main '+elem).text(value);
+
+		},
+
+		
+
 		log: function(text){
+			// document.getElementById("json").innerHTML = JSON.stringify(data, undefined, 2);
 			console.log(text);
 		},
 
@@ -804,15 +860,38 @@
 			this.filterJobTable(filterArray);
 		},
 
+		
 		createXML: function($e){
+<<<<<<< HEAD
 			var count = s.table.rows('.selected').data().length;
 			if(count > 0){
 				this.handleError('Creating the XML from the '+ s.table.rows('.selected').data().length +' row(s) selected' );
 				s.table.rows('.selected').remove().draw();
+=======
+			var selectedCount = s.table.rows('.selected').data().length;
+			if(selectedCount > 0){
+				//this.handleError('Creating the XML from the '+ selectedCount +' row(s) selected' );
+				s.table.rows('.selected').remove().draw();
+				
+				// subtract from same day (or whatever tab you are on)
+				var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').text());
+				var newCount = (currentCount - selectedCount);
+				this.updateCount(s.selectedTile, newCount, '.count');
+
+				// add to jobs selected tab
+				var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="jobs_selected"] .main .count').text());
+				var newCount = (currentCount + selectedCount);
+				this.updateCount('jobs_selected', newCount, '.count');
+
+>>>>>>> kevin
 			} else {
 				this.handleError('Please select a row first' );
 			}
 			
+<<<<<<< HEAD
+=======
+
+>>>>>>> kevin
 		},
 
 		triggerMxmlFileSelect: function($e){
@@ -1357,9 +1436,9 @@
                 <a class="main btn btn-default js-default" href="#">
                   <div class="visual"><i class="fa fa-hourglass-half"></i></div>
                   <div class="details">
-                      <div class="number">
-						<span style="font-weight:500; color: rgb(255, 99, 71);text-shadow: 1px 0 rgb(169, 68, 66);" class="">4 </span><span class="small">/</span> 9 
-                      </div>
+                  	  <div class="special" style="font-weight: 500; color: rgb(255, 99, 71); text-shadow: 1px 0px rgb(169, 68, 66);"></div>
+                      <div class="seperator">/</div>
+                      <div class="count"></div>
                       <div class="desc"> Same Day Approved Jobs </div>
                   </div>
 				</a>
@@ -1374,7 +1453,7 @@
                 <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-thumbs-o-up"></i></div>
 					<div class="details">
-						<div class="number"> 65 </div>
+						<div class="count"></div>
 						<div class="desc"> Approved GBD Jobs </div>
 					</div>
 				</a>
@@ -1389,7 +1468,7 @@
 			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-tasks"></i></div>
 					<div class="details">
-						<div class="number"> 124 </div>
+						<div class="count"></div>
 						<div class="desc"> Total Approved Jobs </div>
 					</div>
 				</a>
@@ -1404,7 +1483,7 @@
 			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-check"></i></div>
 					<div class="details">
-						<div class="number"> 32 </div>
+						<div class="count"></div>
 						<div class="desc"> Jobs Selected </div>
 					</div>
 				</a>
@@ -1419,7 +1498,7 @@
 			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-refresh"></i></div>
 					<div class="details">
-						<div class="number"> 0 </div>
+						<div class="count"></div>
 						<div class="desc"> Gangs In Process </div>
 					</div>
 				</a>
@@ -1434,7 +1513,7 @@
 			    <a class="main btn btn-default" href="#">
 					<div class="visual"><i class="fa fa-mail-forward"></i></div>
 					<div class="details">
-						<div class="number"> 26 </div>
+						<div class="count"></div>
 						<div class="desc"> Gangs Ready for Plating </div>
 					</div>
 				</a>
