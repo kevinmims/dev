@@ -9,6 +9,11 @@
 	app.controller('myFirstController', function($scope){
  		$scope.appName = "Imposition";
  		$scope.user = "Kevin";
+ 		$scope.saluta =  function(){
+ 
+			$scope.saluto = "Ciao " + $scope.user;
+		};
+		
 	});
  
 </script>
@@ -21,7 +26,14 @@
 	<div ng-controller="myFirstController">
     	{{"AngularJS has started..."}} </br>
     	{{"app name: " + appName}}	</br>
-		{{"user: " + user}}	
+		{{"user: " + user}}	</br>
+
+		<p>Name : {{user}}</p>
+ 
+    	<input type="text" ng-model="name">
+    	<button ng-click="saluta()">Saluta</button>
+ 
+    	<p>{{saluto}}</p>
     </div>
 
 </div>
