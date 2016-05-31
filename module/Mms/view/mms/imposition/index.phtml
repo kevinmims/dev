@@ -234,7 +234,7 @@
 			location: '',
 			job_preFilter: '',
 			table: '',
-			selectedTile: 'same_day_jobs',
+			selectedTile: 'same_day_jobs', // defined with data-type in element
 			jobs_to_release_userId: '',
 			jobs_to_release_rowId: '',
 			jobs_to_release_jobIds: '',
@@ -584,16 +584,11 @@
 			s = this.settings;
 			s.username = 'Kevin';
 			this.bindUIActions();
-			//$('a.main.js-default').click();
-
+			
 			// click default tile on load
 			$(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main').click();
 			
 			// display defaults
-			//this.log(s.defaults_onLoad);
-
-			// set default values
-			
 			for (x in s.dashboard_tiles) {
 			    
 			    this.updateCount(x, s.defaults_onLoad[x].count, '.count');
@@ -623,7 +618,8 @@
 				e.preventDefault();
 				var type = $(this).parent().attr('data-type'),
 					sibling = $(this).siblings("a.submenu");
-			
+				
+				s.selectedTile = type;
 				Imposition.dashboardTile_showHide($(this), type, sibling);
 			});
 
@@ -874,6 +870,7 @@
 			
 			// subtract from same day (or whatever tab you are on)
 
+			this.log('tile selected = '+s.selectedTile);
 
 			//updateCount(type, value, elem){
 			//	//console.log(type + ' - '+value);
