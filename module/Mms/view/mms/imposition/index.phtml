@@ -869,7 +869,7 @@
 			}
 			
 			// subtract from same day (or whatever tab you are on)
-			var currentCount = $(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').val();
+			var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').text());
 			var newCount = (currentCount - selectedCount);
 			this.updateCount(s.selectedTile, newCount, '.count');
 			
