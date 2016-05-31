@@ -721,6 +721,10 @@
 			        .draw();
 			});
 
+			$(s.table).on('update', function(){
+			    alert('Table updated, launching kill space goats sequence now.')
+			});
+
 		},
 		
 		updateCount(type, value, elem){
@@ -865,6 +869,19 @@
 				this.handleError('Please select a row first' );
 			}
 			
+			// subtract from same day (or whatever tab you are on)
+
+
+			updateCount(type, value, elem){
+				//console.log(type + ' - '+value);
+				$(s.btn_dashbaord_stat+'[data-type="'+type+'"] .main '+elem).text(value);
+
+			},
+
+
+			// add to jobs selected tab
+
+
 		},
 
 		triggerMxmlFileSelect: function($e){
