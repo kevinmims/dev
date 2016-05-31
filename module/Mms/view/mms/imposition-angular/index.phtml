@@ -9,16 +9,16 @@
 
 <div ng-app="Imposition"> 
 	<div ng-controller="myFirstController">
-    	{{"AngularJS funziona!!!"}}
-    	{{name}}		
+    	{{"AngularJS has started..."}}
+    	{{"app name: " + appName}}	
+		{{"user: " + user}}	
     <div>
 <script>
-	var Imposition =  angular.module('Imposition',[]);
+	var app =  angular.module('Imposition',[]);
  
-	Imposition.controller('myFirstController', function($scope){
- 
-			$scope.name = "Coder01";
- 
+	app.controller('myFirstController', function($scope){
+ 		$scope.appName = "Imposition";
+ 		$scope.user = "Kevin";
 	});
  
 </script>
