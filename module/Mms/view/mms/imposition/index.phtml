@@ -860,9 +860,9 @@
 
 		
 		createXML: function($e){
-			var count = s.table.rows('.selected').data().length;
-			if(count > 0){
-				this.handleError('Creating the XML from the '+ s.table.rows('.selected').data().length +' row(s) selected' );
+			var selectedCount = s.table.rows('.selected').data().length;
+			if(selectedCount > 0){
+				this.handleError('Creating the XML from the '+ selectedCount +' row(s) selected' );
 				s.table.rows('.selected').remove().draw();
 			} else {
 				this.handleError('Please select a row first' );
@@ -872,13 +872,10 @@
 
 			this.log('tile selected = '+s.selectedTile);
 
-			//updateCount(type, value, elem){
-			//	//console.log(type + ' - '+value);
-			//	$(s.btn_dashbaord_stat+'[data-type="'+type+'"] .main '+elem).text(value);
-
-			//},
-
-
+			var currentCount = $(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').val();
+			var newCount = (currentCount - selectedCount);
+			updateCount(s.selectedTile, newCount, '.count'){
+			
 			// add to jobs selected tab
 
 
