@@ -864,21 +864,23 @@
 		createXML: function($e){
 			var selectedCount = s.table.rows('.selected').data().length;
 			if(selectedCount > 0){
-				this.handleError('Creating the XML from the '+ selectedCount +' row(s) selected' );
+				//this.handleError('Creating the XML from the '+ selectedCount +' row(s) selected' );
 				s.table.rows('.selected').remove().draw();
+				
+				// subtract from same day (or whatever tab you are on)
+				var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').text());
+				var newCount = (currentCount - selectedCount);
+				this.updateCount(s.selectedTile, newCount, '.count');
+
+				// add to jobs selected tab
+				var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="jobs_selected"] .main .count').text());
+				var newCount = (currentCount + selectedCount);
+				this.updateCount('jobs_selected', newCount, '.count');
+
 			} else {
 				this.handleError('Please select a row first' );
 			}
 			
-			// subtract from same day (or whatever tab you are on)
-			var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').text());
-			var newCount = (currentCount - selectedCount);
-			this.updateCount(s.selectedTile, newCount, '.count');
-
-			// add to jobs selected tab
-			var currentCount = parseInt($(s.btn_dashbaord_stat+'[data-type="jobs_selected"] .main .count').text());
-			var newCount = (currentCount + selectedCount);
-			this.updateCount('jobs_selected', newCount, '.count');
 
 		},
 
