@@ -237,8 +237,8 @@
 
 			defaults_onLoad: {
 				same_day_jobs: {
-					special_count: 5,
-					normal_count: 11
+					special: 5,
+					count: 11
 				},
 				approved_jobs: {
 					count: 65
@@ -587,7 +587,9 @@
 			// set default values
 			//this.log('lenght = '+s.dashboard_tiles.keys(a).length);
 			for (x in s.dashboard_tiles) {
-			    console.log(s.defaults_onLoad[x]);
+			    
+			    this.updateCount(x, s.dashboard_tiles[x], s.dashboard_tiles[x])
+
 			}
 
 			
@@ -712,8 +714,8 @@
 
 		},
 		
-		updateCount(btn, value){
-
+		updateCount(x, btn, value){
+			console.log(x+' - '+ s.defaults_onLoad[x]);
 		},
 
 		log: function(text){
