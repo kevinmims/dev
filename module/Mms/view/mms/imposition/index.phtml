@@ -621,7 +621,6 @@
 				
 				s.selectedTile = type;
 				
-
 				Imposition.dashboardTile_showHide($(this), type, sibling);
 			});
 
@@ -629,6 +628,7 @@
 				e.preventDefault();
 				var type = $(this).parent().attr('data-type'),
 					sibling = $(this).siblings("a.main");
+				s.selectedTile = type;
 				Imposition.subdashboard_showHide($(this), type, sibling);
 			});
 
