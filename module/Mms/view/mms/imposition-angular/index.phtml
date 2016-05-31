@@ -9,9 +9,9 @@
 	app.controller('myFirstController', function($scope){
  		$scope.appName = "Imposition";
  		$scope.user = "Kevin";
- 		$scope.saluta =  function(){
+ 		$scope.greet_user =  function(){
  
-			$scope.saluto = "Ciao " + $scope.user;
+			$scope.greeting = "Hello " + $scope.user;
 		};
 
 	});
@@ -31,9 +31,9 @@
 		<p>Name : {{user}}</p>
  
     	<input type="text" ng-model="user">
-    	<button ng-click="saluta()">Saluta</button>
+    	<button ng-click="greet_user()">Greetings</button>
  
-    	<p>{{saluto}}</p>
+    	<p>{{greeting}}</p>
     </div>
 
 </div>
