@@ -586,10 +586,11 @@
 
 			// set default values
 			//this.log('lenght = '+s.dashboard_tiles.keys(a).length);
+			var zz = 1;
 			for (x in s.dashboard_tiles) {
 			    
-			    this.updateCount(x, s.dashboard_tiles[x], s.dashboard_tiles[x])
-
+			    this.updateCount(zz, x, s.dashboard_tiles[x].count)
+			    zz++;
 			}
 
 			
@@ -715,7 +716,7 @@
 		},
 		
 		updateCount(x, btn, value){
-			console.log(x+' - '+ s.defaults_onLoad[x]);
+			console.log(x+' - '+ btn + ' - '+value);
 		},
 
 		log: function(text){
