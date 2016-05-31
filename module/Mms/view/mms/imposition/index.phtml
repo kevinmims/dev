@@ -869,12 +869,9 @@
 			}
 			
 			// subtract from same day (or whatever tab you are on)
-
-			this.log('tile selected = '+s.selectedTile);
-
 			var currentCount = $(s.btn_dashbaord_stat+'[data-type="'+s.selectedTile+'"] .main .count').val();
 			var newCount = (currentCount - selectedCount);
-			updateCount(s.selectedTile, newCount, '.count');
+			this.updateCount(s.selectedTile, newCount, '.count');
 			
 			// add to jobs selected tab
 
