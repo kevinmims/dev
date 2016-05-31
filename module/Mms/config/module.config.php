@@ -92,6 +92,16 @@ return array(
                             )
                         )
                     ),
+                    'imposition-angular' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/imposition-angular',
+                            'defaults' => array(
+                                'controller' => 'Mms\Controller\ImpositionAngular',
+                                'action' => 'index'
+                            )
+                        )
+                    ),
                 ),
             ),
             
@@ -146,7 +156,8 @@ return array(
             'Mms\Controller\Shipping' => 'Mms\Controller\ShippingController',
             'Mms\Controller\Workstation' => 'Mms\Controller\WorkstationController',
             'Mms\Controller\Reporting' => 'Mms\Controller\ReportingController',
-            'Mms\Controller\Imposition' => 'Mms\Controller\ImpositionController'
+            'Mms\Controller\Imposition' => 'Mms\Controller\ImpositionController',
+            'Mms\Controller\ImpositionAngular' => 'Mms\Controller\ImpositionAngularController'
         ),
     ),
     'view_manager' => array(
