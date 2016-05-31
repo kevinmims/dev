@@ -585,10 +585,12 @@
 			//this.log(s.defaults_onLoad);
 
 			// set default values
-			this.log('lenght = '+s.dashboard_tiles.length);
-			for(x = 0; x < s.dashboard_tiles.length; x++){
-				console.log(s.defaults_onLoad[x]);
+			this.log('lenght = '+s.dashboard_tiles.keys(a).length);
+			for (x in s.dashboard_tiles) {
+			    console.log(s.defaults_onLoad[x]);
 			}
+
+			
 
 			// bind counts
 
