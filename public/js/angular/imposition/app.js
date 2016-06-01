@@ -1,0 +1,1 @@
+alert('js/angular/imposition/app.js is loaded');
