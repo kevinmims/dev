@@ -3,6 +3,10 @@
 ?>
 
 
+
+<script src="js/angular/app.js"></script>
+
+
 <script>
 	var app = angular.module('imposition', []);
 
@@ -31,7 +35,6 @@
 	    $http.get("https://api.github.com/users/"+searchUser)
 	    .then(onUserFound, onError);
 	  };
-	  
 	  
 	});
  
